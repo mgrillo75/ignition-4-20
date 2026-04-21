@@ -1,0 +1,14 @@
+{
+  "name": "SEL_Internal_Tags",
+  "tagType": "Folder",
+  "tags": [
+    {
+      "name": "Q1FEPB_BootupComplete_STAT",
+      "tagType": "AtomicTag",
+      "valueSource": "opc",
+      "dataType": "Boolean",
+      "opcServer": "Ignition OPC UA Server",
+      "opcItemPath": "ns=1;s=[Q1_FEPB_MODBUS]DI18"
+    }
+  ]
+}

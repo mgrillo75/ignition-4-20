@@ -1,0 +1,253 @@
+{
+  "custom": {},
+  "params": {
+    "objectPath": "[default]TX3/tx3-pb1-n1-qp5-sel700g-002",
+    "displayName": "QP5 Relay 700G",
+    "accentColor": "#38BDF8"
+  },
+  "propConfig": {
+    "params.objectPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.displayName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.accentColor": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 300,
+      "width": 1180
+    }
+  },
+  "root": {
+    "meta": {
+      "name": "root"
+    },
+    "position": {},
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "#0F172A",
+        "border": "1px solid #1E293B",
+        "borderRadius": "10px",
+        "padding": "18px",
+        "gap": "12px"
+      }
+    },
+    "type": "ia.container.flex",
+    "version": 0,
+    "children": [
+      {
+        "meta": {
+          "name": "Header"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "direction": "column",
+          "gap": "4px"
+        },
+        "type": "ia.container.flex",
+        "version": 0,
+        "children": [
+          {
+            "meta": {
+              "name": "Title"
+            },
+            "position": {},
+            "props": {
+              "textStyle": {
+                "color": "#F8FAFC",
+                "fontSize": "20px",
+                "fontWeight": "700"
+              }
+            },
+            "type": "ia.display.label",
+            "version": 0,
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.params.displayName} + \" Semantic Object Pilot\""
+                  },
+                  "type": "expr"
+                }
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "Subtitle"
+            },
+            "position": {},
+            "props": {
+              "textStyle": {
+                "color": "#94A3B8",
+                "fontSize": "12px"
+              }
+            },
+            "type": "ia.display.label",
+            "version": 0,
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "\"Adapter path: \" + {view.params.objectPath}"
+                  },
+                  "type": "expr"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "name": "StatusRow"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "gap": "16px",
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex",
+        "version": 0,
+        "children": [
+          {
+            "meta": {
+              "name": "RelayBit"
+            },
+            "position": {},
+            "props": {
+              "textStyle": {
+                "color": "#F8FAFC",
+                "fontSize": "13px"
+              }
+            },
+            "type": "ia.display.label",
+            "version": 0,
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "\"52AX: \" + toStr(tag({view.params.objectPath} + \"/bit_52ax\"))"
+                  },
+                  "type": "expr"
+                }
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "HeartbeatStatus"
+            },
+            "position": {},
+            "props": {
+              "textStyle": {
+                "color": "#F8FAFC",
+                "fontSize": "13px"
+              }
+            },
+            "type": "ia.display.label",
+            "version": 0,
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "\"Heartbeat status: \" + toStr(tag({view.params.objectPath} + \"/heartbeat/status\"))"
+                  },
+                  "type": "expr"
+                }
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "Address"
+            },
+            "position": {},
+            "props": {
+              "textStyle": {
+                "color": "#F8FAFC",
+                "fontSize": "13px"
+              }
+            },
+            "type": "ia.display.label",
+            "version": 0,
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "\"Address: \" + toStr(tag({view.params.objectPath} + \"/address\"))"
+                  },
+                  "type": "expr"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "name": "MetricRow"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "gap": "14px",
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex",
+        "version": 0,
+        "children": [
+          {
+            "meta": {
+              "name": "SyncFrequencyCard"
+            },
+            "position": {
+              "basis": "360px"
+            },
+            "props": {
+              "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+              "params": {
+                "color_icon": "#38BDF8",
+                "iconPath": "Assets/Widgets/Icons/Time",
+                "tagPath": "{view.params.objectPath}",
+                "tagname": "syncFrequency"
+              }
+            },
+            "type": "ia.display.view",
+            "version": 0
+          },
+          {
+            "meta": {
+              "name": "DesignNote"
+            },
+            "position": {
+              "basis": "420px"
+            },
+            "props": {
+              "textStyle": {
+                "color": "#94A3B8",
+                "fontSize": "13px"
+              },
+              "text": "This pilot keeps the existing SEL adapter UDT but presents it through a semantic RelaySummary contract."
+            },
+            "type": "ia.display.label",
+            "version": 0
+          }
+        ]
+      }
+    ]
+  }
+}

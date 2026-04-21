@@ -1,0 +1,16 @@
+{
+  "name": "SEL_Internal_Tags",
+  "tagType": "Folder",
+  "tags": [
+    {
+      "name": "ActiveProvider",
+      "tagType": "AtomicTag",
+      "valueSource": "expr",
+      "dataType": "String",
+      "readOnly": true,
+      "tooltip": "Resolved RTAC tag-provider prefix — either \"[GCSA_RTAC_MODBUS]\" or \"[GCSB_RTAC_MODBUS]\". Every redundancy-aware UDT instance reads this via its TagProvider parameter. Operator ForcedRTAC override takes priority over MasterController.",
+      "expression": "if({[default]GCS_RTAC_Control/ForcedRTAC} = \"A\", \"[GCSA_RTAC_MODBUS]\",\r\nif({[default]GCS_RTAC_Control/ForcedRTAC} = \"B\", \"[GCSB_RTAC_MODBUS]\",\r\nif({[default]SEL_Internal_Tags/MasterController} = \"GCSA\", \"[GCSA_RTAC_MODBUS]\", \"[GCSB_RTAC_MODBUS]\")))",
+      "value": "[GCSA_RTAC_MODBUS]"
+    }
+  ]
+}

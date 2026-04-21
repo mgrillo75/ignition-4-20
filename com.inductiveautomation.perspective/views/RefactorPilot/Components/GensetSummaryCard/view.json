@@ -1,0 +1,508 @@
+{
+  "custom": {},
+  "params": {
+    "accentColor": "#22C55E",
+    "displayName": "PowerBlock 1 / Node 1 / QPAC 1 / Gen 1",
+    "objectPath": "[default]TX3/PowerBlock_1/Node_1/QPAC_1/PowerGen/Gen_1"
+  },
+  "propConfig": {
+    "params.accentColor": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.displayName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.objectPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 360,
+      "width": 1180
+    }
+  },
+  "root": {
+    "meta": {
+      "name": "root"
+    },
+    "position": {},
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "#111827",
+        "border": "1px solid #1E293B",
+        "borderRadius": "10px",
+        "gap": "12px",
+        "padding": "18px"
+      }
+    },
+    "type": "ia.container.flex",
+    "version": 0,
+    "children": [
+      {
+        "meta": {
+          "name": "Header"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "direction": "column",
+          "gap": "4px"
+        },
+        "type": "ia.container.flex",
+        "version": 0,
+        "children": [
+          {
+            "meta": {
+              "name": "Title"
+            },
+            "props": {
+              "textStyle": {
+                "color": "#F8FAFC",
+                "fontSize": "20px",
+                "fontWeight": "700"
+              }
+            },
+            "type": "ia.display.label",
+            "version": 0,
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.params.displayName} + \" GensetSummaryCard\""
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "position": {}
+          },
+          {
+            "meta": {
+              "name": "Subtitle"
+            },
+            "props": {
+              "textStyle": {
+                "color": "#94A3B8",
+                "fontSize": "12px"
+              }
+            },
+            "type": "ia.display.label",
+            "version": 0,
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "\"Object path: \" + {view.params.objectPath}"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "position": {}
+          }
+        ]
+      },
+      {
+        "meta": {
+          "name": "StatusRow"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "gap": "16px",
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex",
+        "version": 0,
+        "children": [
+          {
+            "meta": {
+              "name": "AutoManual"
+            },
+            "props": {
+              "textStyle": {
+                "color": "#F8FAFC",
+                "fontSize": "13px"
+              }
+            },
+            "type": "ia.display.label",
+            "version": 0,
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "\"Auto/Manual: \" + toStr(tag({view.params.objectPath} + \"/AutoManual\"))"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "position": {}
+          },
+          {
+            "meta": {
+              "name": "LocalRemote"
+            },
+            "props": {
+              "textStyle": {
+                "color": "#F8FAFC",
+                "fontSize": "13px"
+              }
+            },
+            "type": "ia.display.label",
+            "version": 0,
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "\"Local/Remote: \" + toStr(tag({view.params.objectPath} + \"/spare545_LocalRemote\"))"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "position": {}
+          },
+          {
+            "meta": {
+              "name": "BreakerStatus"
+            },
+            "props": {
+              "textStyle": {
+                "color": "#F8FAFC",
+                "fontSize": "13px"
+              }
+            },
+            "type": "ia.display.label",
+            "version": 0,
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "\"Breaker: \" + toStr(tag({view.params.objectPath} + \"/spare515_BreakerStatus\"))"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "position": {}
+          }
+        ]
+      },
+      {
+        "meta": {
+          "name": "MetricRow"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "gap": "14px",
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex",
+        "version": 0,
+        "children": [
+          {
+            "meta": {
+              "name": "Real Power"
+            },
+            "position": {
+              "basis": "240px"
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "backgroundColor": "#0B1220",
+                "border": "1px solid #1F2937",
+                "borderRadius": "8px",
+                "padding": "12px",
+                "gap": "6px",
+                "minHeight": "110px"
+              }
+            },
+            "type": "ia.container.flex",
+            "version": 0,
+            "children": [
+              {
+                "meta": {
+                  "name": "Title"
+                },
+                "props": {
+                  "textStyle": {
+                    "color": "#94A3B8",
+                    "fontSize": "12px",
+                    "fontWeight": "600"
+                  }
+                },
+                "type": "ia.display.label",
+                "version": 0,
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "\"Real Power\""
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "position": {}
+              },
+              {
+                "meta": {
+                  "name": "Value"
+                },
+                "props": {
+                  "textStyle": {
+                    "color": "#F8FAFC",
+                    "fontSize": "26px",
+                    "fontWeight": "700"
+                  }
+                },
+                "type": "ia.display.label",
+                "version": 0,
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "numberFormat(toFloat(tag({view.params.objectPath} + \"/power\")), \"#,##0.0\")"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "position": {}
+              },
+              {
+                "meta": {
+                  "name": "Subtitle"
+                },
+                "props": {
+                  "textStyle": {
+                    "color": "#22C55E",
+                    "fontSize": "12px"
+                  }
+                },
+                "type": "ia.display.label",
+                "version": 0,
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "\"raw tag: power\""
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "position": {}
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "Frequency"
+            },
+            "position": {
+              "basis": "240px"
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "backgroundColor": "#0B1220",
+                "border": "1px solid #1F2937",
+                "borderRadius": "8px",
+                "padding": "12px",
+                "gap": "6px",
+                "minHeight": "110px"
+              }
+            },
+            "type": "ia.container.flex",
+            "version": 0,
+            "children": [
+              {
+                "meta": {
+                  "name": "Title"
+                },
+                "props": {
+                  "textStyle": {
+                    "color": "#94A3B8",
+                    "fontSize": "12px",
+                    "fontWeight": "600"
+                  }
+                },
+                "type": "ia.display.label",
+                "version": 0,
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "\"Frequency\""
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "position": {}
+              },
+              {
+                "meta": {
+                  "name": "Value"
+                },
+                "props": {
+                  "textStyle": {
+                    "color": "#F8FAFC",
+                    "fontSize": "26px",
+                    "fontWeight": "700"
+                  }
+                },
+                "type": "ia.display.label",
+                "version": 0,
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "numberFormat(toFloat(tag({view.params.objectPath} + \"/frequency\")), \"#,##0.00\")"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "position": {}
+              },
+              {
+                "meta": {
+                  "name": "Subtitle"
+                },
+                "props": {
+                  "textStyle": {
+                    "color": "#38BDF8",
+                    "fontSize": "12px"
+                  }
+                },
+                "type": "ia.display.label",
+                "version": 0,
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "\"raw tag: frequency\""
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "position": {}
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "Average Voltage"
+            },
+            "position": {
+              "basis": "240px"
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "backgroundColor": "#0B1220",
+                "border": "1px solid #1F2937",
+                "borderRadius": "8px",
+                "padding": "12px",
+                "gap": "6px",
+                "minHeight": "110px"
+              }
+            },
+            "type": "ia.container.flex",
+            "version": 0,
+            "children": [
+              {
+                "meta": {
+                  "name": "Title"
+                },
+                "props": {
+                  "textStyle": {
+                    "color": "#94A3B8",
+                    "fontSize": "12px",
+                    "fontWeight": "600"
+                  }
+                },
+                "type": "ia.display.label",
+                "version": 0,
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "\"Average Voltage\""
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "position": {}
+              },
+              {
+                "meta": {
+                  "name": "Value"
+                },
+                "props": {
+                  "textStyle": {
+                    "color": "#F8FAFC",
+                    "fontSize": "26px",
+                    "fontWeight": "700"
+                  }
+                },
+                "type": "ia.display.label",
+                "version": 0,
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "numberFormat(toFloat(tag({view.params.objectPath} + \"/averageVoltage\")), \"#,##0.0\")"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "position": {}
+              },
+              {
+                "meta": {
+                  "name": "Subtitle"
+                },
+                "props": {
+                  "textStyle": {
+                    "color": "#F59E0B",
+                    "fontSize": "12px"
+                  }
+                },
+                "type": "ia.display.label",
+                "version": 0,
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "\"raw tag: averageVoltage\""
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "position": {}
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

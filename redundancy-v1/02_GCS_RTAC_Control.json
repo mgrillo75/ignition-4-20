@@ -1,0 +1,88 @@
+{
+  "name": "GCS_RTAC_Control",
+  "tagType": "Folder",
+  "tags": [
+    {
+      "name": "ActiveRTAC",
+      "tagType": "AtomicTag",
+      "valueSource": "expr",
+      "dataType": "String",
+      "readOnly": true,
+      "tooltip": "Current active RTAC (\"A\" or \"B\"). Mirrors MasterController unless ForcedRTAC overrides it. This is the operator-facing summary; the machine-readable version consumed by UDT instances is [default]SEL_Internal_Tags/ActiveProvider.",
+      "expression": "if({[default]GCS_RTAC_Control/ForcedRTAC} = \"A\", \"A\",\r\nif({[default]GCS_RTAC_Control/ForcedRTAC} = \"B\", \"B\",\r\nif({[default]SEL_Internal_Tags/MasterController} = \"GCSA\", \"A\", \"B\")))",
+      "value": "A"
+    },
+    {
+      "name": "ForcedRTAC",
+      "tagType": "AtomicTag",
+      "valueSource": "memory",
+      "dataType": "String",
+      "tooltip": "Operator override. \"A\" pins to GCSA, \"B\" pins to GCSB, anything else (\"AUTO\") lets MasterController decide.",
+      "value": "AUTO"
+    },
+    {
+      "name": "A_Healthy",
+      "tagType": "AtomicTag",
+      "valueSource": "expr",
+      "dataType": "Boolean",
+      "readOnly": true,
+      "tooltip": "TRUE when the GCSA_RTAC_MODBUS device connection is Connected at the gateway level.",
+      "expression": "{[System]Gateway/Devices/GCSA_RTAC_MODBUS/Status} = \"Connected\"",
+      "value": false
+    },
+    {
+      "name": "B_Healthy",
+      "tagType": "AtomicTag",
+      "valueSource": "expr",
+      "dataType": "Boolean",
+      "readOnly": true,
+      "tooltip": "TRUE when the GCSB_RTAC_MODBUS device connection is Connected at the gateway level.",
+      "expression": "{[System]Gateway/Devices/GCSB_RTAC_MODBUS/Status} = \"Connected\"",
+      "value": false
+    },
+    {
+      "name": "BothHealthy",
+      "tagType": "AtomicTag",
+      "valueSource": "expr",
+      "dataType": "Boolean",
+      "readOnly": true,
+      "tooltip": "TRUE when both RTAC Modbus connections are up — normal operating state.",
+      "expression": "{[default]GCS_RTAC_Control/A_Healthy} && {[default]GCS_RTAC_Control/B_Healthy}",
+      "value": false
+    },
+    {
+      "name": "NeitherHealthy",
+      "tagType": "AtomicTag",
+      "valueSource": "expr",
+      "dataType": "Boolean",
+      "readOnly": true,
+      "tooltip": "TRUE when both RTAC connections are down — total outage. Good candidate for a critical alarm.",
+      "expression": "!{[default]GCS_RTAC_Control/A_Healthy} && !{[default]GCS_RTAC_Control/B_Healthy}",
+      "value": false
+    },
+    {
+      "name": "LastFailoverTime",
+      "tagType": "AtomicTag",
+      "valueSource": "memory",
+      "dataType": "DateTime",
+      "tooltip": "Timestamp of the last ActiveRTAC transition. Written by the tag-change script on ActiveRTAC.",
+      "value": null
+    },
+    {
+      "name": "LastFailoverReason",
+      "tagType": "AtomicTag",
+      "valueSource": "memory",
+      "dataType": "String",
+      "tooltip": "Human-readable reason for the last transition. Written by the tag-change script on ActiveRTAC.",
+      "value": ""
+    },
+    {
+      "name": "FailoverCount",
+      "tagType": "AtomicTag",
+      "valueSource": "memory",
+      "dataType": "Int4",
+      "tooltip": "Cumulative count of ActiveRTAC transitions since gateway start. Consider adding history on this and resetting periodically.",
+      "value": 0
+    }
+  ]
+}

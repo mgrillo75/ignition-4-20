@@ -1,0 +1,129 @@
+{
+  "custom": {},
+  "params": {},
+  "propConfig": {},
+  "props": {
+    "defaultSize": {
+      "height": 1200,
+      "width": 1600
+    }
+  },
+  "root": {
+    "meta": {
+      "name": "root"
+    },
+    "position": {},
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "#020617",
+        "padding": "24px",
+        "gap": "18px"
+      }
+    },
+    "type": "ia.container.flex",
+    "version": 0,
+    "children": [
+      {
+        "meta": {
+          "name": "Header"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "direction": "column",
+          "gap": "6px"
+        },
+        "type": "ia.container.flex",
+        "version": 0,
+        "children": [
+          {
+            "meta": {
+              "name": "PageTitle"
+            },
+            "position": {},
+            "props": {
+              "textStyle": {
+                "color": "#F8FAFC",
+                "fontSize": "28px",
+                "fontWeight": "700"
+              },
+              "text": "4-20 Object Model Pilot"
+            },
+            "type": "ia.display.label",
+            "version": 0
+          },
+          {
+            "meta": {
+              "name": "PageSubtitle"
+            },
+            "position": {},
+            "props": {
+              "textStyle": {
+                "color": "#94A3B8",
+                "fontSize": "14px"
+              },
+              "text": "Pilot slice: one Genset adapter object + one Relay adapter object, presented through a semantic runtime contract."
+            },
+            "type": "ia.display.label",
+            "version": 0
+          }
+        ]
+      },
+      {
+        "meta": {
+          "name": "GensetSummary"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "path": "RefactorPilot/Components/GensetSummaryCard",
+          "params": {
+            "objectPath": "[default]TX3/tx3-pb1-n1-qp5-br-003",
+            "displayName": "TX3 QP5 Genset",
+            "accentColor": "#22C55E"
+          }
+        },
+        "type": "ia.display.view",
+        "version": 0
+      },
+      {
+        "meta": {
+          "name": "RelaySummary"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "path": "RefactorPilot/Components/RelaySummaryCard",
+          "params": {
+            "objectPath": "[default]TX3/tx3-pb1-n1-qp5-sel700g-002",
+            "displayName": "TX3 QP5 Relay 700G",
+            "accentColor": "#38BDF8"
+          }
+        },
+        "type": "ia.display.view",
+        "version": 0
+      },
+      {
+        "meta": {
+          "name": "FooterNote"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "textStyle": {
+            "color": "#94A3B8",
+            "fontSize": "13px"
+          },
+          "text": "This page is the first vertical slice of the refactor plan: preserve existing adapter UDTs and views, then layer semantic contracts on top."
+        },
+        "type": "ia.display.label",
+        "version": 0
+      }
+    ]
+  }
+}

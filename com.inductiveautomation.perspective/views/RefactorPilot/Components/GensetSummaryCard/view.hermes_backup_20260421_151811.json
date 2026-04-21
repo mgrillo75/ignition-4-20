@@ -1,0 +1,274 @@
+{
+  "custom": {},
+  "params": {
+    "objectPath": "[default]TX3/tx3-pb1-n1-qp5-br-003",
+    "displayName": "QP5 Genset",
+    "accentColor": "#22C55E"
+  },
+  "propConfig": {
+    "params.objectPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.displayName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.accentColor": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 330,
+      "width": 1180
+    }
+  },
+  "root": {
+    "meta": {
+      "name": "root"
+    },
+    "position": {},
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "#0F172A",
+        "border": "1px solid #1E293B",
+        "borderRadius": "10px",
+        "padding": "18px",
+        "gap": "12px"
+      }
+    },
+    "type": "ia.container.flex",
+    "version": 0,
+    "children": [
+      {
+        "meta": {
+          "name": "Header"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "direction": "column",
+          "gap": "4px"
+        },
+        "type": "ia.container.flex",
+        "version": 0,
+        "children": [
+          {
+            "meta": {
+              "name": "Title"
+            },
+            "position": {},
+            "props": {
+              "textStyle": {
+                "color": "#F8FAFC",
+                "fontSize": "20px",
+                "fontWeight": "700"
+              }
+            },
+            "type": "ia.display.label",
+            "version": 0,
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.params.displayName} + \" Semantic Object Pilot\""
+                  },
+                  "type": "expr"
+                }
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "Subtitle"
+            },
+            "position": {},
+            "props": {
+              "textStyle": {
+                "color": "#94A3B8",
+                "fontSize": "12px"
+              }
+            },
+            "type": "ia.display.label",
+            "version": 0,
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "\"Adapter path: \" + {view.params.objectPath}"
+                  },
+                  "type": "expr"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "name": "StatusRow"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "gap": "16px",
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex",
+        "version": 0,
+        "children": [
+          {
+            "meta": {
+              "name": "AutoManual"
+            },
+            "position": {},
+            "props": {
+              "textStyle": {
+                "color": "#F8FAFC",
+                "fontSize": "13px"
+              }
+            },
+            "type": "ia.display.label",
+            "version": 0,
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "\"Auto/Manual: \" + toStr(tag({view.params.objectPath} + \"/AutoManual\"))"
+                  },
+                  "type": "expr"
+                }
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "LocalRemote"
+            },
+            "position": {},
+            "props": {
+              "textStyle": {
+                "color": "#F8FAFC",
+                "fontSize": "13px"
+              }
+            },
+            "type": "ia.display.label",
+            "version": 0,
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "\"Local/Remote: \" + toStr(tag({view.params.objectPath} + \"/spare545_LocalRemote\"))"
+                  },
+                  "type": "expr"
+                }
+              }
+            }
+          },
+          {
+            "meta": {
+              "name": "BreakerStatus"
+            },
+            "position": {},
+            "props": {
+              "textStyle": {
+                "color": "#F8FAFC",
+                "fontSize": "13px"
+              }
+            },
+            "type": "ia.display.label",
+            "version": 0,
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "\"Breaker: \" + toStr(tag({view.params.objectPath} + \"/spare515_BreakerStatus\"))"
+                  },
+                  "type": "expr"
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        "meta": {
+          "name": "MetricRow"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "gap": "14px",
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex",
+        "version": 0,
+        "children": [
+          {
+            "meta": {
+              "name": "PowerCard"
+            },
+            "position": {
+              "basis": "360px"
+            },
+            "props": {
+              "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+              "params": {
+                "color_icon": "#22C55E",
+                "iconPath": "Assets/Widgets/Icons/Power",
+                "tagPath": "{view.params.objectPath}",
+                "tagname": "power"
+              }
+            },
+            "type": "ia.display.view",
+            "version": 0
+          },
+          {
+            "meta": {
+              "name": "FrequencyCard"
+            },
+            "position": {
+              "basis": "360px"
+            },
+            "props": {
+              "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+              "params": {
+                "color_icon": "#38BDF8",
+                "iconPath": "Assets/Widgets/Icons/Time",
+                "tagPath": "{view.params.objectPath}",
+                "tagname": "frequency"
+              }
+            },
+            "type": "ia.display.view",
+            "version": 0
+          },
+          {
+            "meta": {
+              "name": "VoltageCard"
+            },
+            "position": {
+              "basis": "360px"
+            },
+            "props": {
+              "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+              "params": {
+                "color_icon": "#F59E0B",
+                "iconPath": "Assets/Widgets/Icons/Data",
+                "tagPath": "{view.params.objectPath}",
+                "tagname": "averageVoltage"
+              }
+            },
+            "type": "ia.display.view",
+            "version": 0
+          }
+        ]
+      }
+    ]
+  }
+}

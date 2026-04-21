@@ -1,0 +1,1771 @@
+                                              SEL Engineering Services, Inc.
+
+TX-3 Node 1 POWERMAX®
+Functional Design Specification
+
+VoltaGrid LLC
+
+                                                                                                        20260213
+
+                          For information regarding this document, contact:
+
+Author............................................................................................................... Dami Ajayi
+                                                                                      dami_ajayi@selinc.com
+
+Project Manager ........................................................................................... Satya Kavala
+                                                                        satya_sekhar_kavala@selinc.com
+
+Technical Lead ........................................................................................... Dhruv Sharma
+SEL ES Project Number ............................................................................ 036815.005.00
+
+2350 NE Hopkins Court Pullman, WA 99163-5603 USA Tel: +1.509.332.1890 www.selinc.com
+
+This document, and all information contained herein, is proprietary to SEL ES. Any unauthorized use, distribution, or reproduction of this document (in whole or in
+part) or of any information contained herein is specifically prohibited. This legend must appear on any authorized reproduction (in whole or in part).
+
+SEL ES PROPRIETARY INFORMATION  © 2026 by SEL ES (All rights reserved)
+                                        TABLE OF REVISIONS
+
+Revision  Date                           Description              Author  Reviewer Approver
+Number                                  First Revision              DA
+
+0         20260213                                                        BA  DS
+
+All brand or product names appearing in this document are the trademark or registered trademark of their respective holders. No SEL trademarks may be used
+without written permission. SEL products appearing in this document may be covered by U.S. and Foreign patents.
+
+SEL products referred to in this report are manufactured by Schweitzer Engineering Laboratories, Inc. (SEL).
+
+Date Code 20260213                               VoltaGrid LLC                          Page ii
+SEL ES PROPRIETARY INFORMATION          TX-3 Node 1 POWERMAX FDS               036815.005.00
+© 2026 by SEL ES (All rights reserved)                                        www.selinc.com
+                          Table of Contents
+
+Acronyms and Abbreviations .................................................................................... vii
+                Introduction................................................................................................ 1
+
+  Project Summary....................................................................................................................................... 1
+  Power System............................................................................................................................................ 1
+
+      Generation............................................................................................................................................. 2
+      Overhead Bus System ........................................................................................................................... 2
+      Synchronous Condensers ...................................................................................................................... 2
+      Black-Start System (VG E-House) ....................................................................................................... 2
+  High-Level Objectives .............................................................................................................................. 2
+  SEL ES Solution ....................................................................................................................................... 2
+
+                POWERMAX Physical Architecture ......................................................... 4
+
+  Master Controller Panel ............................................................................................................................ 4
+  Loose Equipment ...................................................................................................................................... 4
+  Devices...................................................................................................................................................... 5
+
+      SEL-2488 .............................................................................................................................................. 5
+      SEL-3355 .............................................................................................................................................. 5
+      SEL-3555 .............................................................................................................................................. 5
+      SEL-3350 .............................................................................................................................................. 5
+      SEL-2411 Programmable Automation Controller ................................................................................ 5
+  Software Components ............................................................................................................................... 5
+      ACSELERATOR Architect SEL-5032 Software ................................................................................. 6
+      ACSELERATOR RTAC SEL-5033 Software ..................................................................................... 6
+      Blueframe DMA Disturbance and Configuration Monitoring.............................................................. 6
+      Sequence of Events ............................................................................................................................... 6
+  Data Flow and Communications Protocols............................................................................................... 8
+  Network Architecture................................................................................................................................ 8
+
+                Human-Machine Interface ....................................................................... 10
+
+  Supervisory Control Functions ............................................................................................................... 10
+  Control HMI User Access Levels ........................................................................................................... 10
+
+                Control System Monitoring..................................................................... 11
+                Generator Control System ...................................................................... 12
+
+  System Overview .................................................................................................................................... 12
+
+Date Code 20260213                                VoltaGrid LLC             Page iii
+SEL ES PROPRIETARY INFORMATION           TX-3 Node 1 POWERMAX FDS   036815.005.00
+© 20265 by SEL ES (All rights reserved)                            www.selinc.com
+Generator Control Modes........................................................................................................................ 12
+   Master Controller Control Permissive ................................................................................................ 12
+   Operating Conditions Under Failure Scenarios .................................................................................. 12
+
+Island Configuration ............................................................................................................................... 12
+Load Fluctuation Mode ........................................................................................................................... 12
+Fast Disconnect ....................................................................................................................................... 13
+Monitoring Points ................................................................................................................................... 13
+Generator I/O .......................................................................................................................................... 15
+Load Sharing ........................................................................................................................................... 18
+AGC Functional Description .................................................................................................................. 18
+
+   AGC Control Modes ........................................................................................................................... 18
+VCS Functional Description ................................................................................................................... 18
+
+   VCS Control Modes............................................................................................................................ 18
+Generation Management System ............................................................................................................ 19
+
+   Generator Priority Management ......................................................................................................... 19
+   Island Reserve Margin Management .................................................................................................. 20
+   Minimum Load Management ............................................................................................................. 20
+
+             Black Start ................................................................................................ 21
+
+Black Start Permissives........................................................................................................................... 21
+Blackout Recovery .................................................................................................................................. 21
+Black start Sequence ............................................................................................................................... 23
+
+             Design Portability .................................................................................... 26
+             Blueframe DMA ........................................................................................ 27
+
+Blueframe Overview ............................................................................................................................... 27
+Blueframe Portal ..................................................................................................................................... 27
+Blueframe DMA Disturbance Monitoring .............................................................................................. 28
+Other DMA Tools ................................................................................................................................... 28
+
+   Resource Management........................................................................................................................ 28
+   DMA Settings ..................................................................................................................................... 28
+
+             Third-Party Interfaces.............................................................................. 29
+
+DIA.NE/B&R.......................................................................................................................................... 29
+HMI Cluster ............................................................................................................................................ 29
+CCP ......................................................................................................................................................... 29
+National Service Alliance ....................................................................................................................... 29
+
+Date Code 20260213                                VoltaGrid LLC             Page iv
+SEL ES PROPRIETARY INFORMATION           TX-3 Node 1 POWERMAX FDS   036815.005.00
+© 20265 by SEL ES (All rights reserved)                            www.selinc.com
+Holt ......................................................................................................................................................... 29
+
+                Time Synchronization .......................................................................... 30
+
+NTP ......................................................................................................................................................... 30
+
+                Real Time Digital Simulation ............................................................... 31
+
+System Overview .................................................................................................................................... 31
+RTDS Hardware...................................................................................................................................... 31
+RTDS Testing Philosophy ...................................................................................................................... 31
+Model Development................................................................................................................................ 32
+Model Validation .................................................................................................................................... 32
+
+                Reference Documents ......................................................................... 33
+                   Single-Line Diagram ......................................................................... 35
+                   Data Flow Diagram............................................................................ 37
+
+                                 Figures
+
+Figure 2.2-1: RTAC SOE View .................................................................................................................... 7
+Figure 2-2: Simplified Data Flow Architecture ............................................................................................ 9
+Figure 5-1: INNIO J620/J624 Operator Panel ............................................................................................ 15
+Figure 6-1: Blackout Recovery Flowchart .................................................................................................. 22
+Figure 6-2: Black Start Sequence Flowchart .............................................................................................. 25
+Figure 8-1: Blueframe Portal ...................................................................................................................... 27
+Figure A.1: TX-3 Node 1 Simplified SLD (Sheet 1/2) ............................................................................... 35
+Figure A.2: TX-3 Node 1 Simplified SLD (Sheet 2/2) ............................................................................... 36
+
+                                  Tables
+
+Table 1.1: Power System Sources................................................................................................................. 1
+Table 2.1: List of Equipment in SEL Master Controller Panel ..................................................................... 4
+Table 3.1: User Access Levels.................................................................................................................... 10
+Table 5.1: Generator Digital Inputs (DIs) Between DIA.NE Controller and SEL Master Controller ........ 15
+Table 5.2: Generator Hardwire Digital Outputs Between DIA.NE and SEL Master Controller ................ 16
+Table 5.3: Generator Analog Inputs (AIs) Between DIA.NE and SEL Master Controller......................... 17
+Table 5.4: Generator Hardwire Analog Outputs (AOs) Between DIA.NE and SEL Master Controller .... 17
+
+Date Code 20260213                                VoltaGrid LLC              Page v
+SEL ES PROPRIETARY INFORMATION           TX-3 Node 1 POWERMAX FDS   036815.005.00
+© 20265 by SEL ES (All rights reserved)                            www.selinc.com
+Table 7.1: Number of Field Assets in TX-3 Node 1, Node 2, and TX-2 Projects ...................................... 26
+Table 7.2: Number of FEPs Required in Control System ........................................................................... 26
+Table 12.1: Reference Documents .............................................................................................................. 33
+
+Date Code 20260213                                VoltaGrid LLC             Page vi
+SEL ES PROPRIETARY INFORMATION           TX-3 Node 1 POWERMAX FDS   036815.005.00
+© 20265 by SEL ES (All rights reserved)                            www.selinc.com
+                      ACRONYMS AND ABBREVIATIONS
+
+ac    alternating current                      LS                  low speed
+
+AGC automatic generation control               LV                  low voltage
+
+AI    analog input                             MMS Manufacturing Message Specification
+
+AO    analog output                            ms                  millisecond
+
+CID Configured IED description                 MV                  medium voltage
+
+DFD data flow diagram                          MVA megavolt ampere
+
+DI    digital input                            MVAR megavolt-ampere reactive
+
+DNP Distributed Network Protocol               NGVL Network Global Variable List
+
+DO    digital output                           NIC network interface card
+
+DMA Data Management and Automation             NTP Network Time Protocol
+
+E-house electrical house                       ns                  nanosecond
+
+EWS engineering workstation                    NSA National Service Alliance
+
+FAT factory acceptance test                    OS                  operating system
+
+FDS Functional Design Specification            OT                  operational technology
+
+FEP front-end processor                        OWS operator workstation
+
+GCB generator circuit breaker                  PAC programmable automation controller
+
+GCS generator control system                   PMS power management system
+
+GNSS Global Navigation Satellite System        PMU phasor measurement unit
+
+GOOSE Generic Object-Oriented Substation       PTP Precision Time Protocol
+            Event
+                                               pu                  per unit
+
+HIG high inertia generator                     RTAC Real-Time Automation Controller
+
+HMI human-machine interface                    RTDS Real Time Digital Simulator
+
+HS    high speed                               SCADA supervisory control and data
+                                                           acquisition
+ICB insulated case circuit breaker
+
+ICD IED capability description                 SCD Substation Configuration Description
+
+IEC   International Electrotechnical           SCL Substation Configuration Language
+
+      Commission                               SEL Schweitzer Engineering Laboratories,
+                                                           Inc.
+IED intelligent electronic device
+
+IEEE  Institute of Electrical and Electronics  SEL ES SEL Engineering Services, Inc.
+      Engineers
+                                               SYNCON synchronous condenser
+
+I/O   input/output                             SLD single-line diagram
+
+IP    Internet Protocol                        SOE Sequence of Events
+
+IRM island reserve margin                      TCP Transmission Control Protocol
+
+kV    kilovolt                                 UPS uninterruptible power supply
+
+kVAR kilovolt-ampere reactive                  V                   volts
+
+kW    kilowatt                                 VCS voltage control system
+
+LAN local-area network                         VLAN virtual local-area network
+
+LIG low inertia generator
+
+Date Code 20260213                                VoltaGrid LLC                                     Page vii
+SEL ES PROPRIETARY INFORMATION           TX-3 Node 1 POWERMAX FDS                           036815.005.00
+© 20265 by SEL ES (All rights reserved)                                                    www.selinc.com
+              INTRODUCTION
+
+SEL Engineering Services, Inc. (SEL ES) is providing this Functional Design Specification (FDS) to
+VoltaGrid LLC to describe the intended functionality, control philosophy, and technical requirements of
+the control system designed for the TX-3 Node 1 power plant. This document ensures that all
+Customer-specified functions have been addressed and serves as the authoritative reference for system
+behavior, superseding proposal documents, preliminary designs, and other precontract materials.
+
+This document does not include the content of a POWERMAX® Power Management and Control System
+user manual.
+
+PROJECT SUMMARY
+
+The Schweitzer Engineering Laboratories, Inc. (SEL) scope includes the design, implementation, and
+validation of the following major subsystems:
+
+     Generation control system (GCS) for real-time control and load sharing of the generator fleet.
+
+     Generation management system (GMS) is responsible for automated generator start/stop
+         sequencing based on priority, engine hours, reserve requirements, and loading conditions.
+
+     Black-start controls for restoring the plant from a complete power loss condition using the low
+         voltage (LV) switchgear.
+
+     Supervisory control functions as designed by VoltaGrid for plantwide state management.
+
+As part of system testing, a Real Time Digital Simulator (RTDS) will be used to validate all the
+functionalities.
+
+Note: Supervisory control and data acquisition (SCADA) monitoring and network infrastructure for
+         TX-3 Node 1 are within the VoltaGrid scope.
+
+QPac in this document refers to a group of four gas turbines.
+
+POWER SYSTEM
+
+The TX-3 Node 1 facility is an islanded power plant consisting of distributed generation units,
+synchronous condensers, an overhead medium-voltage (MV) bus system, and a dedicated LV black-start
+subsystem. A high-level description of the power system is provided as follows for context to the control
+functions defined in this FDS.
+
+The source locations and capacities are listed in Table 1.1:Error! Reference source not found.
+
+                                         Table 1.1: Power System Sources
+
+Source Name     Location                 Qty. Capacity (MVA)              Type          Function
+
+   J620 LIG     QPac 1­8                 32  3.845                     Jenbacher    Normal operation
+   J620 HIG    QPac 9­12                                               Jenbacher    Normal operation
+BU-G1 3512-C  VG E-house                 14  3.845                     Caterpillar
+   SYNCON     Overall plant                                                             Black start
+                                         1   1.5                          ABB       Normal operation
+
+                                         2   40
+
+Date Code 20260213                                    VoltaGrid LLC                          Page 1
+SEL ES PROPRIETARY INFORMATION               TX-3 Node 1 POWERMAX FDS                036815.005.00
+© 20265 by SEL ES (All rights reserved)                                             www.selinc.com
+Generation
+
+The power plant consists of forty-six (46) 3.845 MVA Jenbacher generator units, including thirty-two
+(32) 13.8 kV J620 LIG units and fourteen (14) 13.8 kV J620 HIG units. Each generator connects to the
+medium-voltage (MV) system through an individual 13.8 kV/34.5 kV step-up transformer, which brings
+generation onto a 34.5 kV overhead bus system.
+
+Overhead Bus System
+
+The 34.5 kV overhead bus system distributes power to five connected feeders supplying all plant loads.
+
+Note: The master controller does not provide any synchronization functionality. Generator to bus
+synchronization is performed at its local protection relay (SEL-700G Generator Protection Relay).
+
+Synchronous Condensers
+
+The system includes two 40 MVA 13.8 kV ABB synchronous condensers. Similar to the generator units,
+each synchronous condenser connects to the overhead bus via a 13.8 kV/34.5 kV step-up transformer. The
+synchronous condensers provide system inertia, reactive power (Q) support, and voltage stability for the
+islanded power plant.
+
+Black-Start System (VG E-House)
+
+Black-start capability is supplied by a dedicated 480 V switchgear, known as VG E-house, which includes
+a 1.5 MVA diesel generator and two switchboard sections (SWBD A and SWBD B). The LV system
+supplies auxiliary power required to energize critical equipment and initiate plantwide black-start
+sequence.
+
+Appendix A is a simplified single-line diagram (SLD) that is referenced throughout this document. Note
+that the SLDs shown in this document are simplifications. They do not include all buses in the system,
+nor do they show all power system devices.
+
+HIGH-LEVEL OBJECTIVES
+
+     GCS
+
+     GMS
+
+     Black-start controls
+
+     Supervisory control functions
+
+     POWERMAX GCS and black-start human-machine interface (HMI) screens
+
+SEL ES SOLUTION
+
+For this project, the following functions are provided as part of the SEL POWERMAX® System:
+
+     GCS maintains the voltage and frequency of all Jenbacher units. Under normal operating
+         conditions, the J620 units will always operate in Frequency Droop mode on the governor and
+         Voltage Droop mode on the exciter. The GCS includes two main independent algorithms:
+         ­ Automatic generator control (AGC) for active power (P) and frequency control.
+         ­ Voltage control system (VCS) for Q and voltage control.
+
+Date Code 20260213                                VoltaGrid LLC             Page 2
+SEL ES PROPRIETARY INFORMATION           TX-3 Node 1 POWERMAX FDS   036815.005.00
+© 20265 by SEL ES (All rights reserved)                            www.selinc.com
+ GMS supervises generator commitment based on Customer-defined priority, engine hours, and
+    electrical island reserve margin requirements. Its primary functions include automation generator
+    start/stop sequencing and enforcement of reserve margins to meet system island reserve margin
+    (IRM) requirements.
+
+ Black-start controls enable restoration of the power plant during a facility wide blackout using
+    the 1.5 MVA diesel generator located in VG E-house. The blackstart restoration scheme is
+    executed in two transitions. In the first transition, Blackout recovery, the master controller starts
+    the blackstart diesel generator and performs sequenced restoration of auxiliary loads. In the
+    second transition, Blackstart sequence, the master controller performs controlled energization of
+    the 34.5 kV system and staged commitment of generation units to rebuild the electrical island.
+
+ Supervisory control functions include plant-level schemes required for VoltaGrid that are
+    initiated from the control HMI and conditioned through the SEL master controller before
+    execution.
+
+ Control redundancy: To ensure high resiliency, SEL ES is providing full redundant architecture.
+    The control system includes two redundant master controllers, and each generator QPac will have
+    two redundant FEPs. Likewise, feeder systems and auxiliaries are also supported by two
+    redundant FEPs. Each synchronous condenser will have one FEP without redundancy.
+
+Date Code 20260213                                VoltaGrid LLC             Page 3
+SEL ES PROPRIETARY INFORMATION           TX-3 Node 1 POWERMAX FDS   036815.005.00
+© 20265 by SEL ES (All rights reserved)                            www.selinc.com
+                       POWERMAX PHYSICAL ARCHITECTURE
+
+The SEL POWERMAX control panel is a collection of hardware and software components configured to
+maintain power system stability over a full range of foreseeable operating conditions.
+
+The hardware components of the control panels consist of dedicated devices that provide the core
+functions of the plant control system. The software components consist of the applications required to
+create logic in the controllers and to interface with the power management system (PMS) at a graphical
+level.
+
+The following subsections detail various aspects of the PMS architecture.
+
+MASTER CONTROLLER PANEL
+
+Table 2.1 lists all equipment installed in the master controller provided by SEL:
+
+                       Table 2.1: List of Equipment in SEL Master Controller Panel
+
+      Equipment        Qty. Manufacturer          Model                            Functionality
+                       1 SEL
+Clock                  2 SEL                      SEL-2488 Satellite-       Time distribution source
+                       2 SEL                      Synchronized Network
+HMI/operator                                      Clock                     Spare PC
+workstation (OWS)
+                                                  SEL-3355 Automation       Host and execute plantwide control
+Master controllers                                and Computing             algorithms
+                                                  Platform
+Blueframe® Data
+Management and                                    SEL-3555 Real-Time
+Automation (DMA)                                  Automation Controller
+application suite                                 (RTAC)
+Engineering
+workstation (EWS)      1 SEL                      SEL-3355                  See Section 8
+Uninterruptible power
+supply (UPS)           1 SEL                      SEL-3355                  Host software required for
+                                                  QUINT4-UPS                maintenance of controllers and relays
+                       2                 Phoenix
+                                         Contact                            Panel backup power supply
+
+LOOSE EQUIPMENT
+
+SEL is supplying 30 loose SEL-3350 Automation and Computing Platform 1U devices to serve as
+front-end processors (FEPs) throughout the power plant. These FEPs will be installed by VoltaGrid in
+appropriate panels.
+
+Date Code 20260213                                         VoltaGrid LLC                                   Page 4
+SEL ES PROPRIETARY INFORMATION                    TX-3 Node 1 POWERMAX FDS                         036815.005.00
+© 20265 by SEL ES (All rights reserved)                                                           www.selinc.com
+DEVICES
+
+SEL-2488
+
+The SEL-2488 Satellite-Synchronized Network Clock receives Global Navigation Satellite System
+(GNSS) time signals and distributes precise time via multiple output protocols, including Inter-Range
+Instrumentation Group time code format B (IRIG-B), Network Time Protocol (NTP), and Precision Time
+Protocol (PTP). For TX-3 Node 1, this clock will provide NTP time synchronization to devices in the
+master controller panel and all FEPs across the plant.
+
+SEL-3355
+
+The SEL-3355 Automation and Computing Platform is a powerful and versatile computing platform for
+industrial applications and is shipped with a Microsoft Windows Server operating system (OS)
+preinstalled. Two SEL-3355 are provided for redundancy and installed on the master controller panel.
+One separate SEL-3355 will be with Blueframe OS installed and running SEL DMA suite (see Section 8
+for more information).
+
+SEL-3555
+
+The SEL-3555 RTAC is the most powerful RTAC model that is deterministic, secure, and reliable for
+advanced automation applications. It provides powerful computing for large-scale automation projects.
+The SEL-3555 RTAC has a 4 ms deterministic processing interval for time-sensitive protection and
+automation control. This hardware is used as the master controller containing all algorithms for plantwide
+control schemes and control supervisory functions.
+
+SEL-3350
+
+The SEL-3350 is a versatile computing platform built to withstand harsh environments in utility and
+industrial applications. Like the SEL-3555, this RTAC is also capable of 4 ms deterministic processing
+interval for time-sensitive automation control. This hardware is used as a data concentrator in each
+location.
+
+SEL-2411 Programmable Automation Controller
+
+The SEL-2411 Programable Automation Controller (PAC) offers affordable control for power and
+industrial automation systems. For TX-3 Node 1, this device, specified and supplied by VoltaGrid,
+collects hardwired digital and analog input/output (I/O) signals from the generator local controllers
+(DIA.NE engine management system). Field data collected by the SEL-2411 will be transmitted via
+GOOSE to its local QPac FEPs. All control data points wired into the SEL-2411 are listed in the
+hardwired I/O list provided by SEL.
+
+SOFTWARE COMPONENTS
+
+Two OWSs and one engineering workstation (EWS) will be installed on SEL master controller panel. The
+EWS includes software that will support:
+
+     Management of IEC 61850 Generic Object-Oriented Substation Event (GOOSE) settings of the
+         intelligent electronic devices (IEDs) in the LV and MV gear.
+
+     Management of controller programming settings.
+
+Date Code 20260213                                VoltaGrid LLC             Page 5
+SEL ES PROPRIETARY INFORMATION           TX-3 Node 1 POWERMAX FDS   036815.005.00
+© 20265 by SEL ES (All rights reserved)                            www.selinc.com
+The software configured on EWS are ACSELERATOR Architect® SEL-5032 Software and ACSELERATOR
+RTAC® SEL-5033 Software.
+
+ACSELERATOR Architect SEL-5032 Software
+
+ACSELERATOR Architect SEL-5032 Software is used to configure IEC 61850 GOOSE settings for all
+SEL IEDs. This software allows a user to create and map GOOSE messages, create and edit GOOSE data
+sets, read in Substation Configuration Description (SCD), IED capability description (ICD), and
+Configured IED Description (CID) files, and send CID files to the IEDs.
+
+ACSELERATOR Architect incorporates the following features and functions:
+     Create and edit datasets
+     Create GOOSE transmit messages
+     Map GOOSE receive messages
+     Use predefined reports
+     Create CID files to send to IEC 61850-compliant IEDs
+     Read in all IEC 61850 Substation Configuration Language files (SCD, ICD, and CID)
+
+ACSELERATOR RTAC SEL-5033 Software
+
+ACSELERATOR RTAC SEL-5033 Software is a graphical, easy-to-use tool that assists users to quickly
+and easily configure the SEL RTAC.
+
+The features and benefits include the following:
+     Create, edit, store, and transfer RTAC project settings.
+     Configure and store customized templates for frequently used devices.
+     Use the full-featured IEC 61131 logic programming environment (included) to develop custom
+         programs.
+     Test and commission systems with online viewing and forcing of data values.
+     Retrieve software and have device definition file updates delivered to the user's computer on a
+         chosen schedule through SEL Compass® Software.
+
+Blueframe DMA Disturbance and Configuration Monitoring
+
+SEL Blueframe DMA Disturbance Monitoring application will support automated data collection and
+management from all SEL IEDs on the PMS network. Information about these applications is detailed in
+Section 8.
+
+Note: Blueframe DMA application is not redundant. It is only configured to exist on one local-area
+network (LAN).
+
+Sequence of Events
+
+The master controller and FEPs can be programmed to collect Sequence of Events (SOE) information
+throughout the project site. The SOE records are accessible through the RTAC web interface as seen in
+Figure 2-1. The controllers monitor the state change of configured discrete values in the system, record
+and timestamp each transition, and make the SOE data available on the RTAC for operator viewing.
+
+Date Code 20260213                                VoltaGrid LLC             Page 6
+SEL ES PROPRIETARY INFORMATION           TX-3 Node 1 POWERMAX FDS   036815.005.00
+© 20265 by SEL ES (All rights reserved)                            www.selinc.com
+SEL ES will configure SOE collection only on RTACs (master controller and FEPs) and not the field
+protection relays.
+
+                                                   Figure 2-1: RTAC SOE View
+
+Date Code 20260213                                VoltaGrid LLC             Page 7
+SEL ES PROPRIETARY INFORMATION           TX-3 Node 1 POWERMAX FDS   036815.005.00
+© 20265 by SEL ES (All rights reserved)                            www.selinc.com
+DATA FLOW AND COMMUNICATIONS PROTOCOLS
+
+The control system architecture is built around a distributed processing model in which FEPs act as data
+concentrators for all field equipment. The FEPs manage inbound communications from relays, and
+generator-interface devices and present aggregated data to the master controllers using high-performance
+protocols. Figure 2-2 illustrates a simplified data flow architecture showing the network communication
+paths used across the project site.
+
+The FEPs function as the communication interface layer between the physical power system equipment
+and the control logic executed in the master controllers. Each FEP polls and subscribes to field devices
+using the IEC 61850 protocol suite, receiving GOOSE messages for fast, event-driven data such as
+breaker status, and using Manufacturing Message Specification to retrieve measurement points. The FEPs
+consolidate information collected from field relays into structured datasets suitable for system-level
+control.
+
+After collecting data from the field devices, each FEP forwards the processed datasets to the master
+controllers using the Network Global Variable List (NGVL) communication framework. The NGVL
+system provides two distinct communication paths. The high-speed NGVL channel is used for
+operationally critical and time-sensitive information, including breaker status, generator parameters,
+permissive and alarms.
+
+In contrast, the low-speed NGVL channel carries non-critical or slower-changing information such as
+analog measurements and other supervisory data. This dual-path NGVL structure ensures that
+time-sensitive control data receives priority while still supporting comprehensive monitoring and system
+visibility.
+
+NETWORK ARCHITECTURE
+
+All IEDs are connected over the VoltaGrid network established using Fortinet switches and firewalls.
+VoltaGrid will design and implement this network infrastructure, providing SEL with device IP
+addresses, VLANs, and other operational technology (OT) network data required for communication.
+
+The master controller, FEPs, and IEDs for control are connected to two redundant networks. Two network
+interface cards (NICs) on the RTACs (master controller and FEPs) are configured in Bonded Backup
+mode. In this mode, the bonded NICs are connected to the networks but only one is active at a time. The
+second NIC becomes active if the first link loses connection to its LAN. The RTAC internally handles
+this failover.
+
+This is similar in the field protection relays and SEL-2411. One NIC on the relay will be connected to
+LAN A and the other connected to LAN B. The relays will be configured in Failover mode, which is
+similar to the RTAC Bonded Backup mode. One link will be active at a time. Like the RTAC, SEL relays
+internally handle this failover.
+
+The only exception to this redundant configuration are the DIA.NE and SEL-735 Power Quality and
+Revenue Meter, which only connect to the control system network on a single NIC.
+
+Date Code 20260213                                VoltaGrid LLC             Page 8
+SEL ES PROPRIETARY INFORMATION           TX-3 Node 1 POWERMAX FDS   036815.005.00
+© 20265 by SEL ES (All rights reserved)                            www.selinc.com
+.                                                  B                                                     C                                  D                                                                                E                                                         F
+                                                                                                                                                                                                                                                                                                                    1
+                           A                                       Vantage TX-3 Node-1 Data Flow Diagram
+
+1
+
+                                                                                                            VoltaGrid HMI Cluster
+
+                                         QPAC FEPs                                             Controller_A                         Controller_B                                                                             QPAC FEPs
+
+                                         SyncCon FEP                                                                                                                                                                         SyncCon FEP
+
+2                                        Feeder & AUX FEPs                                     SEL-3555     RTAC                   SEL-3555    RTAC                                                                          Feeder & AUX FEPs                                                                    2
+
+                                                                                                                  Control Panel
+
+                                         Controller_A & B          Controller_A & B
+
+                                                                                                                  Controller_A & B                   Controller_A & B                                                           Controller_A & B
+
+                                         FEPA                                 FEPB
+
+                                         SEL-3350                  SEL-3350                                                FEP                                                      FEPA                                                       FEPB
+
+3                                                                                                                 SEL-3350                           SEL-3350                                                                   SEL-3350                                                                          3
+
+                                         SEL-700G           SEL-2411          SEL-787
+                                                                   Hardwired
+
+                                                                                                                  SEL-751          SEL-787           SEL-751                                                                         SEL-700G  SEL-787
+
+                                                            DIANE                                                         SyncCon                                                                                            Feeder & AUX
+                                                            QPAC
+
+4                                                                                                                               SCHWEITZER ENGI NEERING LABORATORIES, INC.                                                                      CLIE NT                                                                     4
+         LEGEND                                                                                                                 2350 NE Hopkins Court, Pullman, WA 99163-5603, USA                                                               VoltaGrid LLC
+                                                                                                                                Engineering Services                                                                                                                                                              DATE
+                           NGVL                                                                                                                                                                                                                 PROJE CT                                                          01/23/2026
+                           GOOSE/MMS                                                                                                                                                                                                             036815.005.00 POWERMAX PMS TX-3 NODE 1                           REV
+                           MODBUS
+                                                                                                                          This document and all information contained herein is proprietary to Schweitzer Engineering                           DWG TITLE                                                           0
+                                                                                                                          Laboratories, Inc. Any unauthorized use, distribution, or reproduction of this document (in                             Data Flow Diagram                                                        FMIN-01
+                                                                                                                          whole or in part) or of any information contained herein is specifically prohibited. T his legend                                                                                                  REV. 0
+                                           0 01/23/20 26                        Initial Draft                     GC DA   must appear on any authorized reproduction (in whole or in part). COPYRIGH T © SEL 2025                               ENGI NEER                              DRAWN BY
+                                         REV DATE                             DESCRIPTI ON                        BY CKD                                                                                                                                        Dami Ajayi                         Grant Cameron
+
+                                                                                                                                                                                                                                                SCALE           PROJ# - DWG#
+                                                                                                                                                                                                                                                  NTS              03 68 15 .00 5.0 0
+
+                                                                              Figure 2-2: Simplified Data Flow Architecture
+
+Date Code 20260213                                                                                                   VoltaGrid LLC                                                                                                                                                                Page 9
+SEL ES PROPRIETARY INFORMATION                                                                              TX-3 Node 1 POWERMAX FDS                                                                                                                                                      036815.005.00
+© 20265 by SEL ES (All rights reserved)                                                                                                                                                                                                                                                  www.selinc.com
+       HUMAN-MACHINE INTERFACE
+
+SEL is responsible for developing the HMI screens associated with GCS and black-start controls. These
+screens will be delivered to VoltaGrid in a format suitable for import into their existing HMI
+environment. VoltaGrid will integrate these screens into their overall SCADA and HMI architecture.
+
+This section describes the coordination between SEL and VoltaGrid for HMI development, along with the
+requirements, design elements, and expectations specified by VoltaGrid.
+
+HMI screens are undergoing development and are not currently attached to this revision of FDS.
+
+SUPERVISORY CONTROL FUNCTIONS
+
+In addition to the standard GCS and black-start controls, VoltaGrid has requested additional plantwide
+supervisory commands be routed through the master controllers for validation before execution. These
+functions originate from the VoltaGrid Control HMI but are only executed after the master controller
+verifies all required interlocks, permissives, and system conditions.
+
+CONTROL HMI USER ACCESS LEVELS
+
+GCS and black-start HMI screens include control elements that may require specific user access levels to
+operate. In typical SEL POWERMAX implementations, access levels are configured to ensure secure
+operation of critical control functions. For this project, VoltaGrid will be responsible for implementing
+and managing all HMI user-access configurations within their system.
+
+Table 3.1 shows the access level structure commonly used by SEL for HMI control screens.
+
+                                        Table 3.1: User Access Levels
+
+Level                        Description          Default              Operator  Supervisor
+                                                     X
+  1    Screen navigation                                                   X          X
+  2    Breaker open/close                                                  X          X
+  3    AGC enable/disable                                                  X          X
+  4    VCS enable/disable                                                  X          X
+  5    Control alarms reset                                                X          X
+  6    Control diagnostics screen resets                                   X          X
+  7    Master controller enable/disable                                               X
+  8    Active alarms filters and filter profiles                  X    X              X
+  9    Active alarms acknowledgment                                                   X
+
+Date Code 20260213                               VoltaGrid LLC                           Page 10
+SEL ES PROPRIETARY INFORMATION          TX-3 Node 1 POWERMAX FDS                  036815.005.00
+© 2026 by SEL ES (All rights reserved)                                           www.selinc.com
+                    CONTROL SYSTEM MONITORING
+
+The control system provides device-level health and status monitoring for the two master controllers and
+30 FEPs. Each of these devices hosts an internal Modbus Transmission Control Protocol (TCP) server
+that reports operational status to the VoltaGrid HMI servers. The Modbus server in each device exposes
+watchdog heartbeat confirming real-time operating status of each device.
+
+The VoltaGrid HMI will poll each master controller and FEP directly over Modbus TCP to retrieve these
+values and provide system-wide controller-health visualization.
+
+In addition, each master controller maintains real-time visibility into the communication status of all field
+equipment from which it obtains control and measurement data. This includes:
+
+     SEL-700G relays
+
+     SEL-2411 PACs used for interfacing hardwired I/O from the local generator controller DIA.NE
+
+     Load feeder SEL-751 Feeder Protection Relays
+
+     SEL-787 Transformer Protection Relays
+
+Although the master controllers have visibility into these communication alarms, all end-device
+communication is routed through the FEPs, not directly to the master controllers as described in
+Section 2.
+
+The UPS in the master controller panels are monitored through Modbus communications established
+between the UPS and the master controller.
+
+Date Code 20260213                               VoltaGrid LLC            Page 11
+SEL ES PROPRIETARY INFORMATION          TX-3 Node 1 POWERMAX FDS   036815.005.00
+© 2026 by SEL ES (All rights reserved)                            www.selinc.com
+                    GENERATOR CONTROL SYSTEM
+
+This section explains the generator control modes, islanding configurations, and collaboration between
+Jenbacher and SEL POWERMAX in maintaining voltage and frequency of the power system.
+
+SYSTEM OVERVIEW
+
+The SEL POWERMAX master controllers contain software algorithms that execute the following control
+schemes:
+
+     AGC
+
+     VCS
+
+GENERATOR CONTROL MODES
+
+In TX-3 Node 1, the generator units will typically operate in Frequency Droop mode on its governor and
+Voltage Droop mode on its exciter.
+
+Master Controller Control Permissive
+
+Under normal operating conditions, the generator units will operate in auto mode (set on the control room
+HMI) and Remote mode (Engine Ready for Demand signal from DIA.NE). In this mode, the master
+controller has permissive to send speed and voltage bias to the DIA.NE controllers.
+
+Operating Conditions Under Failure Scenarios
+
+If a generator unit loses communication to both local FEPs or the master controllers, that unit will no
+longer be under control by SEL POWERMAX and it will operate according to its natural droop
+characteristics.
+
+ISLAND CONFIGURATION
+
+The PMS continuously monitors the status of all breakers in the system illustrated in the simplified
+single-line diagram (SLD) in Appendix A. All generator units will operate on a single electrical island.
+
+LOAD FLUCTUATION MODE
+
+This function will be implemented as a control button called "Party Mode" on the GCS HMI screen.
+When enabled by the operator, the master controller issues start commands to all generator units
+permitted for automatic start. While Party mode is active, GMS controls will be internally disabled within
+the controller to prevent automatic sequencing or start/stop decisions. GMS control will resume once the
+operator turns off this mode.
+
+The Party mode signal is exposed to the control room HMI through the master controller Modbus
+interface. SEL will provide a command point (coil) to enable Party mode and a corresponding feedback
+point (discrete input) indicating "Party Mode Enabled" as documented in the interface I/O list prepared by
+SEL.
+
+Date Code 20260213                               VoltaGrid LLC            Page 12
+SEL ES PROPRIETARY INFORMATION          TX-3 Node 1 POWERMAX FDS   036815.005.00
+© 2026 by SEL ES (All rights reserved)                            www.selinc.com
+FAST DISCONNECT
+
+The master controller will assert this signal in the event of a breaker failure. Breaker failure signal is
+received from SEL-2411 (see Table 5.2).
+
+MONITORING POINTS
+
+The SEL-2411 PACs in VoltaGrid panels will have dedicated I/Os to the local generator DIA.NE
+controllers. These I/Os will be hardwired to the generator control panel and are listed in Table 5.1,
+Table 5.2, Table 5.3, and Table 5.4. The SEL-2411 PACs will communicate these I/O via high-speed
+GOOSE to its local FEPs; the FEPs will then pass this information via high-speed NGVL to the master
+controllers.
+
+Date Code 20260213                               VoltaGrid LLC            Page 13
+SEL ES PROPRIETARY INFORMATION          TX-3 Node 1 POWERMAX FDS   036815.005.00
+© 2026 by SEL ES (All rights reserved)                            www.selinc.com
+                                        This page intentionally left blank
+
+Date Code 20260213                               VoltaGrid LLC                      Page 14
+SEL ES PROPRIETARY INFORMATION          TX-3 Node 1 POWERMAX FDS             036815.005.00
+© 2026 by SEL ES (All rights reserved)                                      www.selinc.com
+GENERATOR I/O
+
+Table 5.1, Table 5.2, and Table 5.3 show the typical list of I/Os between DIA.NE and SEL master controller.
+                                                                                                   Table 5.1: Generator Digital Inputs (DIs) Between DIA.NE Controller and SEL Master Controller
+
+Type                                  Signal                      State                                                                 Description                                                Speed    Data   Hardwire/Comm
+                 Engine Ready for Automatic Demand                       Generator governor/exciter is operating in Remote mode. In this mode, the generator governor/exciter will only           (HS/LS)  Source
+                                                    Latched,             accept power set point signals and start/stop commands from SEL master controller. This signal is high when
+                                                    1 = Remote           Operation is in "Auto," Request is in "Remote," and Sync is in "Auto" (see Figure 5-1).                                  HS       DIA.NE  Hardwire/
+                                                    0 = Local            Feedback from DIA.NE indicating that the start command is received.                                                                       SEL-2411 (IN101)
+
+                 Engine is Demanded                 Latched,             Indication from DIA.NE indicating that the generator is running.                                                         HS       DIA.NE  Hardwire/
+                                                    1 = Start Received                                                                                                                                             SEL-2411 (IN102)
+                                                    0 = Normal           Indication that DIA.NE failed to open the generator circuit breaker.
+Generator        Engine is Running                                                                                                                                                                HS       DIA.NE  Hardwire/
+(DI) for SEL                                        Latched,             Indication that generator engine is stopped.                                                                                              SEL-2411 (IN301)
+                                                    1 = Running
+(Digital output  Generator Circuit Breaker (GCB)    0 = Not running      Indication from DIA.NE that delayed shutdown command is received for the respective unit.                                HS       DIA.NE  Hardwire/
+[DO]) From       Opening Failure                                                                                                                                                                                   SEL-2411 (IN302)
+DIA.NE                                              Latched,
+                                                    1 =GCB Open Failure
+                 Engine Generator Trip Status       0 =Normal                                                                                                                                     HS       DIA.NE  Hardwire/
+                                                                                                                                                                                                                   SEL-2411 (IN303)
+                                                    Latched,
+                 Delayed Shutdown Active            1 = Tripped                                                                                                                                   HS       DIA.NE  Hardwire/
+                                                    0 = Normal                                                                                                                                                     SEL-2411 (IN304)
+
+                                                    Latched,
+                                                    1 = Gen_shutdown
+                                                    0 = Normal
+
+Date Code 20260213                                                       Figure 5-1: INNIO J620/J624 Operator Panel                                                                                                        Page 15
+SEL ES PROPRIETARY INFORMATION                                                                                                                                                                                      036815.005.00
+© 2026 by SEL ES (All rights reserved)                                                                VoltaGrid LLC                                                                                                www.selinc.com
+                                                                                            TX-3 Node 1 POWERMAX FDS
+                                                                            Table 5.2: Generator Hardwire Digital Outputs Between DIA.NE and SEL Master Controller
+
+       Type                             Signal           State                                                               Description                                              Speed              Data   Hardwire/Comm
+                                                                                                                                                                                     (HS/LS)            Source
+Generator
+(DO) from SEL  Demand Engine Operation (Start            Pulse,               Pulse command to DIA.NE to start a J620 unit.                                                          HS                 SEL Master Hardwire/
+               Command)                                  1=Start J620 unit                                                                                                                              Controller SEL-2411 (OUT102)
+                                                         0=No action
+
+               Other Generators in Parallel with Module  Latch,               Asserted from SEL master controller when the Generator Unit is in parallel with other units on the electrical island. HS  SEL Master Hardwire/
+               Active                                    1=Parallel                                                                                                                                     Controller SEL-2411 (OUT103)
+                                                         0=No action
+                                                                                                                                                                                                        SEL Master Hardwire/
+               Demand Engine Operation (Stop             Pulse,               Pulse command to DIA.NE to stop a J620 unit.                                                           HS                 Controller SEL-2411 (OUT301)
+               Command)                                  1 = Stop J620 unit
+               Plant Emergency Operation Mode            0 = No action        Asserted from SEL master controller when the J620 unit has a low spinning reserve (Control HMI operator input). HS        SEL Master Hardwire/
+               GCB Release to close to deadbus bar                                                                                                                                                      Controller SEL-2411 (OUT302)
+               Fast Disconnect GCB                       Latch,               Asserted by SEL master controller when dead bus arbitration is satisfied.                              HS
+                                                         1=Emergency Op mode                                                                                                                            SEL Master Hardwire/
+               Local Set Point Full Throttle Mode        0=No action          Control signal to perform immediate engine shut down due to generator breaker failure.                 HS                 Controller SEL-2411 (OUT303)
+
+               Remote Block                              Pulse,               INNIO to discard active power setpoint from master controller and provide local setpoint to genset (Pset = Pmax). HS      SEL Master Hardwire/
+                                                         1=close to deadbus                                                                                                                             Controller SEL-2411 (OUT304)
+                                                         0=No action          This signal is asserted from the control room HMI and passed through the master controller to DIA.NE.  HS
+                                                                                                                                                                                                        SEL Master Hardwire/
+                                                         Pulse,                                                                                                                                         Controller SEL-2411 (OUT401)
+                                                         1=Disconnect
+                                                         0=No action                                                                                                                                    SEL Master Hardwire/
+                                                                                                                                                                                                        Controller SEL-2411 (OUT402)
+                                                         Latch,
+                                                         1 = Local mode
+                                                         0 = No action
+
+                                                         Latch
+                                                         1= Block
+                                                         0 = No action
+
+Date Code 20260213                                                                     VoltaGrid LLC                                                                                                                    Page 16
+SEL ES PROPRIETARY INFORMATION                                                TX-3 Node 1 POWERMAX FDS                                                                                                           036815.005.00
+© 2026 by SEL ES (All rights reserved)                                                                                                                                                                          www.selinc.com
+                                                                       Table 5.3: Generator Analog Inputs (AIs) Between DIA.NE and SEL Master Controller
+
+        Type                         Signal       State                                                                 Description                             Speed   Data Source  Hardwire/Comm
+                 Generator kW                                                                                                                                  (HS/LS)
+Generator        Generator kVAR
+(AI) for SEL     Generator Available kW           REAL Value           Actual generator P output in kW.                                                        HS       DIA.NE       Hardwire/
+(AO) from                                                                                                                                                                            SEL-2411 (IN601)
+DIA.NE           Operation Hours
+                                                  REAL Value           Actual generator Q output in kVAR.                                                      HS       DIA.NE       Hardwire/
+                                                                                                                                                                                     SEL-2411 (IN602)
+
+                                                  REAL Value           Maximum available power of the generator in kW.                                         HS       DIA.NE       Hardwire/
+                                                                                                                                                                                     SEL-2411 (IN603)
+
+                                                                                                                                                                                     Modbus
+
+                                                  REAL Value           Engine runtime hours.                                                                   LS       DIA.NE       Holding Register:
+
+                                                                                                                                                                                     40106 and 40107
+
+                                                                                                                                                                                     (32-bit unsigned
+
+                                                                                                                                                                                     Logical Shift Right)
+
+                                                              Table 5.4: Generator Hardwire Analog Outputs (AOs) Between DIA.NE and SEL Master Controller
+
+        Type                          Signal                    State                                                             Description               Speed       Data Source  Hardwire/Comm
+                 Active power set point (MW)      REAL Value                                                                                               (HS/LS)
+Generator                                         REAL Value           P set point to J620 Unit from SEL master controller
+(AO) from SEL                                                          (­1077) to 6.25 MVA will be used in scaling for 0-20mA)                             HS           DIA.NE       Hardwire/
+                                                                                                                                                                                     SEL-2411 (OUT601)
+                                                                       Q set point to J620 Unit from SEL master controller
+(AI) for DIA.NE  Reactive power set point (MVAR)                       (­1500) to 3000 kVAR will be used as 4-20mA)                                        HS           DIA.NE       Hardwire/
+controller                                                                                                                                                                           SEL-2411 (OUT603)
+
+Date Code 20260213                                                                                     VoltaGrid LLC                                                                                 Page 17
+SEL ES PROPRIETARY INFORMATION                                                                TX-3 Node 1 POWERMAX FDS                                                                        036815.005.00
+© 2026 by SEL ES (All rights reserved)                                                                                                                                                       www.selinc.com
+LOAD SHARING
+
+The master controllers contain the AGC and VCS algorithms, which will regulate MW and MVAR load
+sharing among the gas turbine units. These algorithms also maintain frequency and voltage on the
+generator buses.
+
+AGC FUNCTIONAL DESCRIPTION
+
+This section describes the features and functionality unique to the AGC algorithm.
+
+AGC Control Modes
+
+The control mode of each generator will be user-defined from the control room GCS HMI and can be set
+to the following modes: Enable, Manual, and Auto.
+
+     Enable: if a generator is in AGC Enable mode, the master controller will send frequency bias
+         setpoint to the DIA.NE controller.
+
+     Manual: if a generator is in manual and droop mode, the master controller sends a frequency bias
+         signal to the DIA.NE controller. This bias will be used to control the generator to the operator
+         GCS HMI MW set point (for each generator). The generator will not participate in load sharing as
+         its objective is to maintain the entered MW setpoint.
+
+     Auto: if a generator is in droop and auto mode, the requested MW set point from the master
+         controllers for generators will be biased to assist in MW load sharing between generators and
+         system frequency.
+
+AGC CONTROLS/SET POINTS
+
+     MW Lower Regulation: Displays the user-entered lower regulation limits for each generator.
+         This value creates a lower bound for the control algorithm within the master controller to use for
+         controlling the MW output.
+
+     Manual MW Set Point: Displays the user-entered base set point for each generator. This only
+         applies in manual mode.
+
+     MW Upper Regulation: Displays the user-entered upper regulation limits for each generator.
+         This value creates an upper bound for the control algorithm within the master controller to use for
+         controlling the MW output.
+
+VCS FUNCTIONAL DESCRIPTION
+
+This section describes features and functionality unique to the VCS algorithm.
+
+VCS Control Modes
+
+The control mode of each generator will be user-defined from the control room GCS HMI and can be set
+to the following modes: Disabled, Maintain, and Regulation.
+
+     Enable: if a generator is in VCS Enable mode, the master controller will send voltage bias
+         setpoint to the DIA.NE controller.
+
+     Manual: if a generator is in manual and droop mode, the master controller sends a voltage bias
+         signal to the DIA.NE controller. This bias will be used to control the generator to the operator
+
+Date Code 20260213                               VoltaGrid LLC            Page 18
+SEL ES PROPRIETARY INFORMATION          TX-3 Node 1 POWERMAX FDS   036815.005.00
+© 2026 by SEL ES (All rights reserved)                            www.selinc.com
+    GCS HMI MVAR set point (for each generator). The generator will not participate in load
+    sharing as its objective is to maintain the entered MVAR setpoint.
+
+ Auto: if a generator is in droop and auto mode, the requested MVAR set point from the master
+    controllers for generators will be biased to assist in MVAR load sharing between generators and
+    system voltage.
+
+VCS CONTROLS/SET POINTS
+
+ MVAR Lower Regulation: Displays the user-entered lower regulation limits for each generator.
+    This value creates a lower bound for the control algorithm within the master controller to use for
+    controlling the MVAR output.
+
+ Manual MVAR Set Point: Displays the user-entered base set point for each generator. This only
+    applies in manual mode.
+
+ MVAR Upper Regulation: Displays the user-entered upper regulation limits for each generator.
+    This value creates an upper bound for the control algorithm within the master controller to use for
+    controlling the MVAR output.
+
+GENERATION MANAGEMENT SYSTEM
+
+The GMS within the master controller provides automated generator commitment and decommitment
+based on plant loading, operator-selected reserve requirements, generator priority, and minimum loading
+limits. The GMS works in coordination with the GCS frequency and voltage control functions to ensure
+efficient and reliable operation of the power system.
+
+The GMS uses three primary mechanisms to determine when generator units should be started or stopped:
+
+     Generator priority management
+
+     IRM management
+
+     Minimum load management
+
+These features operate concurrently and, where conflicts arise, IRM management takes precedence over
+minimum load management, as required by VoltaGrid.
+
+Generator Priority Management
+
+The GCS HMI allows the operator to enter independent priority levels to every generator unit in the plant.
+Generators may all have unique priority, or they may be grouped such that several units share the same
+priority.
+
+The GMS uses these priorities to determine which generators should be selected for automatic start or
+stop actions. When multiple generators share the same priority, the GMS breaks ties using their engine
+operating hours. Units with the least accumulated engine hours are selected for automatic start, units with
+the most accumulated engine hours are selected for automatic stop.
+
+These priorities are applied consistently by IRM and minimum load management algorithms when
+committing or decommitting units.
+
+Note:  VoltaGrid has requested that the master controller distribute generator runtime such that multiple
+       units do not approach maintenance intervals simultaneously. While engine-hour information is
+       incorporated into the tie-breaking logic, the master controller will start and stop units strictly
+       according to the priority assignments entered through the GCS HMI.
+
+Date Code 20260213                               VoltaGrid LLC            Page 19
+SEL ES PROPRIETARY INFORMATION          TX-3 Node 1 POWERMAX FDS   036815.005.00
+© 2026 by SEL ES (All rights reserved)                            www.selinc.com
+Island Reserve Margin Management
+
+IRM management ensures that a sufficient number of generators are online to maintain the
+operator-defined reserve margin. This algorithm operates using two inputs from the GCS HMI:
+
+     Minimum Synchronized Generators: Minimum number of units that must remain online.
+
+     Island Reserve Margin (%): Load threshold defining how many units must be online to meet
+         reserve requirements.
+
+To maintain these requirements, the GMS will automatically start units in Engine Ready for Demand
+mode and set to "Auto" on the GCS HMI screen. The master controller will start units according to their
+set HMI priority. Two units will be demanded for start whenever the master controller determines
+additional capacity is required; once both units are successfully synchronized, the controller may shut
+down one to satisfy minimum load management.
+
+IRM management always takes priority if it conflicts with minimum load management.
+
+Minimum Load Management
+
+This algorithm ensures that all online generators operate at or above the operator-defined Minimum
+Genset Load (%). This setting is available on the GCS HMI screen.
+
+If the average generator load falls below this threshold and shutting down a unit would not violate IRM
+requirements, GMS will automatically stop a generator according to the priority assigned on the GCS
+HMI. If multiple units share the same priority, the unit with the highest engine hours is selected for stop.
+
+If "Delayed Shutdown Request" signal is asserted for a generator unit, the master controller will start
+gensets as necessary to maintain IRM requirements.
+
+Date Code 20260213                               VoltaGrid LLC            Page 20
+SEL ES PROPRIETARY INFORMATION          TX-3 Node 1 POWERMAX FDS   036815.005.00
+© 2026 by SEL ES (All rights reserved)                            www.selinc.com
+                    BLACK START
+
+The master controller provides an automatic blackout recovery sequence following the total loss of power
+across the power plant. This section discusses the assets controlled for black start, permissives, and
+recovery sequence.
+
+BLACK START PERMISSIVES
+
+The following permissives must be met for black start to be initiated:
+
+     Black start must be enabled on the control room HMI
+
+     Healthy communications between the field IEDs and control system RTACs
+
+     34.5 kV bus voltage is less than 0.3 pu (~10.35 kV)
+
+BLACKOUT RECOVERY
+
+The goal of the blackout recovery transition is to rapidly restore critical auxiliary loads. This sequence
+starts automatically upon detection of a blackout. Figure 6-1 presents the blackout recovery flow diagram
+and steps executed by the master controller. Each step has a number assigned, refer to those numbers
+when reading the following notes for additional details on that step.
+
+     1. The master controller is online with healthy communications to all IEDs required for the blackout
+         recovery sequence and a blackout is detected. Blackout is determined by loss of power on the
+         overhead and VG E-House bus.
+
+     2. The master controller will continuously monitor the voltage of all 34.5kV feeder breakers to
+         determine a dead bus. The master controller will also confirm a dead bus at the E-House during
+         this step. A dead bus is confirmed if the bus voltage is < 0.3 pu nominal for 5 seconds.
+
+     3. The master controller sends open commands to all ICBs and VG E-House Feeder breakers
+         through their local protection relay. Open command is initiated from the master controller to the
+         breaker's respective local FEP via NGVL, and then from the local FEP to the protection relay.
+         For ICBs, the protection relay is an SEL-787. For the VG E-House feeder breakers, it is an SEL-
+         751.
+
+     4. Breaker open status is sent from the local protection relay of each breaker to its local FEP via
+         MMS, and then from the local FEP to the master controller via NGVL.
+
+     5. The sequence allows 30 seconds for the breakers to open.
+
+     6. The master controller confirms the AUX transformer ICBs and VG E-house feeder breakers are
+         open. If the AUX transformer ICBs are not opened, the sequence will pause and return an alarm
+         to the control room HMI waiting for operator intervention to confirm next controller action.
+
+     7. The master controller sends a start command to the EDG control interface. The path for this
+         communication will be established upon confirmation of the EDG IO interface from VoltaGrid.
+
+     8. The master controller confirms if the EDG is online by confirming SWBD Bus A voltage is at
+         ±10 percent V from nominal. EM 1 breaker relay will be monitored for SWBD Bus A voltage.
+
+     9. If the master controller determines that the EDG is not online, the sequence will pause and an
+         alarm will be returned to the control room HMI.
+
+Date Code 20260213                               VoltaGrid LLC            Page 21
+SEL ES PROPRIETARY INFORMATION          TX-3 Node 1 POWERMAX FDS   036815.005.00
+© 2026 by SEL ES (All rights reserved)                            www.selinc.com
+10. The master controller sends close commands to all VG E-House feeder breakers. Similar to the
+    path explained in step #3, the master controller sends the command to its local FEP via NGVL,
+    and then from the local FEP to the breaker protection relay via MMS.
+
+11. If the master controller does not receive breaker close feedback for any of the feeder breakers on
+    Bus A, it will pause the sequence, return an alarm to the control room HMI, and then wait for
+    operator intervention to confirm next controller action.
+
+12. The master controller confirms all feeder breakers are closed by successfully receiving breaker
+    closed status.
+
+13. All critical auxiliary loads are energized, and Blackout Recovery is complete.
+
+                                           Figure 6-1: Blackout Recovery Flowchart
+
+As illustrated in Figure 6-1, in the event of a sequence pause, the operator is presented with four options
+at the HMI.
+
+Date Code 20260213                               VoltaGrid LLC            Page 22
+SEL ES PROPRIETARY INFORMATION          TX-3 Node 1 POWERMAX FDS   036815.005.00
+© 2026 by SEL ES (All rights reserved)                            www.selinc.com
+     1. Abort: This stops the recovery sequence.
+
+     2. Restart: This retries the blackout recovery sequence after it's been reset.
+
+     3. Reset: This resets the blackout recovery sequence by stopping the process and undoing previous
+         executed actions where applicable.
+
+     4. Continue: This allows the master controller to proceed to the next step.
+
+BLACK START SEQUENCE
+
+The goal of the Black Start sequence is to restore base level of reserve margin and transition off the
+backup generator. Unlike the blackout recovery sequence which starts automatically, the Black Start
+sequence must be manually initiated from the control room HMI. GMS will be disabled while Black Start
+is in progress. Figure 6-2 presents the blackout recovery flow diagram and steps executed by the master
+controller. Each step has a number assigned, refer to those numbers when reading the following notes for
+additional details on that step. All failures and alarms will require an operator intervention to confirm the
+next controller action.
+
+     1. Blackout recovery sequence is complete, and the operator initiates Black Start from the control
+         room HMI.
+
+     2. The master controller will continuously monitor the voltage of all 34.5kV feeder breakers to
+         determine a dead bus. A dead bus is confirmed if the bus voltage is < 0.3 pu nominal for 5
+         seconds.
+
+     3. The master controller verifies all ICBs are open. Breaker open status is sent from the local
+         protection relay of each breaker to its local FEP via MMS, and then from the local FEP to the
+         master controller via NGVL.
+
+     4. If any ICB is open, at this step an alarm will be displayed on the control room HMI which will
+         give the operator options to determine next steps. The operator may choose to Abort, Reset, or
+         Continue.
+
+     5. The master controller sends a close command to the SYNCON FEP over NGVL, the SYNCON
+         FEP sends this to the SYNCON ICB's protection relay over MMS.
+
+     6. The master controller verifies if the SYNCON ICB is closed. The ICB SEL-787 relays sends
+         breaker status over MMS to its SYNCON FEP, the FEP then sends the breaker status to the
+         master controller over NGVL.
+
+     7. The first genset for Black Start is selected according to the HMI set priority. The master
+         controller sends a close command to the selected genset's QPac FEP over NGVL, the QPac FEP
+         sends this to the selected genset ICB protection relay over MMS.
+
+     8. The master controller verifies if the selected genset ICB is closed. The ICB SEL-787 relays sends
+         breaker status over MMS to its QPac FEP, the FEP then sends the breaker status to the master
+         controller over NGVL.
+
+     9. The master controller sends a start command to the selected genset QPac FEP over NGVL, the
+         QPac FEP then sends the start command to the genset's SEL-2411 over GOOSE. The SEL-2411
+         sends this hardwired to the genset's DIA.NE controller. If this genset starts and then trips, there
+         will be an option for the operator to restart that engine before the master controller proceeds to
+         the next step.
+
+     10. The master controller receives Engine is Demanded signal from the DIA.NE controller through
+         the genset's SEL-2411 over hardwired communication. The SEL-2411 sends the feedback to its
+         local QPac FEP, this QPac then sends it to the master controller over NGVL.
+
+Date Code 20260213                               VoltaGrid LLC            Page 23
+SEL ES PROPRIETARY INFORMATION          TX-3 Node 1 POWERMAX FDS   036815.005.00
+© 2026 by SEL ES (All rights reserved)                            www.selinc.com
+     11. The master controller sends a close command to the genset QPac FEP over NGVL, the QPac FEP
+         sends this to the genset GCB's relay over MMS.
+
+     12. The master controller determines if the overhead bus is operating at ±10 percent V from nominal.
+
+     13. The master controller repeats steps 7 ­ 11 for all gensets up to the number of secondary Black
+         Start gensets set on the control room HMI.
+
+     14. The master controller confirms all started gensets are online by receiving successful Engine Is
+         Running status from each genset DIA.NE controller and confirming the respective GCBs are
+         closed.
+
+     15. The master controller shuts down the EDG by sending a stop command to the auxiliary FEP, the
+         auxiliary FEP then sends the stop command to the EDG interface.
+
+     16. The master controller sends a close command to the E-House transformer ICBs, Main 1 and Main
+         2 breakers to the auxiliary FEP, the auxiliary FEP then sends the individual close commands to
+         the protection relay. Main 1 and Main 2 relays are SEL-751.
+
+     17. All critical auxiliary loads are energized as their feeder breakers remained closed since the
+         blackout recovery sequence.
+
+     18. Blackstart is complete.
+
+As illustrated in Figure 6-2, in the event of a sequence pause, the operator is presented with three options
+at the HMI.
+
+     1. Abort: This stops the black start sequence.
+
+     2. Reset: This resets the black start sequence by stopping the process and undoing previous
+         executed actions where applicable.
+
+     3. Continue: This allows the master controller to proceed to the next step.
+
+Date Code 20260213                               VoltaGrid LLC            Page 24
+SEL ES PROPRIETARY INFORMATION          TX-3 Node 1 POWERMAX FDS   036815.005.00
+© 2026 by SEL ES (All rights reserved)                            www.selinc.com
+                                        Figure 6-2: Black Start Sequence Flowchart
+
+Date Code 20260213                               VoltaGrid LLC                              Page 25
+SEL ES PROPRIETARY INFORMATION          TX-3 Node 1 POWERMAX FDS                     036815.005.00
+© 2026 by SEL ES (All rights reserved)                                              www.selinc.com
+             DESIGN PORTABILITY
+
+This FDS is specifically applicable to TX-3 Node1 project. All system descriptions, control logic, and
+operating assumptions documented herein are based on the Node1 power plant configuration.
+
+SEL ES is concurrently developing a control system for TX-3 Node 2 and TX-2 projects. Due to the
+similarity in scope and architecture of these three projects, they all share a similar design with project
+differences limited primarily to the number and type of generator units and synchronous condensers per
+power plant.
+
+Table 7.1 contains several field assets that differ in number across the three projects:
+
+             Table 7.1: Number of Field Assets in TX-3 Node 1, Node 2, and TX-2 Projects
+
+   Project   Number of                  Number of  Number of                  Number of
+             J620 LIG                   J620 HIG       J624          Synchronous Condensers
+TX-3 Node 1
+TX- Node 2        32                         14          0                          2
+                   0                         46          0                          1
+    TX-2          16                          0         20                          1
+
+All three project sites will have two master controllers and two feeder/auxiliary FEPs. According to
+Table 7.1, the number of FEPs required at QPacs and synchronous condensers will change. Table 7.2
+documents these differences:
+
+             Table 7.2: Number of FEPs Required in Control System
+
+   Project   Total FEP count            Number of     Number of              Number of
+                                        QPac FEPs  Feeder/Auxiliary  Synchronous Condenser
+TX-3 Node 1
+TX- Node 2                                                FEPs                   FEPs
+
+    TX-2     30                         24                        2                       4
+
+             28                         24                        2                       2
+
+             28*                        16                        2                       2
+
+*VG requested 8 additional FEPs in case the J624 QPACs end up with two sets of network switches.
+
+Date Code 20260213                               VoltaGrid LLC                                       Page 26
+SEL ES PROPRIETARY INFORMATION          TX-3 Node 1 POWERMAX FDS                              036815.005.00
+© 2026 by SEL ES (All rights reserved)                                                       www.selinc.com
+                    BLUEFRAME DMA
+
+BLUEFRAME OVERVIEW
+
+The SEL Blueframe OS will be hosted on an SEL-3355 device, which is part of the OT network provided
+and maintained by VoltaGrid. Using the DMA application suite, SEL will configure the Blueframe
+platform to provide configuration monitoring and disturbance monitoring for all SEL IEDs as identified
+in the SLD. The architectural design is geared towards scalability, facilitating seamless integration with
+potential additional sites in the future.
+
+BLUEFRAME PORTAL
+
+The application menu of the Blueframe OS contains a Chromium browser option to launch the Blueframe
+portal. All Blueframe system applications and tools can be accessed through this browser in a secure
+web-based environment.
+
+Figure 8-1 is the Blueframe portal and the Blueframe applications can be seen on this page. For the TX-3
+Node 1 project, the Blueframe DMA Disturbance Monitoring application will be configured.
+
+                                        Figure 8-1: Blueframe Portal
+
+Date Code 20260213                               VoltaGrid LLC                Page 27
+SEL ES PROPRIETARY INFORMATION          TX-3 Node 1 POWERMAX FDS       036815.005.00
+© 2026 by SEL ES (All rights reserved)                                www.selinc.com
+BLUEFRAME DMA DISTURBANCE MONITORING
+
+Disturbance Monitoring enables automated collection of events oscillography and SOE data collection
+and viewing from supported resources/IEDs on the PMS network. This package comes with two
+applications: Disturbance Monitoring and Disturbance Monitoring Archive. Disturbance Monitoring is
+used to configure data collection plans, Disturbance Monitoring Archive is used for viewing and
+assessing the collected data.
+
+Blueframe DMA Disturbance Monitoring will be configured to collect disturbance event oscillography
+and SOE from the SEL-3555 FEP RTACs and SEL-700 series IEDs every one hour using Telnet.
+
+It is important to note that critical alarms/events within the PMS will be notified on the PMS HMI as they
+occur. Blueframe Disturbance Monitoring eases the collection of events/SOEs from PMS devices into a
+central location. The data collected can also be assessed within the Blueframe platform. The scheduled
+time for data collection is determined considering important factors such as:
+
+     Communication overhead that could exist during data collection from an IED. If a field IED is
+         busy, it can take a couple of different tries for the PMS panel FEP/RTAC to pull the event from
+         that relay.
+
+     Ethernet port speed.
+
+     Type and size of event being collected.
+
+Considering these factors, it is advised to allow enough time for events to successfully be pulled from the
+RTACs and IEDs before accessing the devices to pull more events.
+
+Note: Blueframe DMA application is not redundant and is only configured for one LAN.
+
+OTHER DMA TOOLS
+
+Resource Management
+
+A Blueframe Resource refers to IEDs in PMS network and can be configured with the Blueframe
+Resource Management tool. Blueframe employs a smart shared data scheme throughout the platform, so
+IED information, connections and user logins are defined just once. Each DMA application will subscribe
+seamlessly to the data it needs from the IED.
+
+DMA Settings
+
+DMA settings is used to allocate computer memory for DMA applications. As the memory for a specific
+DMA application gets exhausted, the oldest file in its allocated memory will be deleted to create space for
+newly collected files.
+
+Date Code 20260213                               VoltaGrid LLC            Page 28
+SEL ES PROPRIETARY INFORMATION          TX-3 Node 1 POWERMAX FDS   036815.005.00
+© 2026 by SEL ES (All rights reserved)                            www.selinc.com
+                    THIRD-PARTY INTERFACES
+
+The following list summarizes the third-party systems and devices that are integrated with SEL control
+system:
+
+     DIA.NE/B&R
+     HMI cluster
+     CCP (synchronous condenser)
+     National Service Alliance
+     Holt
+
+DIA.NE/B&R
+
+Specific system details:
+     Generator-specific I/O: J620 control and status signals between SEL master controller and
+         DIA.NE. Critical signals are hardwired, all control I/O are documented in SEL I/O list.
+     Protocol: Hardwired and Modbus TCP.
+
+HMI CLUSTER
+
+Specific system details:
+     All controllers programmed by SEL will have an internal Modbus TCP server that will provide
+         device health information to VoltaGrid HMI cluster for monitoring purposes.
+     The master controller will interface with VoltaGrid HMI cluster over Modbus TCP.
+     Protocol: Modbus.
+
+CCP
+
+Specific system details:
+     Still in discussion
+     Protocol: Modbus.
+
+NATIONAL SERVICE ALLIANCE
+
+Specific system details:
+     Still in discussion
+     Protocol: Modbus.
+
+HOLT
+
+Specific system details:
+     EDG I/Os.
+     Still in discussion.
+
+Date Code 20260213                               VoltaGrid LLC            Page 29
+SEL ES PROPRIETARY INFORMATION          TX-3 Node 1 POWERMAX FDS   036815.005.00
+© 2026 by SEL ES (All rights reserved)                            www.selinc.com
+                    TIME SYNCHRONIZATION
+
+NTP
+
+NTP is an industry standard protocol for time synchronization of Ethernet-based devices.
+The following devices will be time-synchronized to the SEL-2488 clock over NTP:
+
+     SEL master controllers
+     QPac, feeder, auxiliary, and synchronous condenser FEPs
+     SEL-2411
+All local protective relays have a dedicated SEL-9524 and SEL-2401 Satellite-Synchronized Clock for
+time synchronization.
+
+Date Code 20260213                               VoltaGrid LLC            Page 30
+SEL ES PROPRIETARY INFORMATION          TX-3 Node 1 POWERMAX FDS   036815.005.00
+© 2026 by SEL ES (All rights reserved)                            www.selinc.com
+                    REAL TIME DIGITAL SIMULATION
+
+SYSTEM OVERVIEW
+
+An RTDS is a fully digital power system simulator capable of continuous real-time operation. It performs
+electromagnetic power system transient simulations with a typical time step on the order of
+50 microseconds using a combination of custom software and hardware.
+
+The RTDS is an ideal tool for thorough design, study, and testing of protection and control schemes. With
+the large amount of both digital and analog I/O capabilities, physical protection and control devices can
+be connected to the RTDS to interact with the simulated power system for closed-loop testing.
+
+The complete POWERMAX System will interface directly with the RTDS located at the SEL headquarters
+in Pullman, Washington. The closed-loop interaction of the control elements within the POWERMAX will
+be studied. The following subsections include discussion on RTDS hardware, RTDS testing philosophy,
+and model validation.
+
+RTDS HARDWARE
+
+The RTDS hardware was designed specifically to provide real-time performance and to use the Dommel
+algorithm for solving the network solution. For additional information, refer to H. W. Dommel, "Digital
+Computer Solution of Electromagnetic Transients in Single and Multiphase Networks," IEEE
+Transactions in Power Apparatus and Systems, Volume: PAS-88, Issue: 4, April 1969.
+
+The Dommel algorithm allows two levels of parallel processing:
+
+     Parallel processing of components connected to a common admittance matrix (i.e., within one
+         subsystem).
+
+     Parallel processing of subsystems (i.e., decoupled admittance matrices).
+
+The RTDS mimics the first level by using tightly coupled processors within a rack to solve components
+connected to a common admittance matrix. The second level is implemented by using separate racks to
+solve different simulation subsystems.
+
+In addition to being designed to execute the Dommel algorithm in real time, the RTDS was designed to
+test physical protection and control equipment. One of the main considerations of testing physical devices
+is the I/O structure. To maximize the communications bandwidth and minimize the time required, the
+RTDS was designed to provide the most direct route possible for I/O to be passed from the processors
+performing the simulation to the I/O channels. SEL will set the reporting time in the I/O channels to
+mimic the field reporting times.
+
+RTDS TESTING PHILOSOPHY
+
+RTDS testing is performed to validate the functionality of load sharing, generation control, generation
+management, and black start. The RTDS will be connected to the POWERMAX System to allow for
+closed-loop validation of the PMS during the factory acceptance test (FAT). The test results will be used
+to achieve the following:
+
+     Verify and validate the RTDS model.
+
+     Identify scenarios for system testing.
+
+Date Code 20260213                               VoltaGrid LLC            Page 31
+SEL ES PROPRIETARY INFORMATION          TX-3 Node 1 POWERMAX FDS   036815.005.00
+© 2026 by SEL ES (All rights reserved)                            www.selinc.com
+     Prove that the POWERMAX control works for all identified scenarios. The Customer must identify
+         one topology and load flow base-case scenario that will be used for validating the RTDS. This
+         topology and scenario will be used during the FAT. The topology can be changed if no major
+         changes are made during the FAT.
+
+     Create the FAT report for control system tests.
+
+MODEL DEVELOPMENT
+
+The model developed for the RTDS testing will represent the complete system according to the SLD
+provided by the Customer. Additionally, SEL will use the SLDs for individual substations provided by
+the Customer, as necessary.
+
+The data required for modeling different power system components (generators, transformers,
+transmission lines, distribution lines/cables, and loads) will be provided by the Customer. The RTDS has
+certain limitations with the total number of nodes and power system components that can fit into the
+model. Because of these limitations, wherever necessary, certain components of the system will be
+grouped together with minimum loss of accuracy for model development. SEL will provide a list of
+assumptions.
+
+For this project, SEL will use the following data provided by the Customer for the RTDS model:
+
+     Approved overall system SLD
+
+     Transient stability report, and load flow report (if available)
+
+     Data sheets for various equipment
+
+     Stability report (if available), which will be used to validate the generator dynamics
+
+Generators will be modeled using an ac machine model, which is based on the standard synchronous
+machine model. The model has interface capabilities with prebuilt, as well as custom-built exciters and
+governor/turbine control systems. The exciters and governor models prebuilt in the RTDS are based on
+the models provided in the data sheet or MATLAB model provided by INNIO.
+
+MODEL VALIDATION
+
+Model validation is a critical step in the model development process. The RTDS model was validated
+against the corresponding MATLAB model and any other field-testing information provided as part of the
+studies project with VG.
+
+For this project, SEL will use the MATLAB model provided by VoltaGrid to determine the steady-state
+load flow.
+
+Date Code 20260213                               VoltaGrid LLC            Page 32
+SEL ES PROPRIETARY INFORMATION          TX-3 Node 1 POWERMAX FDS   036815.005.00
+© 2026 by SEL ES (All rights reserved)                            www.selinc.com
+REFERENCE DOCUMENTS
+
+Table 12.1 lists additional documents that contain additional details about this project:
+
+                                        Table 12.1: Reference Documents
+
+                Document                         Description                            Source
+
+ENG-STA-E-TBD                           VoltaGrid Data Center      VoltaGrid
+                                        Power Plant Control
+VG25-P-EL-TX3-PTS-P01 Rev2              System Requirements        VoltaGrid
+036815.005.00 TX-3 Node 1               Rev2
+DFD                                     Vantage TX-3 Phase 1:      Appendix B
+036815.005.00 TX-3 Node 1 I/O List      Node 1 SLD                 VoltaGrid
+                                                                   SEL Blueframe Software/Data
+                                        Data Flow Diagram          Management and Automation Instruction
+                                                                   Manual (selinc.com)
+                                        I/O List
+
+SEL Blueframe Software Application Information on Blueframe
+
+Platform Instruction Manual             Platform and applications
+
+Note: Create a login account on selinc.com to access the linked instruction manual.
+
+Date Code 20260213                               VoltaGrid LLC                                     Page 33
+SEL ES PROPRIETARY INFORMATION          TX-3 Node 1 POWERMAX FDS                            036815.005.00
+© 2026 by SEL ES (All rights reserved)                                                     www.selinc.com
+                                        This page intentionally left blank
+
+Date Code 20260213                               VoltaGrid LLC                      Page 34
+SEL ES PROPRIETARY INFORMATION          TX-3 Node 1 POWERMAX FDS             036815.005.00
+© 2026 by SEL ES (All rights reserved)                                      www.selinc.com
+      SINGLE-LINE DIAGRAM
+
+.
+
+                                        A                                                                     B                                                                     C                                                            D                                                                                          E                                                   F
+
+                                                                                                                                   POWERMAX PMS Simplified Single Line Diagram ­ TX-3 NODE 1 (Sheet 1/2)                                                                                                                                              Source Capacity          Notes:
+
+                                                                                                                                                                                                                                                                                                                                                                               QPACs:              12
+
+                                                                                                                                                                                                                                                                                                                                                      J620 LIG : 3.845 MVA
+
+                                                                                                                                                                                                                                                                                                                                                                               J620 LIG:           QPAC 1 - 8
+
+                                                                                                     QPAC-1 (LIG J620)                                                                       QPAC-3 (LIG J620)                                                       QPAC-5 (LIG J620)                                                                J620 HIG : 3.845 MVA
+
+                                                                                                                                                                                                                                                                                                                                                                               J620 HIG:           QPAC 9 - 12
+
+                                                                                       Q 1-G 1       Q 1-G 2     Q 1-G 3           Q 1-G 4                                Q 3-G 9            Q 3-G 10     Q 3-G 11           Q 3-G 12                      Q 5-17    Q 5-G 18  Q 5-G 19                                           Q 5-G 20            SYNCON : 40 MVA
+
+   1                                                                                                                                                                                                                                                                                                                                                                           No of Loads:        5                         1
+
+                                                                                                                                                                                                                                                                                                                                                      BU-G1 : 1.5 MVA
+
+                                                                                       G CB-01   G CB-02         G CB-03           G CB-04                                G CB-09            G CB-10      G CB-11            G CB-12                       G CB -17  G CB -18  G CB -19                                           G CB -20                                     There are two physical buses in the overhead
+                                                                                                                                                                                                                                                                                                                                                                               bus but SEL master controller is designed as
+
+                                                                                                                                                                                                                                                                                                                                                                               one bus system.
+
+                                                                                       XF MR-01  XF MR-02        XF MR-03          XF MR-04                               XF MR-09           XF MR-10     XF MR-11           XF MR-12                      XF MR-17  XF MR-18  XF MR-19                                           XF MR-20
+                                                                                       6.25MVA   6.25MVA         6.25MVA           6.25MVA                                6.25MVA            6.25MVA      6.25MVA            6.25MVA                       6.25MVA   6.25MVA   6.25MVA                                            6.25MVA
+
+                                                                                         13.8/      13.8/           13.8/             13.8/                                  13.8/              13.8/        13.8/              13.8/                        13.8/     13.8/     13.8/                                              13.8/
+                                                                                        34.5 kV   34.5 kV         34.5 kV           34.5 kV                                34.5 kV            34.5 kV      34.5 kV            34.5 kV                       34.5 kV   34.5 kV   34.5 kV                                            34.5 kV
+
+                                                                                       ICB-01    ICB-02          ICB-03            ICB-04                                 ICB -09            ICB -10      ICB -11            ICB -12                       ICB -17   ICB -18   ICB -19                                            ICB -20                                      Relay Types
+
+                                                                                                                                                                                                                                                                                                                                                                               GCB:                SEL-700G & SEL-2411
+
+                                                          SC1                           SC2                                                           QPAC-2 (LIG J620)                                                                QPAC-4 (LIG J620)                                                                                    QPAC-6 (LIG J620)                  ICB:                SEL-787
+                                                         SY NC                         SY NC                                                                                                                                                                                                                                                                                   Feeders (FCB):      SEL-751 & SEL-735
+                                                         -CON   M                      -CON      M                                 Q 2-G 5            Q 2-G 6   Q 2-G 7             Q 2-G 8                                  Q 4-G 13  Q 4-G 14  Q 4-G 15  Q 4-G 16                                                               Q 6-G 21  Q 6-G 22  Q 6-G 23  Q 6-G 24       SyncCon BKR:        SEL-751
+                                                                3~                               3~
+
+   2                                                                                                                               G CB -05           G CB -06  G CB -07           G CB -08                                  G CB-13   G CB-14   G CB-15   G CB-16                                                                G CB-21   G CB-22   G CB-23   G CB-24        Aux Bkrs (ex. Tie): SEL-751                   2
+
+                                        SC1-15kV-BKR                S C2 -15k V-B K R
+
+                                                                                                                                   XF MR-05           XF MR-06  XF MR-07     XF MR-08                                        XF MR-13  XF MR-14  XF MR-15  XF MR-16                                                               XF MR-21  XF MR-22  XF MR-23  XF MR-24       Aux Tie:            SEL-700G
+                                                                                                                                   6.25MVA            6.25MVA   6.25MVA      6.25MVA                                         6.25MVA   6.25MVA   6.25MVA   6.25MVA                                                                6.25MVA   6.25MVA   6.25MVA   6.25MVA
+                                           SC-XF MR-01              SC-XF MR-01
+                                               28MVA                   28MVA                                                         13.8/              13.8/     13.8/        13.8/                                            13.8/     13.8/     13.8/     13.8/                                                                  13.8/     13.8/     13.8/     13.8/
+                                                                                                                                    34.5 kV            34.5 kV   34.5 kV      34.5 kV                                         34.5 kV   34.5 kV   34.5 kV   34.5 kV                                                                34.5 kV   34.5 kV   34.5 kV   34.5 kV
+                                           13.8/34.5 kV             13.8/34.5 kV
+
+                                                                                                                                   ICB-05             ICB-06    ICB-07             ICB-08                                    ICB-13    ICB-14    ICB-15    ICB-16                                                                 ICB-21    ICB-22    ICB-23    ICB-24
+
+                                           ICB -49                  ICB -50
+
+      34.5kV OVERHEAD BUS                                                                                                                                                                                                                                                                                                                                                                                   To
+                                                                                                                                                                                                                                                                                                                                                                                                            Simplified
+                                                                                                                                                                                                                                                                                                                                                                                                            Single Line
+                                                                                                                                                                                                                                                                                                                                                                                                            Diagram
+                                                                                                                                                                                                                                                                                                                                                                                                            Sheet 2/2
+
+   3                                                                                                                                                                                                                                                                                                                                                                                                                         3
+
+                                                                                                                          FC B-01            FC B-02                FC B-03         FC B-04                         FC B-05
+
+                                                                                                                                        TO           TO                         TO                 TO                     TO
+                                                                                                                                  BUILD ING 4  BUILD ING 4                BUILD ING 4        BUILD ING 4            BUILD ING 4
+
+                                                                                                                                      DAT A        DAT A                      DAT A              DAT A                CORE &
+                                                                                                                                    MO DULE      MO DULE                    MO DULE            MO DULE                  SPINE
+
+                                 4                                                                                                                                                                                                                   SCHWEITZER ENGINEERING LABORATORIES, INC.                                                                  CLIE NT     VoltaGrid                                      4
+                                                                                                                                                                                                                                                     2350 NE Hopkins Court, Pullman, WA 99163-5603, USA                                                         P ROJ E CT  Vantage TX-3 Phase 1: Node 1
+Date Code 20260213                                                                                                                                                                                                                                   Engineering Services                                                                                                                                       Sheet 1/2
+SEL ES PROPRIETARY INFORMATION                                                                                                                                                                                                                                                                                                                                  DWG TITLE Simplified Single Line Diagram
+© 2026 by SEL ES (All rights reserved)                                                                                                                                                                                        This document and all information contained herein is proprietary to Schweitzer Engineering                                                                                         DATE
+                                                                                                   0 01/20/2025 Initial Versio n                                                                                              Laboratories, Inc. Any unauthorized use, distr ibution, or reproduction of this document ( in                                     ENGINEER Dhruv Sharma DRAWN BYDami Ajayi
+                                                                                                 REV DATE                                                                                                                     whole or in par t) or of any information contained herein is specifically prohibited. T his legend                                                                                01/20/202 6
+                                                                                                                                                                                                          DA DS must appear on any authorized reproduction (in whole or in par t). COPYRIGH T © SEL 2025                                                        SCALE     NTS  PROJ# - DWG#  036815.005.00
+                                                                                                                                                                                                          BY CKD                                                                                                                                                                                                 REV
+                                                                                                                                                      DESCRIPTI ON
+                                                                                                                                                                                                                                                                                                                                                                                                                      0
+
+                                                                                                                                                                                                                                                                                                                                                                                                                            FMIN-01
+                                                                                                                                                                                                                                                                                                                                                                                                                              REV. 1
+
+                                                                                                                                                                Figure A.1: TX-3 Node 1 Simplified SLD (Sheet 1/2)                                                                                                                                                                                                                            Page 35
+                                                                                                                                                                                                                                                                                                                                                                                                                                       036815.005.00
+                                                                                                                                                                                                  VoltaGrid LLC                                                                                                                                                                                                                       www.selinc.com
+                                                                                                                                                                                        TX-3 Node 1 POWERMAX FDS
+.
+
+                                        A                                          B                                                                       C                                              D                                                                                              E                                                              F
+
+                                                                                      POWERMAX PMS Simplified Single Line Diagram - TX-3 NODE 1 (Sheet 2/2)                                                                                                                                                                  Source Capacity           Notes:
+
+                                                                                                                                                                                                                                                                                                                                                       QPACs:                 12
+
+                                                                                                                                                                                                                                                                                                                             J620 LIG : 3.845 MVA      J620 LIG:              QPAC 1 - 8
+                                                                                                                                                                                                                                                                                                                             J620 HIG : 3.845 MVA
+                                                     QPAC-7 (LIG J620)                                                                 QPAC-9 (HIG J620)                                                  QPAC-11 (HIG J620)                                                                                                 SYNCON : 40 MVA           J620 HIG:              QPAC 9 - 12
+                                                                                                                                                                                                                                                                                                                             BU-G1 : 1.5 MVA
+   1                                       Q 7-25    Q 7-26    Q 7-27    Q 7-28                                     Q 9-33             Q 9-34    Q 9-35       Q 9-36                           Q 11-41    Q11-42    Q11-43    Q11-44                                                                                                                   No of Loads:           5                                   1
+
+                                           G CB-25   G CB-26   G CB-27   G CB -28                                   G CB-33            G CB-34   G CB -35     G CB -36                         G CB-41    G CB-42   G CB-43   G CB -44                                                                                                                 There are two physical buses in the overhead
+                                                                                                                                                                                                                                                                                                                                                       bus but SEL master controller is designed as
+
+                                                                                                                                                                                                                                                                                                                                                       one bus system.
+
+                                           XF MR-25  XF MR-26  XF MR-27  XF MR-28                                   XF MR-33           XF MR-34  XF MR-35     XF MR-36                         XF MR-41   XF MR-42  XF MR-43  XF MR-44
+                                           6.25MVA   6.25MVA   6.25MVA   6.25MVA                                    6.25MVA            6.25MVA   6.25MVA      6.25MVA                          6.25MVA    6.25MVA   6.25MVA   6.25MVA
+
+                                              13.8/     13.8/     13.8/     13.8/                                      13.8/              13.8/     13.8/        13.8/                            13.8/      13.8/     13.8/     13.8/
+                                            34.5 kV   34.5 kV   34.5 kV   34.5 kV                                    34.5 kV            34.5 kV   34.5 kV      34.5 kV                          34.5 kV    34.5 kV   34.5 kV   34.5 kV
+
+                                           ICB -25   ICB -26   ICB -27   ICB -28                                    ICB -33            ICB -34   ICB -35      ICB -36                          ICB -41    ICB -42   ICB -43   ICB -44                                                                                                                  Relay Types
+                                                                                                                                                                                                                                                                                                                                                       GCB:
+                                                                                                                                                                                                                                                                                                                                                                              SEL-700G & SEL-2411
+
+                                                                                      QPAC-8 (LIG J620)                                                                  QPAC-10 (HIG J620)                                                                                              QPAC-12 (HIG J620)                                            ICB:                   SEL-787
+
+                                                                         Q 8-G 29     Q 8-G 30            Q 8-G 31           Q 8-G 32                         Q 10-G 37  Q 10-G 38  Q 10-G 39  Q 10-G 40                                                                                 Q 12-G 45                Q 12-G 46                            Feeders (FCB):         SEL-751 & SEL-735
+                                                                                                                                                                                                                                                                                                                                                       SyncCon BKR:           SEL-751
+
+   2                                                                     G CB-29      G CB-30             G CB-31            G CB-32                          G CB -37   G CB -38   G CB-39    G CB -40                                                                                  G CB-45                  G CB -46                             Aux Bkrs (ex. Tie): SEL-751                                2
+
+                                                                         XF MR-29     XF MR-30            XF MR-31  XF MR-32                                  XF MR-37   XF MR-38   XF MR-39   XF MR-40                                                                                  XF MR-45                 XF MR-46                             Aux Tie:               SEL-700G
+                                                                         6.25MVA      6.25MVA             6.25MVA   6.25MVA                                   6.25MVA    6.25MVA    6.25MVA    6.25MVA                                                                                   6.25MVA                  6.25MVA
+
+                                                                            13.8/        13.8/               13.8/     13.8/                                     13.8/      13.8/      13.8/      13.8/                                                                                     13.8/                    13.8/
+                                                                          34.5 kV      34.5 kV             34.5 kV   34.5 kV                                   34.5 kV    34.5 kV    34.5 kV    34.5 kV                                                                                   34.5 kV                  34.5 kV
+
+                                                                         ICB-29       ICB-30              ICB-31             ICB-32                           ICB-37     ICB-38     ICB-39     ICB-40                                                                                    ICB-45                   ICB-46
+
+                         From                                                                                                                                                                                                                                                                                                                                        34.5kV OVERHEAD BUS
+                   Simplified
+                 Single Line                                                                                                                                                                                                                                                                                      DIESEL GEN NODE 1
+
+                     Diagram                                                                                                                                                                                                                                                             ICB -47                             BU-G1                     ICB -48                                                    3
+                   Sheet 1/2                                                                                                                                                                                                                                                                                                 3512-C
+
+   3                                                                                                                                                                                                                                                                                                                         (1 .5MVA)
+
+                                                                                                                                                                                                                              Auxilliary                                                 AUX-XF MR-1                                               AUX-XF MR-2
+                                                                                                                                                                                                                                                                                                   3MVA                                                      3MVA
+                                                                                                                                                                                                                                                                                                                             N am e ?
+                                                                                                                                                                                                                                                                                          34.5kV/480V                                               34.5kV/480V
+
+                                                                                                                                                                                                                                                                                                         MA IN 1             EM 1                                    MA IN 2
+
+                                                                                                                                                                                                                                        480V SWBD A                                                                                                                           480V SWBD B
+
+                                                                                                                                                                                                                                                     F1                                                                                TI E
+
+                                                                                                                                                                                                                                                                                         F2                       F3                               F3                  F2              F1
+
+   4                                                                                                                                                                                                                                                                                                                                                                                                              4
+
+                                                                                                                                                                                               SCHWEITZER ENGI NEERING LABO RATORIES, INC.                                                                                             CLIE NT     VoltaGrid
+                                                                                                                                                                                               2350 NE Hopkins Court, Pullman, WA 99163-5603, USA                                                                                      P ROJ E CT  Vantage TX-3 Phase 1: Node 1
+                                                                                                                                                                                               Engineering Services
+
+                                                                                                                                                                                    This document and all information contained herein is proprietary to Schweitzer Engineer ing                                                       DWG TITLE Simplified Single Line Diagram            Sheet 2/2
+                                                                                                                                                                                    Laboratories, Inc. Any unauthorized use, distr ibution, or reproduction of this document ( in
+                                                                           0 01/20/2025 Initial Versio n                                                                 DA DS      whole or in par t) or of any information contained herein is specifically pr ohibited. T his legend                                                ENGINEER Dhruv Sharma DRAWN BYDami Ajayi              DATE
+                                                                         REV DATE                                                                                        BY CKD     must appear on any author ized reproduction ( in whole or in par t) . COPYRIGH T © SEL 2025
+                                                                                                                                                                                                                                                                                                                                       SCALE       PROJ# - DWG#                            01/20/202 6
+                                                                                                                                                                                                                                                                                                                                              NTS                  036815.005.00
+                                                                                                                              DESCRIPTI ON                                                                                                                                                                                                                                                  REV
+
+                                                                                                                                                                                                                                                                                                                                                                                                 0
+
+                                                                                                                                                                                                                                                                                                                                                                                                       FMIN-01
+                                                                                                                                                                                                                                                                                                                                                                                                          REV. 1
+
+                                                                                                                                                 Figure A.2: TX-3 Node 1 Simplified SLD (Sheet 2/2)
+
+Date Code 20260213                                                                                                                                                                VoltaGrid LLC                                                                                                                                                                                                                              Page 36
+SEL ES PROPRIETARY INFORMATION                                                                                                                                           TX-3 Node 1 POWERMAX FDS                                                                                                                                                                                                                     036815.005.00
+© 2026 by SEL ES (All rights reserved)                                                                                                                                                                                                                                                                                                                                                                               www.selinc.com
+                    DATA FLOW DIAGRAM
+
+Provided separately (uploaded to customer SharePoint)
+
+Date Code 20260213                                              VoltaGrid LLC            Page 37
+SEL ES PROPRIETARY INFORMATION                         TX-3 Node 1 POWERMAX FDS   036815.005.00
+© 2026 by SEL ES (All rights reserved)                                           www.selinc.com
+

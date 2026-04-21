@@ -1,0 +1,54 @@
+:root {
+  color-scheme: dark;
+  --bg: #0b1220;
+  --panel: #111827;
+  --line: #9ec5ff;
+  --text: #e5eefc;
+  --muted: #93a4bf;
+  --accent: #4ade80;
+  --alarm: #f87171;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, Segoe UI, Arial, sans-serif;
+}
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+.app-header {
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background: var(--panel);
+}
+.diagram-wrap {
+  padding: 16px;
+}
+#diagram {
+  width: 100%;
+  height: calc(100vh - 80px);
+  background: #0f172a;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.trace {
+  fill: none;
+  stroke: var(--line);
+  stroke-width: 4;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.symbol {
+  fill: transparent;
+  stroke: var(--text);
+  stroke-width: 3;
+}
+.label {
+  fill: var(--text);
+  font-size: 20px;
+  font-weight: 600;
+}

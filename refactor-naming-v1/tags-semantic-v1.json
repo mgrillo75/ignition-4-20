@@ -1,0 +1,2071 @@
+{
+  "name": "",
+  "tagType": "Provider",
+  "tags": [
+    {
+      "name": "TX3",
+      "tagType": "Folder",
+      "tags": [
+        {
+          "name": "Systems",
+          "tagType": "Folder",
+          "tags": [
+            {
+              "name": "GCS",
+              "tagType": "Folder",
+              "tags": [
+                {
+                  "name": "RTACControl",
+                  "tagType": "Folder",
+                  "tags": [
+                    {
+                      "name": "LastFailoverTime",
+                      "tagType": "AtomicTag",
+                      "valueSource": "reference",
+                      "sourceTagPath": "[default]/GCS_RTAC_Control/LastFailoverTime",
+                      "dataType": "DateTime"
+                    },
+                    {
+                      "name": "B_Healthy",
+                      "tagType": "AtomicTag",
+                      "valueSource": "reference",
+                      "sourceTagPath": "[default]/GCS_RTAC_Control/B_Healthy",
+                      "dataType": "Boolean"
+                    },
+                    {
+                      "name": "BothHealthy",
+                      "tagType": "AtomicTag",
+                      "valueSource": "reference",
+                      "sourceTagPath": "[default]/GCS_RTAC_Control/BothHealthy",
+                      "dataType": "Boolean"
+                    },
+                    {
+                      "name": "ForcedRTAC",
+                      "tagType": "AtomicTag",
+                      "valueSource": "reference",
+                      "sourceTagPath": "[default]/GCS_RTAC_Control/ForcedRTAC",
+                      "dataType": "String"
+                    },
+                    {
+                      "name": "ActiveRTAC",
+                      "tagType": "AtomicTag",
+                      "valueSource": "reference",
+                      "sourceTagPath": "[default]/GCS_RTAC_Control/ActiveRTAC",
+                      "dataType": "String"
+                    },
+                    {
+                      "name": "A_Healthy",
+                      "tagType": "AtomicTag",
+                      "valueSource": "reference",
+                      "sourceTagPath": "[default]/GCS_RTAC_Control/A_Healthy",
+                      "dataType": "Boolean"
+                    },
+                    {
+                      "name": "LastFailoverReason",
+                      "tagType": "AtomicTag",
+                      "valueSource": "reference",
+                      "sourceTagPath": "[default]/GCS_RTAC_Control/LastFailoverReason",
+                      "dataType": "String"
+                    },
+                    {
+                      "name": "FailoverCount",
+                      "tagType": "AtomicTag",
+                      "valueSource": "reference",
+                      "sourceTagPath": "[default]/GCS_RTAC_Control/FailoverCount",
+                      "dataType": "Int4"
+                    },
+                    {
+                      "name": "NeitherHealthy",
+                      "tagType": "AtomicTag",
+                      "valueSource": "reference",
+                      "sourceTagPath": "[default]/GCS_RTAC_Control/NeitherHealthy",
+                      "dataType": "Boolean"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Infrastructure",
+          "tagType": "Folder",
+          "tags": [
+            {
+              "name": "SEL",
+              "tagType": "Folder",
+              "tags": [
+                {
+                  "name": "InternalTags",
+                  "tagType": "Folder",
+                  "tags": [
+                    {
+                      "name": "GCSB_BootupComplete_STAT",
+                      "tagType": "AtomicTag",
+                      "valueSource": "reference",
+                      "sourceTagPath": "[default]/SEL_Internal_Tags/GCSB_BootupComplete_STAT",
+                      "dataType": "Boolean"
+                    },
+                    {
+                      "name": "Q1FEPA_BootupComplete_STAT",
+                      "tagType": "AtomicTag",
+                      "valueSource": "reference",
+                      "sourceTagPath": "[default]/SEL_Internal_Tags/Q1FEPA_BootupComplete_STAT",
+                      "dataType": "Boolean"
+                    },
+                    {
+                      "name": "Q1FEPB_BootupComplete_STAT",
+                      "tagType": "AtomicTag",
+                      "valueSource": "reference",
+                      "sourceTagPath": "[default]/SEL_Internal_Tags/Q1FEPB_BootupComplete_STAT",
+                      "dataType": "Boolean"
+                    },
+                    {
+                      "name": "ActiveProvider",
+                      "tagType": "AtomicTag",
+                      "valueSource": "reference",
+                      "sourceTagPath": "[default]/SEL_Internal_Tags/ActiveProvider",
+                      "dataType": "String"
+                    },
+                    {
+                      "name": "Q1FEP_Master",
+                      "tagType": "AtomicTag",
+                      "valueSource": "reference",
+                      "sourceTagPath": "[default]/SEL_Internal_Tags/Q1FEP_Master",
+                      "dataType": "String"
+                    },
+                    {
+                      "name": "TotalGenCount",
+                      "tagType": "AtomicTag",
+                      "valueSource": "reference",
+                      "sourceTagPath": "[default]/SEL_Internal_Tags/TotalGenCount",
+                      "dataType": "String"
+                    },
+                    {
+                      "name": "GCSA_BootupComplete_STAT",
+                      "tagType": "AtomicTag",
+                      "valueSource": "reference",
+                      "sourceTagPath": "[default]/SEL_Internal_Tags/GCSA_BootupComplete_STAT",
+                      "dataType": "Boolean"
+                    },
+                    {
+                      "name": "MasterController",
+                      "tagType": "AtomicTag",
+                      "valueSource": "reference",
+                      "sourceTagPath": "[default]/SEL_Internal_Tags/MasterController",
+                      "dataType": "String"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Controls",
+              "tagType": "Folder",
+              "tags": [
+                {
+                  "name": "Repeat",
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference",
+                  "sourceTagPath": "[default]/_Controls_/Repeat",
+                  "dataType": "Boolean"
+                },
+                {
+                  "name": "Base Rate",
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference",
+                  "sourceTagPath": "[default]/_Controls_/Base Rate",
+                  "dataType": "Int8"
+                },
+                {
+                  "name": "Program Counter",
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference",
+                  "sourceTagPath": "[default]/_Controls_/Program Counter",
+                  "dataType": "Int8"
+                },
+                {
+                  "name": "Reset",
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference",
+                  "sourceTagPath": "[default]/_Controls_/Reset",
+                  "dataType": "Boolean"
+                },
+                {
+                  "name": "Pause",
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference",
+                  "sourceTagPath": "[default]/_Controls_/Pause",
+                  "dataType": "Boolean"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Settings",
+          "tagType": "Folder",
+          "tags": [
+            {
+              "name": "VG-Site",
+              "tagType": "Folder",
+              "tags": [
+                {
+                  "name": "Node",
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference",
+                  "sourceTagPath": "[default]/_Settings/VG-Site/Node",
+                  "dataType": "String"
+                },
+                {
+                  "name": "SiteName",
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference",
+                  "sourceTagPath": "[default]/_Settings/VG-Site/SiteName",
+                  "dataType": "String"
+                },
+                {
+                  "name": "PowerBlock",
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference",
+                  "sourceTagPath": "[default]/_Settings/VG-Site/PowerBlock",
+                  "dataType": "String"
+                }
+              ]
+            },
+            {
+              "name": "Colors",
+              "tagType": "Folder",
+              "tags": [
+                {
+                  "name": "Background",
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference",
+                  "sourceTagPath": "[default]/_Settings/Colors/Background",
+                  "dataType": "String"
+                },
+                {
+                  "name": "ButtonBackground",
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference",
+                  "sourceTagPath": "[default]/_Settings/Colors/ButtonBackground",
+                  "dataType": "String"
+                },
+                {
+                  "name": "Energized",
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference",
+                  "sourceTagPath": "[default]/_Settings/Colors/Energized",
+                  "dataType": "String"
+                },
+                {
+                  "name": "TitleBorderColor",
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference",
+                  "sourceTagPath": "[default]/_Settings/Colors/TitleBorderColor",
+                  "dataType": "String"
+                },
+                {
+                  "name": "Deenergized",
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference",
+                  "sourceTagPath": "[default]/_Settings/Colors/Deenergized",
+                  "dataType": "String"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "PowerBlock_1",
+          "tagType": "Folder",
+          "tags": [
+            {
+              "name": "Node_1",
+              "tagType": "Folder",
+              "tags": [
+                {
+                  "name": "QPAC_9",
+                  "tagType": "Folder",
+                  "tags": [
+                    {
+                      "name": "PowerGen",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "Gen_1",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp9-br-001"
+                            }
+                          }
+                        },
+                        {
+                          "name": "Gen_2",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp9-br-002"
+                            }
+                          }
+                        },
+                        {
+                          "name": "Gen_3",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp9-br-003"
+                            }
+                          }
+                        },
+                        {
+                          "name": "Gen_4",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp9-br-004"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Breakers",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "GCB_1",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp9-br-001"
+                            }
+                          }
+                        },
+                        {
+                          "name": "GCB_2",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp9-br-002"
+                            }
+                          }
+                        },
+                        {
+                          "name": "GCB_3",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp9-br-003"
+                            }
+                          }
+                        },
+                        {
+                          "name": "GCB_4",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp9-br-004"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "name": "IEDs",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "700G_1",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp9-sel700g-001"
+                            }
+                          }
+                        },
+                        {
+                          "name": "700G_2",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp9-sel700g-002"
+                            }
+                          }
+                        },
+                        {
+                          "name": "700G_3",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp9-sel700g-003"
+                            }
+                          }
+                        },
+                        {
+                          "name": "700G_4",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp9-sel700g-004"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "QPAC_10",
+                  "tagType": "Folder",
+                  "tags": [
+                    {
+                      "name": "PowerGen",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "Gen_1",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp10-br-001"
+                            }
+                          }
+                        },
+                        {
+                          "name": "Gen_2",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp10-br-002"
+                            }
+                          }
+                        },
+                        {
+                          "name": "Gen_3",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp10-br-003"
+                            }
+                          }
+                        },
+                        {
+                          "name": "Gen_4",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp10-br-004"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Breakers",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "GCB_1",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp10-br-001"
+                            }
+                          }
+                        },
+                        {
+                          "name": "GCB_2",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp10-br-002"
+                            }
+                          }
+                        },
+                        {
+                          "name": "GCB_3",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp10-br-003"
+                            }
+                          }
+                        },
+                        {
+                          "name": "GCB_4",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp10-br-004"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "name": "IEDs",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "700G_1",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp10-sel700g-001"
+                            }
+                          }
+                        },
+                        {
+                          "name": "700G_2",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp10-sel700g-002"
+                            }
+                          }
+                        },
+                        {
+                          "name": "700G_3",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp10-sel700g-003"
+                            }
+                          }
+                        },
+                        {
+                          "name": "700G_4",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp10-sel700g-004"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "QPAC_8",
+                  "tagType": "Folder",
+                  "tags": [
+                    {
+                      "name": "PowerGen",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "Gen_1",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp8-br-001"
+                            }
+                          }
+                        },
+                        {
+                          "name": "Gen_2",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp8-br-002"
+                            }
+                          }
+                        },
+                        {
+                          "name": "Gen_3",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp8-br-003"
+                            }
+                          }
+                        },
+                        {
+                          "name": "Gen_4",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp8-br-004"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Breakers",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "GCB_1",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp8-br-001"
+                            }
+                          }
+                        },
+                        {
+                          "name": "GCB_2",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp8-br-002"
+                            }
+                          }
+                        },
+                        {
+                          "name": "GCB_3",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp8-br-003"
+                            }
+                          }
+                        },
+                        {
+                          "name": "GCB_4",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp8-br-004"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "name": "IEDs",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "700G_1",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp8-sel700g-001"
+                            }
+                          }
+                        },
+                        {
+                          "name": "700G_2",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp8-sel700g-002"
+                            }
+                          }
+                        },
+                        {
+                          "name": "700G_3",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp8-sel700g-003"
+                            }
+                          }
+                        },
+                        {
+                          "name": "700G_4",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp8-sel700g-004"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "QPAC_5",
+                  "tagType": "Folder",
+                  "tags": [
+                    {
+                      "name": "PowerGen",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "Gen_1",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp5-br-001"
+                            }
+                          }
+                        },
+                        {
+                          "name": "Gen_2",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp5-br-002"
+                            }
+                          }
+                        },
+                        {
+                          "name": "Gen_3",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp5-br-003"
+                            }
+                          }
+                        },
+                        {
+                          "name": "Gen_4",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp5-br-004"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Breakers",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "GCB_1",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp5-br-001"
+                            }
+                          }
+                        },
+                        {
+                          "name": "GCB_2",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp5-br-002"
+                            }
+                          }
+                        },
+                        {
+                          "name": "GCB_3",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp5-br-003"
+                            }
+                          }
+                        },
+                        {
+                          "name": "GCB_4",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp5-br-004"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "name": "IEDs",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "700G_1",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp5-sel700g-001"
+                            }
+                          }
+                        },
+                        {
+                          "name": "700G_2",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp5-sel700g-002"
+                            }
+                          }
+                        },
+                        {
+                          "name": "700G_3",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp5-sel700g-003"
+                            }
+                          }
+                        },
+                        {
+                          "name": "700G_4",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp5-sel700g-004"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "QPAC_2",
+                  "tagType": "Folder",
+                  "tags": [
+                    {
+                      "name": "PowerGen",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "Gen_1",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp2-br-001"
+                            }
+                          }
+                        },
+                        {
+                          "name": "Gen_2",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp2-br-002"
+                            }
+                          }
+                        },
+                        {
+                          "name": "Gen_3",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp2-br-003"
+                            }
+                          }
+                        },
+                        {
+                          "name": "Gen_4",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp2-br-004"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Breakers",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "GCB_1",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp2-br-001"
+                            }
+                          }
+                        },
+                        {
+                          "name": "GCB_2",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp2-br-002"
+                            }
+                          }
+                        },
+                        {
+                          "name": "GCB_3",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp2-br-003"
+                            }
+                          }
+                        },
+                        {
+                          "name": "GCB_4",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp2-br-004"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "name": "IEDs",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "700G_1",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp2-sel700g-001"
+                            }
+                          }
+                        },
+                        {
+                          "name": "700G_2",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp2-sel700g-002"
+                            }
+                          }
+                        },
+                        {
+                          "name": "700G_3",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp2-sel700g-003"
+                            }
+                          }
+                        },
+                        {
+                          "name": "700G_4",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp2-sel700g-004"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "QPAC_7",
+                  "tagType": "Folder",
+                  "tags": [
+                    {
+                      "name": "PowerGen",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "Gen_1",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp7-br-001"
+                            }
+                          }
+                        },
+                        {
+                          "name": "Gen_2",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp7-br-002"
+                            }
+                          }
+                        },
+                        {
+                          "name": "Gen_3",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp7-br-003"
+                            }
+                          }
+                        },
+                        {
+                          "name": "Gen_4",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp7-br-004"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Breakers",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "GCB_1",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp7-br-001"
+                            }
+                          }
+                        },
+                        {
+                          "name": "GCB_2",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp7-br-002"
+                            }
+                          }
+                        },
+                        {
+                          "name": "GCB_3",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp7-br-003"
+                            }
+                          }
+                        },
+                        {
+                          "name": "GCB_4",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp7-br-004"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "name": "IEDs",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "700G_1",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp7-sel700g-001"
+                            }
+                          }
+                        },
+                        {
+                          "name": "700G_2",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp7-sel700g-002"
+                            }
+                          }
+                        },
+                        {
+                          "name": "700G_3",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp7-sel700g-003"
+                            }
+                          }
+                        },
+                        {
+                          "name": "700G_4",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp7-sel700g-004"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "QPAC_1",
+                  "tagType": "Folder",
+                  "tags": [
+                    {
+                      "name": "PowerGen",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "Gen_1",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp1-br-001"
+                            }
+                          }
+                        },
+                        {
+                          "name": "Gen_2",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp1-br-002"
+                            }
+                          }
+                        },
+                        {
+                          "name": "Gen_3",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp1-br-003"
+                            }
+                          }
+                        },
+                        {
+                          "name": "Gen_4",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp1-br-004"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Breakers",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "GCB_1",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp1-br-001"
+                            }
+                          }
+                        },
+                        {
+                          "name": "GCB_2",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp1-br-002"
+                            }
+                          }
+                        },
+                        {
+                          "name": "GCB_3",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp1-br-003"
+                            }
+                          }
+                        },
+                        {
+                          "name": "GCB_4",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp1-br-004"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "name": "IEDs",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "700G_1",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp1-sel700g-001"
+                            }
+                          }
+                        },
+                        {
+                          "name": "700G_2",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp1-sel700g-002"
+                            }
+                          }
+                        },
+                        {
+                          "name": "700G_3",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp1-sel700g-003"
+                            }
+                          }
+                        },
+                        {
+                          "name": "700G_4",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp1-sel700g-004"
+                            }
+                          }
+                        },
+                        {
+                          "name": "787_1",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay787",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp1-787-001"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "QPAC_4",
+                  "tagType": "Folder",
+                  "tags": [
+                    {
+                      "name": "PowerGen",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "Gen_1",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp4-br-001"
+                            }
+                          }
+                        },
+                        {
+                          "name": "Gen_2",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp4-br-002"
+                            }
+                          }
+                        },
+                        {
+                          "name": "Gen_3",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp4-br-003"
+                            }
+                          }
+                        },
+                        {
+                          "name": "Gen_4",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp4-br-004"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Breakers",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "GCB_1",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp4-br-001"
+                            }
+                          }
+                        },
+                        {
+                          "name": "GCB_2",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp4-br-002"
+                            }
+                          }
+                        },
+                        {
+                          "name": "GCB_3",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp4-br-003"
+                            }
+                          }
+                        },
+                        {
+                          "name": "GCB_4",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp4-br-004"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "name": "IEDs",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "700G_1",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp4-sel700g-001"
+                            }
+                          }
+                        },
+                        {
+                          "name": "700G_2",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp4-sel700g-002"
+                            }
+                          }
+                        },
+                        {
+                          "name": "700G_3",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp4-sel700g-003"
+                            }
+                          }
+                        },
+                        {
+                          "name": "700G_4",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp4-sel700g-004"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "QPAC_6",
+                  "tagType": "Folder",
+                  "tags": [
+                    {
+                      "name": "PowerGen",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "Gen_1",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp6-br-001"
+                            }
+                          }
+                        },
+                        {
+                          "name": "Gen_2",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp6-br-002"
+                            }
+                          }
+                        },
+                        {
+                          "name": "Gen_3",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp6-br-003"
+                            }
+                          }
+                        },
+                        {
+                          "name": "Gen_4",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp6-br-004"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Breakers",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "GCB_1",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp6-br-001"
+                            }
+                          }
+                        },
+                        {
+                          "name": "GCB_2",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp6-br-002"
+                            }
+                          }
+                        },
+                        {
+                          "name": "GCB_3",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp6-br-003"
+                            }
+                          }
+                        },
+                        {
+                          "name": "GCB_4",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp6-br-004"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "name": "IEDs",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "700G_1",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp6-sel700g-001"
+                            }
+                          }
+                        },
+                        {
+                          "name": "700G_2",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp6-sel700g-002"
+                            }
+                          }
+                        },
+                        {
+                          "name": "700G_3",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp6-sel700g-003"
+                            }
+                          }
+                        },
+                        {
+                          "name": "700G_4",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp6-sel700g-004"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "QPAC_3",
+                  "tagType": "Folder",
+                  "tags": [
+                    {
+                      "name": "PowerGen",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "Gen_1",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp3-br-001"
+                            }
+                          }
+                        },
+                        {
+                          "name": "Gen_2",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp3-br-002"
+                            }
+                          }
+                        },
+                        {
+                          "name": "Gen_3",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp3-br-003"
+                            }
+                          }
+                        },
+                        {
+                          "name": "Gen_4",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Generator_Genset",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp3-br-004"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Breakers",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "GCB_1",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp3-br-001"
+                            }
+                          }
+                        },
+                        {
+                          "name": "GCB_2",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp3-br-002"
+                            }
+                          }
+                        },
+                        {
+                          "name": "GCB_3",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp3-br-003"
+                            }
+                          }
+                        },
+                        {
+                          "name": "GCB_4",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Breaker_GeneratorCircuitBreaker",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp3-br-004"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "name": "IEDs",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "700G_1",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp3-sel700g-001"
+                            }
+                          }
+                        },
+                        {
+                          "name": "700G_2",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp3-sel700g-002"
+                            }
+                          }
+                        },
+                        {
+                          "name": "700G_3",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp3-sel700g-003"
+                            }
+                          }
+                        },
+                        {
+                          "name": "700G_4",
+                          "tagType": "UdtInstance",
+                          "typeId": "Obj_Relay_ProtectionRelay700G",
+                          "parameters": {
+                            "SourcePath": {
+                              "dataType": "String",
+                              "value": "[default]TX3/tx3-pb1-n1-qp3-sel700g-004"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "Feeders",
+                  "tagType": "Folder",
+                  "tags": [
+                    {
+                      "name": "FCB_3",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "IEDs",
+                          "tagType": "Folder",
+                          "tags": [
+                            {
+                              "name": "751_1",
+                              "tagType": "UdtInstance",
+                              "typeId": "Obj_Relay_ProtectionRelay751",
+                              "parameters": {
+                                "SourcePath": {
+                                  "dataType": "String",
+                                  "value": "[default]TX3/tx3-pb1-n1-fcb3-751-001"
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "name": "Breakers",
+                          "tagType": "Folder",
+                          "tags": [
+                            {
+                              "name": "FCB_3",
+                              "tagType": "UdtInstance",
+                              "typeId": "Obj_Breaker_FeederCircuitBreaker",
+                              "parameters": {
+                                "SourcePath": {
+                                  "dataType": "String",
+                                  "value": "[default]TX3/tx3-pb1-n1-fcb3-751-001"
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "FCB_2",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "IEDs",
+                          "tagType": "Folder",
+                          "tags": [
+                            {
+                              "name": "751_1",
+                              "tagType": "UdtInstance",
+                              "typeId": "Obj_Relay_ProtectionRelay751",
+                              "parameters": {
+                                "SourcePath": {
+                                  "dataType": "String",
+                                  "value": "[default]TX3/tx3-pb1-n1-fcb2-751-001"
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "name": "Breakers",
+                          "tagType": "Folder",
+                          "tags": [
+                            {
+                              "name": "FCB_2",
+                              "tagType": "UdtInstance",
+                              "typeId": "Obj_Breaker_FeederCircuitBreaker",
+                              "parameters": {
+                                "SourcePath": {
+                                  "dataType": "String",
+                                  "value": "[default]TX3/tx3-pb1-n1-fcb2-751-001"
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "FCB_1",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "IEDs",
+                          "tagType": "Folder",
+                          "tags": [
+                            {
+                              "name": "751_1",
+                              "tagType": "UdtInstance",
+                              "typeId": "Obj_Relay_ProtectionRelay751",
+                              "parameters": {
+                                "SourcePath": {
+                                  "dataType": "String",
+                                  "value": "[default]TX3/tx3-pb1-n1-fcb1-751-001"
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "name": "Breakers",
+                          "tagType": "Folder",
+                          "tags": [
+                            {
+                              "name": "FCB_1",
+                              "tagType": "UdtInstance",
+                              "typeId": "Obj_Breaker_FeederCircuitBreaker",
+                              "parameters": {
+                                "SourcePath": {
+                                  "dataType": "String",
+                                  "value": "[default]TX3/tx3-pb1-n1-fcb1-751-001"
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "FCB_4",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "IEDs",
+                          "tagType": "Folder",
+                          "tags": [
+                            {
+                              "name": "751_1",
+                              "tagType": "UdtInstance",
+                              "typeId": "Obj_Relay_ProtectionRelay751",
+                              "parameters": {
+                                "SourcePath": {
+                                  "dataType": "String",
+                                  "value": "[default]TX3/tx3-pb1-n1-fcb4-751-001"
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "name": "Breakers",
+                          "tagType": "Folder",
+                          "tags": [
+                            {
+                              "name": "FCB_4",
+                              "tagType": "UdtInstance",
+                              "typeId": "Obj_Breaker_FeederCircuitBreaker",
+                              "parameters": {
+                                "SourcePath": {
+                                  "dataType": "String",
+                                  "value": "[default]TX3/tx3-pb1-n1-fcb4-751-001"
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "FCB_5",
+                      "tagType": "Folder",
+                      "tags": [
+                        {
+                          "name": "IEDs",
+                          "tagType": "Folder",
+                          "tags": [
+                            {
+                              "name": "751_1",
+                              "tagType": "UdtInstance",
+                              "typeId": "Obj_Relay_ProtectionRelay751",
+                              "parameters": {
+                                "SourcePath": {
+                                  "dataType": "String",
+                                  "value": "[default]TX3/tx3-pb1-n1-fcb5-751-001"
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "name": "Breakers",
+                          "tagType": "Folder",
+                          "tags": [
+                            {
+                              "name": "FCB_5",
+                              "tagType": "UdtInstance",
+                              "typeId": "Obj_Breaker_FeederCircuitBreaker",
+                              "parameters": {
+                                "SourcePath": {
+                                  "dataType": "String",
+                                  "value": "[default]TX3/tx3-pb1-n1-fcb5-751-001"
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

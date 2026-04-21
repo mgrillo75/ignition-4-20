@@ -35,10 +35,6 @@
     "/trends": {
       "title": "",
       "viewPath": "MainWindows/AdHocTrends/AdHocTrends"
-    },
-    "/pilot-object-model": {
-      "title": "Object Model Pilot",
-      "viewPath": "RefactorPilot/Pages/TX3_QP5_ObjectPilot"
     }
   },
   "sharedDocks": {

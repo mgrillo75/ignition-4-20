@@ -1,0 +1,508 @@
+{
+  "custom": {},
+  "params": {
+    "accentColor": "#38BDF8",
+    "displayName": "PowerBlock 1 / Node 1 / QPAC 2 / 700G 2",
+    "objectPath": "[default]TX3/PowerBlock_1/Node_1/QPAC_2/IEDs/700G_2"
+  },
+  "propConfig": {
+    "params.accentColor": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.displayName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.objectPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 340,
+      "width": 1180
+    }
+  },
+  "root": {
+    "meta": {
+      "name": "root"
+    },
+    "position": {},
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "#111827",
+        "border": "1px solid #1E293B",
+        "borderRadius": "10px",
+        "padding": "18px",
+        "gap": "12px"
+      }
+    },
+    "type": "ia.container.flex",
+    "version": 0,
+    "children": [
+      {
+        "meta": {
+          "name": "Header"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "direction": "column",
+          "gap": "4px"
+        },
+        "type": "ia.container.flex",
+        "version": 0,
+        "children": [
+          {
+            "meta": {
+              "name": "Title"
+            },
+            "props": {
+              "textStyle": {
+                "color": "#F8FAFC",
+                "fontSize": "20px",
+                "fontWeight": "700"
+              }
+            },
+            "type": "ia.display.label",
+            "version": 0,
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.params.displayName} + \" RelaySummaryCard\""
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "position": {}
+          },
+          {
+            "meta": {
+              "name": "Subtitle"
+            },
+            "props": {
+              "textStyle": {
+                "color": "#94A3B8",
+                "fontSize": "12px"
+              }
+            },
+            "type": "ia.display.label",
+            "version": 0,
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "\"Object path: \" + {view.params.objectPath}"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "position": {}
+          }
+        ]
+      },
+      {
+        "meta": {
+          "name": "StatusRow"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "gap": "16px",
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex",
+        "version": 0,
+        "children": [
+          {
+            "meta": {
+              "name": "RelayBit"
+            },
+            "props": {
+              "textStyle": {
+                "color": "#F8FAFC",
+                "fontSize": "13px"
+              }
+            },
+            "type": "ia.display.label",
+            "version": 0,
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "\"52AX: \" + toStr(tag({view.params.objectPath} + \"/bit_52ax\"))"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "position": {}
+          },
+          {
+            "meta": {
+              "name": "HeartbeatStatus"
+            },
+            "props": {
+              "textStyle": {
+                "color": "#F8FAFC",
+                "fontSize": "13px"
+              }
+            },
+            "type": "ia.display.label",
+            "version": 0,
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "\"Heartbeat status: \" + toStr(tag({view.params.objectPath} + \"/heartbeat/status\"))"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "position": {}
+          },
+          {
+            "meta": {
+              "name": "Address"
+            },
+            "props": {
+              "textStyle": {
+                "color": "#F8FAFC",
+                "fontSize": "13px"
+              }
+            },
+            "type": "ia.display.label",
+            "version": 0,
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "\"Address: \" + toStr(tag({view.params.objectPath} + \"/address\"))"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "position": {}
+          }
+        ]
+      },
+      {
+        "meta": {
+          "name": "MetricRow"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "gap": "14px",
+          "wrap": "wrap"
+        },
+        "type": "ia.container.flex",
+        "version": 0,
+        "children": [
+          {
+            "meta": {
+              "name": "Sync Frequency"
+            },
+            "position": {
+              "basis": "240px"
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "backgroundColor": "#0B1220",
+                "border": "1px solid #1F2937",
+                "borderRadius": "8px",
+                "padding": "12px",
+                "gap": "6px",
+                "minHeight": "110px"
+              }
+            },
+            "type": "ia.container.flex",
+            "version": 0,
+            "children": [
+              {
+                "meta": {
+                  "name": "Title"
+                },
+                "props": {
+                  "textStyle": {
+                    "color": "#94A3B8",
+                    "fontSize": "12px",
+                    "fontWeight": "600"
+                  }
+                },
+                "type": "ia.display.label",
+                "version": 0,
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "\"Sync Frequency\""
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "position": {}
+              },
+              {
+                "meta": {
+                  "name": "Value"
+                },
+                "props": {
+                  "textStyle": {
+                    "color": "#F8FAFC",
+                    "fontSize": "26px",
+                    "fontWeight": "700"
+                  }
+                },
+                "type": "ia.display.label",
+                "version": 0,
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "numberFormat(toFloat(tag({view.params.objectPath} + \"/syncFrequency\")), \"#,##0.000\")"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "position": {}
+              },
+              {
+                "meta": {
+                  "name": "Subtitle"
+                },
+                "props": {
+                  "textStyle": {
+                    "color": "#38BDF8",
+                    "fontSize": "12px"
+                  }
+                },
+                "type": "ia.display.label",
+                "version": 0,
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "\"raw tag: syncFrequency\""
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "position": {}
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "Heartbeat Counter"
+            },
+            "position": {
+              "basis": "240px"
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "backgroundColor": "#0B1220",
+                "border": "1px solid #1F2937",
+                "borderRadius": "8px",
+                "padding": "12px",
+                "gap": "6px",
+                "minHeight": "110px"
+              }
+            },
+            "type": "ia.container.flex",
+            "version": 0,
+            "children": [
+              {
+                "meta": {
+                  "name": "Title"
+                },
+                "props": {
+                  "textStyle": {
+                    "color": "#94A3B8",
+                    "fontSize": "12px",
+                    "fontWeight": "600"
+                  }
+                },
+                "type": "ia.display.label",
+                "version": 0,
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "\"Heartbeat Counter\""
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "position": {}
+              },
+              {
+                "meta": {
+                  "name": "Value"
+                },
+                "props": {
+                  "textStyle": {
+                    "color": "#F8FAFC",
+                    "fontSize": "26px",
+                    "fontWeight": "700"
+                  }
+                },
+                "type": "ia.display.label",
+                "version": 0,
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "toStr(tag({view.params.objectPath} + \"/heartbeat/counter\"))"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "position": {}
+              },
+              {
+                "meta": {
+                  "name": "Subtitle"
+                },
+                "props": {
+                  "textStyle": {
+                    "color": "#A78BFA",
+                    "fontSize": "12px"
+                  }
+                },
+                "type": "ia.display.label",
+                "version": 0,
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "\"raw tag: heartbeat/counter\""
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "position": {}
+              }
+            ]
+          },
+          {
+            "meta": {
+              "name": "Heartbeat Timestamp"
+            },
+            "position": {
+              "basis": "240px"
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "backgroundColor": "#0B1220",
+                "border": "1px solid #1F2937",
+                "borderRadius": "8px",
+                "padding": "12px",
+                "gap": "6px",
+                "minHeight": "110px"
+              }
+            },
+            "type": "ia.container.flex",
+            "version": 0,
+            "children": [
+              {
+                "meta": {
+                  "name": "Title"
+                },
+                "props": {
+                  "textStyle": {
+                    "color": "#94A3B8",
+                    "fontSize": "12px",
+                    "fontWeight": "600"
+                  }
+                },
+                "type": "ia.display.label",
+                "version": 0,
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "\"Heartbeat Timestamp\""
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "position": {}
+              },
+              {
+                "meta": {
+                  "name": "Value"
+                },
+                "props": {
+                  "textStyle": {
+                    "color": "#F8FAFC",
+                    "fontSize": "26px",
+                    "fontWeight": "700"
+                  }
+                },
+                "type": "ia.display.label",
+                "version": 0,
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "toStr(tag({view.params.objectPath} + \"/heartbeat/timestamp\"))"
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "position": {}
+              },
+              {
+                "meta": {
+                  "name": "Subtitle"
+                },
+                "props": {
+                  "textStyle": {
+                    "color": "#F59E0B",
+                    "fontSize": "12px"
+                  }
+                },
+                "type": "ia.display.label",
+                "version": 0,
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "\"raw tag: heartbeat/timestamp\""
+                      },
+                      "type": "expr"
+                    }
+                  }
+                },
+                "position": {}
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

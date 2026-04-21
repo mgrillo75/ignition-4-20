@@ -3,15 +3,23 @@
   "tagType": "Folder",
   "tags": [
     {
-      "name": "sel700g_1_0_0",
+      "name": "Device_Generator_JenbacherJ620",
       "parameters": {
         "AGCAnalogInputPath": {
           "dataType": "String",
-          "value": "SEL/AGC/AnalogInput"
+          "value": "AGC/AnalogInput"
+        },
+        "AGCDigitalInputPath": {
+          "dataType": "String",
+          "value": "AGC/DigitalInput"
         },
         "GCSAnalogInputPath": {
           "dataType": "String",
-          "value": "SEL/GCS/AnalogInput"
+          "value": "GCS/AnalogInput"
+        },
+        "GCSDigitalInputPath": {
+          "dataType": "String",
+          "value": "GCS/DigitalInput"
         },
         "GeneratorNumber": {
           "dataType": "String",
@@ -19,19 +27,77 @@
         },
         "TagProvider": {
           "dataType": "String",
-          "value": "[default]"
+          "value": "[GCSA_RTAC_MODBUS]"
         },
         "VCSAnalogInputPath": {
           "dataType": "String",
-          "value": "SEL/VCS/AnalogInput"
+          "value": "VCS/AnalogInput"
         }
       },
       "tagType": "UdtType",
       "tags": [
         {
-          "dataType": "Boolean",
-          "name": "close",
+          "dataType": "Float4",
+          "deriveExpressionGetter": "{source}/1000.0",
+          "engUnit": "kV",
+          "historyEnabled": true,
+          "name": "averageVoltage",
+          "sourceTagPath": {
+            "bindType": "parameter",
+            "binding": "{TagProvider}{VCSAnalogInputPath}/VCS_G{GeneratorNumber}_Voltage_VAL"
+          },
           "tagType": "AtomicTag",
+          "tooltip": "Average Voltage",
+          "valueSource": "derived"
+        },
+        {
+          "dataType": "Int4",
+          "engUnit": "kW",
+          "historyEnabled": true,
+          "name": "power",
+          "sourceTagPath": {
+            "bindType": "parameter",
+            "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ActivePower_VAL"
+          },
+          "tagType": "AtomicTag",
+          "tooltip": "Power",
+          "valueSource": "reference"
+        },
+        {
+          "dataType": "Int4",
+          "engUnit": "kW",
+          "historyEnabled": true,
+          "name": "reactivePower",
+          "sourceTagPath": {
+            "bindType": "parameter",
+            "binding": "{TagProvider}{VCSAnalogInputPath}/VCS_G{GeneratorNumber}_ReactivePower_VAL"
+          },
+          "tagType": "AtomicTag",
+          "tooltip": "Reactive Power",
+          "valueSource": "reference"
+        },
+        {
+          "dataType": "Boolean",
+          "historyEnabled": true,
+          "name": "spare545_LocalRemote",
+          "sourceTagPath": {
+            "bindType": "parameter",
+            "binding": "{TagProvider}{AGCDigitalInputPath}/AGC_G{GeneratorNumber}_Remote_STAT"
+          },
+          "tagType": "AtomicTag",
+          "tooltip": "Spare",
+          "valueSource": "reference"
+        },
+        {
+          "dataType": "Int4",
+          "historyEnabled": true,
+          "name": "spare515_BreakerStatus",
+          "sourceTagPath": {
+            "bindType": "parameter",
+            "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
+          },
+          "tagType": "AtomicTag",
+          "tooltip": "Spare",
           "valueSource": "reference"
         },
         {
@@ -46,235 +112,35 @@
           "valueSource": "reference"
         },
         {
+          "dataType": "Int4",
+          "engUnit": "kW",
+          "historyEnabled": true,
+          "name": "reserveAnalogValue1",
+          "sourceTagPath": {
+            "bindType": "parameter",
+            "binding": "{TagProvider}{GCSAnalogInputPath}/GCS_G{GeneratorNumber}_SpinningReserve_VAL"
+          },
+          "tagType": "AtomicTag",
+          "tooltip": "Reserve Analog Value 1",
+          "valueSource": "reference"
+        },
+        {
+          "dataType": "Float4",
+          "engUnit": "Hz",
+          "historyEnabled": true,
+          "name": "frequency",
+          "sourceTagPath": {
+            "bindType": "parameter",
+            "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_Frequency_VAL"
+          },
+          "tagType": "AtomicTag",
+          "tooltip": "Frequency",
+          "valueSource": "reference"
+        },
+        {
           "name": "heartbeat",
           "tagType": "Folder",
           "tags": [
-            {
-              "name": "read",
-              "tagType": "Folder",
-              "tags": [
-                {
-                  "dataType": "Int4",
-                  "historyEnabled": true,
-                  "name": "oneMinuteMinCompletionTime_ms",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "Int4",
-                  "historyEnabled": true,
-                  "name": "errors",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "String",
-                  "historyEnabled": true,
-                  "name": "lastAttemptTime",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_Frequency_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "Int4",
-                  "historyEnabled": true,
-                  "name": "fiveMinuteMaxCompletionTime_ms",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "Int4",
-                  "historyEnabled": true,
-                  "name": "fiveMinuteMinCompletionTime_ms",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "String",
-                  "historyEnabled": true,
-                  "name": "lastCompletedTime",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_Frequency_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "Int4",
-                  "historyEnabled": true,
-                  "name": "fifteenMinuteMinCompletionTime_ms",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "Int4",
-                  "historyEnabled": true,
-                  "name": "attempts",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "Int4",
-                  "historyEnabled": true,
-                  "name": "oneMinuteAvgCompletionTime_ms",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "String",
-                  "historyEnabled": true,
-                  "name": "upTime",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ActivePower_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "Int4",
-                  "historyEnabled": true,
-                  "name": "fiveMinAvgCompletionTime_ms",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "Int4",
-                  "historyEnabled": true,
-                  "name": "fifteenMinuteMaxCompletionTime_ms",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "Int4",
-                  "historyEnabled": true,
-                  "name": "oneMinuteMaxCompletionTime_ms",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "String",
-                  "historyEnabled": true,
-                  "name": "startTime",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_Frequency_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "String",
-                  "historyEnabled": true,
-                  "name": "lastError",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "String",
-                  "historyEnabled": true,
-                  "name": "lastErrorTime",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_Frequency_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "Int4",
-                  "historyEnabled": true,
-                  "name": "completed",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "Int4",
-                  "historyEnabled": true,
-                  "name": "fifteenMinAvgCompletionTime_ms",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                }
-              ]
-            },
-            {
-              "dataType": "String",
-              "historyEnabled": true,
-              "name": "lastError",
-              "sourceTagPath": {
-                "bindType": "parameter",
-                "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
-              },
-              "tagType": "AtomicTag",
-              "valueSource": "reference"
-            },
-            {
-              "dataType": "String",
-              "historyEnabled": true,
-              "name": "timestamp",
-              "sourceTagPath": {
-                "bindType": "parameter",
-                "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_Frequency_VAL"
-              },
-              "tagType": "AtomicTag",
-              "valueSource": "reference"
-            },
             {
               "dataType": "Int4",
               "historyEnabled": true,
@@ -296,49 +162,275 @@
               },
               "tagType": "AtomicTag",
               "valueSource": "reference"
+            },
+            {
+              "dataType": "String",
+              "historyEnabled": true,
+              "name": "timestamp",
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_Frequency_VAL"
+              },
+              "tagType": "AtomicTag",
+              "valueSource": "reference"
+            },
+            {
+              "dataType": "String",
+              "historyEnabled": true,
+              "name": "lastError",
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
+              },
+              "tagType": "AtomicTag",
+              "valueSource": "reference"
+            },
+            {
+              "name": "read",
+              "tagType": "Folder",
+              "tags": [
+                {
+                  "dataType": "String",
+                  "historyEnabled": true,
+                  "name": "lastError",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "String",
+                  "historyEnabled": true,
+                  "name": "startTime",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_Frequency_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "Int4",
+                  "historyEnabled": true,
+                  "name": "fiveMinuteMinCompletionTime_ms",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "Int4",
+                  "historyEnabled": true,
+                  "name": "attempts",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "Int4",
+                  "historyEnabled": true,
+                  "name": "fifteenMinAvgCompletionTime_ms",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "Int4",
+                  "historyEnabled": true,
+                  "name": "completed",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "Int4",
+                  "historyEnabled": true,
+                  "name": "oneMinuteMinCompletionTime_ms",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "Int4",
+                  "historyEnabled": true,
+                  "name": "fiveMinuteMaxCompletionTime_ms",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "Int4",
+                  "historyEnabled": true,
+                  "name": "fiveMinAvgCompletionTime_ms",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "Int4",
+                  "historyEnabled": true,
+                  "name": "errors",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "String",
+                  "historyEnabled": true,
+                  "name": "lastCompletedTime",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_Frequency_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "String",
+                  "historyEnabled": true,
+                  "name": "upTime",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ActivePower_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "String",
+                  "historyEnabled": true,
+                  "name": "lastErrorTime",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_Frequency_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "Int4",
+                  "historyEnabled": true,
+                  "name": "fifteenMinuteMinCompletionTime_ms",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "Int4",
+                  "historyEnabled": true,
+                  "name": "oneMinuteAvgCompletionTime_ms",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "Int4",
+                  "historyEnabled": true,
+                  "name": "oneMinuteMaxCompletionTime_ms",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "Int4",
+                  "historyEnabled": true,
+                  "name": "fifteenMinuteMaxCompletionTime_ms",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "String",
+                  "historyEnabled": true,
+                  "name": "lastAttemptTime",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_Frequency_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                }
+              ]
             }
           ]
         },
         {
           "dataType": "Int4",
-          "engHigh": 1.0,
-          "engLow": 0.0,
+          "engUnit": "kW",
           "historyEnabled": true,
-          "name": "bit_52ax",
+          "name": "setpointPowerControl",
           "sourceTagPath": {
             "bindType": "parameter",
-            "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
+            "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BaseSetpoint_VAL"
           },
           "tagType": "AtomicTag",
-          "tooltip": "52AX",
+          "tooltip": "Setpoint Power Control",
           "valueSource": "reference"
         },
         {
           "dataType": "Boolean",
-          "name": "open",
+          "name": "AutoManual",
+          "sourceTagPath": {
+            "bindType": "parameter",
+            "binding": "{TagProvider}{GCSDigitalInputPath}/GCS_G{GeneratorNumber}_AutoManual_STAT"
+          },
           "tagType": "AtomicTag",
           "valueSource": "reference"
         },
         {
-          "dataType": "Float4",
-          "engHigh": 65535.0,
-          "engLow": 0.0,
-          "engUnit": "Hz",
+          "dataType": "Int4",
           "historyEnabled": true,
-          "name": "syncFrequency",
+          "name": "spare510_OPStatus",
           "sourceTagPath": {
             "bindType": "parameter",
-            "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_Frequency_VAL"
+            "binding": "{TagProvider}{GCSAnalogInputPath}/GCS_G{GeneratorNumber}_OpStatus_VAL"
           },
           "tagType": "AtomicTag",
-          "tooltip": "Sync Frequency",
+          "tooltip": "Spare",
           "valueSource": "reference"
         }
       ],
       "typeId": ""
     },
     {
-      "name": "sel751a_1_0_0",
+      "name": "Device_Relay_SEL751A",
       "parameters": {
         "DeviceId": {
           "dataType": "String",
@@ -5446,7 +5538,330 @@
       "typeId": ""
     },
     {
-      "name": "sel735_1_0_0",
+      "name": "Device_Relay_SEL700G",
+      "parameters": {
+        "AGCAnalogInputPath": {
+          "dataType": "String",
+          "value": "AGC/AnalogInput"
+        },
+        "GCSAnalogInputPath": {
+          "dataType": "String",
+          "value": "GCS/AnalogInput"
+        },
+        "GeneratorNumber": {
+          "dataType": "String",
+          "value": "1"
+        },
+        "TagProvider": {
+          "dataType": "String",
+          "value": "[GCSA_RTAC_MODBUS]"
+        },
+        "VCSAnalogInputPath": {
+          "dataType": "String",
+          "value": "VCS/AnalogInput"
+        }
+      },
+      "tagType": "UdtType",
+      "tags": [
+        {
+          "dataType": "String",
+          "historyEnabled": true,
+          "name": "address",
+          "sourceTagPath": {
+            "bindType": "parameter",
+            "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
+          },
+          "tagType": "AtomicTag",
+          "valueSource": "reference"
+        },
+        {
+          "name": "heartbeat",
+          "tagType": "Folder",
+          "tags": [
+            {
+              "name": "read",
+              "tagType": "Folder",
+              "tags": [
+                {
+                  "dataType": "Int4",
+                  "historyEnabled": true,
+                  "name": "oneMinuteMinCompletionTime_ms",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "Int4",
+                  "historyEnabled": true,
+                  "name": "errors",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "String",
+                  "historyEnabled": true,
+                  "name": "lastAttemptTime",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_Frequency_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "Int4",
+                  "historyEnabled": true,
+                  "name": "fiveMinuteMaxCompletionTime_ms",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "Int4",
+                  "historyEnabled": true,
+                  "name": "fiveMinuteMinCompletionTime_ms",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "String",
+                  "historyEnabled": true,
+                  "name": "lastCompletedTime",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_Frequency_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "Int4",
+                  "historyEnabled": true,
+                  "name": "fifteenMinuteMinCompletionTime_ms",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "Int4",
+                  "historyEnabled": true,
+                  "name": "attempts",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "Int4",
+                  "historyEnabled": true,
+                  "name": "oneMinuteAvgCompletionTime_ms",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "String",
+                  "historyEnabled": true,
+                  "name": "upTime",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ActivePower_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "Int4",
+                  "historyEnabled": true,
+                  "name": "fiveMinAvgCompletionTime_ms",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "Int4",
+                  "historyEnabled": true,
+                  "name": "fifteenMinuteMaxCompletionTime_ms",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "Int4",
+                  "historyEnabled": true,
+                  "name": "oneMinuteMaxCompletionTime_ms",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "String",
+                  "historyEnabled": true,
+                  "name": "startTime",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_Frequency_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "String",
+                  "historyEnabled": true,
+                  "name": "lastError",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "String",
+                  "historyEnabled": true,
+                  "name": "lastErrorTime",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_Frequency_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "Int4",
+                  "historyEnabled": true,
+                  "name": "completed",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "Int4",
+                  "historyEnabled": true,
+                  "name": "fifteenMinAvgCompletionTime_ms",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                }
+              ]
+            },
+            {
+              "dataType": "String",
+              "historyEnabled": true,
+              "name": "lastError",
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
+              },
+              "tagType": "AtomicTag",
+              "valueSource": "reference"
+            },
+            {
+              "dataType": "String",
+              "historyEnabled": true,
+              "name": "timestamp",
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_Frequency_VAL"
+              },
+              "tagType": "AtomicTag",
+              "valueSource": "reference"
+            },
+            {
+              "dataType": "Int4",
+              "historyEnabled": true,
+              "name": "counter",
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
+              },
+              "tagType": "AtomicTag",
+              "valueSource": "reference"
+            },
+            {
+              "dataType": "String",
+              "historyEnabled": true,
+              "name": "status",
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
+              },
+              "tagType": "AtomicTag",
+              "valueSource": "reference"
+            }
+          ]
+        },
+        {
+          "dataType": "Float4",
+          "engHigh": 65535.0,
+          "engLow": 0.0,
+          "engUnit": "Hz",
+          "historyEnabled": true,
+          "name": "syncFrequency",
+          "sourceTagPath": {
+            "bindType": "parameter",
+            "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_Frequency_VAL"
+          },
+          "tagType": "AtomicTag",
+          "tooltip": "Sync Frequency",
+          "valueSource": "reference"
+        },
+        {
+          "dataType": "Int4",
+          "engHigh": 1.0,
+          "engLow": 0.0,
+          "historyEnabled": true,
+          "name": "bit_52ax",
+          "sourceTagPath": {
+            "bindType": "parameter",
+            "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
+          },
+          "tagType": "AtomicTag",
+          "tooltip": "52AX",
+          "valueSource": "reference"
+        }
+      ],
+      "typeId": ""
+    },
+    {
+      "name": "Device_Meter_SEL735",
       "parameters": {
         "DeviceId": {
           "dataType": "String",
@@ -5469,8 +5884,8 @@
       "tags": [
         {
           "dataType": "Float8",
-          "engHigh": 2.147483647E9,
-          "engLow": -2.147483647E9,
+          "engHigh": 2147483647.0,
+          "engLow": -2147483647.0,
           "engUnit": "kW",
           "historyEnabled": true,
           "name": "wP3_REC",
@@ -5498,8 +5913,8 @@
         },
         {
           "dataType": "Float8",
-          "engHigh": 2.147483647E9,
-          "engLow": -2.147483647E9,
+          "engHigh": 2147483647.0,
+          "engLow": -2147483647.0,
           "engUnit": "kV",
           "historyEnabled": true,
           "name": "vb",
@@ -5525,8 +5940,8 @@
         },
         {
           "dataType": "Int4",
-          "engHigh": 2.147483647E9,
-          "engLow": -2.147483647E9,
+          "engHigh": 2147483647.0,
+          "engLow": -2147483647.0,
           "engUnit": "kVArh",
           "historyEnabled": true,
           "name": "qH3_DEL",
@@ -5552,8 +5967,8 @@
         },
         {
           "dataType": "Float8",
-          "engHigh": 2.147483647E9,
-          "engLow": -2.147483647E9,
+          "engHigh": 2147483647.0,
+          "engLow": -2147483647.0,
           "engUnit": "kW",
           "historyEnabled": true,
           "name": "wc",
@@ -5601,8 +6016,8 @@
         },
         {
           "dataType": "Float8",
-          "engHigh": 2.147483647E9,
-          "engLow": -2.147483647E9,
+          "engHigh": 2147483647.0,
+          "engLow": -2147483647.0,
           "engUnit": "kW",
           "historyEnabled": true,
           "name": "w3",
@@ -5616,8 +6031,8 @@
         },
         {
           "dataType": "Float8",
-          "engHigh": 2.147483647E9,
-          "engLow": -2.147483647E9,
+          "engHigh": 2147483647.0,
+          "engLow": -2147483647.0,
           "engUnit": "kVAr",
           "historyEnabled": true,
           "name": "qP3_REC",
@@ -5643,8 +6058,8 @@
         },
         {
           "dataType": "Float8",
-          "engHigh": 2.147483647E9,
-          "engLow": -2.147483647E9,
+          "engHigh": 2147483647.0,
+          "engLow": -2147483647.0,
           "engUnit": "kW",
           "historyEnabled": true,
           "name": "wP3_DEL",
@@ -5658,8 +6073,8 @@
         },
         {
           "dataType": "Float8",
-          "engHigh": 2.147483647E9,
-          "engLow": -2.147483647E9,
+          "engHigh": 2147483647.0,
+          "engLow": -2147483647.0,
           "engUnit": "kVAr",
           "historyEnabled": true,
           "name": "qc",
@@ -5684,8 +6099,8 @@
         },
         {
           "dataType": "Float8",
-          "engHigh": 2.147483647E9,
-          "engLow": -2.147483647E9,
+          "engHigh": 2147483647.0,
+          "engLow": -2147483647.0,
           "engUnit": "kV",
           "historyEnabled": true,
           "name": "vca",
@@ -5710,8 +6125,8 @@
         },
         {
           "dataType": "Float8",
-          "engHigh": 2.147483647E9,
-          "engLow": -2.147483647E9,
+          "engHigh": 2147483647.0,
+          "engLow": -2147483647.0,
           "engUnit": "kVA",
           "historyEnabled": true,
           "name": "u3",
@@ -5740,8 +6155,8 @@
         },
         {
           "dataType": "Float8",
-          "engHigh": 2.147483647E9,
-          "engLow": -2.147483647E9,
+          "engHigh": 2147483647.0,
+          "engLow": -2147483647.0,
           "engUnit": "A",
           "historyEnabled": true,
           "name": "in",
@@ -5770,8 +6185,8 @@
         },
         {
           "dataType": "Float8",
-          "engHigh": 2.147483647E9,
-          "engLow": -2.147483647E9,
+          "engHigh": 2147483647.0,
+          "engLow": -2147483647.0,
           "engUnit": "A",
           "historyEnabled": true,
           "name": "ib",
@@ -5805,10 +6220,10 @@
                 {
                   "dataType": "Int4",
                   "historyEnabled": true,
-                  "name": "errors",
+                  "name": "attempts",
                   "sourceTagPath": {
                     "bindType": "parameter",
-                    "binding": "{TagProvider}/{Scope}/sel735/{DeviceId}/{DeviceSerial}/heartbeat/read/errors"
+                    "binding": "{TagProvider}/{Scope}/sel735/{DeviceId}/{DeviceSerial}/heartbeat/read/attempts"
                   },
                   "tagType": "AtomicTag",
                   "valueSource": "reference"
@@ -5816,10 +6231,10 @@
                 {
                   "dataType": "Int4",
                   "historyEnabled": true,
-                  "name": "attempts",
+                  "name": "errors",
                   "sourceTagPath": {
                     "bindType": "parameter",
-                    "binding": "{TagProvider}/{Scope}/sel735/{DeviceId}/{DeviceSerial}/heartbeat/read/attempts"
+                    "binding": "{TagProvider}/{Scope}/sel735/{DeviceId}/{DeviceSerial}/heartbeat/read/errors"
                   },
                   "tagType": "AtomicTag",
                   "valueSource": "reference"
@@ -6072,8 +6487,8 @@
         },
         {
           "dataType": "Float8",
-          "engHigh": 2.147483647E9,
-          "engLow": -2.147483647E9,
+          "engHigh": 2147483647.0,
+          "engLow": -2147483647.0,
           "engUnit": "kVAr",
           "historyEnabled": true,
           "name": "qP3_DEL",
@@ -6087,8 +6502,8 @@
         },
         {
           "dataType": "Float8",
-          "engHigh": 2.147483647E9,
-          "engLow": -2.147483647E9,
+          "engHigh": 2147483647.0,
+          "engLow": -2147483647.0,
           "engUnit": "kVA",
           "historyEnabled": true,
           "name": "ub",
@@ -6102,8 +6517,8 @@
         },
         {
           "dataType": "Float8",
-          "engHigh": 2.147483647E9,
-          "engLow": -2.147483647E9,
+          "engHigh": 2147483647.0,
+          "engLow": -2147483647.0,
           "engUnit": "kV",
           "historyEnabled": true,
           "name": "vab",
@@ -6117,8 +6532,8 @@
         },
         {
           "dataType": "Float8",
-          "engHigh": 2.147483647E9,
-          "engLow": -2.147483647E9,
+          "engHigh": 2147483647.0,
+          "engLow": -2147483647.0,
           "engUnit": "kVAr",
           "historyEnabled": true,
           "name": "qb",
@@ -6132,8 +6547,8 @@
         },
         {
           "dataType": "Float8",
-          "engHigh": 2.147483647E9,
-          "engLow": -2.147483647E9,
+          "engHigh": 2147483647.0,
+          "engLow": -2147483647.0,
           "engUnit": "kVAr",
           "historyEnabled": true,
           "name": "qa",
@@ -6147,8 +6562,8 @@
         },
         {
           "dataType": "Float8",
-          "engHigh": 2.147483647E9,
-          "engLow": -2.147483647E9,
+          "engHigh": 2147483647.0,
+          "engLow": -2147483647.0,
           "engUnit": "kW",
           "historyEnabled": true,
           "name": "wb",
@@ -6162,8 +6577,8 @@
         },
         {
           "dataType": "Float8",
-          "engHigh": 2.147483647E9,
-          "engLow": -2.147483647E9,
+          "engHigh": 2147483647.0,
+          "engLow": -2147483647.0,
           "engUnit": "kVA",
           "historyEnabled": true,
           "name": "ua",
@@ -6177,8 +6592,8 @@
         },
         {
           "dataType": "Float8",
-          "engHigh": 2.147483647E9,
-          "engLow": -2.147483647E9,
+          "engHigh": 2147483647.0,
+          "engLow": -2147483647.0,
           "engUnit": "kV",
           "historyEnabled": true,
           "name": "vbc",
@@ -6204,8 +6619,8 @@
         },
         {
           "dataType": "Int4",
-          "engHigh": 2.147483647E9,
-          "engLow": -2.147483647E9,
+          "engHigh": 2147483647.0,
+          "engLow": -2147483647.0,
           "engUnit": "kWh",
           "historyEnabled": true,
           "name": "wH3_DEL",
@@ -6219,8 +6634,8 @@
         },
         {
           "dataType": "Float8",
-          "engHigh": 2.147483647E9,
-          "engLow": -2.147483647E9,
+          "engHigh": 2147483647.0,
+          "engLow": -2147483647.0,
           "engUnit": "A",
           "historyEnabled": true,
           "name": "ic",
@@ -6234,8 +6649,8 @@
         },
         {
           "dataType": "Float8",
-          "engHigh": 2.147483647E9,
-          "engLow": -2.147483647E9,
+          "engHigh": 2147483647.0,
+          "engLow": -2147483647.0,
           "engUnit": "kW",
           "historyEnabled": true,
           "name": "wa",
@@ -6249,8 +6664,8 @@
         },
         {
           "dataType": "Float8",
-          "engHigh": 2.147483647E9,
-          "engLow": -2.147483647E9,
+          "engHigh": 2147483647.0,
+          "engLow": -2147483647.0,
           "engUnit": "A",
           "historyEnabled": true,
           "name": "ia",
@@ -6264,8 +6679,8 @@
         },
         {
           "dataType": "Float8",
-          "engHigh": 2.147483647E9,
-          "engLow": -2.147483647E9,
+          "engHigh": 2147483647.0,
+          "engLow": -2147483647.0,
           "engUnit": "kV",
           "historyEnabled": true,
           "name": "vc",
@@ -6291,8 +6706,8 @@
         },
         {
           "dataType": "Int4",
-          "engHigh": 2.147483647E9,
-          "engLow": -2.147483647E9,
+          "engHigh": 2147483647.0,
+          "engLow": -2147483647.0,
           "engUnit": "kVArh",
           "historyEnabled": true,
           "name": "qH3_REC",
@@ -6341,8 +6756,8 @@
         },
         {
           "dataType": "Float8",
-          "engHigh": 2.147483647E9,
-          "engLow": -2.147483647E9,
+          "engHigh": 2147483647.0,
+          "engLow": -2147483647.0,
           "engUnit": "kVAr",
           "historyEnabled": true,
           "name": "q3",
@@ -6356,8 +6771,8 @@
         },
         {
           "dataType": "Float8",
-          "engHigh": 2.147483647E9,
-          "engLow": -2.147483647E9,
+          "engHigh": 2147483647.0,
+          "engLow": -2147483647.0,
           "engUnit": "kVA",
           "historyEnabled": true,
           "name": "uc",
@@ -6371,8 +6786,8 @@
         },
         {
           "dataType": "Int4",
-          "engHigh": 2.147483647E9,
-          "engLow": -2.147483647E9,
+          "engHigh": 2147483647.0,
+          "engLow": -2147483647.0,
           "engUnit": "kWh",
           "historyEnabled": true,
           "name": "wH3_REC",
@@ -6386,8 +6801,8 @@
         },
         {
           "dataType": "Float8",
-          "engHigh": 2.147483647E9,
-          "engLow": -2.147483647E9,
+          "engHigh": 2147483647.0,
+          "engLow": -2147483647.0,
           "engUnit": "kV",
           "historyEnabled": true,
           "name": "va",
@@ -6403,7 +6818,7 @@
       "typeId": ""
     },
     {
-      "name": "sel751_1_0_0",
+      "name": "Device_Relay_SEL751",
       "parameters": {
         "FCBInputPath": {
           "dataType": "String",
@@ -6415,7 +6830,7 @@
         },
         "TagProvider": {
           "dataType": "String",
-          "value": "[default]"
+          "value": "[GCSA_RTAC_MODBUS]"
         }
       },
       "tagType": "UdtType",
@@ -6561,7 +6976,7 @@
                 {
                   "dataType": "Int4",
                   "historyEnabled": true,
-                  "name": "fiveMinAvgCompletionTime_ms",
+                  "name": "errors",
                   "sourceTagPath": {
                     "bindType": "parameter",
                     "binding": "{TagProvider}{FCBInputPath}{FeederNumber}{TagString}"
@@ -6572,7 +6987,7 @@
                 {
                   "dataType": "Int4",
                   "historyEnabled": true,
-                  "name": "errors",
+                  "name": "fiveMinAvgCompletionTime_ms",
                   "sourceTagPath": {
                     "bindType": "parameter",
                     "binding": "{TagProvider}{FCBInputPath}{FeederNumber}{TagString}"
@@ -6603,9 +7018,9 @@
                   "valueSource": "reference"
                 },
                 {
-                  "dataType": "Int4",
+                  "dataType": "String",
                   "historyEnabled": true,
-                  "name": "attempts",
+                  "name": "upTime",
                   "sourceTagPath": {
                     "bindType": "parameter",
                     "binding": "{TagProvider}{FCBInputPath}{FeederNumber}{TagString}"
@@ -6614,9 +7029,9 @@
                   "valueSource": "reference"
                 },
                 {
-                  "dataType": "String",
+                  "dataType": "Int4",
                   "historyEnabled": true,
-                  "name": "upTime",
+                  "name": "attempts",
                   "sourceTagPath": {
                     "bindType": "parameter",
                     "binding": "{TagProvider}{FCBInputPath}{FeederNumber}{TagString}"
@@ -6697,7 +7112,7 @@
       "typeId": ""
     },
     {
-      "name": "sel787_3e_1_0_0",
+      "name": "Device_Relay_SEL787_3E",
       "parameters": {
         "GeneratorNumber": {
           "dataType": "String",
@@ -6709,11 +7124,265 @@
         },
         "TagProvider": {
           "dataType": "String",
-          "value": "[default]"
+          "value": "[GCSA_RTAC_MODBUS]"
         }
       },
       "tagType": "UdtType",
       "tags": [
+        {
+          "name": "heartbeat",
+          "tagType": "Folder",
+          "tags": [
+            {
+              "dataType": "String",
+              "historyEnabled": true,
+              "name": "status",
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
+              },
+              "tagType": "AtomicTag",
+              "valueSource": "reference"
+            },
+            {
+              "dataType": "Int4",
+              "historyEnabled": true,
+              "name": "counter",
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
+              },
+              "tagType": "AtomicTag",
+              "valueSource": "reference"
+            },
+            {
+              "name": "read",
+              "tagType": "Folder",
+              "tags": [
+                {
+                  "dataType": "String",
+                  "historyEnabled": true,
+                  "name": "upTime",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ActivePower_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "String",
+                  "historyEnabled": true,
+                  "name": "lastErrorTime",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_Frequency_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "Int4",
+                  "historyEnabled": true,
+                  "name": "oneMinuteMaxCompletionTime_ms",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "String",
+                  "historyEnabled": true,
+                  "name": "lastAttemptTime",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_Frequency_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "String",
+                  "historyEnabled": true,
+                  "name": "startTime",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_Frequency_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "Int4",
+                  "historyEnabled": true,
+                  "name": "fifteenMinuteMaxCompletionTime_ms",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "Int4",
+                  "historyEnabled": true,
+                  "name": "attempts",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "Int4",
+                  "historyEnabled": true,
+                  "name": "fiveMinuteMaxCompletionTime_ms",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "Int4",
+                  "historyEnabled": true,
+                  "name": "errors",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "String",
+                  "historyEnabled": true,
+                  "name": "lastError",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "Int4",
+                  "historyEnabled": true,
+                  "name": "oneMinuteAvgCompletionTime_ms",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "Int4",
+                  "historyEnabled": true,
+                  "name": "oneMinuteMinCompletionTime_ms",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "Int4",
+                  "historyEnabled": true,
+                  "name": "fiveMinuteMinCompletionTime_ms",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "Int4",
+                  "historyEnabled": true,
+                  "name": "fifteenMinAvgCompletionTime_ms",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "Int4",
+                  "historyEnabled": true,
+                  "name": "fifteenMinuteMinCompletionTime_ms",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "Int4",
+                  "historyEnabled": true,
+                  "name": "completed",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "String",
+                  "historyEnabled": true,
+                  "name": "lastCompletedTime",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_Frequency_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                },
+                {
+                  "dataType": "Int4",
+                  "historyEnabled": true,
+                  "name": "fiveMinAvgCompletionTime_ms",
+                  "sourceTagPath": {
+                    "bindType": "parameter",
+                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
+                  },
+                  "tagType": "AtomicTag",
+                  "valueSource": "reference"
+                }
+              ]
+            },
+            {
+              "dataType": "String",
+              "historyEnabled": true,
+              "name": "timestamp",
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_Frequency_VAL"
+              },
+              "tagType": "AtomicTag",
+              "valueSource": "reference"
+            },
+            {
+              "dataType": "String",
+              "historyEnabled": true,
+              "name": "lastError",
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
+              },
+              "tagType": "AtomicTag",
+              "valueSource": "reference"
+            }
+          ]
+        },
         {
           "dataType": "Int4",
           "engHigh": 1.0,
@@ -6727,702 +7396,660 @@
           "tagType": "AtomicTag",
           "tooltip": "52A1",
           "valueSource": "reference"
-        },
-        {
-          "name": "heartbeat",
-          "tagType": "Folder",
-          "tags": [
-            {
-              "dataType": "String",
-              "historyEnabled": true,
-              "name": "status",
-              "sourceTagPath": {
-                "bindType": "parameter",
-                "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
-              },
-              "tagType": "AtomicTag",
-              "valueSource": "reference"
-            },
-            {
-              "dataType": "Int4",
-              "historyEnabled": true,
-              "name": "counter",
-              "sourceTagPath": {
-                "bindType": "parameter",
-                "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
-              },
-              "tagType": "AtomicTag",
-              "valueSource": "reference"
-            },
-            {
-              "name": "read",
-              "tagType": "Folder",
-              "tags": [
-                {
-                  "dataType": "String",
-                  "historyEnabled": true,
-                  "name": "lastErrorTime",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_Frequency_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "String",
-                  "historyEnabled": true,
-                  "name": "upTime",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ActivePower_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "Int4",
-                  "historyEnabled": true,
-                  "name": "oneMinuteMaxCompletionTime_ms",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "String",
-                  "historyEnabled": true,
-                  "name": "lastAttemptTime",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_Frequency_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "String",
-                  "historyEnabled": true,
-                  "name": "startTime",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_Frequency_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "Int4",
-                  "historyEnabled": true,
-                  "name": "fifteenMinuteMaxCompletionTime_ms",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "Int4",
-                  "historyEnabled": true,
-                  "name": "fiveMinuteMaxCompletionTime_ms",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "Int4",
-                  "historyEnabled": true,
-                  "name": "attempts",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "Int4",
-                  "historyEnabled": true,
-                  "name": "errors",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "String",
-                  "historyEnabled": true,
-                  "name": "lastError",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "Int4",
-                  "historyEnabled": true,
-                  "name": "fiveMinuteMinCompletionTime_ms",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "Int4",
-                  "historyEnabled": true,
-                  "name": "oneMinuteMinCompletionTime_ms",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "Int4",
-                  "historyEnabled": true,
-                  "name": "oneMinuteAvgCompletionTime_ms",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "Int4",
-                  "historyEnabled": true,
-                  "name": "fifteenMinAvgCompletionTime_ms",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "Int4",
-                  "historyEnabled": true,
-                  "name": "fifteenMinuteMinCompletionTime_ms",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "Int4",
-                  "historyEnabled": true,
-                  "name": "completed",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "Int4",
-                  "historyEnabled": true,
-                  "name": "fiveMinAvgCompletionTime_ms",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "String",
-                  "historyEnabled": true,
-                  "name": "lastCompletedTime",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_Frequency_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                }
-              ]
-            },
-            {
-              "dataType": "String",
-              "historyEnabled": true,
-              "name": "lastError",
-              "sourceTagPath": {
-                "bindType": "parameter",
-                "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
-              },
-              "tagType": "AtomicTag",
-              "valueSource": "reference"
-            },
-            {
-              "dataType": "String",
-              "historyEnabled": true,
-              "name": "timestamp",
-              "sourceTagPath": {
-                "bindType": "parameter",
-                "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_Frequency_VAL"
-              },
-              "tagType": "AtomicTag",
-              "valueSource": "reference"
-            }
-          ]
         }
       ],
       "typeId": ""
     },
     {
-      "name": "jenbacher620_1_0_0-1",
+      "name": "Obj_Generator_Genset",
+      "tagType": "UdtType",
       "parameters": {
-        "AGCAnalogInputPath": {
+        "SourcePath": {
           "dataType": "String",
-          "value": "SEL/AGC/AnalogInput"
-        },
-        "AGCDigitalInputPath": {
-          "dataType": "String",
-          "value": "SEL/AGC/DigitalInput"
-        },
-        "GCSAnalogInputPath": {
-          "dataType": "String",
-          "value": "SEL/GCS/AnalogInput"
-        },
-        "GCSDigitalInputPath": {
-          "dataType": "String",
-          "value": "SEL/GCS/DigitalInput"
-        },
-        "GeneratorNumber": {
-          "dataType": "String",
-          "value": "1"
-        },
-        "TagProvider": {
-          "dataType": "String",
-          "value": "[default]"
-        },
-        "VCSAnalogInputPath": {
-          "dataType": "String",
-          "value": "SEL/VCS/AnalogInput"
+          "value": "[default]TX3/legacy/genset"
         }
       },
-      "tagType": "UdtType",
       "tags": [
         {
-          "dataType": "Int4",
-          "engUnit": "kW",
-          "historyEnabled": true,
-          "name": "reserveAnalogValue1",
-          "sourceTagPath": {
-            "bindType": "parameter",
-            "binding": "{TagProvider}{GCSAnalogInputPath}/GCS_G{GeneratorNumber}_SpinningReserve_VAL"
-          },
-          "tagType": "AtomicTag",
-          "tooltip": "Reserve Analog Value 1",
-          "valueSource": "reference"
-        },
-        {
-          "dataType": "Boolean",
-          "name": "stop",
-          "tagType": "AtomicTag",
-          "valueSource": "reference"
-        },
-        {
-          "dataType": "Boolean",
-          "name": "start",
-          "tagType": "AtomicTag",
-          "valueSource": "reference"
-        },
-        {
-          "dataType": "Int4",
-          "engUnit": "kW",
-          "historyEnabled": true,
-          "name": "power",
-          "sourceTagPath": {
-            "bindType": "parameter",
-            "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ActivePower_VAL"
-          },
-          "tagType": "AtomicTag",
-          "tooltip": "Power",
-          "valueSource": "reference"
-        },
-        {
-          "dataType": "Boolean",
-          "historyEnabled": true,
-          "name": "spare545_LocalRemote",
-          "sourceTagPath": {
-            "bindType": "parameter",
-            "binding": "{TagProvider}{AGCDigitalInputPath}/AGC_G{GeneratorNumber}_Remote_STAT"
-          },
-          "tagType": "AtomicTag",
-          "tooltip": "Spare",
-          "valueSource": "reference"
-        },
-        {
-          "dataType": "Float4",
-          "deriveExpressionGetter": "{source}/1000.0",
-          "engUnit": "kV",
-          "historyEnabled": true,
-          "name": "averageVoltage",
-          "sourceTagPath": {
-            "bindType": "parameter",
-            "binding": "{TagProvider}{VCSAnalogInputPath}/VCS_G{GeneratorNumber}_Voltage_VAL"
-          },
-          "tagType": "AtomicTag",
-          "tooltip": "Average Voltage",
-          "valueSource": "derived"
-        },
-        {
-          "name": "heartbeat",
+          "name": "Definition",
           "tagType": "Folder",
           "tags": [
             {
-              "dataType": "Int4",
-              "historyEnabled": true,
-              "name": "counter",
-              "sourceTagPath": {
-                "bindType": "parameter",
-                "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
-              },
+              "name": "ObjectType",
               "tagType": "AtomicTag",
-              "valueSource": "reference"
-            },
-            {
+              "valueSource": "memory",
+              "value": "Generator.Genset",
+              "defaultValue": "Generator.Genset",
               "dataType": "String",
-              "historyEnabled": true,
-              "name": "status",
-              "sourceTagPath": {
-                "bindType": "parameter",
-                "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
-              },
-              "tagType": "AtomicTag",
-              "valueSource": "reference"
+              "readOnly": true
             },
             {
+              "name": "NamingStandard",
+              "tagType": "AtomicTag",
+              "valueSource": "memory",
+              "value": "SemanticV1",
+              "defaultValue": "SemanticV1",
               "dataType": "String",
-              "historyEnabled": true,
-              "name": "lastError",
-              "sourceTagPath": {
-                "bindType": "parameter",
-                "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
-              },
-              "tagType": "AtomicTag",
-              "valueSource": "reference"
-            },
-            {
-              "name": "read",
-              "tagType": "Folder",
-              "tags": [
-                {
-                  "dataType": "Int4",
-                  "historyEnabled": true,
-                  "name": "fifteenMinuteMinCompletionTime_ms",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "Int4",
-                  "historyEnabled": true,
-                  "name": "oneMinuteAvgCompletionTime_ms",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "String",
-                  "historyEnabled": true,
-                  "name": "lastAttemptTime",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_Frequency_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "Int4",
-                  "historyEnabled": true,
-                  "name": "oneMinuteMinCompletionTime_ms",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "Int4",
-                  "historyEnabled": true,
-                  "name": "oneMinuteMaxCompletionTime_ms",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "String",
-                  "historyEnabled": true,
-                  "name": "upTime",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ActivePower_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "Int4",
-                  "historyEnabled": true,
-                  "name": "attempts",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "Int4",
-                  "historyEnabled": true,
-                  "name": "errors",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "String",
-                  "historyEnabled": true,
-                  "name": "lastCompletedTime",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_Frequency_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "Int4",
-                  "historyEnabled": true,
-                  "name": "fiveMinuteMaxCompletionTime_ms",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "Int4",
-                  "historyEnabled": true,
-                  "name": "completed",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "Int4",
-                  "historyEnabled": true,
-                  "name": "fiveMinAvgCompletionTime_ms",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "Int4",
-                  "historyEnabled": true,
-                  "name": "fiveMinuteMinCompletionTime_ms",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "String",
-                  "historyEnabled": true,
-                  "name": "lastErrorTime",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_Frequency_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "Int4",
-                  "historyEnabled": true,
-                  "name": "fifteenMinAvgCompletionTime_ms",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "String",
-                  "historyEnabled": true,
-                  "name": "lastError",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "String",
-                  "historyEnabled": true,
-                  "name": "startTime",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_Frequency_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                },
-                {
-                  "dataType": "Int4",
-                  "historyEnabled": true,
-                  "name": "fifteenMinuteMaxCompletionTime_ms",
-                  "sourceTagPath": {
-                    "bindType": "parameter",
-                    "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
-                  },
-                  "tagType": "AtomicTag",
-                  "valueSource": "reference"
-                }
-              ]
-            },
-            {
-              "dataType": "String",
-              "historyEnabled": true,
-              "name": "timestamp",
-              "sourceTagPath": {
-                "bindType": "parameter",
-                "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_Frequency_VAL"
-              },
-              "tagType": "AtomicTag",
-              "valueSource": "reference"
+              "readOnly": true
             }
           ]
         },
         {
-          "dataType": "Int4",
-          "historyEnabled": true,
-          "name": "spare515_BreakerStatus",
-          "sourceTagPath": {
-            "bindType": "parameter",
-            "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BreakerStatus_VAL"
-          },
-          "tagType": "AtomicTag",
-          "tooltip": "Spare",
-          "valueSource": "reference"
+          "name": "Electrical",
+          "tagType": "Folder",
+          "tags": [
+            {
+              "name": "RealPower",
+              "tagType": "AtomicTag",
+              "valueSource": "reference",
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{SourcePath}/power"
+              },
+              "dataType": "Float8",
+              "historyEnabled": true
+            },
+            {
+              "name": "ReactivePower",
+              "tagType": "AtomicTag",
+              "valueSource": "reference",
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{SourcePath}/reactivePower"
+              },
+              "dataType": "Float8",
+              "historyEnabled": true
+            },
+            {
+              "name": "Frequency",
+              "tagType": "AtomicTag",
+              "valueSource": "reference",
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{SourcePath}/frequency"
+              },
+              "dataType": "Float8",
+              "historyEnabled": true
+            },
+            {
+              "name": "AverageVoltage",
+              "tagType": "AtomicTag",
+              "valueSource": "reference",
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{SourcePath}/averageVoltage"
+              },
+              "dataType": "Float8",
+              "historyEnabled": true
+            }
+          ]
         },
         {
-          "dataType": "Int4",
-          "engUnit": "kW",
-          "historyEnabled": true,
-          "name": "reactivePower",
-          "sourceTagPath": {
-            "bindType": "parameter",
-            "binding": "{TagProvider}{VCSAnalogInputPath}/VCS_G{GeneratorNumber}_ReactivePower_VAL"
-          },
-          "tagType": "AtomicTag",
-          "tooltip": "Reactive Power",
-          "valueSource": "reference"
+          "name": "Control",
+          "tagType": "Folder",
+          "tags": [
+            {
+              "name": "AutoManualMode",
+              "tagType": "AtomicTag",
+              "valueSource": "reference",
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{SourcePath}/AutoManual"
+              },
+              "dataType": "String"
+            },
+            {
+              "name": "LocalRemoteMode",
+              "tagType": "AtomicTag",
+              "valueSource": "reference",
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{SourcePath}/spare545_LocalRemote"
+              },
+              "dataType": "String"
+            },
+            {
+              "name": "PowerSetpoint",
+              "tagType": "AtomicTag",
+              "valueSource": "reference",
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{SourcePath}/setpointPowerControl"
+              },
+              "dataType": "Float8"
+            }
+          ]
         },
         {
-          "dataType": "Boolean",
-          "name": "AutoManual",
-          "sourceTagPath": {
-            "bindType": "parameter",
-            "binding": "{TagProvider}{GCSDigitalInputPath}/GCS_G{GeneratorNumber}_AutoManual_STAT"
-          },
-          "tagType": "AtomicTag",
-          "valueSource": "reference"
-        },
-        {
-          "dataType": "Int4",
-          "historyEnabled": true,
-          "name": "spare510_OPStatus",
-          "sourceTagPath": {
-            "bindType": "parameter",
-            "binding": "{TagProvider}{GCSAnalogInputPath}/GCS_G{GeneratorNumber}_OpStatus_VAL"
-          },
-          "tagType": "AtomicTag",
-          "tooltip": "Spare",
-          "valueSource": "reference"
-        },
-        {
-          "dataType": "Int4",
-          "engUnit": "kW",
-          "historyEnabled": true,
-          "name": "setpointPowerControl",
-          "sourceTagPath": {
-            "bindType": "parameter",
-            "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_BaseSetpoint_VAL"
-          },
-          "tagType": "AtomicTag",
-          "tooltip": "Setpoint Power Control",
-          "valueSource": "reference"
-        },
-        {
-          "dataType": "Float4",
-          "engUnit": "Hz",
-          "historyEnabled": true,
-          "name": "frequency",
-          "sourceTagPath": {
-            "bindType": "parameter",
-            "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_Frequency_VAL"
-          },
-          "tagType": "AtomicTag",
-          "tooltip": "Frequency",
-          "valueSource": "reference"
-        },
-        {
-          "dataType": "String",
-          "historyEnabled": true,
-          "name": "address",
-          "sourceTagPath": {
-            "bindType": "parameter",
-            "binding": "{TagProvider}{AGCAnalogInputPath}/AGC_G{GeneratorNumber}_ControlMode_VAL"
-          },
-          "tagType": "AtomicTag",
-          "valueSource": "reference"
+          "name": "Status",
+          "tagType": "Folder",
+          "tags": [
+            {
+              "name": "BreakerStatus",
+              "tagType": "AtomicTag",
+              "valueSource": "reference",
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{SourcePath}/spare515_BreakerStatus"
+              },
+              "dataType": "String"
+            },
+            {
+              "name": "HeartbeatStatus",
+              "tagType": "AtomicTag",
+              "valueSource": "reference",
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{SourcePath}/heartbeat/status"
+              },
+              "dataType": "String"
+            },
+            {
+              "name": "HeartbeatCounter",
+              "tagType": "AtomicTag",
+              "valueSource": "reference",
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{SourcePath}/heartbeat/counter"
+              },
+              "dataType": "Int4"
+            },
+            {
+              "name": "HeartbeatTimestamp",
+              "tagType": "AtomicTag",
+              "valueSource": "reference",
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{SourcePath}/heartbeat/timestamp"
+              },
+              "dataType": "String"
+            },
+            {
+              "name": "LegacyDeviceType",
+              "tagType": "AtomicTag",
+              "valueSource": "memory",
+              "value": "Device_Generator_JenbacherJ620",
+              "defaultValue": "Device_Generator_JenbacherJ620",
+              "dataType": "String",
+              "readOnly": true
+            },
+            {
+              "name": "LegacyPath",
+              "tagType": "AtomicTag",
+              "valueSource": "memory",
+              "value": "{SourcePath}",
+              "defaultValue": "{SourcePath}",
+              "dataType": "String"
+            }
+          ]
         }
-      ],
-      "typeId": ""
+      ]
+    },
+    {
+      "name": "Obj_Relay_ProtectionRelay700G",
+      "tagType": "UdtType",
+      "parameters": {
+        "SourcePath": {
+          "dataType": "String",
+          "value": "[default]TX3/legacy/relay700g"
+        }
+      },
+      "tags": [
+        {
+          "name": "Definition",
+          "tagType": "Folder",
+          "tags": [
+            {
+              "name": "ObjectType",
+              "tagType": "AtomicTag",
+              "valueSource": "memory",
+              "value": "Relay.Protection.700G",
+              "defaultValue": "Relay.Protection.700G",
+              "dataType": "String",
+              "readOnly": true
+            },
+            {
+              "name": "NamingStandard",
+              "tagType": "AtomicTag",
+              "valueSource": "memory",
+              "value": "SemanticV1",
+              "defaultValue": "SemanticV1",
+              "dataType": "String",
+              "readOnly": true
+            }
+          ]
+        },
+        {
+          "name": "Protection",
+          "tagType": "Folder",
+          "tags": [
+            {
+              "name": "SyncFrequency",
+              "tagType": "AtomicTag",
+              "valueSource": "reference",
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{SourcePath}/syncFrequency"
+              },
+              "dataType": "Float8",
+              "historyEnabled": true
+            },
+            {
+              "name": "BreakerPosition",
+              "tagType": "AtomicTag",
+              "valueSource": "reference",
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{SourcePath}/bit_52ax"
+              },
+              "dataType": "String"
+            }
+          ]
+        },
+        {
+          "name": "Status",
+          "tagType": "Folder",
+          "tags": [
+            {
+              "name": "Address",
+              "tagType": "AtomicTag",
+              "valueSource": "reference",
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{SourcePath}/address"
+              },
+              "dataType": "String"
+            },
+            {
+              "name": "HeartbeatStatus",
+              "tagType": "AtomicTag",
+              "valueSource": "reference",
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{SourcePath}/heartbeat/status"
+              },
+              "dataType": "String"
+            },
+            {
+              "name": "HeartbeatCounter",
+              "tagType": "AtomicTag",
+              "valueSource": "reference",
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{SourcePath}/heartbeat/counter"
+              },
+              "dataType": "Int4"
+            },
+            {
+              "name": "HeartbeatTimestamp",
+              "tagType": "AtomicTag",
+              "valueSource": "reference",
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{SourcePath}/heartbeat/timestamp"
+              },
+              "dataType": "String"
+            },
+            {
+              "name": "LegacyDeviceType",
+              "tagType": "AtomicTag",
+              "valueSource": "memory",
+              "value": "Device_Relay_SEL700G",
+              "defaultValue": "Device_Relay_SEL700G",
+              "dataType": "String",
+              "readOnly": true
+            },
+            {
+              "name": "LegacyPath",
+              "tagType": "AtomicTag",
+              "valueSource": "memory",
+              "value": "{SourcePath}",
+              "defaultValue": "{SourcePath}",
+              "dataType": "String"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Obj_Relay_ProtectionRelay751",
+      "tagType": "UdtType",
+      "parameters": {
+        "SourcePath": {
+          "dataType": "String",
+          "value": "[default]TX3/legacy/relay751"
+        }
+      },
+      "tags": [
+        {
+          "name": "Definition",
+          "tagType": "Folder",
+          "tags": [
+            {
+              "name": "ObjectType",
+              "tagType": "AtomicTag",
+              "valueSource": "memory",
+              "value": "Relay.Protection.751",
+              "defaultValue": "Relay.Protection.751",
+              "dataType": "String",
+              "readOnly": true
+            },
+            {
+              "name": "NamingStandard",
+              "tagType": "AtomicTag",
+              "valueSource": "memory",
+              "value": "SemanticV1",
+              "defaultValue": "SemanticV1",
+              "dataType": "String",
+              "readOnly": true
+            }
+          ]
+        },
+        {
+          "name": "Protection",
+          "tagType": "Folder",
+          "tags": [
+            {
+              "name": "BreakerPosition",
+              "tagType": "AtomicTag",
+              "valueSource": "reference",
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{SourcePath}/bit_52a"
+              },
+              "dataType": "String"
+            }
+          ]
+        },
+        {
+          "name": "Status",
+          "tagType": "Folder",
+          "tags": [
+            {
+              "name": "HeartbeatStatus",
+              "tagType": "AtomicTag",
+              "valueSource": "reference",
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{SourcePath}/heartbeat/status"
+              },
+              "dataType": "String"
+            },
+            {
+              "name": "HeartbeatCounter",
+              "tagType": "AtomicTag",
+              "valueSource": "reference",
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{SourcePath}/heartbeat/counter"
+              },
+              "dataType": "Int4"
+            },
+            {
+              "name": "HeartbeatTimestamp",
+              "tagType": "AtomicTag",
+              "valueSource": "reference",
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{SourcePath}/heartbeat/timestamp"
+              },
+              "dataType": "String"
+            },
+            {
+              "name": "LegacyDeviceType",
+              "tagType": "AtomicTag",
+              "valueSource": "memory",
+              "value": "Device_Relay_SEL751",
+              "defaultValue": "Device_Relay_SEL751",
+              "dataType": "String",
+              "readOnly": true
+            },
+            {
+              "name": "LegacyPath",
+              "tagType": "AtomicTag",
+              "valueSource": "memory",
+              "value": "{SourcePath}",
+              "defaultValue": "{SourcePath}",
+              "dataType": "String"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Obj_Relay_ProtectionRelay787",
+      "tagType": "UdtType",
+      "parameters": {
+        "SourcePath": {
+          "dataType": "String",
+          "value": "[default]TX3/legacy/relay787"
+        }
+      },
+      "tags": [
+        {
+          "name": "Definition",
+          "tagType": "Folder",
+          "tags": [
+            {
+              "name": "ObjectType",
+              "tagType": "AtomicTag",
+              "valueSource": "memory",
+              "value": "Relay.Protection.787",
+              "defaultValue": "Relay.Protection.787",
+              "dataType": "String",
+              "readOnly": true
+            },
+            {
+              "name": "NamingStandard",
+              "tagType": "AtomicTag",
+              "valueSource": "memory",
+              "value": "SemanticV1",
+              "defaultValue": "SemanticV1",
+              "dataType": "String",
+              "readOnly": true
+            }
+          ]
+        },
+        {
+          "name": "Protection",
+          "tagType": "Folder",
+          "tags": [
+            {
+              "name": "BreakerPosition",
+              "tagType": "AtomicTag",
+              "valueSource": "reference",
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{SourcePath}/bit_52a1"
+              },
+              "dataType": "String"
+            }
+          ]
+        },
+        {
+          "name": "Status",
+          "tagType": "Folder",
+          "tags": [
+            {
+              "name": "HeartbeatStatus",
+              "tagType": "AtomicTag",
+              "valueSource": "reference",
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{SourcePath}/heartbeat/status"
+              },
+              "dataType": "String"
+            },
+            {
+              "name": "HeartbeatCounter",
+              "tagType": "AtomicTag",
+              "valueSource": "reference",
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{SourcePath}/heartbeat/counter"
+              },
+              "dataType": "Int4"
+            },
+            {
+              "name": "HeartbeatTimestamp",
+              "tagType": "AtomicTag",
+              "valueSource": "reference",
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{SourcePath}/heartbeat/timestamp"
+              },
+              "dataType": "String"
+            },
+            {
+              "name": "LegacyDeviceType",
+              "tagType": "AtomicTag",
+              "valueSource": "memory",
+              "value": "Device_Relay_SEL787_3E",
+              "defaultValue": "Device_Relay_SEL787_3E",
+              "dataType": "String",
+              "readOnly": true
+            },
+            {
+              "name": "LegacyPath",
+              "tagType": "AtomicTag",
+              "valueSource": "memory",
+              "value": "{SourcePath}",
+              "defaultValue": "{SourcePath}",
+              "dataType": "String"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Obj_Breaker_GeneratorCircuitBreaker",
+      "tagType": "UdtType",
+      "parameters": {
+        "SourcePath": {
+          "dataType": "String",
+          "value": "[default]TX3/legacy/gcb"
+        }
+      },
+      "tags": [
+        {
+          "name": "Definition",
+          "tagType": "Folder",
+          "tags": [
+            {
+              "name": "ObjectType",
+              "tagType": "AtomicTag",
+              "valueSource": "memory",
+              "value": "Breaker.GCB",
+              "defaultValue": "Breaker.GCB",
+              "dataType": "String",
+              "readOnly": true
+            },
+            {
+              "name": "NamingStandard",
+              "tagType": "AtomicTag",
+              "valueSource": "memory",
+              "value": "SemanticV1",
+              "defaultValue": "SemanticV1",
+              "dataType": "String",
+              "readOnly": true
+            }
+          ]
+        },
+        {
+          "name": "Status",
+          "tagType": "Folder",
+          "tags": [
+            {
+              "name": "Position",
+              "tagType": "AtomicTag",
+              "valueSource": "reference",
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{SourcePath}/spare515_BreakerStatus"
+              },
+              "dataType": "String"
+            },
+            {
+              "name": "LocalRemoteMode",
+              "tagType": "AtomicTag",
+              "valueSource": "reference",
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{SourcePath}/spare545_LocalRemote"
+              },
+              "dataType": "String"
+            },
+            {
+              "name": "LegacyPath",
+              "tagType": "AtomicTag",
+              "valueSource": "memory",
+              "value": "{SourcePath}",
+              "defaultValue": "{SourcePath}",
+              "dataType": "String"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Obj_Breaker_FeederCircuitBreaker",
+      "tagType": "UdtType",
+      "parameters": {
+        "SourcePath": {
+          "dataType": "String",
+          "value": "[default]TX3/legacy/fcb"
+        }
+      },
+      "tags": [
+        {
+          "name": "Definition",
+          "tagType": "Folder",
+          "tags": [
+            {
+              "name": "ObjectType",
+              "tagType": "AtomicTag",
+              "valueSource": "memory",
+              "value": "Breaker.FCB",
+              "defaultValue": "Breaker.FCB",
+              "dataType": "String",
+              "readOnly": true
+            },
+            {
+              "name": "NamingStandard",
+              "tagType": "AtomicTag",
+              "valueSource": "memory",
+              "value": "SemanticV1",
+              "defaultValue": "SemanticV1",
+              "dataType": "String",
+              "readOnly": true
+            }
+          ]
+        },
+        {
+          "name": "Status",
+          "tagType": "Folder",
+          "tags": [
+            {
+              "name": "Position",
+              "tagType": "AtomicTag",
+              "valueSource": "reference",
+              "sourceTagPath": {
+                "bindType": "parameter",
+                "binding": "{SourcePath}/bit_52a"
+              },
+              "dataType": "String"
+            },
+            {
+              "name": "LegacyPath",
+              "tagType": "AtomicTag",
+              "valueSource": "memory",
+              "value": "{SourcePath}",
+              "defaultValue": "{SourcePath}",
+              "dataType": "String"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

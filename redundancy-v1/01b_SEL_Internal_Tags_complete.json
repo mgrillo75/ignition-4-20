@@ -1,0 +1,76 @@
+{
+  "name": "SEL_Internal_Tags",
+  "tagType": "Folder",
+  "tags": [
+    {
+      "dataType": "String",
+      "defaultValue": "GCSA",
+      "expression": "if(\r\n({[System]Gateway/Devices/GCSA_RTAC_MODBUS/Status} = \"Connected\") && ({[default]SEL_Internal_Tags/GCSA_BootupComplete_STAT}), \"GCSA\",\r\nif(\r\n({[System]Gateway/Devices/GCSB_RTAC_MODBUS/Status} = \"Connected\") && ({[default]SEL_Internal_Tags/GCSB_BootupComplete_STAT}), \"GCSB\",\r\n\"GCSA\"\r\n))",
+      "name": "MasterController",
+      "readOnly": true,
+      "tagType": "AtomicTag",
+      "value": "GCSA",
+      "valueSource": "expr"
+    },
+    {
+      "dataType": "Boolean",
+      "name": "GCSA_BootupComplete_STAT",
+      "opcItemPath": "ns=1;s=[GCSA_RTAC_MODBUS]DI1345",
+      "opcServer": "Ignition OPC UA Server",
+      "tagType": "AtomicTag",
+      "valueSource": "opc"
+    },
+    {
+      "dataType": "String",
+      "defaultValue": "GCSA",
+      "expression": "if(\r\n({[System]Gateway/Devices/Q1_FEPA_MODBUS/Status} = \"Connected\") && ({[default]SEL_Internal_Tags/Q1FEPA_BootupComplete_STAT}), \"FEPA\",\r\nif(\r\n({[System]Gateway/Devices/Q1_FEPB_MODBUS/Status} = \"Connected\") && ({[default]SEL_Internal_Tags/Q1FEPB_BootupComplete_STAT}), \"FEPB\",\r\n\"FEPA\"\r\n))",
+      "name": "Q1FEP_Master",
+      "readOnly": true,
+      "tagType": "AtomicTag",
+      "value": "GCSA",
+      "valueSource": "expr"
+    },
+    {
+      "dataType": "Boolean",
+      "name": "Q1FEPA_BootupComplete_STAT",
+      "opcItemPath": "ns=1;s=[Q1_FEPA_MODBUS]DI18",
+      "opcServer": "Ignition OPC UA Server",
+      "tagType": "AtomicTag",
+      "valueSource": "opc"
+    },
+    {
+      "dataType": "Boolean",
+      "name": "GCSB_BootupComplete_STAT",
+      "opcItemPath": "ns=1;s=[GCSB_RTAC_MODBUS]DI1345",
+      "opcServer": "Ignition OPC UA Server",
+      "tagType": "AtomicTag",
+      "valueSource": "opc"
+    },
+    {
+      "dataType": "Boolean",
+      "name": "Q1FEPB_BootupComplete_STAT",
+      "opcItemPath": "ns=1;s=[Q1_FEPB_MODBUS]DI18",
+      "opcServer": "Ignition OPC UA Server",
+      "tagType": "AtomicTag",
+      "valueSource": "opc"
+    },
+    {
+      "defaultValue": 46,
+      "name": "TotalGenCount",
+      "readOnly": true,
+      "tagType": "AtomicTag",
+      "value": 46,
+      "valueSource": "memory"
+    },
+    {
+      "name": "ActiveProvider",
+      "tagType": "AtomicTag",
+      "valueSource": "expr",
+      "dataType": "String",
+      "readOnly": true,
+      "tooltip": "Resolved RTAC tag-provider prefix \u2014 either \"[GCSA_RTAC_MODBUS]\" or \"[GCSB_RTAC_MODBUS]\". Every redundancy-aware UDT instance reads this via its TagProvider parameter. Operator ForcedRTAC override takes priority over MasterController.",
+      "expression": "if({[default]GCS_RTAC_Control/ForcedRTAC} = \"A\", \"[GCSA_RTAC_MODBUS]\",\r\nif({[default]GCS_RTAC_Control/ForcedRTAC} = \"B\", \"[GCSB_RTAC_MODBUS]\",\r\nif({[default]SEL_Internal_Tags/MasterController} = \"GCSA\", \"[GCSA_RTAC_MODBUS]\", \"[GCSB_RTAC_MODBUS]\")))",
+      "value": "[GCSA_RTAC_MODBUS]"
+    }
+  ]
+}

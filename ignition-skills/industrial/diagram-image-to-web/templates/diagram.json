@@ -1,0 +1,49 @@
+{
+  "metadata": {
+    "title": "Example diagram",
+    "diagramType": "single-line",
+    "source": "source-image.png",
+    "page": 1
+  },
+  "symbols": [
+    {
+      "id": "sym-main-breaker",
+      "type": "breaker",
+      "label": "52-MAIN",
+      "bbox": [120, 60, 80, 120],
+      "attributes": {
+        "voltage": "13.8kV"
+      }
+    },
+    {
+      "id": "sym-bus-a",
+      "type": "bus",
+      "label": "BUS A",
+      "bbox": [300, 220, 240, 20],
+      "attributes": {}
+    }
+  ],
+  "texts": [
+    {
+      "id": "txt-bus-a",
+      "text": "BUS A",
+      "bbox": [320, 180, 90, 20],
+      "role": "equipment-label"
+    }
+  ],
+  "connections": [
+    {
+      "id": "conn-1",
+      "from": "sym-main-breaker",
+      "to": "sym-bus-a",
+      "points": [[160, 180], [160, 230], [300, 230]],
+      "class": "energized"
+    }
+  ],
+  "regions": [],
+  "renderHints": {
+    "width": 1600,
+    "height": 900,
+    "background": "#0f172a"
+  }
+}

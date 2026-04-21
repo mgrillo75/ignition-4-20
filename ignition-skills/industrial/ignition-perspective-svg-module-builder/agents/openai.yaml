@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ignition SVG Module Builder"
+  short_description: "Builds custom Ignition SVG component module artifacts"
+  default_prompt: "Use $ignition-perspective-svg-module-builder to add provided SVGs into isometric-perspective-components and build a fresh .modl."

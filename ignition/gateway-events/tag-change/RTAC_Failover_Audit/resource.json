@@ -1,0 +1,16 @@
+{
+  "scope": "G",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "script.py",
+    "config.json"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "claude",
+      "timestamp": "2026-04-21T00:00:00Z"
+    }
+  }
+}

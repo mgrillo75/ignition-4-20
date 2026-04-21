@@ -1,0 +1,10 @@
+{
+  "enabled": true,
+  "tagPaths": [
+    "[default]GCS_RTAC_Control/ActiveRTAC"
+  ],
+  "eventTypes": [
+    "valueChanged"
+  ],
+  "description": "Audit counter + structured log on every ActiveRTAC transition. Writes LastFailoverTime, LastFailoverReason, and increments FailoverCount."
+}
