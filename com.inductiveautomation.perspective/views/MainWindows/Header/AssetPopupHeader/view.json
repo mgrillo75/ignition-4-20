@@ -1,0 +1,159 @@
+{
+  "custom": {},
+  "params": {
+    "tagPath": "[default]TX3/tx3-pb1-n1-qp1-br-001"
+  },
+  "propConfig": {
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 30,
+      "width": 1052
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "250px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "\"DeviceID: \"+tag({view.params.tagPath}+\"/deviceID\")"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "300px"
+        },
+        "props": {
+          "style": {
+            "borderBottomLeftRadius": 0,
+            "borderBottomRightRadius": 0,
+            "borderColor": "#202B4A",
+            "borderLeftStyle": "soliid",
+            "borderRightStyle": "solid",
+            "borderTopLeftRadius": 0,
+            "borderTopRightRadius": 0,
+            "color": "#FFFFFF",
+            "textAlign": "left"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "25px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "\"Health Status: \"+tag({view.params.tagPath}+\"/heartbeat/status\")"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "borderBottomLeftRadius": 0,
+                "borderBottomRightRadius": 0,
+                "borderColor": "#202B4A",
+                "borderRightStyle": "solid",
+                "borderTopLeftRadius": 0,
+                "borderTopRightRadius": 0,
+                "textAlign": "left"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "50px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "\"Last Update: \"+tag({view.params.tagPath}+\"/heartbeat/timestamp\")"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "basis": "150px",
+          "grow": 1
+        },
+        "props": {
+          "justify": "space-between",
+          "style": {
+            "color": "#FFFFFF"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "props.style.backgroundColor": {
+        "binding": {
+          "config": {
+            "fallbackDelay": 2.5,
+            "mode": "direct",
+            "tagPath": "[default]_Settings/Colors/Background"
+          },
+          "type": "tag"
+        }
+      }
+    },
+    "props": {
+      "alignContent": "center",
+      "justify": "flex-end",
+      "style": {
+        "borderColor": "#3D3D3D20",
+        "borderStyle": "solid"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

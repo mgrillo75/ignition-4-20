@@ -1,0 +1,134 @@
+{
+  "custom": {},
+  "params": {
+    "color": "#D5D5D5",
+    "label": "52I_LV",
+    "tagPathBreaker52I": "[default]Test/SEL787_3e"
+  },
+  "propConfig": {
+    "params.color": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.label": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPathBreaker52I": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 50,
+      "width": 50
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Breaker",
+          "tooltip": {
+            "enabled": true
+          }
+        },
+        "position": {
+          "height": 30,
+          "rotate": {
+            "anchor": "50% 39%"
+          },
+          "width": 30,
+          "y": 20
+        },
+        "propConfig": {
+          "meta.tooltip.text": {
+            "binding": {
+              "config": {
+                "expression": "\"MV ICB  \"+ tag({view.params.tagPathBreaker52I}+\"/deviceId\")"
+              },
+              "type": "expr"
+            }
+          },
+          "props.style.borderColor": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "tagPath": "[default]_Settings/Colors/Energized"
+              },
+              "type": "tag"
+            }
+          },
+          "props.textStyle.color": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "tagPath": "[default]_Settings/Colors/Energized"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "alignVertical": "bottom",
+          "style": {
+            "backgroundColor": "transparent",
+            "borderStyle": "solid",
+            "borderWidth": 2,
+            "overflow": "visible"
+          },
+          "textStyle": {
+            "fontSize": 12,
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Warning Symbol",
+          "visible": false
+        },
+        "position": {
+          "height": 30,
+          "width": 30,
+          "x": 18,
+          "y": 2
+        },
+        "props": {
+          "params": {
+            "color": "#EAF542",
+            "tagPath": "value"
+          },
+          "path": "Assets/Widgets/Icons/Warning Symbol"
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root",
+      "tooltip": {
+        "enabled": true
+      }
+    },
+    "propConfig": {
+      "meta.tooltip.text": {
+        "binding": {
+          "config": {
+            "expression": "\"MV GCB  \"+ tag({view.params.tagPathBreaker52I}+\"/deviceId\")"
+          },
+          "type": "expr"
+        }
+      }
+    },
+    "props": {
+      "style": {
+        "backgroundColor": "transparent"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

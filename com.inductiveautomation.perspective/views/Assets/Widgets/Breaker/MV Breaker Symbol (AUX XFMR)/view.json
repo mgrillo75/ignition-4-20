@@ -1,0 +1,189 @@
+{
+  "custom": {},
+  "params": {
+    "color": "#D5D5D5",
+    "label": "AUX XFMR CB",
+    "tagPathBreakerAuxXfmrCB": "[default]TX3/tx3-pb1-n1-fcb1-751-001"
+  },
+  "propConfig": {
+    "params.color": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.label": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPathBreakerAuxXfmrCB": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 50,
+      "width": 50
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Breaker",
+          "tooltip": {
+            "enabled": true
+          }
+        },
+        "position": {
+          "height": 30,
+          "rotate": {
+            "anchor": "50% 39%"
+          },
+          "width": 30,
+          "y": 20
+        },
+        "propConfig": {
+          "meta.tooltip.text": {
+            "binding": {
+              "config": {
+                "expression": "\"AUX XFMR CB  \"+ tag({view.params.tagPathBreakerAuxXfmrCB}+\"/deviceId\")"
+              },
+              "type": "expr"
+            }
+          },
+          "props.style.borderColor": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.tagPathBreakerAuxXfmrCB}+\"/bit_52a\")"
+              },
+              "transforms": [
+                {
+                  "fallback": "{[default]_Settings/Colors/Background}",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "{[default]_Settings/Colors/Energized}"
+                    },
+                    {
+                      "input": false,
+                      "output": "{[default]_Settings/Colors/Deenergized}"
+                    }
+                  ],
+                  "outputType": "expression",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.textStyle.color": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.tagPathBreakerAuxXfmrCB}+\"/bit_52a\")"
+              },
+              "transforms": [
+                {
+                  "fallback": "{[default]_Settings/Colors/Background}",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "{[default]_Settings/Colors/Energized}"
+                    },
+                    {
+                      "input": false,
+                      "output": "{[default]_Settings/Colors/Deenergized}"
+                    }
+                  ],
+                  "outputType": "expression",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "alignVertical": "bottom",
+          "style": {
+            "backgroundColor": "transparent",
+            "borderStyle": "solid",
+            "borderWidth": 2,
+            "overflow": "visible"
+          },
+          "textStyle": {
+            "fontSize": 12,
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Warning Symbol",
+          "visible": false
+        },
+        "position": {
+          "height": 30,
+          "width": 30,
+          "x": 18,
+          "y": 2
+        },
+        "props": {
+          "params": {
+            "color": "#EAF542",
+            "tagPath": "value"
+          },
+          "path": "Assets/Widgets/Icons/Warning Symbol"
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "events": {
+      "dom": {
+        "onClick": {
+          "config": {
+            "draggable": true,
+            "id": "{view.params.tagPathBreakerAuxXfmrCB}",
+            "modal": false,
+            "overlayDismiss": false,
+            "resizable": true,
+            "showCloseIcon": true,
+            "title": "{/root/Breaker.meta.tooltip.text}",
+            "type": "open",
+            "viewParams": {
+              "tagPathBreakerAuxXfmrCB": "{view.params.tagPathBreakerAuxXfmrCB}"
+            },
+            "viewPath": "Assets/Popups/MVGenset AUX XFMR CB/mvGensetAuxXfmrCBAssetScreen",
+            "viewportBound": false
+          },
+          "scope": "C",
+          "type": "popup"
+        }
+      }
+    },
+    "meta": {
+      "name": "root",
+      "tooltip": {
+        "enabled": true
+      }
+    },
+    "propConfig": {
+      "meta.tooltip.text": {
+        "binding": {
+          "config": {
+            "expression": "\"AUX XFMR CB  \"+ tag({view.params.tagPathBreakerAuxXfmrCB}+\"/deviceId\")"
+          },
+          "type": "expr"
+        }
+      }
+    },
+    "props": {
+      "style": {
+        "backgroundColor": "transparent"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

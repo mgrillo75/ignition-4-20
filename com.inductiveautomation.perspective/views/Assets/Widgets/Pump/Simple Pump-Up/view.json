@@ -1,0 +1,56 @@
+{
+  "custom": {},
+  "params": {
+    "color": "value",
+    "tagPath": "[default]Test/02-05-001-035"
+  },
+  "propConfig": {
+    "params.color": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 30,
+      "width": 30
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Pump"
+        },
+        "position": {
+          "height": "100%",
+          "width": "100%"
+        },
+        "props": {
+          "appearance": "p\u0026id",
+          "label": {
+            "text": ""
+          },
+          "orientation": "top",
+          "style": {
+            "fill": "#D55E00",
+            "stroke": "#D55E00",
+            "strokeWidth": "2pt"
+          },
+          "value": {
+            "text": ""
+          }
+        },
+        "type": "ia.symbol.pump"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.coord"
+  }
+}

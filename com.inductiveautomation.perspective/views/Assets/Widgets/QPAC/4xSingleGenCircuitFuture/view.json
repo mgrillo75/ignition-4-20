@@ -1,0 +1,212 @@
+{
+  "custom": {},
+  "params": {
+    "qpacLabel": "QPAC 1",
+    "tagPath52G_1": "value",
+    "tagPath52G_2": "value",
+    "tagPath52G_3": "value",
+    "tagPath52G_4": "value",
+    "tagPath52I_1": "value",
+    "tagPath52I_2": "value",
+    "tagPath52I_3": "value",
+    "tagPath52I_4": "value",
+    "tagPathGen_1": "[default]Test/02-05-001-035",
+    "tagPathGen_2": "value",
+    "tagPathGen_3": "value",
+    "tagPathGen_4": "value"
+  },
+  "propConfig": {
+    "params.qpacLabel": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath52G_1": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath52G_2": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath52G_3": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath52G_4": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath52I_1": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath52I_2": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath52I_3": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath52I_4": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPathGen_1": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPathGen_2": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPathGen_3": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPathGen_4": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 450,
+      "width": 190
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "CoordinateContainer_34"
+        },
+        "position": {
+          "height": 185,
+          "width": 182,
+          "x": 3,
+          "y": 229
+        },
+        "props": {
+          "style": {
+            "borderColor": "#D5D5D538",
+            "borderStyle": "dotted"
+          }
+        },
+        "type": "ia.container.coord"
+      },
+      {
+        "meta": {
+          "name": "SingleGen"
+        },
+        "position": {
+          "height": 315,
+          "width": 40,
+          "x": 6.0012,
+          "y": 2.0036
+        },
+        "props": {
+          "params": {
+            "busDeenergizedColor": "#2B9F78",
+            "busEnergizedColor": "#D55E00",
+            "tagPath": "[default]Test/02-05-001-035"
+          },
+          "path": "Assets/Widgets/Generator Circuit/SingleGenFuture"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "SingleGen_0"
+        },
+        "position": {
+          "height": 315,
+          "width": 40,
+          "x": 51.0012,
+          "y": 2.0036
+        },
+        "props": {
+          "params": {
+            "busDeenergizedColor": "#2B9F78",
+            "busEnergizedColor": "#D55E00",
+            "tagPath": "[default]Test/02-05-001-035"
+          },
+          "path": "Assets/Widgets/Generator Circuit/SingleGenFuture"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "SingleGen_1"
+        },
+        "position": {
+          "height": 315,
+          "width": 40,
+          "x": 96.001,
+          "y": 2.0036
+        },
+        "props": {
+          "params": {
+            "busDeenergizedColor": "#2B9F78",
+            "busEnergizedColor": "#D55E00",
+            "tagPath": "[default]Test/02-05-001-035"
+          },
+          "path": "Assets/Widgets/Generator Circuit/SingleGenFuture"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "SingleGen_2"
+        },
+        "position": {
+          "height": 315,
+          "width": 40,
+          "x": 141.001,
+          "y": 2.0036
+        },
+        "props": {
+          "params": {
+            "busDeenergizedColor": "#2B9F78",
+            "busEnergizedColor": "#D55E00",
+            "tagPath": "[default]Test/02-05-001-035"
+          },
+          "path": "Assets/Widgets/Generator Circuit/SingleGenFuture"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Label_21"
+        },
+        "position": {
+          "height": 32,
+          "width": 88,
+          "x": 3,
+          "y": 415
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.qpacLabel"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "color": "#FFFFFFD9",
+            "fontWeight": "bold"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.coord"
+  }
+}

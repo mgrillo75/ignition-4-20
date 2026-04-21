@@ -1,0 +1,190 @@
+{
+  "custom": {},
+  "params": {
+    "tagPath": "[default]TX3/tx3-pb1-n1-qp1-br-001"
+  },
+  "propConfig": {
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 47,
+      "width": 52
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "RealPower",
+          "tooltip": {
+            "enabled": true
+          }
+        },
+        "position": {
+          "height": "25%",
+          "width": "100%"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.tagPath} + \u0027/power\u0027) + \u0027 \u0027 + tag({view.params.tagPath} + \u0027/power.EngUnit\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "color": "#FFFFFF",
+            "fontSize": "50%",
+            "textAlignLast": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "ReactivePower",
+          "tooltip": {
+            "enabled": true
+          }
+        },
+        "position": {
+          "height": "25%",
+          "width": "100%",
+          "y": "25%"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.tagPath} + \u0027/reactivePower\u0027) + \u0027 \u0027 + tag({view.params.tagPath} + \u0027/reactivePower.EngUnit\u0027)"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "color": "#FFFFFF",
+            "fontSize": "50%",
+            "textAlignLast": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Operating_Mode",
+          "tooltip": {
+            "enabled": true
+          }
+        },
+        "position": {
+          "height": "25%",
+          "width": "100%",
+          "y": "50%"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.tagPath} + \u0027/AutoManual\u0027"
+              },
+              "transforms": [
+                {
+                  "fallback": "Off",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": 0,
+                      "output": "Manual"
+                    },
+                    {
+                      "input": 1,
+                      "output": "Auto"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "color": "#FFFFFF",
+            "fontSize": "50%",
+            "textAlignLast": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Local",
+          "tooltip": {
+            "enabled": true
+          }
+        },
+        "position": {
+          "height": "25%",
+          "width": "100%",
+          "y": "75%"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.tagPath}+\"/spare545_LocalRemote\")\r\n//tag({view.params.tagPathBreaker52F}+\"/in101\")"
+              },
+              "transforms": [
+                {
+                  "fallback": null,
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": false,
+                      "output": "Local"
+                    },
+                    {
+                      "input": true,
+                      "output": " "
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "color": "#FFFFFF",
+            "fontSize": "50%",
+            "textAlignLast": "center"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "backgroundColor": "transparent"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

@@ -1,0 +1,971 @@
+{
+  "custom": {},
+  "params": {
+    "tagPathBreakerAuxXfmrCB": "[default]TX3/tx3-pb1-n1-fcb1-751-001"
+  },
+  "propConfig": {
+    "params.tagPathBreakerAuxXfmrCB": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 1000,
+      "width": 1699
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "GensetGCBStatusDisplay"
+            },
+            "position": {
+              "basis": "1000px"
+            },
+            "props": {
+              "path": "Assets/Widgets/Data Display/GensetAuxXfmrStatusDisplay",
+              "style": {
+                "marginBottom": 10,
+                "marginLeft": 10,
+                "marginRight": 10
+              }
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "329px"
+        },
+        "props": {
+          "direction": "column",
+          "justify": "flex-end"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "OPEN"
+                },
+                "position": {
+                  "basis": "320px"
+                },
+                "propConfig": {
+                  "props.params.device_id": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.tagPathBreakerAuxXfmrCB"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "params": {
+                    "action_type": "gen_xfmr_open",
+                    "color": "#34D399",
+                    "enabled": true,
+                    "label": "OPEN"
+                  },
+                  "path": "Assets/Widgets/Control/ControlButton",
+                  "style": {
+                    "margin": "10px"
+                  }
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "meta": {
+                  "name": "CLOSE"
+                },
+                "position": {
+                  "basis": "320px"
+                },
+                "propConfig": {
+                  "props.params.device_id": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.tagPathBreakerAuxXfmrCB"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "params": {
+                    "action_type": "gen_xfmr_close",
+                    "color": "#34D399",
+                    "enabled": true,
+                    "label": "CLOSE"
+                  },
+                  "path": "Assets/Widgets/Control/ControlButton",
+                  "style": {
+                    "margin": "10px"
+                  }
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "meta": {
+                  "name": "Future"
+                },
+                "position": {
+                  "basis": "320px",
+                  "display": false
+                },
+                "propConfig": {
+                  "props.params.tagPath": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.tagPathBreakerAuxXfmrCB"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "params": {
+                    "background": "value",
+                    "color_icon": "#2B9F78",
+                    "iconPath": "Assets/Widgets/Icons/Temp",
+                    "tagname": "averageCylinderExhaustGasTemp"
+                  },
+                  "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+                  "style": {
+                    "margin": "10px"
+                  }
+                },
+                "type": "ia.display.view"
+              }
+            ],
+            "meta": {
+              "name": "Control"
+            },
+            "position": {
+              "basis": "116px",
+              "shrink": 0
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Power"
+                },
+                "position": {
+                  "basis": "320px"
+                },
+                "propConfig": {
+                  "props.params.tagPath": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.tagPathBreakerAuxXfmrCB"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "params": {
+                    "background": "value",
+                    "color_icon": "#3b82f6",
+                    "iconPath": "Assets/Widgets/Icons/Data",
+                    "tagname": "realpower"
+                  },
+                  "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+                  "style": {
+                    "margin": "10px"
+                  }
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "meta": {
+                  "name": "SecondaryCurrent"
+                },
+                "position": {
+                  "basis": "320px"
+                },
+                "propConfig": {
+                  "props.params.tagPath": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.tagPathBreakerAuxXfmrCB"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "params": {
+                    "background": "value",
+                    "color_icon": "#FF9F3E",
+                    "iconPath": "Assets/Widgets/Icons/Data",
+                    "tagname": "reactivepower"
+                  },
+                  "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+                  "style": {
+                    "margin": "10px"
+                  }
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "meta": {
+                  "name": "SecondaryCurrent_0"
+                },
+                "position": {
+                  "basis": "320px"
+                },
+                "propConfig": {
+                  "props.params.tagPath": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.tagPathBreakerAuxXfmrCB"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "params": {
+                    "background": "value",
+                    "color_icon": "#FF9F3E",
+                    "iconPath": "Assets/Widgets/Icons/Data",
+                    "tagname": "apparentpower"
+                  },
+                  "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+                  "style": {
+                    "margin": "10px"
+                  }
+                },
+                "type": "ia.display.view"
+              }
+            ],
+            "meta": {
+              "name": "AuxXfmrDataRow1"
+            },
+            "position": {
+              "basis": "116px",
+              "shrink": 0
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Voltage"
+                },
+                "position": {
+                  "basis": "320px"
+                },
+                "propConfig": {
+                  "props.params.tagPath": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.tagPathBreakerAuxXfmrCB"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "params": {
+                    "background": "value",
+                    "color_icon": "#3b82f6",
+                    "iconPath": "Assets/Widgets/Icons/Data",
+                    "tagname": "voltageImbalance"
+                  },
+                  "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+                  "style": {
+                    "margin": "10px"
+                  }
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "meta": {
+                  "name": "Frequency"
+                },
+                "position": {
+                  "basis": "320px"
+                },
+                "propConfig": {
+                  "props.params.tagPath": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.tagPathBreakerAuxXfmrCB"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "params": {
+                    "background": "value",
+                    "color_icon": "#FF9F3E",
+                    "iconPath": "Assets/Widgets/Icons/Data",
+                    "tagname": "frequency"
+                  },
+                  "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+                  "style": {
+                    "margin": "10px"
+                  }
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "meta": {
+                  "name": "Current"
+                },
+                "position": {
+                  "basis": "320px"
+                },
+                "propConfig": {
+                  "props.params.tagPath": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.tagPathBreakerAuxXfmrCB"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "params": {
+                    "background": "value",
+                    "color_icon": "#FF9F3E",
+                    "iconPath": "Assets/Widgets/Icons/Data",
+                    "tagname": "currentImbalance"
+                  },
+                  "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+                  "style": {
+                    "margin": "10px"
+                  }
+                },
+                "type": "ia.display.view"
+              }
+            ],
+            "meta": {
+              "name": "AuxXfmrDataRow2"
+            },
+            "position": {
+              "basis": "116px",
+              "shrink": 0
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "meta": {
+                              "name": "Label"
+                            },
+                            "position": {
+                              "basis": "50px"
+                            },
+                            "props": {
+                              "style": {
+                                "borderBottomColor": "#FFFFFF",
+                                "borderBottomStyle": "solid",
+                                "classes": "Heading_H1",
+                                "marginTop": 10
+                              },
+                              "text": "DIGITAL INPUTS",
+                              "textStyle": {
+                                "color": "#FFFFFFFF",
+                                "fontSize": "12pt",
+                                "textAlign": "center"
+                              }
+                            },
+                            "type": "ia.display.label"
+                          },
+                          {
+                            "meta": {
+                              "name": "IN101"
+                            },
+                            "position": {
+                              "basis": "50px"
+                            },
+                            "propConfig": {
+                              "props.params.tagPath": {
+                                "binding": {
+                                  "config": {
+                                    "path": "view.params.tagPathBreakerAuxXfmrCB"
+                                  },
+                                  "type": "property"
+                                }
+                              }
+                            },
+                            "props": {
+                              "params": {
+                                "ioPoinNameColor": "#FFFFFF",
+                                "ioPointColor": "#FFFFFF",
+                                "signalName": "Chicken Switch Close Signal",
+                                "tagName": "IN101"
+                              },
+                              "path": "Assets/Widgets/Data Display/RelayDigitalIODisplay",
+                              "style": {
+                                "marginBottom": 10
+                              }
+                            },
+                            "type": "ia.display.view"
+                          },
+                          {
+                            "meta": {
+                              "name": "IN102"
+                            },
+                            "position": {
+                              "basis": "50px"
+                            },
+                            "propConfig": {
+                              "props.params.tagPath": {
+                                "binding": {
+                                  "config": {
+                                    "path": "view.params.tagPathBreakerAuxXfmrCB"
+                                  },
+                                  "type": "property"
+                                }
+                              }
+                            },
+                            "props": {
+                              "params": {
+                                "ioPoinNameColor": "#FFFFFF",
+                                "ioPointColor": "#FFFFFF",
+                                "signalName": "Chicken Switch Trip Signal",
+                                "tagName": "IN102"
+                              },
+                              "path": "Assets/Widgets/Data Display/RelayDigitalIODisplay",
+                              "style": {
+                                "marginBottom": 10
+                              }
+                            },
+                            "type": "ia.display.view"
+                          },
+                          {
+                            "meta": {
+                              "name": "IN301"
+                            },
+                            "position": {
+                              "basis": "50px"
+                            },
+                            "propConfig": {
+                              "props.params.tagPath": {
+                                "binding": {
+                                  "config": {
+                                    "path": "view.params.tagPathBreakerAuxXfmrCB"
+                                  },
+                                  "type": "property"
+                                }
+                              }
+                            },
+                            "props": {
+                              "params": {
+                                "ioPoinNameColor": "#FFFFFF",
+                                "ioPointColor": "#FFFFFF",
+                                "signalName": "52A BREAKER STATUS",
+                                "tagName": "IN301"
+                              },
+                              "path": "Assets/Widgets/Data Display/RelayDigitalIODisplay",
+                              "style": {
+                                "marginBottom": 10
+                              }
+                            },
+                            "type": "ia.display.view"
+                          },
+                          {
+                            "meta": {
+                              "name": "IN302"
+                            },
+                            "position": {
+                              "basis": "50px"
+                            },
+                            "propConfig": {
+                              "props.params.tagPath": {
+                                "binding": {
+                                  "config": {
+                                    "path": "view.params.tagPathBreakerAuxXfmrCB"
+                                  },
+                                  "type": "property"
+                                }
+                              }
+                            },
+                            "props": {
+                              "params": {
+                                "ioPoinNameColor": "#FFFFFF",
+                                "ioPointColor": "#FFFFFF",
+                                "signalName": "SPARE",
+                                "tagName": "IN302"
+                              },
+                              "path": "Assets/Widgets/Data Display/RelayDigitalIODisplay",
+                              "style": {
+                                "marginBottom": 10
+                              }
+                            },
+                            "type": "ia.display.view"
+                          },
+                          {
+                            "meta": {
+                              "name": "IN303"
+                            },
+                            "position": {
+                              "basis": "50px"
+                            },
+                            "propConfig": {
+                              "props.params.tagPath": {
+                                "binding": {
+                                  "config": {
+                                    "path": "view.params.tagPathBreakerAuxXfmrCB"
+                                  },
+                                  "type": "property"
+                                }
+                              }
+                            },
+                            "props": {
+                              "params": {
+                                "ioPoinNameColor": "#FFFFFF",
+                                "ioPointColor": "#FFFFFF",
+                                "signalName": "SPARE",
+                                "tagName": "IN303"
+                              },
+                              "path": "Assets/Widgets/Data Display/RelayDigitalIODisplay",
+                              "style": {
+                                "marginBottom": 10
+                              }
+                            },
+                            "type": "ia.display.view"
+                          },
+                          {
+                            "meta": {
+                              "name": "IN304"
+                            },
+                            "position": {
+                              "basis": "50px"
+                            },
+                            "propConfig": {
+                              "props.params.tagPath": {
+                                "binding": {
+                                  "config": {
+                                    "path": "view.params.tagPathBreakerAuxXfmrCB"
+                                  },
+                                  "type": "property"
+                                }
+                              }
+                            },
+                            "props": {
+                              "params": {
+                                "ioPoinNameColor": "#FFFFFF",
+                                "ioPointColor": "#FFFFFF",
+                                "signalName": "SPARE",
+                                "tagName": "IN304"
+                              },
+                              "path": "Assets/Widgets/Data Display/RelayDigitalIODisplay",
+                              "style": {
+                                "marginBottom": 10
+                              }
+                            },
+                            "type": "ia.display.view"
+                          },
+                          {
+                            "meta": {
+                              "name": "IN305"
+                            },
+                            "position": {
+                              "basis": "50px"
+                            },
+                            "propConfig": {
+                              "props.params.tagPath": {
+                                "binding": {
+                                  "config": {
+                                    "path": "view.params.tagPathBreakerAuxXfmrCB"
+                                  },
+                                  "type": "property"
+                                }
+                              }
+                            },
+                            "props": {
+                              "params": {
+                                "ioPoinNameColor": "#FFFFFF",
+                                "ioPointColor": "#FFFFFF",
+                                "signalName": "SPARE",
+                                "tagName": "IN501"
+                              },
+                              "path": "Assets/Widgets/Data Display/RelayDigitalIODisplay",
+                              "style": {
+                                "marginBottom": 10
+                              }
+                            },
+                            "type": "ia.display.view"
+                          }
+                        ],
+                        "meta": {
+                          "name": "FlexContainer"
+                        },
+                        "position": {
+                          "basis": "500px"
+                        },
+                        "props": {
+                          "direction": "column"
+                        },
+                        "type": "ia.container.flex"
+                      }
+                    ],
+                    "meta": {
+                      "name": "FlexContainer_0"
+                    },
+                    "position": {
+                      "basis": "500px"
+                    },
+                    "props": {
+                      "style": {
+                        "borderBottomStyle": "none",
+                        "borderLeftStyle": "none",
+                        "borderRightColor": "#FFFFFF",
+                        "borderRightStyle": "solid",
+                        "borderTopStyle": "none"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "meta": {
+                              "name": "Label_0"
+                            },
+                            "position": {
+                              "basis": "50px"
+                            },
+                            "props": {
+                              "style": {
+                                "borderBottomColor": "#FFFFFF",
+                                "borderBottomStyle": "solid",
+                                "marginTop": 10
+                              },
+                              "text": "DIGITAL OUTPUTS",
+                              "textStyle": {
+                                "classes": "Heading_H1",
+                                "color": "#FFFFFFFF",
+                                "fontSize": "12pt",
+                                "textAlign": "center"
+                              }
+                            },
+                            "type": "ia.display.label"
+                          },
+                          {
+                            "meta": {
+                              "name": "OUT101"
+                            },
+                            "position": {
+                              "basis": "50px"
+                            },
+                            "propConfig": {
+                              "props.params.tagPath": {
+                                "binding": {
+                                  "config": {
+                                    "path": "view.params.tagPathBreakerAuxXfmrCB"
+                                  },
+                                  "type": "property"
+                                }
+                              }
+                            },
+                            "props": {
+                              "params": {
+                                "ioPoinNameColor": "#FFFFFF",
+                                "ioPointColor": "#FFFFFF",
+                                "signalName": "CLOSE COMMAND",
+                                "tagName": "OUT101"
+                              },
+                              "path": "Assets/Widgets/Data Display/RelayDigitalIODisplay",
+                              "style": {
+                                "marginBottom": 10
+                              }
+                            },
+                            "type": "ia.display.view"
+                          },
+                          {
+                            "meta": {
+                              "name": "OUT102"
+                            },
+                            "position": {
+                              "basis": "50px"
+                            },
+                            "propConfig": {
+                              "props.params.tagPath": {
+                                "binding": {
+                                  "config": {
+                                    "path": "view.params.tagPathBreakerAuxXfmrCB"
+                                  },
+                                  "type": "property"
+                                }
+                              }
+                            },
+                            "props": {
+                              "params": {
+                                "ioPoinNameColor": "#FFFFFF",
+                                "ioPointColor": "#FFFFFF",
+                                "signalName": "TRIP COMMAND",
+                                "tagName": "OUT102"
+                              },
+                              "path": "Assets/Widgets/Data Display/RelayDigitalIODisplay",
+                              "style": {
+                                "marginBottom": 10
+                              }
+                            },
+                            "type": "ia.display.view"
+                          },
+                          {
+                            "meta": {
+                              "name": "OUT103"
+                            },
+                            "position": {
+                              "basis": "50px"
+                            },
+                            "propConfig": {
+                              "props.params.tagPath": {
+                                "binding": {
+                                  "config": {
+                                    "path": "view.params.tagPathBreakerAuxXfmrCB"
+                                  },
+                                  "type": "property"
+                                }
+                              }
+                            },
+                            "props": {
+                              "params": {
+                                "ioPoinNameColor": "#FFFFFF",
+                                "ioPointColor": "#FFFFFF",
+                                "signalName": "SPARE B\u0026R DI",
+                                "tagName": "OUT103"
+                              },
+                              "path": "Assets/Widgets/Data Display/RelayDigitalIODisplay",
+                              "style": {
+                                "marginBottom": 10
+                              }
+                            },
+                            "type": "ia.display.view"
+                          },
+                          {
+                            "meta": {
+                              "name": "OUT301"
+                            },
+                            "position": {
+                              "basis": "50px"
+                            },
+                            "propConfig": {
+                              "props.params.tagPath": {
+                                "binding": {
+                                  "config": {
+                                    "path": "view.params.tagPathBreakerAuxXfmrCB"
+                                  },
+                                  "type": "property"
+                                }
+                              }
+                            },
+                            "props": {
+                              "params": {
+                                "ioPoinNameColor": "#FFFFFF",
+                                "ioPointColor": "#FFFFFF",
+                                "signalName": "CLOSE REPORT TO B\u0026R",
+                                "tagName": "OUT301"
+                              },
+                              "path": "Assets/Widgets/Data Display/RelayDigitalIODisplay",
+                              "style": {
+                                "marginBottom": 10
+                              }
+                            },
+                            "type": "ia.display.view"
+                          },
+                          {
+                            "meta": {
+                              "name": "OUT302"
+                            },
+                            "position": {
+                              "basis": "50px"
+                            },
+                            "propConfig": {
+                              "props.params.tagPath": {
+                                "binding": {
+                                  "config": {
+                                    "path": "view.params.tagPathBreakerAuxXfmrCB"
+                                  },
+                                  "type": "property"
+                                }
+                              }
+                            },
+                            "props": {
+                              "params": {
+                                "ioPoinNameColor": "#FFFFFF",
+                                "ioPointColor": "#FFFFFF",
+                                "signalName": "TRIP REPORT TO B\u0026R",
+                                "tagName": "OUT302"
+                              },
+                              "path": "Assets/Widgets/Data Display/RelayDigitalIODisplay",
+                              "style": {
+                                "marginBottom": 10
+                              }
+                            },
+                            "type": "ia.display.view"
+                          },
+                          {
+                            "meta": {
+                              "name": "OUT303"
+                            },
+                            "position": {
+                              "basis": "50px"
+                            },
+                            "propConfig": {
+                              "props.params.tagPath": {
+                                "binding": {
+                                  "config": {
+                                    "path": "view.params.tagPathBreakerAuxXfmrCB"
+                                  },
+                                  "type": "property"
+                                }
+                              }
+                            },
+                            "props": {
+                              "params": {
+                                "ioPoinNameColor": "#FFFFFF",
+                                "ioPointColor": "#FFFFFF",
+                                "signalName": "SPARE B\u0026R DI",
+                                "tagName": "OUT303"
+                              },
+                              "path": "Assets/Widgets/Data Display/RelayDigitalIODisplay",
+                              "style": {
+                                "marginBottom": 10
+                              }
+                            },
+                            "type": "ia.display.view"
+                          },
+                          {
+                            "meta": {
+                              "name": "OUT304"
+                            },
+                            "position": {
+                              "basis": "50px"
+                            },
+                            "propConfig": {
+                              "props.params.tagPath": {
+                                "binding": {
+                                  "config": {
+                                    "path": "view.params.tagPathBreakerAuxXfmrCB"
+                                  },
+                                  "type": "property"
+                                }
+                              }
+                            },
+                            "props": {
+                              "params": {
+                                "ioPoinNameColor": "#FFFFFF",
+                                "ioPointColor": "#FFFFFF",
+                                "signalName": "SPARE B\u0026R DI",
+                                "tagName": "OUT304"
+                              },
+                              "path": "Assets/Widgets/Data Display/RelayDigitalIODisplay",
+                              "style": {
+                                "marginBottom": 10
+                              }
+                            },
+                            "type": "ia.display.view"
+                          }
+                        ],
+                        "meta": {
+                          "name": "FlexContainer"
+                        },
+                        "position": {
+                          "basis": "500px"
+                        },
+                        "props": {
+                          "direction": "column"
+                        },
+                        "type": "ia.container.flex"
+                      }
+                    ],
+                    "meta": {
+                      "name": "FlexContainer_1"
+                    },
+                    "position": {
+                      "basis": "500px"
+                    },
+                    "type": "ia.container.flex"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer"
+                },
+                "position": {
+                  "basis": "1000px"
+                },
+                "props": {
+                  "alignItems": "flex-start"
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "IO Data"
+            },
+            "position": {
+              "grow": 1,
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.style.backgroundColor": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "direct",
+                    "tagPath": "[default]_Settings/Colors/Background"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "basis": "300px",
+          "grow": 1
+        },
+        "props": {
+          "direction": "column"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "backgroundColor": "#070E19"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

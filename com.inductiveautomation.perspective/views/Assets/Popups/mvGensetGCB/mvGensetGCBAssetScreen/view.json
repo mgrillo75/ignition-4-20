@@ -1,0 +1,146 @@
+{
+  "custom": {},
+  "params": {
+    "tagPathBreaker52G": "[default]Test/Gx_GCB_xx"
+  },
+  "propConfig": {
+    "params.tagPathBreaker52G": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 900,
+      "width": 1700
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "EmbeddedView"
+            },
+            "position": {
+              "basis": "1370px"
+            },
+            "props": {
+              "path": "MainWindows/Header/AssetPopupHeader"
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "AssetHeader"
+        },
+        "position": {
+          "basis": "50px"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "mvGensetEmbViews"
+            },
+            "propConfig": {
+              "props.params.tagPath": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.tagPathBreaker52G"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "path": "Assets/Popups/mvGensetGCB/mvGensetGCBEmbViews"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "tableView"
+            },
+            "position": {
+              "tabIndex": 1
+            },
+            "propConfig": {
+              "props.params.tagPath": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.tagPathBreaker52G"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "path": "Assets/Widgets/Data Display/tableView"
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "TabContainer"
+        },
+        "position": {
+          "basis": "750px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.contentStyle.backgroundColor": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "tagPath": "[default]_Settings/Colors/Background"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "menuType": "modern",
+          "tabStyle": {
+            "active": {
+              "color": "#D5D5D5",
+              "fontWeight": "bolder"
+            },
+            "inactive": {
+              "color": "#D5D5D5"
+            }
+          },
+          "tabs": [
+            "Overview",
+            "Tag Data",
+            "Protection"
+          ]
+        },
+        "type": "ia.container.tab"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "props.style.backgroundColor": {
+        "binding": {
+          "config": {
+            "fallbackDelay": 2.5,
+            "mode": "direct",
+            "tagPath": "[default]_Settings/Colors/Background"
+          },
+          "type": "tag"
+        }
+      }
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

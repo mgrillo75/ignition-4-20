@@ -1,0 +1,63 @@
+{
+  "custom": {},
+  "params": {
+    "color": "#000000",
+    "label": "value"
+  },
+  "propConfig": {
+    "params.color": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.label": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 30,
+      "width": 30
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Breaker"
+        },
+        "position": {
+          "height": "100%",
+          "rotate": {
+            "anchor": "50% 39%"
+          },
+          "width": "100%"
+        },
+        "props": {
+          "alignVertical": "bottom",
+          "style": {
+            "backgroundColor": "transparent",
+            "borderColor": "#FFFFFF",
+            "borderStyle": "dashed",
+            "borderWidth": 2
+          },
+          "textStyle": {
+            "color": "#FFFFFF",
+            "fontSize": 12,
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "backgroundColor": "transparent"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

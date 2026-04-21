@@ -1,0 +1,75 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 860,
+      "width": 1920
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "AlarmStatusTable"
+        },
+        "position": {
+          "height": 800,
+          "width": 1920
+        },
+        "props": {
+          "filters": {
+            "active": {
+              "states": {
+                "activeAcked": false,
+                "clearUnacked": false
+              }
+            }
+          },
+          "rowStyles": {
+            "activeAcked": {
+              "priorities": {
+                "critical": {
+                  "backgroundColor": "#FF0000"
+                },
+                "high": {
+                  "backgroundColor": "#EC8629"
+                },
+                "low": {
+                  "backgroundColor": "#916AAD"
+                },
+                "medium": {
+                  "backgroundColor": "#F5DF1B"
+                }
+              }
+            },
+            "activeUnacked": {
+              "priorities": {
+                "critical": {
+                  "backgroundColor": "#FF0000"
+                },
+                "high": {
+                  "backgroundColor": "#EC8629"
+                },
+                "low": {
+                  "backgroundColor": "#916AAD"
+                },
+                "medium": {
+                  "backgroundColor": "#F5DF1B"
+                }
+              }
+            }
+          }
+        },
+        "type": "ia.display.alarmstatustable"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "aspectRatio": "1:1"
+    },
+    "type": "ia.container.coord"
+  }
+}

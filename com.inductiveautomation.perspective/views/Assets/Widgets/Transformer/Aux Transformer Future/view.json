@@ -1,0 +1,87 @@
+{
+  "custom": {},
+  "params": {
+    "color": "#D5D5D5"
+  },
+  "propConfig": {
+    "params.color": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 50,
+      "width": 30
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "height": 30,
+          "width": 30
+        },
+        "propConfig": {
+          "props.style.borderColor": {
+            "binding": {
+              "config": {
+                "path": "view.params.color"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "borderBottomLeftRadius": "100%",
+            "borderBottomRightRadius": "100%",
+            "borderStyle": "dashed",
+            "borderTopLeftRadius": "100%",
+            "borderTopRightRadius": "100%",
+            "borderWidth": 3
+          }
+        },
+        "type": "ia.container.coord"
+      },
+      {
+        "meta": {
+          "name": "CoordinateContainer_0"
+        },
+        "position": {
+          "height": 30,
+          "width": 30,
+          "y": 18.5
+        },
+        "propConfig": {
+          "props.style.borderColor": {
+            "binding": {
+              "config": {
+                "path": "view.params.color"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "borderBottomLeftRadius": "100%",
+            "borderBottomRightRadius": "100%",
+            "borderStyle": "dashed",
+            "borderTopLeftRadius": "100%",
+            "borderTopRightRadius": "100%",
+            "borderWidth": 3
+          }
+        },
+        "type": "ia.container.coord"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.coord"
+  }
+}

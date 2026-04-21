@@ -1,0 +1,209 @@
+{
+  "custom": {},
+  "params": {
+    "action_type": "",
+    "device_id": "",
+    "label": "ACTION"
+  },
+  "propConfig": {
+    "params.Value": {
+      "access": "PUBLIC"
+    },
+    "params.action_type": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.device_id": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.label": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath": {
+      "access": "PUBLIC"
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 150,
+      "width": 300
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "draggable": false,
+                "id": "confirmationPopup",
+                "modal": false,
+                "overlayDismiss": false,
+                "resizable": false,
+                "showCloseIcon": false,
+                "type": "close",
+                "viewPath": "",
+                "viewportBound": false
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "Cancel"
+        },
+        "position": {
+          "height": 34,
+          "width": 80,
+          "x": 170.5,
+          "y": 90
+        },
+        "propConfig": {
+          "props.style.backgroundColor": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "tagPath": "[default]_Settings/Colors/Energized"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "image": {
+            "height": 30,
+            "icon": {
+              "path": "material/cancel"
+            },
+            "width": 30
+          },
+          "text": "Cancel"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": [
+              {
+                "config": {
+                  "script": "\tdispatcher.dispatch(self.view.params.action_type, self.view.params.device_id, self.session)"
+                },
+                "scope": "G",
+                "type": "script"
+              },
+              {
+                "config": {
+                  "draggable": false,
+                  "id": "confirmationPopup",
+                  "modal": false,
+                  "overlayDismiss": false,
+                  "resizable": false,
+                  "showCloseIcon": false,
+                  "type": "close",
+                  "viewPath": "",
+                  "viewportBound": false
+                },
+                "scope": "C",
+                "type": "popup"
+              }
+            ]
+          }
+        },
+        "meta": {
+          "name": "Confirm"
+        },
+        "position": {
+          "height": 34,
+          "width": 80,
+          "x": 49.5,
+          "y": 90
+        },
+        "propConfig": {
+          "props.style.backgroundColor": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "tagPath": "[default]_Settings/Colors/Deenergized"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "image": {
+            "height": 30,
+            "icon": {
+              "path": "material/check"
+            },
+            "width": 30
+          },
+          "text": "Confirm"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "height": 62,
+          "width": 264,
+          "x": 18,
+          "y": 16
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "\"Proceed with action \u0027\"+{view.params.label}+\"\u0027?\""
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "color": "#FFFFFF"
+          },
+          "textStyle": {
+            "textAlignLast": "center"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "props.style.backgroundColor": {
+        "binding": {
+          "config": {
+            "fallbackDelay": 2.5,
+            "mode": "direct",
+            "tagPath": "[default]_Settings/Colors/ButtonBackground"
+          },
+          "type": "tag"
+        }
+      }
+    },
+    "props": {
+      "style": {
+        "borderBottomLeftRadius": 0,
+        "borderBottomRightRadius": 0,
+        "borderStyle": "solid",
+        "borderTopLeftRadius": 0,
+        "borderTopRightRadius": 0,
+        "borderWidth": 0
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

@@ -1,0 +1,827 @@
+{
+  "custom": {
+    "label": {
+      "basis": "auto",
+      "spacerBasis": "16px",
+      "visible": true
+    },
+    "pageTitle": "value"
+  },
+  "params": {
+    "Current": "[default]Test/02-05-001-035/averageCurrent",
+    "Gens_Running": "[default]TX2/Global/Gens_Running",
+    "Gens_Total": 10,
+    "MQTT_State": "[default]_Settings/VG-Site/MQTT_State_Dummy",
+    "Real_Power": "[default]Test/02-05-001-035/power",
+    "Voltage": "[default]Test/02-05-001-035/averageVoltage",
+    "menuSize": "large"
+  },
+  "propConfig": {
+    "custom.label": {
+      "persistent": true
+    },
+    "custom.pageTitle": {
+      "persistent": true
+    },
+    "params.Current": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.Gens_Running": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.Gens_Total": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.MQTT_State": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.Real_Power": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.Voltage": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.menuSize": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 76,
+      "width": 1920
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "logo_rev_vg"
+        },
+        "position": {
+          "basis": "100px"
+        },
+        "props": {
+          "fit": {
+            "mode": "cover"
+          },
+          "source": "/system/images/icon.png"
+        },
+        "type": "ia.display.image"
+      },
+      {
+        "meta": {
+          "hasDelegate": true,
+          "name": "DateTime"
+        },
+        "position": {
+          "basis": "210px"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "{[System]Gateway/CurrentDateTime}"
+              },
+              "transforms": [
+                {
+                  "formatType": "datetime",
+                  "formatValue": {
+                    "date": "medium",
+                    "time": "medium"
+                  },
+                  "type": "format"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.textStyle.classes": {
+            "binding": {
+              "config": {
+                "expression": "if({session.props.theme}!\u003d\"light\",true, false)"
+              },
+              "transforms": [
+                {
+                  "fallback": "",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": false,
+                      "output": ""
+                    },
+                    {
+                      "input": true,
+                      "output": "Theme/Dark_FontWhite"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "color": "#FFFFFF",
+            "fontSize": "12pt",
+            "fontWeight": "bold",
+            "padding": "10px",
+            "textAlign": "left"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "hasDelegate": true,
+          "name": "MQTT_State"
+        },
+        "position": {
+          "basis": "200px"
+        },
+        "propConfig": {
+          "props.style.borderLeftColor": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "tagPath": "[default]_Settings/Colors/TitleBorderColor"
+              },
+              "type": "tag"
+            }
+          },
+          "props.style.borderRightColor": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "tagPath": "[default]_Settings/Colors/TitleBorderColor"
+              },
+              "type": "tag"
+            }
+          },
+          "props.style.color": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.MQTT_State})"
+              },
+              "transforms": [
+                {
+                  "fallback": "#000000",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "#8AFF8A"
+                    },
+                    {
+                      "input": false,
+                      "output": "#FF8A8A"
+                    }
+                  ],
+                  "outputType": "color",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "\"MQTT:\"+\" \" +if(tag({view.params.MQTT_State}), \"Online\",\"Offline\")"
+              },
+              "type": "expr"
+            }
+          },
+          "props.textStyle.classes": {
+            "binding": {
+              "config": {
+                "expression": "if({session.props.theme}!\u003d\"light\",true, false)"
+              },
+              "enabled": false,
+              "transforms": [
+                {
+                  "fallback": "",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": false,
+                      "output": ""
+                    },
+                    {
+                      "input": true,
+                      "output": "Theme/Dark_FontWhite"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "borderBottomLeftRadius": 0,
+            "borderBottomRightRadius": 0,
+            "borderLeftStyle": "solid",
+            "borderRightStyle": "solid",
+            "borderTopLeftRadius": 0,
+            "borderTopRightRadius": 0,
+            "cursor": "pointer",
+            "marginLeft": "0px",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "custom": {
+          "numAlarms": 0
+        },
+        "meta": {
+          "name": "Spacer"
+        },
+        "position": {
+          "grow": 1
+        },
+        "type": "ia.container.coord"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tdispatcher.dispatch(\"irm\", \"\", self.session)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "IRMToggle"
+        },
+        "position": {
+          "basis": "110px"
+        },
+        "propConfig": {
+          "props.selected": {
+            "binding": {
+              "config": {
+                "expression": "tag(\"[\"+{[default]SEL_Internal_Tags/MasterController}+\"_RTAC_MODBUS]\"+\"GMS/DigitalInput/GMS_IRMControlEnabled_STAT\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "color": {
+            "selected": "#8AFF8A"
+          },
+          "label": {
+            "position": "left",
+            "style": {
+              "color": "#FFFFFF"
+            },
+            "text": "IRM"
+          }
+        },
+        "type": "ia.input.toggle-switch"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tdispatcher.dispatch(\"mlm\", \"\", self.session)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "MLMToggle"
+        },
+        "propConfig": {
+          "props.selected": {
+            "binding": {
+              "config": {
+                "expression": "tag(\"[\"+{[default]SEL_Internal_Tags/MasterController}+\"_RTAC_MODBUS]\"+\"GMS/DigitalInput/GMS_MLMControlEnabled_STAT\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "color": {
+            "selected": "#8AFF8A"
+          },
+          "label": {
+            "position": "left",
+            "style": {
+              "color": "#FFFFFF"
+            },
+            "text": "MLM"
+          },
+          "text": "VG_HIL_1"
+        },
+        "type": "ia.input.toggle-switch"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "EmbeddedView"
+            },
+            "position": {
+              "basis": "320px"
+            },
+            "props": {
+              "params": {
+                "action_type": "party",
+                "color": "#8AFF8A",
+                "device_id": "dummy",
+                "label": "Party"
+              },
+              "path": "Assets/Widgets/Control/ControlButton"
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "PartyModeContainer"
+        },
+        "position": {
+          "basis": "200px"
+        },
+        "props": {
+          "style": {
+            "paddingBottom": "5px",
+            "paddingTop": "5px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {},
+              "scope": "C",
+              "type": "logout"
+            }
+          }
+        },
+        "meta": {
+          "hasDelegate": true,
+          "name": "Logout"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "path": "session.props.auth.user.userName"
+              },
+              "transforms": [
+                {
+                  "expression": "if({value} \u003d null || len({value}) \u003d 0, False, True)",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "position.basis": {
+            "binding": {
+              "config": {
+                "path": "view.custom.label.basis"
+              },
+              "type": "property"
+            }
+          },
+          "props.textStyle.classes": {
+            "binding": {
+              "config": {
+                "expression": "if({session.props.theme}!\u003d\"light\",true, false)"
+              },
+              "enabled": false,
+              "transforms": [
+                {
+                  "fallback": "",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": false,
+                      "output": ""
+                    },
+                    {
+                      "input": true,
+                      "output": "Theme/Dark_FontWhite"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "color": "#FFFFFF",
+            "cursor": "pointer",
+            "marginLeft": "4px"
+          },
+          "text": "Logout"
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "securityLevels": [
+                  "/Authenticated"
+                ]
+              },
+              "scope": "C",
+              "type": "login"
+            }
+          }
+        },
+        "meta": {
+          "name": "User"
+        },
+        "position": {
+          "basis": "30px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.color": {
+            "binding": {
+              "config": {
+                "expression": "if({session.props.theme}!\u003d\"light\",true, false)"
+              },
+              "enabled": false,
+              "transforms": [
+                {
+                  "fallback": "#000000",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": false,
+                      "output": "#000000"
+                    },
+                    {
+                      "input": true,
+                      "output": "#FFFFFF"
+                    }
+                  ],
+                  "outputType": "color",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "color": "#FFFFFF",
+          "path": "material/person",
+          "style": {
+            "classes": "Theme/Dark_FontWhite",
+            "cursor": "pointer"
+          }
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "securityLevels": [
+                  "/Authenticated"
+                ]
+              },
+              "scope": "C",
+              "type": "login"
+            }
+          }
+        },
+        "meta": {
+          "hasDelegate": true,
+          "name": "Sign In"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "path": "view.custom.label.visible"
+              },
+              "type": "property"
+            }
+          },
+          "position.basis": {
+            "binding": {
+              "config": {
+                "path": "view.custom.label.basis"
+              },
+              "type": "property"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "session.props.auth.user.userName"
+              },
+              "transforms": [
+                {
+                  "expression": "if({value} \u003d null || len({value}) \u003d 0, \"Sign In\", {value})",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.textStyle.classes": {
+            "binding": {
+              "config": {
+                "expression": "if({session.props.theme}!\u003d\"light\",true, false)"
+              },
+              "enabled": false,
+              "transforms": [
+                {
+                  "fallback": "",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": false,
+                      "output": ""
+                    },
+                    {
+                      "input": true,
+                      "output": "Theme/Dark_FontWhite"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "color": "#FFFFFF",
+            "cursor": "pointer",
+            "marginLeft": "4px"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "page": "/alarm-viewer"
+              },
+              "scope": "C",
+              "type": "nav"
+            }
+          }
+        },
+        "meta": {
+          "name": "Alarm Icon"
+        },
+        "position": {
+          "basis": "35px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.color": {
+            "binding": {
+              "config": {
+                "expression": "if({session.props.theme}!\u003d\"light\",true, false)"
+              },
+              "enabled": false,
+              "transforms": [
+                {
+                  "fallback": "#000000",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": false,
+                      "output": "#000000"
+                    },
+                    {
+                      "input": true,
+                      "output": "#FFFFFF"
+                    }
+                  ],
+                  "outputType": "color",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.style.display": {
+            "binding": {
+              "config": {
+                "path": "view.params.menuSize"
+              },
+              "enabled": false,
+              "transforms": [
+                {
+                  "fallback": null,
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": "small",
+                      "output": "none"
+                    },
+                    {
+                      "input": "medium",
+                      "output": "inline"
+                    },
+                    {
+                      "input": "large",
+                      "output": "inline"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "color": "#FFFFFF",
+          "path": "material/alarm",
+          "style": {
+            "classes": "",
+            "cursor": "pointer",
+            "display": "flex",
+            "margin": "10px"
+          }
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "meta": {
+          "hasDelegate": true,
+          "name": "Alarms"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "custom.numAlarms": {
+            "binding": {
+              "config": {
+                "expression": "now(2000)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn len(system.alarm.queryStatus(state\u003d[\"ActiveUnacked\"]))",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "bidirectional": false,
+                "path": "view.custom.label.visible"
+              },
+              "type": "property"
+            }
+          },
+          "position.basis": {
+            "binding": {
+              "config": {
+                "bidirectional": false,
+                "path": "view.custom.label.basis"
+              },
+              "type": "property"
+            }
+          },
+          "props.style.color": {
+            "binding": {
+              "config": {
+                "expression": "if({session.props.theme}!\u003d\"light\",true, false)"
+              },
+              "enabled": false,
+              "transforms": [
+                {
+                  "fallback": "#000000",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": false,
+                      "output": "#000000"
+                    },
+                    {
+                      "input": true,
+                      "output": "#FFFFFF"
+                    }
+                  ],
+                  "outputType": "color",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "this.custom.numAlarms"
+              },
+              "transforms": [
+                {
+                  "expression": "numberFormat({value}, \"#,##0\") + \" alarm\" + if({value} \u003e 1 || {value} \u003d 0, \"s\", \"\")",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "color": "#FFFFFF",
+            "cursor": "pointer",
+            "marginLeft": "6px"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "props.style.backgroundColor": {
+        "binding": {
+          "config": {
+            "fallbackDelay": 2.5,
+            "mode": "direct",
+            "tagPath": "[default]_Settings/Colors/Background"
+          },
+          "type": "tag"
+        }
+      }
+    },
+    "props": {
+      "style": {
+        "borderBottomColor": "#3D3D3D20",
+        "borderBottomStyle": "solid",
+        "borderBottomWidth": 2,
+        "borderLeftWidth": 2
+      }
+    },
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "msg_pagetitle",
+          "pageScope": true,
+          "script": "\t# implement your handler here\n\ttitle \u003d payload[\"page_title\"]\n\t\n\tself.getChild(\"PageTitle\").props.text \u003d title",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

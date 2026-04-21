@@ -1,0 +1,14 @@
+{
+  "base": {
+    "animation": {
+      "timingFunction": "ease-in-out",
+      "fillMode": "forwards",
+      "keyframes": {
+        "0%": {
+          "opacity": "0.50"
+        },
+        "100%": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,254 @@
+{
+  "custom": {},
+  "params": {
+    "tagPath": "[default]TX3/tx3-pb1-n1-fcb1-751-001"
+  },
+  "propConfig": {
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 25,
+      "width": 25
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "DELTA"
+        },
+        "position": {
+          "height": 25,
+          "width": 25
+        },
+        "propConfig": {
+          "props.elements[1].elements[0].elements[0].elements[0].stroke": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.tagPath}+\"/bit_52a\")"
+              },
+              "transforms": [
+                {
+                  "fallback": "#000000",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": 1,
+                      "output": "#D55E00"
+                    },
+                    {
+                      "input": false,
+                      "output": "#2B9F78"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.elements[1].elements[0].elements[0].elements[1].stroke": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.tagPath}+\"/bit_52a\")"
+              },
+              "transforms": [
+                {
+                  "fallback": "#000000",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": 1,
+                      "output": "#D55E00"
+                    },
+                    {
+                      "input": false,
+                      "output": "#2B9F78"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "elements": [
+            {
+              "elements": [
+                {
+                  "elements": [
+                    {
+                      "d": "M 3,-3 -3,3 M 0,-5 V 5",
+                      "id": "path1",
+                      "name": "path1",
+                      "stroke": {
+                        "paint": "#000000",
+                        "width": "0.5"
+                      },
+                      "type": "path"
+                    }
+                  ],
+                  "id": "DistanceX",
+                  "name": "DistanceX",
+                  "orient": "auto",
+                  "refX": "0",
+                  "refY": "0",
+                  "style": {
+                    "overflow": "visible"
+                  },
+                  "type": "marker"
+                },
+                {
+                  "elements": [
+                    {
+                      "d": "M8 4 l-4,4",
+                      "id": "path2",
+                      "name": "path2",
+                      "stroke": {
+                        "paint": "#000000",
+                        "width": "0.25"
+                      },
+                      "type": "path"
+                    },
+                    {
+                      "d": "M6 2 l-4,4",
+                      "id": "path3",
+                      "name": "path3",
+                      "stroke": {
+                        "paint": "#000000",
+                        "width": "0.25"
+                      },
+                      "type": "path"
+                    },
+                    {
+                      "d": "M4 0 l-4,4",
+                      "id": "path4",
+                      "name": "path4",
+                      "stroke": {
+                        "paint": "#000000",
+                        "width": "0.25"
+                      },
+                      "type": "path"
+                    }
+                  ],
+                  "height": "8",
+                  "id": "Hatch",
+                  "name": "Hatch",
+                  "patternUnits": "userSpaceOnUse",
+                  "type": "pattern",
+                  "width": "8",
+                  "x": "0",
+                  "y": "0"
+                },
+                {
+                  "id": "*Model_Space",
+                  "name": "*Model_Space",
+                  "type": "symbol"
+                },
+                {
+                  "id": "*Paper_Space",
+                  "name": "*Paper_Space",
+                  "type": "symbol"
+                },
+                {
+                  "id": "*Paper_Space0",
+                  "name": "*Paper_Space0",
+                  "type": "symbol"
+                },
+                {
+                  "id": "ELTB-001",
+                  "name": "ELTB-001",
+                  "type": "symbol"
+                },
+                {
+                  "id": "WDDOT",
+                  "name": "WDDOT",
+                  "type": "symbol"
+                },
+                {
+                  "id": "DOT",
+                  "name": "DOT",
+                  "type": "symbol"
+                },
+                {
+                  "id": "WD_M",
+                  "name": "WD_M",
+                  "type": "symbol"
+                },
+                {
+                  "id": "Arrows",
+                  "name": "Arrows",
+                  "type": "symbol"
+                }
+              ],
+              "id": "defs1",
+              "name": "defs1",
+              "type": "defs"
+            },
+            {
+              "elements": [
+                {
+                  "elements": [
+                    {
+                      "elements": [
+                        {
+                          "d": "m 28.029347,1068.9658 3.6,-5.4",
+                          "fill": {
+                            "paint": "transparent"
+                          },
+                          "id": "path201",
+                          "name": "path201",
+                          "type": "path"
+                        },
+                        {
+                          "d": "m 31.629347,1063.5658 -3.6,5.4 h 7.2 z",
+                          "fill": {
+                            "paint": "transparent"
+                          },
+                          "id": "path202",
+                          "name": "path202",
+                          "type": "path"
+                        }
+                      ],
+                      "id": "g204",
+                      "name": "g204",
+                      "type": "group"
+                    }
+                  ],
+                  "id": "g1",
+                  "name": "g1",
+                  "transform": "matrix(0.26458333,0,0,0.26458333,7.5264277,-268.22255)",
+                  "type": "group"
+                }
+              ],
+              "id": "layer1",
+              "name": "layer1",
+              "transform": "translate(-14.695336,-12.940739)",
+              "type": "group"
+            },
+            {
+              "type": "group"
+            },
+            {
+              "type": "group"
+            }
+          ],
+          "viewBox": "0 0 2.3993785 1.7995339"
+        },
+        "type": "ia.shapes.svg"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.coord"
+  }
+}

@@ -1,0 +1,581 @@
+{
+  "custom": {
+    "params": {
+      "panZoomScale": 1.61,
+      "text": "Your Text Here"
+    },
+    "scale": 1.6105100000000008,
+    "x": 75.13148009015774,
+    "y": 194.9692954405746
+  },
+  "params": {
+    "controls": {
+      "click": true,
+      "in": true,
+      "out": true,
+      "pan": true,
+      "reset": true,
+      "zoom": true
+    },
+    "panning": true,
+    "viewParams": {
+      "text": "Your Text Here"
+    },
+    "viewPath": "MainWindows/TX3/MV-PMS"
+  },
+  "propConfig": {
+    "custom.params": {
+      "binding": {
+        "config": {
+          "struct": {
+            "scale": "{view.custom.scale}",
+            "viewParams": "{view.params.viewParams}"
+          },
+          "waitOnAll": true
+        },
+        "transforms": [
+          {
+            "code": "\toutput \u003d {}\n\toutput \u003d system.util.jsonDecode(system.util.jsonEncode(value.viewParams))\n\toutput[\u0027panZoomScale\u0027] \u003d round(value.scale,2)\n\t\n\treturn output",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      },
+      "persistent": true
+    },
+    "custom.scale": {
+      "persistent": true
+    },
+    "custom.x": {
+      "persistent": true
+    },
+    "custom.y": {
+      "persistent": true
+    },
+    "params.controls": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.panning": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.viewParams": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.viewPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "width": 1920
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "EmbeddedView"
+        },
+        "position": {
+          "height": 1229,
+          "width": 2244
+        },
+        "propConfig": {
+          "props.params": {
+            "binding": {
+              "config": {
+                "path": "view.custom.params"
+              },
+              "type": "property"
+            }
+          },
+          "props.path": {
+            "binding": {
+              "config": {
+                "path": "view.params.viewPath"
+              },
+              "type": "property"
+            }
+          },
+          "props.style.transform": {
+            "binding": {
+              "config": {
+                "expression": "\"scale(\"+{view.custom.scale}+\") translate(\"+{view.custom.x}+\"px,\"+{view.custom.y}+\"px)\""
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "overflow": "visible",
+            "transition": "transform 100ms linear"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "events": {
+          "dom": {
+            "onPointerMove": {
+              "config": {
+                "script": "\tif event.buttons \u003e 0:\n\t\tself.view.custom.x +\u003d event.movementX/self.view.custom.scale\n\t\tself.view.custom.y +\u003d event.movementY/self.view.custom.scale"
+              },
+              "scope": "G",
+              "type": "script"
+            },
+            "onWheel": {
+              "config": {
+                "script": "\tif event.deltaY \u003c 0:\n\t\tself.view.custom.scale *\u003d 1.1\n\telse:\n\t\tself.view.custom.scale /\u003d 1.1"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Overlay"
+        },
+        "position": {
+          "height": "100%",
+          "width": "100%"
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "path": "view.params.panning"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "alignItems": "flex-end",
+          "justify": "flex-end",
+          "style": {
+            "cursor": "grab",
+            "overflow": "visible",
+            "user-select": "none"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tself.view.custom.scale \u003d 1\n\tself.view.custom.x \u003d 0\n\tself.view.custom.y \u003d 0"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Reset"
+        },
+        "position": {
+          "height": 30,
+          "width": 30
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "path": "view.params.controls.reset"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "path": "material/zoom_out_map",
+          "style": {
+            "color": "#555555",
+            "cursor": "pointer",
+            "filter": "invert(100%)",
+            "mix-blend-mode": "difference"
+          }
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tself.view.custom.scale /\u003d 1.1"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Out"
+        },
+        "position": {
+          "height": 30,
+          "width": 30,
+          "x": 35
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "path": "view.params.controls.out"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "path": "material/zoom_out",
+          "style": {
+            "color": "#555555",
+            "cursor": "pointer",
+            "filter": "invert(100%)",
+            "mix-blend-mode": "difference"
+          }
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tself.view.custom.scale *\u003d 1.1"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "In"
+        },
+        "position": {
+          "height": 30,
+          "width": 30,
+          "x": 70
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "path": "view.params.controls.in"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "path": "material/zoom_in",
+          "style": {
+            "color": "#555555",
+            "cursor": "pointer",
+            "filter": "invert(100%)",
+            "mix-blend-mode": "difference"
+          }
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "meta": {
+          "name": "Zoom"
+        },
+        "position": {
+          "height": 24,
+          "width": 78,
+          "x": 105,
+          "y": 3
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "path": "view.params.controls.zoom"
+              },
+              "type": "property"
+            }
+          },
+          "props.placeholder.text": {
+            "binding": {
+              "config": {
+                "expression": "round({view.custom.scale}*100)+\"%\""
+              },
+              "type": "expr"
+            }
+          },
+          "props.value": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "view.custom.scale"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "dropdownOptionStyle": {
+            "borderStyle": "none",
+            "fontSize": "10px",
+            "textAlign": "center"
+          },
+          "options": [
+            {
+              "label": "25%",
+              "value": 0.25
+            },
+            {
+              "label": "50%",
+              "value": 0.5
+            },
+            {
+              "label": "100%",
+              "value": 1
+            },
+            {
+              "label": "150%",
+              "value": 1.5
+            },
+            {
+              "label": "200%",
+              "value": 2
+            },
+            {
+              "label": "500%",
+              "value": 5
+            }
+          ],
+          "placeholder": {},
+          "search": {
+            "enabled": false
+          },
+          "style": {
+            "backgroundColor": "#FFFFFF00",
+            "borderStyle": "none",
+            "color": "#555555",
+            "cursor": "pointer",
+            "filter": "invert(100%)",
+            "mix-blend-mode": "difference",
+            "user-select": "none"
+          }
+        },
+        "type": "ia.input.dropdown"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tself.view.params.panning \u003d True"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Pan"
+        },
+        "position": {
+          "height": 26,
+          "width": 26,
+          "x": 188
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "path": "view.params.controls.pan"
+              },
+              "type": "property"
+            }
+          },
+          "props.style.borderWidth": {
+            "binding": {
+              "config": {
+                "path": "view.params.panning"
+              },
+              "transforms": [
+                {
+                  "fallback": 0,
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": 1
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.style.color": {
+            "binding": {
+              "config": {
+                "path": "view.params.panning"
+              },
+              "transforms": [
+                {
+                  "fallback": "#555555",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "A10000"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "path": "material/pan_tool",
+          "style": {
+            "borderBottomLeftRadius": 8,
+            "borderBottomRightRadius": 8,
+            "borderStyle": "solid",
+            "borderTopLeftRadius": 8,
+            "borderTopRightRadius": 8,
+            "cursor": "pointer",
+            "filter": "invert(100%)",
+            "margin": 2,
+            "mix-blend-mode": "difference",
+            "padding": 4
+          }
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tself.view.params.panning \u003d False"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Click"
+        },
+        "position": {
+          "height": 26,
+          "width": 26,
+          "x": 223
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "path": "view.params.controls.click"
+              },
+              "type": "property"
+            }
+          },
+          "props.style.borderWidth": {
+            "binding": {
+              "config": {
+                "path": "view.params.panning"
+              },
+              "transforms": [
+                {
+                  "fallback": 0,
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": false,
+                      "output": 1
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.style.color": {
+            "binding": {
+              "config": {
+                "path": "view.params.panning"
+              },
+              "transforms": [
+                {
+                  "fallback": "#555555",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": false,
+                      "output": "A10000"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "path": "material/touch_app",
+          "style": {
+            "borderBottomLeftRadius": 8,
+            "borderBottomRightRadius": 8,
+            "borderStyle": "solid",
+            "borderTopLeftRadius": 8,
+            "borderTopRightRadius": 8,
+            "cursor": "pointer",
+            "filter": "invert(100%)",
+            "margin": 2,
+            "mix-blend-mode": "difference",
+            "paddingBottom": 4,
+            "paddingTop": 0
+          }
+        },
+        "type": "ia.display.icon"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "props.style.backgroundColor": {
+        "binding": {
+          "config": {
+            "fallbackDelay": 2.5,
+            "mode": "direct",
+            "tagPath": "[default]_Settings/Colors/Background"
+          },
+          "type": "tag"
+        }
+      }
+    },
+    "props": {
+      "style": {
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

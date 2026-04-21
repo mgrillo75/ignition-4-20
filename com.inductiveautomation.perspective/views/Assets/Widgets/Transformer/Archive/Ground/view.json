@@ -1,0 +1,383 @@
+{
+  "custom": {},
+  "params": {
+    "color": "#D5D5D5"
+  },
+  "propConfig": {
+    "params.color": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 30,
+      "width": 30
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "GROUND"
+        },
+        "position": {
+          "height": 30,
+          "width": 30
+        },
+        "propConfig": {
+          "props.elements[1].elements[0].elements[0].elements[0].stroke.paint": {
+            "binding": {
+              "config": {
+                "expression": "if(tag(\"[default]Test/Comm_Status\"),tag(\"[default]_Settings/Colors/Energized\"),tag(\"[default]_Settings/Colors/Deenergized\"))"
+              },
+              "type": "expr"
+            }
+          },
+          "props.elements[1].elements[0].elements[0].elements[1].stroke.paint": {
+            "binding": {
+              "config": {
+                "expression": "if(tag(\"[default]Test/Comm_Status\"),tag(\"[default]_Settings/Colors/Energized\"),tag(\"[default]_Settings/Colors/Deenergized\"))"
+              },
+              "type": "expr"
+            }
+          },
+          "props.elements[1].elements[0].elements[0].elements[2].stroke.paint": {
+            "binding": {
+              "config": {
+                "expression": "if(tag(\"[default]Test/Comm_Status\"),tag(\"[default]_Settings/Colors/Energized\"),tag(\"[default]_Settings/Colors/Deenergized\"))"
+              },
+              "type": "expr"
+            }
+          },
+          "props.elements[1].elements[0].elements[0].elements[3].stroke.paint": {
+            "binding": {
+              "config": {
+                "expression": "if(tag(\"[default]Test/Comm_Status\"),tag(\"[default]_Settings/Colors/Energized\"),tag(\"[default]_Settings/Colors/Deenergized\"))"
+              },
+              "type": "expr"
+            }
+          },
+          "props.elements[1].elements[0].elements[0].elements[4].stroke.paint": {
+            "binding": {
+              "config": {
+                "expression": "if(tag(\"[default]Test/Comm_Status\"),tag(\"[default]_Settings/Colors/Energized\"),tag(\"[default]_Settings/Colors/Deenergized\"))"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "elements": [
+            {
+              "elements": [
+                {
+                  "elements": [
+                    {
+                      "d": "M 3,-3 -3,3 M 0,-5 V 5",
+                      "id": "path1",
+                      "name": "path1",
+                      "stroke": {
+                        "paint": "#000000",
+                        "width": "0.5"
+                      },
+                      "type": "path"
+                    }
+                  ],
+                  "id": "DistanceX",
+                  "name": "DistanceX",
+                  "orient": "auto",
+                  "refX": "0",
+                  "refY": "0",
+                  "style": {
+                    "overflow": "visible"
+                  },
+                  "type": "marker"
+                },
+                {
+                  "elements": [
+                    {
+                      "d": "M8 4 l-4,4",
+                      "id": "path2",
+                      "name": "path2",
+                      "stroke": {
+                        "paint": "#000000",
+                        "width": "0.25"
+                      },
+                      "type": "path"
+                    },
+                    {
+                      "d": "M6 2 l-4,4",
+                      "id": "path3",
+                      "name": "path3",
+                      "stroke": {
+                        "paint": "#000000",
+                        "width": "0.25"
+                      },
+                      "type": "path"
+                    },
+                    {
+                      "d": "M4 0 l-4,4",
+                      "id": "path4",
+                      "name": "path4",
+                      "stroke": {
+                        "paint": "#000000",
+                        "width": "0.25"
+                      },
+                      "type": "path"
+                    }
+                  ],
+                  "height": "8",
+                  "id": "Hatch",
+                  "name": "Hatch",
+                  "patternUnits": "userSpaceOnUse",
+                  "type": "pattern",
+                  "width": "8",
+                  "x": "0",
+                  "y": "0"
+                },
+                {
+                  "id": "*Model_Space",
+                  "name": "*Model_Space",
+                  "type": "symbol"
+                },
+                {
+                  "id": "*Paper_Space",
+                  "name": "*Paper_Space",
+                  "type": "symbol"
+                },
+                {
+                  "id": "*Paper_Space0",
+                  "name": "*Paper_Space0",
+                  "type": "symbol"
+                },
+                {
+                  "id": "ELTB-001",
+                  "name": "ELTB-001",
+                  "type": "symbol"
+                },
+                {
+                  "id": "WDDOT",
+                  "name": "WDDOT",
+                  "type": "symbol"
+                },
+                {
+                  "id": "DOT",
+                  "name": "DOT",
+                  "type": "symbol"
+                },
+                {
+                  "id": "WD_M",
+                  "name": "WD_M",
+                  "type": "symbol"
+                },
+                {
+                  "id": "Arrows",
+                  "name": "Arrows",
+                  "type": "symbol"
+                }
+              ],
+              "id": "defs1",
+              "name": "defs1",
+              "type": "defs"
+            },
+            {
+              "elements": [
+                {
+                  "elements": [
+                    {
+                      "elements": [
+                        {
+                          "d": "m 919.20883,324.93569 -5.98541,5.0269 v 6.94392 -6.94392 l -5.98541,-5.0269",
+                          "fill": {
+                            "paint": "transparent"
+                          },
+                          "id": "path264",
+                          "name": "path264",
+                          "stroke": {},
+                          "type": "path"
+                        },
+                        {
+                          "d": "M 915.656,334.525 H 922.9",
+                          "fill": {
+                            "paint": "transparent"
+                          },
+                          "id": "path265",
+                          "name": "path265",
+                          "stroke": {},
+                          "type": "path"
+                        },
+                        {
+                          "d": "m 916.91,336.419 h 4.736",
+                          "fill": {
+                            "paint": "transparent"
+                          },
+                          "id": "path266",
+                          "name": "path266",
+                          "stroke": {},
+                          "type": "path"
+                        },
+                        {
+                          "d": "m 918.121,338.247 h 2.314",
+                          "fill": {
+                            "paint": "transparent"
+                          },
+                          "id": "path267",
+                          "name": "path267",
+                          "stroke": {},
+                          "type": "path"
+                        },
+                        {
+                          "d": "m 913.22342,329.96259 h 6.05469 v 4.56278",
+                          "fill": {
+                            "paint": "transparent"
+                          },
+                          "id": "path268",
+                          "name": "path268",
+                          "stroke": {},
+                          "type": "path"
+                        }
+                      ],
+                      "id": "g1041",
+                      "name": "g1041",
+                      "type": "group"
+                    },
+                    {
+                      "id": "g1042",
+                      "name": "g1042",
+                      "type": "group"
+                    },
+                    {
+                      "id": "g1043",
+                      "name": "g1043",
+                      "type": "group"
+                    },
+                    {
+                      "id": "g1044",
+                      "name": "g1044",
+                      "type": "group"
+                    },
+                    {
+                      "id": "g1045",
+                      "name": "g1045",
+                      "type": "group"
+                    },
+                    {
+                      "id": "g1046",
+                      "name": "g1046",
+                      "type": "group"
+                    },
+                    {
+                      "id": "g1047",
+                      "name": "g1047",
+                      "type": "group"
+                    },
+                    {
+                      "id": "g1048",
+                      "name": "g1048",
+                      "type": "group"
+                    },
+                    {
+                      "id": "g1049",
+                      "name": "g1049",
+                      "type": "group"
+                    },
+                    {
+                      "id": "g1050",
+                      "name": "g1050",
+                      "type": "group"
+                    },
+                    {
+                      "id": "g1051",
+                      "name": "g1051",
+                      "type": "group"
+                    },
+                    {
+                      "id": "g1052",
+                      "name": "g1052",
+                      "type": "group"
+                    },
+                    {
+                      "id": "g1053",
+                      "name": "g1053",
+                      "type": "group"
+                    },
+                    {
+                      "id": "g1054",
+                      "name": "g1054",
+                      "type": "group"
+                    },
+                    {
+                      "id": "g1055",
+                      "name": "g1055",
+                      "type": "group"
+                    },
+                    {
+                      "id": "g1056",
+                      "name": "g1056",
+                      "type": "group"
+                    },
+                    {
+                      "id": "g1057",
+                      "name": "g1057",
+                      "type": "group"
+                    },
+                    {
+                      "id": "g1058",
+                      "name": "g1058",
+                      "type": "group"
+                    },
+                    {
+                      "id": "g1059",
+                      "name": "g1059",
+                      "type": "group"
+                    },
+                    {
+                      "id": "g1060",
+                      "name": "g1060",
+                      "type": "group"
+                    },
+                    {
+                      "id": "g1061",
+                      "name": "g1061",
+                      "type": "group"
+                    },
+                    {
+                      "id": "g1062",
+                      "name": "g1062",
+                      "type": "group"
+                    },
+                    {
+                      "id": "g1063",
+                      "name": "g1063",
+                      "type": "group"
+                    },
+                    {
+                      "id": "g1064",
+                      "name": "g1064",
+                      "type": "group"
+                    }
+                  ],
+                  "id": "g1",
+                  "name": "g1",
+                  "transform": "translate(-299.45223,758.6901)",
+                  "type": "group"
+                }
+              ],
+              "id": "layer1",
+              "name": "layer1",
+              "transform": "translate(-607.46422,-1083.2429)",
+              "type": "group"
+            }
+          ],
+          "viewBox": "0 0 15.983555 14.194188"
+        },
+        "type": "ia.shapes.svg"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.coord"
+  }
+}

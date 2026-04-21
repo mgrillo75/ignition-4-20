@@ -1,0 +1,134 @@
+{
+  "custom": {},
+  "params": {
+    "closeLeft": false,
+    "closeRight": false,
+    "colorEmpty": "#C5C5C5",
+    "colorFill": "#9BD4FF",
+    "colorPipeFrame": "#808080",
+    "flowActive": false
+  },
+  "propConfig": {
+    "params.closeLeft": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.closeRight": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.colorEmpty": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.colorFill": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.colorPipeFrame": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.flowActive": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 5,
+      "width": 50
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "container_Pipe"
+        },
+        "position": {
+          "height": "100%",
+          "width": "100%"
+        },
+        "propConfig": {
+          "props.style.backgroundColor": {
+            "binding": {
+              "config": {
+                "expression": "if ({view.params.flowActive}, {view.params.colorFill}, {view.params.colorEmpty})"
+              },
+              "type": "expr"
+            }
+          },
+          "props.style.borderBottomColor": {
+            "binding": {
+              "config": {
+                "path": "view.params.colorPipeFrame"
+              },
+              "type": "property"
+            }
+          },
+          "props.style.borderLeftColor": {
+            "binding": {
+              "config": {
+                "path": "view.params.colorPipeFrame"
+              },
+              "type": "property"
+            }
+          },
+          "props.style.borderLeftStyle": {
+            "binding": {
+              "config": {
+                "expression": "if ({view.params.closeLeft}, \"solid\", \"none\")"
+              },
+              "type": "expr"
+            }
+          },
+          "props.style.borderRightColor": {
+            "binding": {
+              "config": {
+                "path": "view.params.colorPipeFrame"
+              },
+              "type": "property"
+            }
+          },
+          "props.style.borderRightStyle": {
+            "binding": {
+              "config": {
+                "expression": "if ({view.params.closeRight}, \"solid\", \"none\")"
+              },
+              "type": "expr"
+            }
+          },
+          "props.style.borderTopColor": {
+            "binding": {
+              "config": {
+                "path": "view.params.colorPipeFrame"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "borderBottomStyle": "solid",
+            "borderBottomWidth": "1px",
+            "borderLeftWidth": "1px",
+            "borderRightWidth": "1px",
+            "borderTopStyle": "solid",
+            "borderTopWidth": "1px"
+          }
+        },
+        "type": "ia.container.coord"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

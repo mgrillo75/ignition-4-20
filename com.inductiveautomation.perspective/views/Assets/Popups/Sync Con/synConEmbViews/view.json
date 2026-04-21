@@ -1,0 +1,50 @@
+{
+  "custom": {},
+  "params": {
+    "tagPathBreaker52G": "[default]Test/Gx_GCB_xx"
+  },
+  "propConfig": {
+    "params.tagPathBreaker52G": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "width": 1920
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "synConLarge"
+        },
+        "position": {
+          "size": "large"
+        },
+        "propConfig": {
+          "props.params.tagPath": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagPathBreaker52G"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "path": "Assets/Popups/Sync Con/synConLarge"
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "breakpoint": 996
+    },
+    "type": "ia.container.breakpt"
+  }
+}

@@ -1,0 +1,541 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 65,
+      "width": 1920
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\u0027/aerial-overview\u0027)\n\t\n\t"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Overview"
+            },
+            "position": {
+              "breakpoints": [
+                {
+                  "colIndex": 0,
+                  "name": "sm",
+                  "order": 0,
+                  "rowIndex": 0,
+                  "span": 1
+                },
+                {
+                  "colIndex": 0,
+                  "name": "md",
+                  "order": 0,
+                  "rowIndex": 0,
+                  "span": 1
+                },
+                {
+                  "colIndex": 0,
+                  "name": "lg",
+                  "order": 0,
+                  "rowIndex": 0,
+                  "span": 1
+                }
+              ],
+              "height": 28
+            },
+            "props": {
+              "image": {
+                "height": 20,
+                "icon": {
+                  "color": "#000000",
+                  "path": "material/receipt_long"
+                },
+                "width": 40
+              },
+              "justify": "start",
+              "style": {
+                "backgroundColor": "#AAAAAA",
+                "borderBottomLeftRadius": 5,
+                "borderBottomRightRadius": 5,
+                "borderColor": "#000000",
+                "borderStyle": "solid",
+                "borderTopLeftRadius": 5,
+                "borderTopRightRadius": 5,
+                "borderWidth": "1px"
+              },
+              "text": "Overview",
+              "textStyle": {
+                "color": "#000000",
+                "fontFamily": "Arial",
+                "fontSize": "14px",
+                "fontWeight": "bold",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "custom": {
+              "activeFault": 0
+            },
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\u0027/MV-PMS\u0027)\n\t"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "MV PMS"
+            },
+            "position": {
+              "breakpoints": [
+                {
+                  "colIndex": 1,
+                  "name": "sm",
+                  "order": 1,
+                  "rowIndex": 0,
+                  "span": 1
+                },
+                {
+                  "colIndex": 1,
+                  "name": "md",
+                  "order": 1,
+                  "rowIndex": 0,
+                  "span": 1
+                },
+                {
+                  "colIndex": 1,
+                  "name": "lg",
+                  "order": 1,
+                  "rowIndex": 0,
+                  "span": 1
+                }
+              ],
+              "height": 28
+            },
+            "propConfig": {
+              "props.style.backgroundColor": {
+                "binding": {
+                  "config": {
+                    "expression": "if(!{this.custom.activeFault}, \"#AAAAAA\", if({[CoSL_SWTP]_Settings/Blink_2Sec}, \"#F42D2DE6\", \"#AAAAAA\"))"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "image": {
+                "height": 20,
+                "icon": {
+                  "color": "#000000",
+                  "path": "material/open_in_new"
+                }
+              },
+              "justify": "start",
+              "style": {
+                "borderBottomLeftRadius": 5,
+                "borderBottomRightRadius": 5,
+                "borderColor": "#000000",
+                "borderStyle": "solid",
+                "borderTopLeftRadius": 5,
+                "borderTopRightRadius": 5,
+                "borderWidth": "1px"
+              },
+              "text": "MV PMS",
+              "textStyle": {
+                "color": "#000000",
+                "fontFamily": "Arial",
+                "fontSize": "12px",
+                "fontWeight": "bold",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "custom": {
+              "activeFault": 0
+            },
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\u0027/gw-apwp\u0027)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "LV PMS"
+            },
+            "position": {
+              "breakpoints": [
+                {
+                  "colIndex": 2,
+                  "name": "sm",
+                  "order": 2,
+                  "rowIndex": 0,
+                  "span": 1
+                },
+                {
+                  "colIndex": 2,
+                  "name": "md",
+                  "order": 2,
+                  "rowIndex": 0,
+                  "span": 1
+                },
+                {
+                  "colIndex": 2,
+                  "name": "lg",
+                  "order": 2,
+                  "rowIndex": 0,
+                  "span": 1
+                }
+              ],
+              "height": 28
+            },
+            "propConfig": {
+              "props.style.backgroundColor": {
+                "binding": {
+                  "config": {
+                    "expression": "if(!{this.custom.activeFault}, \"#AAAAAA\", if({[CoSL_SWTP]_Settings/Blink_2Sec}, \"#F42D2DE6\", \"#AAAAAA\"))"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "image": {
+                "height": 20,
+                "icon": {
+                  "color": "#000000",
+                  "path": "material/open_in_new"
+                }
+              },
+              "justify": "start",
+              "style": {
+                "borderBottomLeftRadius": 5,
+                "borderBottomRightRadius": 5,
+                "borderColor": "#000000",
+                "borderStyle": "solid",
+                "borderTopLeftRadius": 5,
+                "borderTopRightRadius": 5,
+                "borderWidth": "1px"
+              },
+              "text": "LV PMS",
+              "textStyle": {
+                "color": "#000000",
+                "fontFamily": "Arial",
+                "fontSize": "12px",
+                "fontWeight": "bold",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "custom": {
+              "activeFault": 0
+            },
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "page": "/trends"
+                  },
+                  "scope": "C",
+                  "type": "nav"
+                }
+              }
+            },
+            "meta": {
+              "name": "Trends"
+            },
+            "position": {
+              "breakpoints": [
+                {
+                  "colIndex": 7,
+                  "name": "sm",
+                  "order": 6,
+                  "rowIndex": 0,
+                  "span": 1
+                },
+                {
+                  "colIndex": 7,
+                  "name": "md",
+                  "order": 6,
+                  "rowIndex": 0,
+                  "span": 1
+                },
+                {
+                  "colIndex": 5,
+                  "name": "lg",
+                  "order": 5,
+                  "rowIndex": 0,
+                  "span": 1
+                }
+              ],
+              "height": 28
+            },
+            "propConfig": {
+              "props.style.backgroundColor": {
+                "binding": {
+                  "config": {
+                    "expression": "if(!{this.custom.activeFault}, \"#AAAAAA\", if({[CoSL_SWTP]_Settings/Blink_2Sec}, \"#F42D2DE6\", \"#AAAAAA\"))"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "image": {
+                "height": 20,
+                "icon": {
+                  "color": "#000000",
+                  "path": "material/open_in_new"
+                }
+              },
+              "justify": "start",
+              "style": {
+                "borderBottomLeftRadius": 5,
+                "borderBottomRightRadius": 5,
+                "borderColor": "#000000",
+                "borderStyle": "solid",
+                "borderTopLeftRadius": 5,
+                "borderTopRightRadius": 5,
+                "borderWidth": "1px"
+              },
+              "text": "Trends",
+              "textStyle": {
+                "color": "#000000",
+                "fontFamily": "Arial",
+                "fontSize": "12px",
+                "fontWeight": "bold",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "custom": {
+              "activeFault": 0
+            },
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\u0027/GDMS\u0027)\n\t"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "GDMS"
+            },
+            "position": {
+              "breakpoints": [
+                {
+                  "colIndex": 3,
+                  "name": "sm",
+                  "order": 3,
+                  "rowIndex": 0,
+                  "span": 1
+                },
+                {
+                  "colIndex": 3,
+                  "name": "md",
+                  "order": 3,
+                  "rowIndex": 0,
+                  "span": 1
+                },
+                {
+                  "colIndex": 3,
+                  "name": "lg",
+                  "order": 3,
+                  "rowIndex": 0,
+                  "span": 1
+                }
+              ],
+              "height": 29
+            },
+            "propConfig": {
+              "props.style.backgroundColor": {
+                "binding": {
+                  "config": {
+                    "expression": "if(!{this.custom.activeFault}, \"#AAAAAA\", if({[CoSL_SWTP]_Settings/Blink_2Sec}, \"#F42D2DE6\", \"#AAAAAA\"))"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "image": {
+                "height": 20,
+                "icon": {
+                  "color": "#000000",
+                  "path": "material/open_in_new"
+                }
+              },
+              "justify": "start",
+              "style": {
+                "borderBottomLeftRadius": 5,
+                "borderBottomRightRadius": 5,
+                "borderColor": "#000000",
+                "borderStyle": "solid",
+                "borderTopLeftRadius": 5,
+                "borderTopRightRadius": 5,
+                "borderWidth": "1px"
+              },
+              "text": "GDMS",
+              "textStyle": {
+                "color": "#000000",
+                "fontFamily": "Arial",
+                "fontSize": "12px",
+                "fontWeight": "bold",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "custom": {
+              "activeFault": 0
+            },
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.navigate(\u0027/UDMS\u0027)\n\t"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "UDMS"
+            },
+            "position": {
+              "breakpoints": [
+                {
+                  "colIndex": 4,
+                  "name": "sm",
+                  "order": 7,
+                  "rowIndex": 0,
+                  "span": 1
+                },
+                {
+                  "colIndex": 4,
+                  "name": "md",
+                  "order": 7,
+                  "rowIndex": 0,
+                  "span": 1
+                },
+                {
+                  "colIndex": 4,
+                  "name": "lg",
+                  "order": 4,
+                  "rowIndex": 0,
+                  "span": 1
+                }
+              ],
+              "height": 29
+            },
+            "propConfig": {
+              "props.style.backgroundColor": {
+                "binding": {
+                  "config": {
+                    "expression": "if(!{this.custom.activeFault}, \"#AAAAAA\", if({[CoSL_SWTP]_Settings/Blink_2Sec}, \"#F42D2DE6\", \"#AAAAAA\"))"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "image": {
+                "height": 20,
+                "icon": {
+                  "color": "#000000",
+                  "path": "material/open_in_new"
+                }
+              },
+              "justify": "start",
+              "style": {
+                "borderBottomLeftRadius": 5,
+                "borderBottomRightRadius": 5,
+                "borderColor": "#000000",
+                "borderStyle": "solid",
+                "borderTopLeftRadius": 5,
+                "borderTopRightRadius": 5,
+                "borderWidth": "1px"
+              },
+              "text": "UDMS",
+              "textStyle": {
+                "color": "#000000",
+                "fontFamily": "Arial",
+                "fontSize": "12px",
+                "fontWeight": "bold",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "name": "ColumnContainer"
+        },
+        "position": {
+          "basis": "65px",
+          "shrink": 0
+        },
+        "props": {
+          "gutters": {
+            "horizontal": 3,
+            "vertical": 4
+          },
+          "style": {
+            "paddingTop": 4
+          }
+        },
+        "type": "ia.container.column"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "props.style.backgroundColor": {
+        "binding": {
+          "config": {
+            "fallbackDelay": 2.5,
+            "mode": "direct",
+            "tagPath": "[default]_Settings/Colors/Background"
+          },
+          "type": "tag"
+        }
+      }
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

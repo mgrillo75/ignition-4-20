@@ -1,0 +1,181 @@
+{
+  "custom": {},
+  "params": {
+    "signalName": "value",
+    "tagName": "in101",
+    "tagPath": "[default]Test/sel700g"
+  },
+  "propConfig": {
+    "params.signalName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 50,
+      "width": 500
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "25px"
+            },
+            "propConfig": {
+              "props.color": {
+                "binding": {
+                  "config": {
+                    "expression": "tag({view.params.tagPath} + \"/\" + {view.params.tagName})"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "{[default]_Settings/Colors/ButtonBackground}",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": "{[default]_Settings/Colors/Energized}"
+                        },
+                        {
+                          "input": false,
+                          "output": "{[default]_Settings/Colors/ButtonBackground}"
+                        }
+                      ],
+                      "outputType": "expression",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "path": "material/radio_button_checked"
+            },
+            "type": "ia.display.icon"
+          }
+        ],
+        "meta": {
+          "name": "IO Light"
+        },
+        "position": {
+          "basis": "50px"
+        },
+        "props": {
+          "justify": "flex-end"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "IN101-"
+            },
+            "position": {
+              "basis": "125px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "tag({view.params.tagPath} + \"/\" + {view.params.tagName} + \".Tooltip\")+\"-\""
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "color": "#FFFFFF",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "IO Point"
+        },
+        "position": {
+          "basis": "75px"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "380px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.signalName"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "color": "#FFFFFF",
+                "textAlign": "left"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "IO Name"
+        },
+        "position": {
+          "basis": "380px",
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "props.style.backgroundColor": {
+        "binding": {
+          "config": {
+            "fallbackDelay": 2.5,
+            "mode": "direct",
+            "tagPath": "[default]_Settings/Colors/Background"
+          },
+          "type": "tag"
+        }
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "pages": {
+    "/GDMS": {
+      "title": "",
+      "viewPath": "MainWindows/TX3/GDMS"
+    },
+    "/GDMS-Zoom": {
+      "title": "",
+      "viewPath": "MainWindows/TX3/GDMS-ZoomCapable"
+    },
+    "/MV-PMS": {
+      "title": "",
+      "viewPath": "MainWindows/TX3/MV-PMS"
+    },
+    "/MV-PMS-Zoom": {
+      "title": "",
+      "viewPath": "MainWindows/TX3/MV-PMS-ZoomCapable"
+    },
+    "/SingleCircuitDisplay": {
+      "title": "",
+      "viewPath": "Test/RDL/SingleCircuitDiplay_RDL"
+    },
+    "/UDMS": {
+      "title": "",
+      "viewPath": "MainWindows/TX3/UDMS"
+    },
+    "/UDMS-Zoom": {
+      "title": "",
+      "viewPath": "MainWindows/TX3/UDMS-ZoomCapable"
+    },
+    "/alarm-viewer": {
+      "title": "",
+      "viewPath": "MainWindows/AlarmViewer/AlarmViewer"
+    },
+    "/trends": {
+      "title": "",
+      "viewPath": "MainWindows/AdHocTrends/AdHocTrends"
+    }
+  },
+  "sharedDocks": {
+    "bottom": [
+      {
+        "anchor": "fixed",
+        "autoBreakpoint": 480,
+        "content": "push",
+        "handle": "show",
+        "iconUrl": "",
+        "id": "",
+        "modal": false,
+        "resizable": false,
+        "show": "visible",
+        "size": 60,
+        "viewParams": {},
+        "viewPath": "MainWindows/Footer/Bottom Menu"
+      }
+    ],
+    "cornerPriority": "top-bottom",
+    "top": [
+      {
+        "anchor": "fixed",
+        "autoBreakpoint": 480,
+        "content": "push",
+        "handle": "hide",
+        "iconUrl": "",
+        "id": "",
+        "modal": false,
+        "resizable": false,
+        "show": "visible",
+        "size": 65,
+        "viewParams": {},
+        "viewPath": "MainWindows/Header/Header_FlexContainer"
+      }
+    ]
+  }
+}

@@ -1,0 +1,258 @@
+{
+  "custom": {},
+  "params": {
+    "colorEmpty": "#4ADE80",
+    "colorFill": "#EF4444",
+    "tagPath": "[default]Test/02-05-001-035"
+  },
+  "propConfig": {
+    "params.colorEmpty": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.colorFill": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 315,
+      "width": 40
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "draggable": true,
+                "id": "[default]Test/02-05-001-035",
+                "modal": false,
+                "overlayDismiss": false,
+                "resizable": true,
+                "showCloseIcon": true,
+                "title": "MV Genset 02-05-001-035",
+                "type": "open",
+                "viewParams": {
+                  "tagPath": "[default]Test/02-05-001-035"
+                },
+                "viewPath": "Assets/Popups/mvGenset/mvGenset",
+                "viewportBound": false
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "Generator_1"
+        },
+        "position": {
+          "height": 38,
+          "width": 38,
+          "y": 271.406
+        },
+        "props": {
+          "params": {
+            "color": "#FFFFFF",
+            "label": "G1",
+            "tagPath": "[default]Test/02-05-001-035"
+          },
+          "path": "Assets/Widgets/Generator/MV Genset Future"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_3"
+        },
+        "position": {
+          "height": 40,
+          "width": 1,
+          "x": 17.5,
+          "y": 231.761
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "",
+            "colorFill": "",
+            "colorPipeFrame": "#020617",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical",
+          "style": {
+            "borderLeftColor": "#FFFFFF",
+            "borderLeftStyle": "",
+            "borderRightColor": "#FFFFFF",
+            "borderRightStyle": "dashed",
+            "outlineColor": "#E5E5E5",
+            "outlineStyle": "none"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Generator_Coordinate(1)"
+        },
+        "position": {
+          "height": 50,
+          "width": 30,
+          "x": 4,
+          "y": 111.312
+        },
+        "props": {
+          "params": {
+            "color": "#FFFFFF"
+          },
+          "path": "Assets/Widgets/Transformer/Aux Transformer Future"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical"
+        },
+        "position": {
+          "height": 40,
+          "width": 2.5,
+          "x": 17.5,
+          "y": 70
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "",
+            "colorFill": "",
+            "colorPipeFrame": "",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical",
+          "style": {
+            "borderLeftColor": "#FFFFFF",
+            "borderLeftStyle": "",
+            "borderRightColor": "#FFFFFF",
+            "borderRightStyle": "dashed"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_0"
+        },
+        "position": {
+          "height": 40,
+          "width": 2.5,
+          "x": 17.5,
+          "y": 160.24
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "",
+            "colorFill": "",
+            "colorPipeFrame": "",
+            "flowActive": false
+          },
+          "path": "Assets/Pipes/Pipe_Vertical",
+          "style": {
+            "borderBottomStyle": "none",
+            "borderLeftColor": "#FFFFFF",
+            "borderLeftStyle": "",
+            "borderRightColor": "#FFFFFF",
+            "borderRightStyle": "dashed",
+            "borderTopStyle": "none"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Fixed Mount Breaker_1"
+        },
+        "position": {
+          "height": 30,
+          "width": 30,
+          "x": 4,
+          "y": 200.854
+        },
+        "props": {
+          "params": {
+            "color": "#EF4444",
+            "label": "52G"
+          },
+          "path": "Assets/Widgets/Breaker/Fixed Mount Breaker Dashed"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Fixed Mount Breaker"
+        },
+        "position": {
+          "height": 30,
+          "width": 30,
+          "x": 4,
+          "y": 40
+        },
+        "props": {
+          "params": {
+            "color": "#EF4444",
+            "label": "52I"
+          },
+          "path": "Assets/Widgets/Breaker/Fixed Mount Breaker Dashed"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_1"
+        },
+        "position": {
+          "height": 40,
+          "width": 2.5,
+          "x": 17.5
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "",
+            "colorFill": "",
+            "colorPipeFrame": "",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical",
+          "style": {
+            "borderLeftColor": "#FFFFFF",
+            "borderLeftStyle": "",
+            "borderRightColor": "#FFFFFF",
+            "borderRightStyle": "dashed"
+          }
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "backgroundColor": "transparent"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

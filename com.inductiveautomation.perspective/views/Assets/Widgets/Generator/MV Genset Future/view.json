@@ -1,0 +1,89 @@
+{
+  "custom": {},
+  "params": {
+    "tagPath": "[default]Test/02-05-001-035"
+  },
+  "propConfig": {
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 38,
+      "width": 38
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Drawing"
+        },
+        "position": {
+          "height": "100%",
+          "width": "100%"
+        },
+        "props": {
+          "elements": [
+            {
+              "filter": "url(#gensetGlow)",
+              "id": "g3",
+              "name": "g3",
+              "transform": "translate(51.999999,120.99999)",
+              "type": "group"
+            },
+            {
+              "cx": "19.5",
+              "cy": "19.5",
+              "fill": {
+                "paint": "rgba(16,185,129,0.08)"
+              },
+              "filter": "url(#gensetGlow)",
+              "id": "circle3",
+              "name": "circle4",
+              "r": 17.5,
+              "stroke": {
+                "dasharray": "4",
+                "lineType": "dashed",
+                "paint": "#FFFFFF",
+                "width": "2"
+              },
+              "type": "circle"
+            }
+          ]
+        },
+        "type": "ia.shapes.svg"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "height": 20,
+          "rotate": {
+            "anchor": "36% 50%"
+          },
+          "width": 20,
+          "x": 8.997509025268554,
+          "y": 8.995369025268555
+        },
+        "props": {
+          "text": "G1",
+          "textStyle": {
+            "color": "#FFFFFF",
+            "fontSize": "10pt",
+            "fontWeight": "bold",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.coord"
+  }
+}

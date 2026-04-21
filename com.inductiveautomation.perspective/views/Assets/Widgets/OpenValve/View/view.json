@@ -1,0 +1,123 @@
+{
+  "custom": {},
+  "params": {
+    "color": "value",
+    "tagPath": "[default]Test/02-05-001-035"
+  },
+  "propConfig": {
+    "params.color": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 35,
+      "width": 35
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Drawing"
+        },
+        "position": {
+          "height": "100%",
+          "width": "100%"
+        },
+        "props": {
+          "elements": [
+            {
+              "d": "M1.5 1.5L1.5 31.50000039115548Z",
+              "fill": {
+                "paint": "#70757A"
+              },
+              "name": "pen-path",
+              "stroke": {
+                "paint": "#D55E00",
+                "width": "2px"
+              },
+              "transform": "",
+              "type": "path"
+            },
+            {
+              "d": "M35 1.5L35 31.50000039115548Z",
+              "fill": {
+                "paint": "#70757A"
+              },
+              "name": "pen-path_2",
+              "stroke": {
+                "paint": "#D55E00",
+                "width": "2"
+              },
+              "transform": "matrix(-1 0 0 1 65.25 0)",
+              "type": "path"
+            },
+            {
+              "d": "M1.5 31.5L16.5 21.75Z",
+              "fill": {
+                "paint": "#70757A"
+              },
+              "name": "pen-path_0",
+              "stroke": {
+                "paint": "#D55E00",
+                "width": "2"
+              },
+              "transform": "",
+              "type": "path"
+            },
+            {
+              "d": "M35 31.5L50 21.75Z",
+              "fill": {
+                "paint": "#70757A"
+              },
+              "name": "pen-path_3",
+              "stroke": {
+                "paint": "#D55E00",
+                "width": "2"
+              },
+              "transform": "matrix(-1 0 0 1 65.25 0)",
+              "type": "path"
+            },
+            {
+              "d": "M1.25 1.5L16.249999552965164 11.249999448675677Z",
+              "fill": {
+                "paint": "#70757A"
+              },
+              "name": "pen-path_1",
+              "stroke": {
+                "paint": "#D55E00",
+                "width": "2"
+              },
+              "transform": "",
+              "type": "path"
+            },
+            {
+              "d": "M34.75 1.5L49.749999552965164 11.249999448675677Z",
+              "fill": {
+                "paint": "#70757A"
+              },
+              "name": "pen-path_4",
+              "stroke": {
+                "paint": "#D55E00",
+                "width": "2"
+              },
+              "transform": "matrix(-1 0 0 1 65.25 0)",
+              "type": "path"
+            }
+          ]
+        },
+        "type": "ia.shapes.svg"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.coord"
+  }
+}

@@ -1,0 +1,1200 @@
+{
+  "custom": {},
+  "params": {
+    "tagPath52G": "[default]TX3/tx3-pb1-n1-qp1-sel700g-001",
+    "tagPath52I": "[default]TX3/tx3-pb1-n1-qp1-787...",
+    "tagPathGen": "[default]TX3/tx3-pb1-n1-qp1-br-001",
+    "tagPathXmr": "value"
+  },
+  "propConfig": {
+    "params.tagPath52G": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath52I": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPathGen": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPathXmr": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 797,
+      "width": 300
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "MV 52G Breaker"
+                    },
+                    "position": {
+                      "height": 50,
+                      "width": 50,
+                      "x": 42,
+                      "y": 415
+                    },
+                    "propConfig": {
+                      "props.params.tagPathBreaker52G": {
+                        "binding": {
+                          "config": {
+                            "path": "view.params.tagPath52G"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "params": {
+                        "color": "#D5D5D5",
+                        "label": "52G"
+                      },
+                      "path": "Assets/Widgets/Breaker/MV Breaker Symbol (52G)"
+                    },
+                    "type": "ia.display.view"
+                  },
+                  {
+                    "meta": {
+                      "name": "Pipe_Vertical"
+                    },
+                    "position": {
+                      "height": 200,
+                      "width": 5,
+                      "x": 54,
+                      "y": 465
+                    },
+                    "propConfig": {
+                      "props.params.colorEmpty": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "direct",
+                            "tagPath": "[default]_Settings/Colors/Deenergized"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.params.colorFill": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "direct",
+                            "tagPath": "[default]_Settings/Colors/Energized"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.params.flowActive": {
+                        "binding": {
+                          "config": {
+                            "expression": "tag({view.params.tagPathGen}+\"/spare510_OPStatus\") + \u0027,\u0027+ tag({view.params.tagPathGen}+\"/spare515_BreakerStatus\")"
+                          },
+                          "transforms": [
+                            {
+                              "fallback": "#020617",
+                              "inputType": "scalar",
+                              "mappings": [
+                                {
+                                  "input": "5,0",
+                                  "output": "#D55E00"
+                                },
+                                {
+                                  "input": "4,0",
+                                  "output": "#D55E00"
+                                },
+                                {
+                                  "input": "5,1",
+                                  "output": "#2B9F78"
+                                }
+                              ],
+                              "outputType": "color",
+                              "type": "map"
+                            }
+                          ],
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "params": {
+                        "closeBottom": false,
+                        "closeTop": false,
+                        "colorPipeFrame": "#202B4A"
+                      },
+                      "path": "Assets/Pipes/Pipe_Vertical"
+                    },
+                    "type": "ia.display.view"
+                  },
+                  {
+                    "meta": {
+                      "name": "AUX XFMR CB"
+                    },
+                    "position": {
+                      "height": 50,
+                      "width": 50,
+                      "x": 136.5,
+                      "y": 415
+                    },
+                    "propConfig": {
+                      "props.params.tagPathBreaker52I": {
+                        "binding": {
+                          "config": {
+                            "path": "view.params.tagPath52I"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "params": {
+                        "color": "#000000",
+                        "label": "breaker"
+                      },
+                      "path": "Assets/Widgets/Breaker/MV Breaker Symbol (AUX XFMR)"
+                    },
+                    "type": "ia.display.view"
+                  },
+                  {
+                    "meta": {
+                      "name": "Pipe_Vertical_2"
+                    },
+                    "position": {
+                      "height": 50,
+                      "width": 5,
+                      "x": 149.5,
+                      "y": 465
+                    },
+                    "propConfig": {
+                      "props.params.colorEmpty": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "direct",
+                            "tagPath": "[default]_Settings/Colors/Deenergized"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.params.colorFill": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "direct",
+                            "tagPath": "[default]_Settings/Colors/Energized"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.params.flowActive": {
+                        "binding": {
+                          "config": {
+                            "expression": "tag({view.params.tagPathGen}+\"/message_bitpack_15\")"
+                          },
+                          "transforms": [
+                            {
+                              "code": "\t\tsub_string1\u003d\"ENGINE IS RUNNING\"\n\t\tsub_string2\u003d\"GENERATOR CB CLOSED\"\n\t\tif sub_string1 in value:\n\t\t\tstate\u003d True\n\t\tif (sub_string1 and sub_string2) in value:\n\t\t\tstate\u003d True\n\t\telse:\n\t\t\tstate\u003dFalse\n\t\t\t\n\t\treturn state\n\t",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "params": {
+                        "closeBottom": false,
+                        "closeTop": false,
+                        "colorPipeFrame": "#202B4A"
+                      },
+                      "path": "Assets/Pipes/Pipe_Vertical"
+                    },
+                    "type": "ia.display.view"
+                  },
+                  {
+                    "meta": {
+                      "name": "MV Aux Transformer_2"
+                    },
+                    "position": {
+                      "height": 50,
+                      "width": 30,
+                      "x": 138,
+                      "y": 512.5
+                    },
+                    "propConfig": {
+                      "props.params.tagPath52G": {
+                        "binding": {
+                          "config": {
+                            "path": "view.params.tagPath52G"
+                          },
+                          "type": "property"
+                        }
+                      },
+                      "props.params.tagPathGen": {
+                        "binding": {
+                          "config": {
+                            "path": "view.params.tagPathGen"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "params": {
+                        "color": "#000000"
+                      },
+                      "path": "Assets/Widgets/Transformer/Aux Transformer"
+                    },
+                    "type": "ia.display.view"
+                  },
+                  {
+                    "meta": {
+                      "name": "EM Pwr Dist"
+                    },
+                    "position": {
+                      "height": 57,
+                      "width": 108,
+                      "x": 181,
+                      "y": 182.5
+                    },
+                    "propConfig": {
+                      "props.style.borderColor": {
+                        "binding": {
+                          "config": {
+                            "expression": "true"
+                          },
+                          "transforms": [
+                            {
+                              "fallback": "#000000",
+                              "inputType": "scalar",
+                              "mappings": [
+                                {
+                                  "input": true,
+                                  "output": "#D55E00"
+                                },
+                                {
+                                  "input": false,
+                                  "output": "#2B9F78"
+                                }
+                              ],
+                              "outputType": "scalar",
+                              "type": "map"
+                            }
+                          ],
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "borderStyle": "solid"
+                      },
+                      "text": "EM PWR DIST",
+                      "textStyle": {
+                        "color": "#FFFFFF",
+                        "fontSize": 18,
+                        "fontWeight": "bold",
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Pipe_Vertical_3"
+                    },
+                    "position": {
+                      "height": 50,
+                      "width": 5,
+                      "x": 149.5,
+                      "y": 561
+                    },
+                    "propConfig": {
+                      "props.params.colorEmpty": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "direct",
+                            "tagPath": "[default]_Settings/Colors/Deenergized"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.params.colorFill": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "direct",
+                            "tagPath": "[default]_Settings/Colors/Energized"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.params.flowActive": {
+                        "binding": {
+                          "config": {
+                            "expression": "tag({view.params.tagPathGen}+\"/message_bitpack_15\")"
+                          },
+                          "transforms": [
+                            {
+                              "code": "\t\tsub_string1\u003d\"ENGINE IS RUNNING\"\n\t\tsub_string2\u003d\"GENERATOR CB CLOSED\"\n\t\tif sub_string1 in value:\n\t\t\tstate\u003d True\n\t\tif (sub_string1 and sub_string2) in value:\n\t\t\tstate\u003d True\n\t\telse:\n\t\t\tstate\u003dFalse\n\t\t\t\n\t\treturn state\n\t",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "params": {
+                        "closeBottom": false,
+                        "closeTop": false,
+                        "colorPipeFrame": "#202B4A"
+                      },
+                      "path": "Assets/Pipes/Pipe_Vertical"
+                    },
+                    "type": "ia.display.view"
+                  },
+                  {
+                    "meta": {
+                      "name": "MV Aux Transformer_1"
+                    },
+                    "position": {
+                      "height": 50,
+                      "width": 30,
+                      "x": 41.5,
+                      "y": 186
+                    },
+                    "propConfig": {
+                      "props.params.tagPath52G": {
+                        "binding": {
+                          "config": {
+                            "path": "view.params.tagPath52G"
+                          },
+                          "type": "property"
+                        }
+                      },
+                      "props.params.tagPathGen": {
+                        "binding": {
+                          "config": {
+                            "path": "view.params.tagPathGen"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "params": {
+                        "color": "#000000"
+                      },
+                      "path": "Assets/Widgets/Transformer/Aux Transformer"
+                    },
+                    "type": "ia.display.view"
+                  },
+                  {
+                    "meta": {
+                      "name": "Pipe_Vertical_4"
+                    },
+                    "position": {
+                      "height": 200,
+                      "width": 5,
+                      "x": 54,
+                      "y": 235
+                    },
+                    "propConfig": {
+                      "props.params.colorEmpty": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "direct",
+                            "tagPath": "[default]_Settings/Colors/Deenergized"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.params.colorFill": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "direct",
+                            "tagPath": "[default]_Settings/Colors/Energized"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.params.flowActive": {
+                        "binding": {
+                          "config": {
+                            "expression": "concat(tag({view.params.tagPathGen}+\"/message_bitpack_15\"),if(tag({view.params.tagPath52G}+\"/bit_52ax\")\u003d0,\"| GCB-Open\",\"| GCB-Closed\"))\r\n"
+                          },
+                          "transforms": [
+                            {
+                              "code": "\t\tsub_string1\u003d\"ENGINE IS RUNNING\"\n\t\tsub_string2\u003d\"GENERATOR CB CLOSED\"\n\t\tsub_string3\u003d\"GCB-Closed\"\n\t\t\n\t\tif (sub_string1 and sub_string2 and sub_string3) in value:\n\t\t\tstate\u003d True\n\t\telse:\n\t\t\tstate\u003dFalse\n\t\t\t\n\t\treturn state\n\t",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "params": {
+                        "closeBottom": false,
+                        "closeTop": false,
+                        "colorPipeFrame": "#202B4A"
+                      },
+                      "path": "Assets/Pipes/Pipe_Vertical"
+                    },
+                    "type": "ia.display.view"
+                  },
+                  {
+                    "meta": {
+                      "name": "Pipe_Horizontal_3"
+                    },
+                    "position": {
+                      "height": 5,
+                      "width": 96,
+                      "x": 58,
+                      "y": 332
+                    },
+                    "propConfig": {
+                      "props.params.colorEmpty": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "direct",
+                            "tagPath": "[default]_Settings/Colors/Deenergized"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.params.colorFill": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "direct",
+                            "tagPath": "[default]_Settings/Colors/Energized"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.params.flowActive": {
+                        "binding": {
+                          "config": {
+                            "expression": "concat(tag({view.params.tagPathGen}+\"/message_bitpack_15\"),if(tag({view.params.tagPath52I}+\"/bit_52a\")\u003d0,\"| CB-Open\",\"| CB-Closed\"))\r\n"
+                          },
+                          "transforms": [
+                            {
+                              "code": "\t\tsub_string1\u003d\"ENGINE IS RUNNING\"\n\t\tsub_string2\u003d\"GENERATOR CB CLOSED\"\n\t\tsub_string3\u003d\"CB-Closed\"\n\t\t\n\t\tif (sub_string1 and sub_string2 and sub_string3) in value:\n\t\t\tstate\u003d True\n\t\telse:\n\t\t\tstate\u003dFalse\n\t\t\t\n\t\treturn state\n\t",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "params": {
+                        "closeLeft": false,
+                        "closeRight": false,
+                        "colorPipeFrame": "#020617"
+                      },
+                      "path": "Assets/Pipes/Pipe_Horizontal"
+                    },
+                    "type": "ia.display.view"
+                  },
+                  {
+                    "meta": {
+                      "name": "Pipe_Vertical_5"
+                    },
+                    "position": {
+                      "height": 100,
+                      "width": 5,
+                      "x": 149.5,
+                      "y": 336
+                    },
+                    "propConfig": {
+                      "props.params.colorEmpty": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "direct",
+                            "tagPath": "[default]_Settings/Colors/Deenergized"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.params.colorFill": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "direct",
+                            "tagPath": "[default]_Settings/Colors/Energized"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.params.flowActive": {
+                        "binding": {
+                          "config": {
+                            "expression": "concat(tag({view.params.tagPathGen}+\"/message_bitpack_15\"),if(tag({view.params.tagPath52I}+\"/bit_52a\")\u003d0,\"| CB-Open\",\"| CB-Closed\"))\r\n"
+                          },
+                          "transforms": [
+                            {
+                              "code": "\t\tsub_string1\u003d\"ENGINE IS RUNNING\"\n\t\tsub_string2\u003d\"GENERATOR CB CLOSED\"\n\t\tsub_string3\u003d\"CB-Closed\"\n\t\t\n\t\tif (sub_string1 and sub_string2 and sub_string3) in value:\n\t\t\tstate\u003d True\n\t\telse:\n\t\t\tstate\u003dFalse\n\t\t\t\n\t\treturn state\n\t",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "params": {
+                        "closeBottom": false,
+                        "closeTop": false,
+                        "colorPipeFrame": "#202B4A"
+                      },
+                      "path": "Assets/Pipes/Pipe_Vertical"
+                    },
+                    "type": "ia.display.view"
+                  },
+                  {
+                    "meta": {
+                      "name": "Pipe_Vertical_6"
+                    },
+                    "position": {
+                      "height": 50,
+                      "width": 5,
+                      "x": 54,
+                      "y": 136
+                    },
+                    "propConfig": {
+                      "props.params.colorEmpty": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "direct",
+                            "tagPath": "[default]_Settings/Colors/Deenergized"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.params.colorFill": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "direct",
+                            "tagPath": "[default]_Settings/Colors/Energized"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.params.flowActive": {
+                        "binding": {
+                          "config": {
+                            "expression": "concat(tag({view.params.tagPathGen}+\"/message_bitpack_15\"),if(tag({view.params.tagPath52G}+\"/bit_52ax\")\u003d0,\"| GCB-Open\",\"| GCB-Closed\"))\r\n"
+                          },
+                          "transforms": [
+                            {
+                              "code": "\t\tsub_string1\u003d\"ENGINE IS RUNNING\"\n\t\tsub_string2\u003d\"GENERATOR CB CLOSED\"\n\t\tsub_string3\u003d\"GCB-Closed\"\n\t\t\n\t\tif (sub_string1 and sub_string2 and sub_string3) in value:\n\t\t\tstate\u003d True\n\t\telse:\n\t\t\tstate\u003dFalse\n\t\t\t\n\t\treturn state\n\t",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "params": {
+                        "closeBottom": false,
+                        "closeTop": false,
+                        "colorPipeFrame": "#202B4A"
+                      },
+                      "path": "Assets/Pipes/Pipe_Vertical"
+                    },
+                    "type": "ia.display.view"
+                  },
+                  {
+                    "meta": {
+                      "name": "Pipe_Horizontal_4"
+                    },
+                    "position": {
+                      "height": 5,
+                      "width": 123,
+                      "x": 74,
+                      "y": 680.5
+                    },
+                    "propConfig": {
+                      "props.params.colorEmpty": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "direct",
+                            "tagPath": "[default]_Settings/Colors/Deenergized"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.params.colorFill": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "direct",
+                            "tagPath": "[default]_Settings/Colors/Energized"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.params.flowActive": {
+                        "binding": {
+                          "config": {
+                            "expression": "tag({view.params.tagPathGen}+\"/message_bitpack_15\")"
+                          },
+                          "transforms": [
+                            {
+                              "code": "\t\tsub_string1\u003d\"ENGINE IS RUNNING\"\n\t\tsub_string2\u003d\"GENERATOR CB CLOSED\"\n\t\tif sub_string1 in value:\n\t\t\tstate\u003d True\n\t\tif (sub_string1 and sub_string2) in value:\n\t\t\tstate\u003d True\n\t\telse:\n\t\t\tstate\u003dFalse\n\t\t\t\n\t\treturn state\n\t",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "params": {
+                        "closeLeft": false,
+                        "closeRight": false,
+                        "colorPipeFrame": "#020617"
+                      },
+                      "path": "Assets/Pipes/Pipe_Horizontal"
+                    },
+                    "type": "ia.display.view"
+                  },
+                  {
+                    "meta": {
+                      "name": "Pipe_Vertical_7"
+                    },
+                    "position": {
+                      "height": 25,
+                      "width": 5,
+                      "x": 192.5,
+                      "y": 659
+                    },
+                    "propConfig": {
+                      "props.params.colorEmpty": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "direct",
+                            "tagPath": "[default]_Settings/Colors/Deenergized"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.params.colorFill": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "direct",
+                            "tagPath": "[default]_Settings/Colors/Energized"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.params.flowActive": {
+                        "binding": {
+                          "config": {
+                            "expression": "tag({view.params.tagPathGen}+\"/message_bitpack_15\")"
+                          },
+                          "transforms": [
+                            {
+                              "code": "\t\tsub_string1\u003d\"ENGINE IS RUNNING\"\n\t\tsub_string2\u003d\"GENERATOR CB CLOSED\"\n\t\tif sub_string1 in value:\n\t\t\tstate\u003d True\n\t\tif (sub_string1 and sub_string2) in value:\n\t\t\tstate\u003d True\n\t\telse:\n\t\t\tstate\u003dFalse\n\t\t\t\n\t\treturn state\n\t",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "params": {
+                        "closeBottom": false,
+                        "closeTop": false,
+                        "colorPipeFrame": "#202B4A"
+                      },
+                      "path": "Assets/Pipes/Pipe_Vertical"
+                    },
+                    "type": "ia.display.view"
+                  },
+                  {
+                    "meta": {
+                      "name": "Pipe_Vertical_0"
+                    },
+                    "position": {
+                      "height": 371,
+                      "width": 5,
+                      "x": 235,
+                      "y": 239.5
+                    },
+                    "propConfig": {
+                      "props.params.colorEmpty": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "direct",
+                            "tagPath": "[default]_Settings/Colors/Deenergized"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.params.colorFill": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "direct",
+                            "tagPath": "[default]_Settings/Colors/Energized"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.params.flowActive": {
+                        "binding": {
+                          "config": {
+                            "expression": "true"
+                          },
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "params": {
+                        "closeBottom": false,
+                        "closeTop": false,
+                        "colorPipeFrame": "#202B4A"
+                      },
+                      "path": "Assets/Pipes/Pipe_Vertical"
+                    },
+                    "type": "ia.display.view"
+                  },
+                  {
+                    "meta": {
+                      "name": "MV 52I Breaker"
+                    },
+                    "position": {
+                      "height": 50,
+                      "rotate": {
+                        "anchor": "50% 25%"
+                      },
+                      "width": 50,
+                      "x": 42,
+                      "y": 86
+                    },
+                    "propConfig": {
+                      "props.params.tagPathBreaker52I": {
+                        "binding": {
+                          "config": {
+                            "path": "view.params.tagPath52I"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "params": {
+                        "color": "#000000",
+                        "label": "52G"
+                      },
+                      "path": "Assets/Widgets/Breaker/MV Breaker Symbol (52I)"
+                    },
+                    "type": "ia.display.view"
+                  },
+                  {
+                    "meta": {
+                      "name": "Icon"
+                    },
+                    "position": {
+                      "height": 20,
+                      "width": 20,
+                      "x": 185,
+                      "y": 641
+                    },
+                    "propConfig": {
+                      "props.color": {
+                        "binding": {
+                          "config": {
+                            "expression": "tag({view.params.tagPathGen}+\"/spare510_OPStatus\")"
+                          },
+                          "transforms": [
+                            {
+                              "fallback": "#000000",
+                              "inputType": "scalar",
+                              "mappings": [
+                                {
+                                  "input": 5,
+                                  "output": "#D55E00"
+                                },
+                                {
+                                  "input": 4,
+                                  "output": "#D55E00"
+                                },
+                                {
+                                  "input": 3,
+                                  "output": "#2B9F78"
+                                },
+                                {
+                                  "input": 2,
+                                  "output": "#2B9F78"
+                                },
+                                {
+                                  "input": 1,
+                                  "output": "#2B9F78"
+                                },
+                                {
+                                  "input": 0,
+                                  "output": "#2B9F78"
+                                }
+                              ],
+                              "outputType": "scalar",
+                              "type": "map"
+                            }
+                          ],
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "path": "material/radio_button_unchecked"
+                    },
+                    "type": "ia.display.icon"
+                  },
+                  {
+                    "meta": {
+                      "name": "Icon_1"
+                    },
+                    "position": {
+                      "height": 20,
+                      "width": 20,
+                      "x": 142,
+                      "y": 608.5
+                    },
+                    "propConfig": {
+                      "props.color": {
+                        "binding": {
+                          "config": {
+                            "expression": "tag({view.params.tagPathGen}+\"/spare510_OPStatus\")"
+                          },
+                          "transforms": [
+                            {
+                              "fallback": "#000000",
+                              "inputType": "scalar",
+                              "mappings": [
+                                {
+                                  "input": 5,
+                                  "output": "#D55E00"
+                                },
+                                {
+                                  "input": false,
+                                  "output": "#2B9F78"
+                                }
+                              ],
+                              "outputType": "scalar",
+                              "type": "map"
+                            }
+                          ],
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "path": "material/radio_button_unchecked"
+                    },
+                    "type": "ia.display.icon"
+                  },
+                  {
+                    "meta": {
+                      "name": "Icon_2"
+                    },
+                    "position": {
+                      "height": 20,
+                      "width": 20,
+                      "x": 227.5,
+                      "y": 608.5
+                    },
+                    "propConfig": {
+                      "props.color": {
+                        "binding": {
+                          "config": {
+                            "expression": "true"
+                          },
+                          "transforms": [
+                            {
+                              "fallback": "#000000",
+                              "inputType": "scalar",
+                              "mappings": [
+                                {
+                                  "input": true,
+                                  "output": "#D55E00"
+                                },
+                                {
+                                  "input": false,
+                                  "output": "#2B9F78"
+                                }
+                              ],
+                              "outputType": "scalar",
+                              "type": "map"
+                            }
+                          ],
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "path": "material/radio_button_unchecked"
+                    },
+                    "type": "ia.display.icon"
+                  },
+                  {
+                    "meta": {
+                      "name": "Pipe_Vertical_8"
+                    },
+                    "position": {
+                      "height": 50,
+                      "width": 5,
+                      "x": 191.5,
+                      "y": 593
+                    },
+                    "propConfig": {
+                      "props.params.colorEmpty": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "direct",
+                            "tagPath": "[default]_Settings/Colors/Deenergized"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.params.colorFill": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "direct",
+                            "tagPath": "[default]_Settings/Colors/Energized"
+                          },
+                          "type": "tag"
+                        }
+                      },
+                      "props.params.colorPipeFrame": {
+                        "binding": {
+                          "config": {
+                            "expression": "true"
+                          },
+                          "transforms": [
+                            {
+                              "fallback": "#000000",
+                              "inputType": "scalar",
+                              "mappings": [
+                                {
+                                  "input": true,
+                                  "output": "#D55E00"
+                                },
+                                {
+                                  "input": false,
+                                  "output": "#4ADE80"
+                                }
+                              ],
+                              "outputType": "scalar",
+                              "type": "map"
+                            }
+                          ],
+                          "type": "expr"
+                        }
+                      },
+                      "props.params.flowActive": {
+                        "binding": {
+                          "config": {
+                            "expression": "tag({view.params.tagPathGen}+\"/message_bitpack_15\")"
+                          },
+                          "transforms": [
+                            {
+                              "code": "\t\tsub_string1\u003d\"ENGINE IS RUNNING\"\n\t\tsub_string2\u003d\"GENERATOR CB CLOSED\"\n\t\tif sub_string1 in value:\n\t\t\tstate\u003d True\n\t\tif (sub_string1 and sub_string2) in value:\n\t\t\tstate\u003d True\n\t\telse:\n\t\t\tstate\u003dFalse\n\t\t\t\n\t\treturn state\n\t",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "expr"
+                        }
+                      },
+                      "props.style.borderColor": {
+                        "binding": {
+                          "config": {
+                            "expression": "tag({view.params.tagPathGen}+\"/spare510_OPStatus\")"
+                          },
+                          "transforms": [
+                            {
+                              "fallback": "#000000",
+                              "inputType": "scalar",
+                              "mappings": [
+                                {
+                                  "input": true,
+                                  "output": "#D55E00"
+                                },
+                                {
+                                  "input": false,
+                                  "output": "#2B9F78"
+                                }
+                              ],
+                              "outputType": "scalar",
+                              "type": "map"
+                            }
+                          ],
+                          "type": "expr"
+                        }
+                      }
+                    },
+                    "props": {
+                      "params": {
+                        "closeBottom": false,
+                        "closeTop": false
+                      },
+                      "path": "Assets/Pipes/Pipe_Vertical",
+                      "style": {
+                        "borderStyle": "dashed"
+                      }
+                    },
+                    "type": "ia.display.view"
+                  },
+                  {
+                    "meta": {
+                      "name": "MV 52G Breaker Box"
+                    },
+                    "position": {
+                      "height": 79,
+                      "width": 83,
+                      "x": 15,
+                      "y": 642
+                    },
+                    "props": {
+                      "style": {
+                        "borderBottomLeftRadius": 50,
+                        "borderBottomRightRadius": 50,
+                        "borderColor": "blue",
+                        "borderStyle": "inset",
+                        "borderTopLeftRadius": 50,
+                        "borderTopRightRadius": 50,
+                        "boxShadow": "inset 0px -2px 10px #D3D3D3",
+                        "outlineStyle": "none"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "MV Genset"
+                    },
+                    "position": {
+                      "height": 50,
+                      "width": 50,
+                      "x": 37,
+                      "y": 652.5
+                    },
+                    "propConfig": {
+                      "props.params.tagPath": {
+                        "binding": {
+                          "config": {
+                            "path": "view.params.tagPathGen"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "params": {
+                        "Gen_Running": 1
+                      },
+                      "path": "Assets/Widgets/Generator/MV Genset"
+                    },
+                    "type": "ia.display.view"
+                  }
+                ],
+                "meta": {
+                  "name": "CoordinateContainer"
+                },
+                "position": {
+                  "basis": "300px"
+                },
+                "props": {
+                  "style": {
+                    "overflow": "visible"
+                  }
+                },
+                "type": "ia.container.coord"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "basis": "797px"
+            },
+            "props": {
+              "style": {
+                "overflow": "visible"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "800px"
+        },
+        "props": {
+          "direction": "column",
+          "justify": "flex-end"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "props.style.backgroundColor": {
+        "binding": {
+          "config": {
+            "fallbackDelay": 2.5,
+            "mode": "direct",
+            "tagPath": "[default]_Settings/Colors/Background"
+          },
+          "type": "tag"
+        }
+      }
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "borderBottomLeftRadius": 10,
+        "borderBottomRightRadius": 10,
+        "borderTopLeftRadius": 10,
+        "borderTopRightRadius": 10
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

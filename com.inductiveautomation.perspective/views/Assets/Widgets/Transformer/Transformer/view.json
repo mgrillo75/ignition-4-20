@@ -1,0 +1,116 @@
+{
+  "custom": {},
+  "params": {
+    "color": "#D5D5D5",
+    "tagPath": "[default]Test/02-05-001-035"
+  },
+  "propConfig": {
+    "params.color": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 55,
+      "width": 50
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Transformer"
+        },
+        "position": {
+          "height": 50,
+          "width": 50,
+          "y": 2
+        },
+        "propConfig": {
+          "props.elements[1].elements[0].elements[0].elements[0].stroke.paint": {
+            "binding": {
+              "config": {
+                "path": "view.params.color"
+              },
+              "type": "property"
+            }
+          },
+          "props.elements[1].elements[0].elements[0].elements[1].stroke.paint": {
+            "binding": {
+              "config": {
+                "path": "view.params.color"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "elements": [
+            {
+              "id": "defs1",
+              "name": "defs1",
+              "type": "defs"
+            },
+            {
+              "elements": [
+                {
+                  "elements": [
+                    {
+                      "elements": [
+                        {
+                          "d": "m 185.00652,756.60399 a 11.664464,11.664464 0 0 1 11.75789,-11.75789 11.660312,11.660312 0 0 1 11.75788,11.75789 11.703315,11.703315 0 0 1 -11.75788,11.75788 11.887438,11.887438 0 0 1 -11.75789,-11.75788",
+                          "fill": {
+                            "paint": "transparent"
+                          },
+                          "id": "path191-61",
+                          "name": "path191-61",
+                          "stroke": {},
+                          "type": "path"
+                        },
+                        {
+                          "d": "m 185.07716,771.23312 a 11.664464,11.664464 0 0 1 11.75788,-11.75788 11.660312,11.660312 0 0 1 11.75788,11.75788 11.703315,11.703315 0 0 1 -11.75788,11.75788 11.887438,11.887438 0 0 1 -11.75788,-11.75788",
+                          "fill": {
+                            "paint": "transparent"
+                          },
+                          "id": "path192-72",
+                          "name": "path192-72",
+                          "stroke": {},
+                          "type": "path"
+                        }
+                      ],
+                      "id": "g192",
+                      "name": "g192",
+                      "type": "group"
+                    }
+                  ],
+                  "id": "g20",
+                  "name": "g20",
+                  "transform": "matrix(0.26458333,0,0,0.26458333,53.047334,-53.537292)",
+                  "type": "group"
+                }
+              ],
+              "id": "layer1",
+              "name": "layer1",
+              "transform": "translate(-101.86458,-143.40417)",
+              "type": "group"
+            }
+          ],
+          "style": {
+            "strokeWidth": 3
+          },
+          "viewBox": "0 0 6.5053644 10.357234"
+        },
+        "type": "ia.shapes.svg"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.coord"
+  }
+}

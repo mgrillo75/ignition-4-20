@@ -1,0 +1,1834 @@
+{
+  "custom": {},
+  "params": {
+    "busDeenergizedColor": "#2B9F78",
+    "busEnergizedColor": "#D55E00",
+    "tagPath": "[default]Test/02-05-001-035"
+  },
+  "propConfig": {
+    "params.busDeenergizedColor": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.busEnergizedColor": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 500,
+      "width": 610
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "height": 39,
+          "width": 466,
+          "x": 75.23,
+          "y": 210.33
+        },
+        "props": {
+          "style": {
+            "borderTopColor": "#FFFFFF",
+            "borderTopStyle": "dotted"
+          }
+        },
+        "type": "ia.container.coord"
+      },
+      {
+        "meta": {
+          "name": "CoordinateContainer_16"
+        },
+        "position": {
+          "height": 114,
+          "width": 132,
+          "x": 353.244,
+          "y": 302.5
+        },
+        "props": {
+          "style": {
+            "borderColor": "#D5D5D538",
+            "borderStyle": "dotted"
+          }
+        },
+        "type": "ia.container.coord"
+      },
+      {
+        "meta": {
+          "name": "CoordinateContainer_15"
+        },
+        "position": {
+          "height": 114,
+          "width": 132,
+          "x": 177.248,
+          "y": 302.5
+        },
+        "props": {
+          "style": {
+            "borderColor": "#D5D5D538",
+            "borderStyle": "dotted"
+          }
+        },
+        "type": "ia.container.coord"
+      },
+      {
+        "meta": {
+          "name": "CoordinateContainer_14"
+        },
+        "position": {
+          "height": 114,
+          "width": 132,
+          "x": 10.25,
+          "y": 302.5
+        },
+        "props": {
+          "style": {
+            "borderColor": "#D5D5D538",
+            "borderStyle": "dotted"
+          }
+        },
+        "type": "ia.container.coord"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_6"
+        },
+        "position": {
+          "height": 20,
+          "width": 3,
+          "x": 72.25,
+          "y": 410
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_12"
+        },
+        "position": {
+          "height": 20,
+          "width": 3,
+          "x": 416.25,
+          "y": 410
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_13"
+        },
+        "position": {
+          "height": 20,
+          "width": 3,
+          "x": 240.25,
+          "y": 410
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Horizontal_1"
+        },
+        "position": {
+          "height": 5,
+          "width": 510,
+          "x": 10.25,
+          "y": 430
+        },
+        "props": {
+          "params": {
+            "closeLeft": false,
+            "closeRight": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Horizontal"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Vertical Valve"
+        },
+        "position": {
+          "height": 30,
+          "rotate": {
+            "angle": "90deg"
+          },
+          "width": 30,
+          "x": 58.75,
+          "y": 382
+        },
+        "props": {
+          "params": {
+            "color": "#D5D5D5",
+            "tagPath": "[default]Test/02-05-001-035"
+          },
+          "path": "Assets/Widgets/Valves/Simple Valve"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Vertical Valve_0"
+        },
+        "position": {
+          "height": 30,
+          "rotate": {
+            "angle": "90deg"
+          },
+          "width": 30,
+          "x": 226.75,
+          "y": 382
+        },
+        "props": {
+          "params": {
+            "color": "#D5D5D5",
+            "tagPath": "[default]Test/02-05-001-035"
+          },
+          "path": "Assets/Widgets/Valves/Simple Valve"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Vertical Valve_1"
+        },
+        "position": {
+          "height": 30,
+          "rotate": {
+            "angle": "90deg"
+          },
+          "width": 30,
+          "x": 402.75,
+          "y": 382
+        },
+        "props": {
+          "params": {
+            "color": "#D5D5D5",
+            "tagPath": "[default]Test/02-05-001-035"
+          },
+          "path": "Assets/Widgets/Valves/Simple Valve"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_7"
+        },
+        "position": {
+          "height": 24,
+          "width": 3,
+          "x": 72.25,
+          "y": 360
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_8"
+        },
+        "position": {
+          "height": 24,
+          "width": 3,
+          "x": 240.25,
+          "y": 360
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_9"
+        },
+        "position": {
+          "height": 24,
+          "width": 3,
+          "x": 416.25,
+          "y": 360
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Horizontal_2"
+        },
+        "position": {
+          "height": 2.5,
+          "width": 50,
+          "x": 418.438,
+          "y": 360.1
+        },
+        "props": {
+          "params": {
+            "closeLeft": false,
+            "closeRight": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Horizontal"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Horizontal_3"
+        },
+        "position": {
+          "height": 2.5,
+          "width": 50,
+          "x": 366.44,
+          "y": 360.1
+        },
+        "props": {
+          "params": {
+            "closeLeft": false,
+            "closeRight": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Horizontal"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_10"
+        },
+        "position": {
+          "height": 20,
+          "width": 3,
+          "x": 468.25,
+          "y": 342.5
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_11"
+        },
+        "position": {
+          "height": 20,
+          "width": 3,
+          "x": 366.25,
+          "y": 342.5
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Vertical Valve_2"
+        },
+        "position": {
+          "height": 30,
+          "rotate": {
+            "angle": "90deg"
+          },
+          "width": 30,
+          "x": 352.75,
+          "y": 314
+        },
+        "props": {
+          "params": {
+            "color": "#D5D5D5",
+            "tagPath": "[default]Test/02-05-001-035"
+          },
+          "path": "Assets/Widgets/Valves/Simple Valve"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Vertical Valve_3"
+        },
+        "position": {
+          "height": 30,
+          "rotate": {
+            "angle": "90deg"
+          },
+          "width": 30,
+          "x": 454.75,
+          "y": 314
+        },
+        "props": {
+          "params": {
+            "color": "#D5D5D5",
+            "tagPath": "[default]Test/02-05-001-035"
+          },
+          "path": "Assets/Widgets/Valves/Simple Valve"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_16"
+        },
+        "position": {
+          "height": 36,
+          "width": 3,
+          "x": 366.25,
+          "y": 279.5
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Vertical Valve_4"
+        },
+        "position": {
+          "height": 30,
+          "rotate": {
+            "angle": "90deg"
+          },
+          "width": 30,
+          "x": 352.75,
+          "y": 251.333
+        },
+        "props": {
+          "params": {
+            "color": "#D5D5D5",
+            "tagPath": "[default]Test/02-05-001-035"
+          },
+          "path": "Assets/Widgets/Valves/Simple Valve"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_17"
+        },
+        "position": {
+          "height": 36,
+          "width": 3,
+          "x": 468.25,
+          "y": 279.5
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Vertical Valve_5"
+        },
+        "position": {
+          "height": 30,
+          "rotate": {
+            "angle": "90deg"
+          },
+          "width": 30,
+          "x": 454.75,
+          "y": 251.33
+        },
+        "props": {
+          "params": {
+            "color": "#D5D5D5",
+            "tagPath": "[default]Test/02-05-001-035"
+          },
+          "path": "Assets/Widgets/Valves/Simple Valve"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_18"
+        },
+        "position": {
+          "height": 87,
+          "width": 3,
+          "x": 366.25,
+          "y": 166.166
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Horizontal_4"
+        },
+        "position": {
+          "height": 2.5,
+          "width": 20,
+          "x": 368.44,
+          "y": 210.4
+        },
+        "props": {
+          "params": {
+            "closeLeft": false,
+            "closeRight": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Horizontal"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Horizontal Valve"
+        },
+        "position": {
+          "height": 30,
+          "width": 30,
+          "x": 388.25,
+          "y": 195.9
+        },
+        "props": {
+          "params": {
+            "color": "value",
+            "tagPath": "[default]Test/02-05-001-035"
+          },
+          "path": "Assets/Widgets/Valves/Simple Valve"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Vertical Valve_6"
+        },
+        "position": {
+          "height": 30,
+          "rotate": {
+            "angle": "90deg"
+          },
+          "width": 30,
+          "x": 352.75,
+          "y": 137.33
+        },
+        "props": {
+          "params": {
+            "color": "#D5D5D5",
+            "tagPath": "[default]Test/02-05-001-035"
+          },
+          "path": "Assets/Widgets/Valves/Simple Valve"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Horizontal Valve_0"
+        },
+        "position": {
+          "height": 30,
+          "width": 30,
+          "x": 490.25,
+          "y": 195.9
+        },
+        "props": {
+          "params": {
+            "color": "value",
+            "tagPath": "[default]Test/02-05-001-035"
+          },
+          "path": "Assets/Widgets/Valves/Simple Valve"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Horizontal_5"
+        },
+        "position": {
+          "height": 2.5,
+          "width": 20,
+          "x": 470.44,
+          "y": 210.4
+        },
+        "props": {
+          "params": {
+            "closeLeft": false,
+            "closeRight": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Horizontal"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Vertical Valve_7"
+        },
+        "position": {
+          "height": 30,
+          "rotate": {
+            "angle": "90deg"
+          },
+          "width": 30,
+          "x": 454.75,
+          "y": 137.33
+        },
+        "props": {
+          "params": {
+            "color": "#D5D5D5",
+            "tagPath": "[default]Test/02-05-001-035"
+          },
+          "path": "Assets/Widgets/Valves/Simple Valve"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_19"
+        },
+        "position": {
+          "height": 87,
+          "width": 3,
+          "x": 468.25,
+          "y": 166.17
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_14"
+        },
+        "position": {
+          "height": 20,
+          "width": 3,
+          "x": 293.25,
+          "y": 342.5
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Horizontal_6"
+        },
+        "position": {
+          "height": 2.5,
+          "width": 50,
+          "x": 243.44,
+          "y": 360.1
+        },
+        "props": {
+          "params": {
+            "closeLeft": false,
+            "closeRight": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Horizontal"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Horizontal_7"
+        },
+        "position": {
+          "height": 2.5,
+          "width": 50,
+          "x": 191.44,
+          "y": 360.1
+        },
+        "props": {
+          "params": {
+            "closeLeft": false,
+            "closeRight": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Horizontal"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Vertical Valve_8"
+        },
+        "position": {
+          "height": 30,
+          "rotate": {
+            "angle": "90deg"
+          },
+          "width": 30,
+          "x": 177.75,
+          "y": 314
+        },
+        "props": {
+          "params": {
+            "color": "#D5D5D5",
+            "tagPath": "[default]Test/02-05-001-035"
+          },
+          "path": "Assets/Widgets/Valves/Simple Valve"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Vertical Valve_9"
+        },
+        "position": {
+          "height": 30,
+          "rotate": {
+            "angle": "90deg"
+          },
+          "width": 30,
+          "x": 279.75,
+          "y": 314
+        },
+        "props": {
+          "params": {
+            "color": "#D5D5D5",
+            "tagPath": "[default]Test/02-05-001-035"
+          },
+          "path": "Assets/Widgets/Valves/Simple Valve"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_15"
+        },
+        "position": {
+          "height": 20,
+          "width": 3,
+          "x": 191.25,
+          "y": 342.5
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_20"
+        },
+        "position": {
+          "height": 36,
+          "width": 3,
+          "x": 191.25,
+          "y": 279.5
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_21"
+        },
+        "position": {
+          "height": 36,
+          "width": 3,
+          "x": 293.25,
+          "y": 279.5
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Vertical Valve_10"
+        },
+        "position": {
+          "height": 30,
+          "rotate": {
+            "angle": "90deg"
+          },
+          "width": 30,
+          "x": 177.75,
+          "y": 251.33
+        },
+        "props": {
+          "params": {
+            "color": "#D5D5D5",
+            "tagPath": "[default]Test/02-05-001-035"
+          },
+          "path": "Assets/Widgets/Valves/Simple Valve"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Vertical Valve_11"
+        },
+        "position": {
+          "height": 30,
+          "rotate": {
+            "angle": "90deg"
+          },
+          "width": 30,
+          "x": 279.75,
+          "y": 251.33
+        },
+        "props": {
+          "params": {
+            "color": "#D5D5D5",
+            "tagPath": "[default]Test/02-05-001-035"
+          },
+          "path": "Assets/Widgets/Valves/Simple Valve"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_22"
+        },
+        "position": {
+          "height": 87,
+          "width": 3,
+          "x": 191.3,
+          "y": 166.17
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Horizontal Valve_1"
+        },
+        "position": {
+          "height": 30,
+          "width": 30,
+          "x": 315.25,
+          "y": 195.9
+        },
+        "props": {
+          "params": {
+            "color": "value",
+            "tagPath": "[default]Test/02-05-001-035"
+          },
+          "path": "Assets/Widgets/Valves/Simple Valve"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_23"
+        },
+        "position": {
+          "height": 87,
+          "width": 3,
+          "x": 293.25,
+          "y": 166.17
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Horizontal Valve_2"
+        },
+        "position": {
+          "height": 30,
+          "width": 30,
+          "x": 213.25,
+          "y": 195.9
+        },
+        "props": {
+          "params": {
+            "color": "value",
+            "tagPath": "[default]Test/02-05-001-035"
+          },
+          "path": "Assets/Widgets/Valves/Simple Valve"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Horizontal_8"
+        },
+        "position": {
+          "height": 2.5,
+          "width": 20,
+          "x": 193.44,
+          "y": 210.4
+        },
+        "props": {
+          "params": {
+            "closeLeft": false,
+            "closeRight": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Horizontal"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Horizontal_9"
+        },
+        "position": {
+          "height": 2.5,
+          "width": 20,
+          "x": 295.44,
+          "y": 210.4
+        },
+        "props": {
+          "params": {
+            "closeLeft": false,
+            "closeRight": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Horizontal"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Vertical Valve_12"
+        },
+        "position": {
+          "height": 30,
+          "rotate": {
+            "angle": "90deg"
+          },
+          "width": 30,
+          "x": 177.75,
+          "y": 137.33
+        },
+        "props": {
+          "params": {
+            "color": "#D5D5D5",
+            "tagPath": "[default]Test/02-05-001-035"
+          },
+          "path": "Assets/Widgets/Valves/Simple Valve"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Vertical Valve_13"
+        },
+        "position": {
+          "height": 30,
+          "rotate": {
+            "angle": "90deg"
+          },
+          "width": 30,
+          "x": 279.75,
+          "y": 137.33
+        },
+        "props": {
+          "params": {
+            "color": "#D5D5D5",
+            "tagPath": "[default]Test/02-05-001-035"
+          },
+          "path": "Assets/Widgets/Valves/Simple Valve"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_24"
+        },
+        "position": {
+          "height": 20,
+          "width": 3,
+          "x": 125.25,
+          "y": 342.5
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Horizontal_10"
+        },
+        "position": {
+          "height": 2.5,
+          "width": 50,
+          "x": 75.44,
+          "y": 360.1
+        },
+        "props": {
+          "params": {
+            "closeLeft": false,
+            "closeRight": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Horizontal"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Vertical Valve_14"
+        },
+        "position": {
+          "height": 30,
+          "rotate": {
+            "angle": "90deg"
+          },
+          "width": 30,
+          "x": 111.75,
+          "y": 314
+        },
+        "props": {
+          "params": {
+            "color": "#D5D5D5",
+            "tagPath": "[default]Test/02-05-001-035"
+          },
+          "path": "Assets/Widgets/Valves/Simple Valve"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Horizontal_11"
+        },
+        "position": {
+          "height": 2.5,
+          "width": 50,
+          "x": 23.44,
+          "y": 360.1
+        },
+        "props": {
+          "params": {
+            "closeLeft": false,
+            "closeRight": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Horizontal"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Vertical Valve_15"
+        },
+        "position": {
+          "height": 30,
+          "rotate": {
+            "angle": "90deg"
+          },
+          "width": 30,
+          "x": 9.75,
+          "y": 314
+        },
+        "props": {
+          "params": {
+            "color": "#D5D5D5",
+            "tagPath": "[default]Test/02-05-001-035"
+          },
+          "path": "Assets/Widgets/Valves/Simple Valve"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_25"
+        },
+        "position": {
+          "height": 36,
+          "width": 3,
+          "x": 125.25,
+          "y": 279.5
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Vertical Valve_16"
+        },
+        "position": {
+          "height": 30,
+          "rotate": {
+            "angle": "90deg"
+          },
+          "width": 30,
+          "x": 9.75,
+          "y": 251.33
+        },
+        "props": {
+          "params": {
+            "color": "#D5D5D5",
+            "tagPath": "[default]Test/02-05-001-035"
+          },
+          "path": "Assets/Widgets/Valves/Simple Valve"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Vertical Valve_17"
+        },
+        "position": {
+          "height": 30,
+          "rotate": {
+            "angle": "90deg"
+          },
+          "width": 30,
+          "x": 111.75,
+          "y": 251.33
+        },
+        "props": {
+          "params": {
+            "color": "#D5D5D5",
+            "tagPath": "[default]Test/02-05-001-035"
+          },
+          "path": "Assets/Widgets/Valves/Simple Valve"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_26"
+        },
+        "position": {
+          "height": 87,
+          "width": 3,
+          "x": 125.25,
+          "y": 166.17
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_27"
+        },
+        "position": {
+          "height": 20,
+          "width": 3,
+          "x": 23.25,
+          "y": 342.5
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_28"
+        },
+        "position": {
+          "height": 36,
+          "width": 3,
+          "x": 23.25,
+          "y": 279.5
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_29"
+        },
+        "position": {
+          "height": 87,
+          "width": 3,
+          "x": 23.3,
+          "y": 166.17
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Horizontal Valve_3"
+        },
+        "position": {
+          "height": 30,
+          "width": 30,
+          "x": 147.25,
+          "y": 195.9
+        },
+        "props": {
+          "params": {
+            "color": "value",
+            "tagPath": "[default]Test/02-05-001-035"
+          },
+          "path": "Assets/Widgets/Valves/Simple Valve"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Horizontal Valve_4"
+        },
+        "position": {
+          "height": 30,
+          "width": 30,
+          "x": 45.25,
+          "y": 195.9
+        },
+        "props": {
+          "params": {
+            "color": "value",
+            "tagPath": "[default]Test/02-05-001-035"
+          },
+          "path": "Assets/Widgets/Valves/Simple Valve"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Horizontal_12"
+        },
+        "position": {
+          "height": 2.5,
+          "width": 20,
+          "x": 25.44,
+          "y": 210.4
+        },
+        "props": {
+          "params": {
+            "closeLeft": false,
+            "closeRight": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Horizontal"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Horizontal_13"
+        },
+        "position": {
+          "height": 2.5,
+          "width": 20,
+          "x": 127.44,
+          "y": 210.4
+        },
+        "props": {
+          "params": {
+            "closeLeft": false,
+            "closeRight": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Horizontal"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Vertical Valve_18"
+        },
+        "position": {
+          "height": 30,
+          "rotate": {
+            "angle": "90deg"
+          },
+          "width": 30,
+          "x": 9.75,
+          "y": 137.33
+        },
+        "props": {
+          "params": {
+            "color": "#D5D5D5",
+            "tagPath": "[default]Test/02-05-001-035"
+          },
+          "path": "Assets/Widgets/Valves/Simple Valve"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Vertical Valve_19"
+        },
+        "position": {
+          "height": 30,
+          "rotate": {
+            "angle": "90deg"
+          },
+          "width": 30,
+          "x": 111.75,
+          "y": 137.33
+        },
+        "props": {
+          "params": {
+            "color": "#D5D5D5",
+            "tagPath": "[default]Test/02-05-001-035"
+          },
+          "path": "Assets/Widgets/Valves/Simple Valve"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "height": 32,
+          "width": 141,
+          "x": 194.746,
+          "y": 445
+        },
+        "props": {
+          "text": "UTILITY GAS LINE",
+          "textStyle": {
+            "color": "#FFFFFF",
+            "fontWeight": "bold",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_0"
+        },
+        "position": {
+          "height": 32,
+          "width": 76,
+          "x": 37.2302,
+          "y": 270.5
+        },
+        "props": {
+          "text": "ALGAS SKID 1",
+          "textStyle": {
+            "color": "#FFFFFF",
+            "fontSize": "8pt",
+            "fontWeight": "bold",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_1"
+        },
+        "position": {
+          "height": 32,
+          "width": 76,
+          "x": 205.228,
+          "y": 270.5
+        },
+        "props": {
+          "text": "ALGAS SKID 2",
+          "textStyle": {
+            "color": "#FFFFFF",
+            "fontSize": "8pt",
+            "fontWeight": "bold",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_2"
+        },
+        "position": {
+          "height": 32,
+          "width": 76,
+          "x": 381.224,
+          "y": 270.5
+        },
+        "props": {
+          "text": "ALGAS SKID 3",
+          "textStyle": {
+            "color": "#FFFFFF",
+            "fontSize": "8pt",
+            "fontWeight": "bold",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_30"
+        },
+        "position": {
+          "height": 75,
+          "width": 3,
+          "x": 23.3,
+          "y": 63.3
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "MISC_1"
+        },
+        "position": {
+          "height": 35,
+          "rotate": {
+            "angle": "180deg"
+          },
+          "width": 35,
+          "x": 13.4375,
+          "y": 29.3
+        },
+        "props": {
+          "path": "Assets/Widgets/Breaker/LV_Breaker"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_31"
+        },
+        "position": {
+          "height": 30,
+          "width": 3,
+          "x": 22.9375
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_32"
+        },
+        "position": {
+          "height": 75,
+          "width": 3,
+          "x": 191.3,
+          "y": 63.3
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "MISC_2"
+        },
+        "position": {
+          "height": 35,
+          "rotate": {
+            "angle": "180deg"
+          },
+          "width": 35,
+          "x": 181.438,
+          "y": 29.3
+        },
+        "props": {
+          "path": "Assets/Widgets/Breaker/LV_Breaker"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_33"
+        },
+        "position": {
+          "height": 30,
+          "width": 3,
+          "x": 190.938
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_34"
+        },
+        "position": {
+          "height": 75,
+          "width": 3,
+          "x": 366.2975,
+          "y": 63.3
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "MISC_3"
+        },
+        "position": {
+          "height": 35,
+          "rotate": {
+            "angle": "180deg"
+          },
+          "width": 35,
+          "x": 356.4375,
+          "y": 29.3
+        },
+        "props": {
+          "path": "Assets/Widgets/Breaker/LV_Breaker"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_35"
+        },
+        "position": {
+          "height": 30,
+          "width": 3,
+          "x": 365.9375
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Label_3"
+        },
+        "position": {
+          "height": 32,
+          "width": 67,
+          "x": 541.219,
+          "y": 195.828
+        },
+        "props": {
+          "text": "NODE 1",
+          "textStyle": {
+            "color": "#FFFFFF"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "position": {
+      "x": -22.015625,
+      "y": -23
+    },
+    "props": {
+      "style": {
+        "backgroundColor": "transparent"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

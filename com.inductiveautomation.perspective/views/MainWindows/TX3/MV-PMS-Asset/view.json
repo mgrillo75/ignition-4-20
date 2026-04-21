@@ -1,0 +1,1244 @@
+{
+  "custom": {},
+  "params": {
+    "busDeenergizedColor": "#2B9F78",
+    "busEnergizedColor": "#D55E00",
+    "tagPath": "[default]Test/02-05-001-035"
+  },
+  "propConfig": {
+    "params.busDeenergizedColor": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.busEnergizedColor": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 504,
+      "width": 462
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "height": 32,
+          "rotate": {
+            "angle": "90deg"
+          },
+          "width": 145,
+          "x": -23.6,
+          "y": 373.1
+        },
+        "propConfig": {
+          "props.style.borderColor": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "tagPath": "[default]_Settings/Colors/Energized"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "borderBottomLeftRadius": 10,
+            "borderBottomRightRadius": 10,
+            "borderStyle": "solid",
+            "borderTopLeftRadius": 10,
+            "borderTopRightRadius": 10,
+            "borderWidth": 1.5,
+            "paddingLeft": 5
+          },
+          "text": "SITE E-HOUSE PPL-A",
+          "textStyle": {
+            "color": "#FFFFFF",
+            "fontSize": 12,
+            "fontWeight": "bold"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_0"
+        },
+        "position": {
+          "height": 32,
+          "rotate": {
+            "angle": "90deg"
+          },
+          "width": 145,
+          "x": 29.5,
+          "y": 372.9
+        },
+        "propConfig": {
+          "props.style.borderColor": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "tagPath": "[default]_Settings/Colors/Energized"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "borderBottomLeftRadius": 10,
+            "borderBottomRightRadius": 10,
+            "borderStyle": "solid",
+            "borderTopLeftRadius": 10,
+            "borderTopRightRadius": 10,
+            "borderWidth": 1.5,
+            "paddingLeft": 5
+          },
+          "text": "SITE E-HOUSE MCC-1",
+          "textStyle": {
+            "color": "#FFFFFF",
+            "fontSize": 12,
+            "fontWeight": "bold"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_1"
+        },
+        "position": {
+          "height": 32,
+          "rotate": {
+            "angle": "90deg"
+          },
+          "width": 145,
+          "x": 85,
+          "y": 373.9
+        },
+        "propConfig": {
+          "props.style.borderColor": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "tagPath": "[default]_Settings/Colors/Energized"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "borderBottomLeftRadius": 10,
+            "borderBottomRightRadius": 10,
+            "borderStyle": "solid",
+            "borderTopLeftRadius": 10,
+            "borderTopRightRadius": 10,
+            "borderWidth": 1.5,
+            "paddingLeft": 5
+          },
+          "text": "SITE E-HOUSE MCC-2",
+          "textStyle": {
+            "color": "#FFFFFF",
+            "fontSize": 12,
+            "fontWeight": "bold"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_2"
+        },
+        "position": {
+          "height": 32,
+          "rotate": {
+            "angle": "90deg"
+          },
+          "width": 145,
+          "x": 193.5,
+          "y": 373.9
+        },
+        "propConfig": {
+          "props.style.borderColor": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "tagPath": "[default]_Settings/Colors/Energized"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "borderBottomLeftRadius": 10,
+            "borderBottomRightRadius": 10,
+            "borderStyle": "solid",
+            "borderTopLeftRadius": 10,
+            "borderTopRightRadius": 10,
+            "borderWidth": 1.5,
+            "paddingLeft": 5
+          },
+          "text": "2500A SPARE",
+          "textStyle": {
+            "color": "#FFFFFF",
+            "fontSize": 12,
+            "fontWeight": "bold"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_3"
+        },
+        "position": {
+          "height": 32,
+          "rotate": {
+            "angle": "90deg"
+          },
+          "width": 145,
+          "x": 254.4,
+          "y": 374.3
+        },
+        "propConfig": {
+          "props.style.borderColor": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "tagPath": "[default]_Settings/Colors/Energized"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "borderBottomLeftRadius": 10,
+            "borderBottomRightRadius": 10,
+            "borderStyle": "solid",
+            "borderTopLeftRadius": 10,
+            "borderTopRightRadius": 10,
+            "borderWidth": 1.5,
+            "paddingLeft": 5
+          },
+          "text": "SC1 E-HOUSE MCC-1",
+          "textStyle": {
+            "color": "#FFFFFF",
+            "fontSize": 12,
+            "fontWeight": "bold"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_4"
+        },
+        "position": {
+          "height": 32,
+          "rotate": {
+            "angle": "90deg"
+          },
+          "width": 145,
+          "x": 316.5,
+          "y": 374
+        },
+        "propConfig": {
+          "props.style.borderColor": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "tagPath": "[default]_Settings/Colors/Energized"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "borderBottomLeftRadius": 10,
+            "borderBottomRightRadius": 10,
+            "borderStyle": "solid",
+            "borderTopLeftRadius": 10,
+            "borderTopRightRadius": 10,
+            "borderWidth": 1.5,
+            "paddingLeft": 5
+          },
+          "text": "SITE E-HOUSE PPL-B",
+          "textStyle": {
+            "color": "#FFFFFF",
+            "fontSize": 12,
+            "fontWeight": "bold"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Fixed Mount Breaker",
+          "tooltip": {
+            "enabled": true
+          }
+        },
+        "position": {
+          "height": 50,
+          "width": 50,
+          "x": 34.5,
+          "y": 18
+        },
+        "props": {
+          "params": {
+            "label": "52I",
+            "tagPathBreaker52I": "[default]TX3/tx3-pb1-n1-fcb1-751-001"
+          },
+          "path": "Assets/Widgets/Breaker/LV Breaker Symbol (52I) - review"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Label_5"
+        },
+        "position": {
+          "height": 32,
+          "width": 80,
+          "x": 252,
+          "y": 119
+        },
+        "propConfig": {
+          "props.style.borderColor": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "tagPath": "[default]_Settings/Colors/Energized"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "borderBottomLeftRadius": 10,
+            "borderBottomRightRadius": 10,
+            "borderStyle": "solid",
+            "borderTopLeftRadius": 10,
+            "borderTopRightRadius": 10,
+            "borderWidth": 1.5
+          },
+          "text": "2500A SPARE",
+          "textStyle": {
+            "color": "#FFFFFF",
+            "fontSize": 12,
+            "fontWeight": "bold",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Fixed Mount Breaker_0"
+        },
+        "position": {
+          "height": 50,
+          "width": 50,
+          "x": 375,
+          "y": 18
+        },
+        "props": {
+          "params": {
+            "label": "52I",
+            "tagPathBreaker52I": "[default]TX3/tx3-pb1-n1-fcb1-751-001"
+          },
+          "path": "Assets/Widgets/Breaker/LV Breaker Symbol (52I) - review"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "MISC_1"
+        },
+        "position": {
+          "height": 35,
+          "rotate": {
+            "angle": "180deg"
+          },
+          "width": 35,
+          "x": 45.5,
+          "y": 193
+        },
+        "props": {
+          "path": "Assets/Widgets/Breaker/LV_Breaker"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "MISC_2"
+        },
+        "position": {
+          "height": 35,
+          "rotate": {
+            "angle": "180deg"
+          },
+          "width": 35,
+          "x": 128,
+          "y": 193
+        },
+        "props": {
+          "path": "Assets/Widgets/Breaker/LV_Breaker"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "MISC_3"
+        },
+        "position": {
+          "height": 35,
+          "rotate": {
+            "angle": "180deg"
+          },
+          "width": 35,
+          "x": 286,
+          "y": 193
+        },
+        "props": {
+          "path": "Assets/Widgets/Breaker/LV_Breaker"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "MISC_4"
+        },
+        "position": {
+          "height": 35,
+          "rotate": {
+            "angle": "180deg"
+          },
+          "width": 35,
+          "x": 385.5,
+          "y": 193
+        },
+        "props": {
+          "path": "Assets/Widgets/Breaker/LV_Breaker"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "MISC_5"
+        },
+        "position": {
+          "height": 35,
+          "rotate": {
+            "angle": "180deg"
+          },
+          "width": 35,
+          "x": 42.5,
+          "y": 261
+        },
+        "props": {
+          "path": "Assets/Widgets/Breaker/LV_Breaker"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "MISC_6"
+        },
+        "position": {
+          "height": 35,
+          "rotate": {
+            "angle": "180deg"
+          },
+          "width": 35,
+          "x": 96.5,
+          "y": 263
+        },
+        "props": {
+          "path": "Assets/Widgets/Breaker/LV_Breaker"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "MISC_7"
+        },
+        "position": {
+          "height": 35,
+          "rotate": {
+            "angle": "180deg"
+          },
+          "width": 35,
+          "x": 152,
+          "y": 264
+        },
+        "props": {
+          "path": "Assets/Widgets/Breaker/LV_Breaker"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "MISC_8"
+        },
+        "position": {
+          "height": 35,
+          "rotate": {
+            "angle": "180deg"
+          },
+          "width": 35,
+          "x": 261.726,
+          "y": 261.995
+        },
+        "props": {
+          "path": "Assets/Widgets/Breaker/LV_Breaker"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "MISC_9"
+        },
+        "position": {
+          "height": 35,
+          "rotate": {
+            "angle": "180deg"
+          },
+          "width": 35,
+          "x": 320.5,
+          "y": 264
+        },
+        "props": {
+          "path": "Assets/Widgets/Breaker/LV_Breaker"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "MISC_10"
+        },
+        "position": {
+          "height": 35,
+          "rotate": {
+            "angle": "180deg"
+          },
+          "width": 35,
+          "x": 385,
+          "y": 264
+        },
+        "props": {
+          "path": "Assets/Widgets/Breaker/LV_Breaker"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical"
+        },
+        "position": {
+          "height": 40,
+          "width": 3,
+          "x": 48,
+          "y": 65
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_0"
+        },
+        "position": {
+          "height": 40,
+          "width": 3,
+          "x": 48,
+          "y": 151
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_1"
+        },
+        "position": {
+          "height": 20,
+          "width": 3,
+          "x": 48,
+          "y": 218
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_2"
+        },
+        "position": {
+          "height": 40,
+          "width": 3,
+          "x": 48,
+          "y": -2
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical",
+          "style": {
+            "borderStyle": "none"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_3"
+        },
+        "position": {
+          "height": 40,
+          "width": 3,
+          "x": 130.5,
+          "y": 149.974
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_4"
+        },
+        "position": {
+          "height": 20,
+          "width": 3,
+          "x": 130.5,
+          "y": 220
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Horizontal"
+        },
+        "position": {
+          "height": 5,
+          "width": 186,
+          "x": 11,
+          "y": 240.1
+        },
+        "props": {
+          "params": {
+            "closeLeft": false,
+            "closeRight": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Horizontal"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_5"
+        },
+        "position": {
+          "height": 20,
+          "width": 3,
+          "x": 46.9,
+          "y": 243.1
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_6"
+        },
+        "position": {
+          "height": 20,
+          "width": 3,
+          "x": 46.9,
+          "y": 294.1
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_7"
+        },
+        "position": {
+          "height": 20,
+          "width": 3,
+          "x": 101.1,
+          "y": 245.1
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_8"
+        },
+        "position": {
+          "height": 20,
+          "width": 3,
+          "x": 101.1,
+          "y": 296.1
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_9"
+        },
+        "position": {
+          "height": 20,
+          "width": 3,
+          "x": 156.1,
+          "y": 244.1
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_10"
+        },
+        "position": {
+          "height": 20,
+          "width": 3,
+          "x": 156.1,
+          "y": 296.1
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_11"
+        },
+        "position": {
+          "height": 20,
+          "width": 3,
+          "x": 265.1,
+          "y": 296.1
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_12"
+        },
+        "position": {
+          "height": 20,
+          "width": 3,
+          "x": 324.7,
+          "y": 296.1
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_13"
+        },
+        "position": {
+          "height": 20,
+          "width": 3,
+          "x": 388,
+          "y": 296.1
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_14"
+        },
+        "position": {
+          "height": 20,
+          "width": 3,
+          "x": 388,
+          "y": 244.1
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_15"
+        },
+        "position": {
+          "height": 20,
+          "width": 3,
+          "x": 324.7,
+          "y": 244.1
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_16"
+        },
+        "position": {
+          "height": 20,
+          "width": 3,
+          "x": 265.1,
+          "y": 245.1
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Horizontal_0"
+        },
+        "position": {
+          "height": 5,
+          "width": 186,
+          "x": 232,
+          "y": 240.1
+        },
+        "props": {
+          "params": {
+            "closeLeft": false,
+            "closeRight": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Horizontal"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_17"
+        },
+        "position": {
+          "height": 20,
+          "width": 3,
+          "x": 289.5,
+          "y": 220
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_18"
+        },
+        "position": {
+          "height": 20,
+          "width": 3,
+          "x": 388.5,
+          "y": 220
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_19"
+        },
+        "position": {
+          "height": 40,
+          "width": 3,
+          "x": 388.5,
+          "y": 153
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_20"
+        },
+        "position": {
+          "height": 40,
+          "width": 3,
+          "x": 388.5,
+          "y": 67
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_21"
+        },
+        "position": {
+          "height": 40,
+          "width": 3,
+          "x": 388.5,
+          "y": -2
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_22"
+        },
+        "position": {
+          "height": 40,
+          "width": 3,
+          "x": 289.5,
+          "y": 151
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "MISC_11"
+        },
+        "position": {
+          "height": 35,
+          "rotate": {
+            "angle": "90deg"
+          },
+          "width": 35,
+          "x": 197.726,
+          "y": 211.496
+        },
+        "props": {
+          "path": "Assets/Widgets/Breaker/LV_Breaker"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "MV Genset Static"
+        },
+        "position": {
+          "height": 50,
+          "width": 50,
+          "x": 113.5,
+          "y": 103
+        },
+        "props": {
+          "params": {
+            "busDeenergized": "#2B9F78",
+            "busEnergized": "#D55E00",
+            "tagPath": "[default]Test/02-05-001-035"
+          },
+          "path": "Assets/Widgets/Generator/C32B Genset"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Transformer"
+        },
+        "position": {
+          "height": 50,
+          "width": 30,
+          "x": 34.5,
+          "y": 104.3
+        },
+        "props": {
+          "params": {
+            "color": "#D55E00",
+            "tagPath": "[default]TX3/tx3-pb1-n1-qp1-787-001"
+          },
+          "path": "Assets/Widgets/Transformer/LV Aux Transformer - review"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Transformer_0"
+        },
+        "position": {
+          "height": 50,
+          "width": 30,
+          "x": 375,
+          "y": 104.3
+        },
+        "props": {
+          "params": {
+            "color": "#D55E00",
+            "tagPath": "[default]TX3/tx3-pb1-n1-qp1-787-001"
+          },
+          "path": "Assets/Widgets/Transformer/LV Aux Transformer - review"
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "backgroundColor": "transparent"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

@@ -1,0 +1,239 @@
+{
+  "custom": {},
+  "params": {
+    "busDeenergizedColor": "#2B9F78",
+    "busEnergizedColor": "#D55E00",
+    "tagPath": "[default]Test/02-05-001-035"
+  },
+  "propConfig": {
+    "params.busDeenergizedColor": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.busEnergizedColor": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 227,
+      "width": 47
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Generator_1"
+        },
+        "position": {
+          "height": 35,
+          "width": 35,
+          "x": 6,
+          "y": 191.41
+        },
+        "props": {
+          "params": {
+            "color": "#D55E00",
+            "label": "G1",
+            "tagPath": "[default]Test/02-05-001-035"
+          },
+          "path": "Assets/Widgets/OpenValve/View"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_3"
+        },
+        "position": {
+          "height": 28,
+          "width": 2.5,
+          "x": 21,
+          "y": 173.36
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical"
+        },
+        "position": {
+          "height": 20,
+          "width": 2.5,
+          "x": 21,
+          "y": 30
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_0"
+        },
+        "position": {
+          "height": 20,
+          "width": 2.5,
+          "x": 21,
+          "y": 125.24
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Fixed Mount Breaker_1"
+        },
+        "position": {
+          "height": 30,
+          "rotate": {
+            "angle": "90deg"
+          },
+          "width": 30,
+          "x": 15.5,
+          "y": 143.62
+        },
+        "props": {
+          "params": {
+            "color": "#D55E00",
+            "label": "52G",
+            "tagPath": "[default]Test/02-05-001-035"
+          },
+          "path": "Assets/Widgets/Valves/CV Valve"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Fixed Mount Breaker"
+        },
+        "position": {
+          "height": 30,
+          "rotate": {
+            "angle": "90deg"
+          },
+          "width": 30,
+          "x": 7,
+          "y": 2
+        },
+        "props": {
+          "params": {
+            "color": "#D55E00",
+            "label": "52I",
+            "tagPath": "[default]Test/02-05-001-035"
+          },
+          "path": "Assets/Widgets/Valves/Simple Valve"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_1"
+        },
+        "position": {
+          "height": 20,
+          "width": 2.5,
+          "x": 20,
+          "y": 79.544
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorEmpty": "#2B9F78",
+            "colorFill": "#D55E00",
+            "colorPipeFrame": "transparent",
+            "flowActive": true
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Bulk Tank"
+        },
+        "position": {
+          "height": 30,
+          "width": 30,
+          "x": 6.5,
+          "y": 50
+        },
+        "props": {
+          "params": {
+            "color": "value",
+            "tagPath": "[default]Test/02-05-001-035"
+          },
+          "path": "Assets/Widgets/Tanks/Bulk Tank"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Generator_Coordinate(1)"
+        },
+        "position": {
+          "height": 30,
+          "rotate": {
+            "anchor": "50% 25%"
+          },
+          "width": 30,
+          "x": 2.5,
+          "y": 96.549
+        },
+        "props": {
+          "params": {
+            "color": "#D55E00"
+          },
+          "path": "Assets/Widgets/Pump/Simple Pump-Down"
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "backgroundColor": "transparent"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

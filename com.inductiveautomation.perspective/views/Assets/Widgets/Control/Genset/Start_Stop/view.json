@@ -1,0 +1,99 @@
+{
+  "custom": {},
+  "params": {
+    "tagPath": "[default]Test/02-05-001-035",
+    "tagname": "operationHours"
+  },
+  "propConfig": {
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagname": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 150,
+      "width": 200
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "EmbeddedView"
+        },
+        "position": {
+          "basis": "46px"
+        },
+        "props": {
+          "path": "Assets/Widgets/Control/ControlButton"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Stop"
+        },
+        "position": {
+          "basis": "40px",
+          "shrink": 0
+        },
+        "props": {
+          "image": {
+            "height": 30,
+            "width": 100
+          },
+          "style": {
+            "backgroundColor": "#34D399",
+            "borderBottomLeftRadius": 10,
+            "borderBottomRightRadius": 10,
+            "borderColor": "#AAAAAA75",
+            "borderTopLeftRadius": 10,
+            "borderTopRightRadius": 10,
+            "color": "#202B4A",
+            "fontSize": 13,
+            "fontWeight": "bold",
+            "marginLeft": 15,
+            "marginRight": 15,
+            "marginTop": 10
+          },
+          "text": "Stop"
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "props.style.backgroundColor": {
+        "binding": {
+          "config": {
+            "fallbackDelay": 2.5,
+            "mode": "direct",
+            "tagPath": "[default]_Settings/Colors/Background"
+          },
+          "type": "tag"
+        }
+      }
+    },
+    "props": {
+      "alignContent": "center",
+      "direction": "column",
+      "justify": "space-around",
+      "style": {
+        "borderBottomLeftRadius": 10,
+        "borderBottomRightRadius": 10,
+        "borderTopLeftRadius": 10,
+        "borderTopRightRadius": 10,
+        "overflow": "hidden",
+        "padding": "10px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

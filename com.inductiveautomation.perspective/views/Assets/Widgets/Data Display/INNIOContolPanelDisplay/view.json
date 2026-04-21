@@ -1,0 +1,521 @@
+{
+  "custom": {},
+  "params": {
+    "tagPath": "value"
+  },
+  "propConfig": {
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 422,
+      "width": 655
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Drawing_2"
+        },
+        "position": {
+          "height": 0.1279,
+          "width": 1.0139,
+          "x": -0.0079,
+          "y": -0.0294
+        },
+        "props": {
+          "style": {
+            "borderBottomStyle": "none",
+            "borderLeftColor": "#AAAAAA",
+            "borderLeftStyle": "none",
+            "borderRightColor": "#AAAAAA",
+            "borderRightStyle": "none",
+            "borderTopColor": "#6b7280",
+            "borderTopLeftRadius": 10,
+            "borderTopRightRadius": 10,
+            "borderTopStyle": "solid",
+            "borderTopWidth": 50,
+            "outlineStyle": "none"
+          }
+        },
+        "type": "ia.shapes.svg"
+      },
+      {
+        "meta": {
+          "name": "Label_2"
+        },
+        "position": {
+          "height": 0.1373,
+          "width": 0.8317,
+          "x": 0.0107,
+          "y": -0.0268
+        },
+        "props": {
+          "text": "Genset Local Operator Panel (View Only)",
+          "textStyle": {
+            "color": "#FAFAFB"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "MultiStateButton_1"
+        },
+        "position": {
+          "height": 0.3775,
+          "width": 0.1544,
+          "x": 0.2857,
+          "y": 0.3881
+        },
+        "props": {
+          "controlValue": 0,
+          "defaultSelectedStyle": {
+            "backgroundColor": "#d1d5db",
+            "borderBottomColor": "#717171",
+            "borderBottomStyle": "solid",
+            "borderLeftColor": "#717171",
+            "borderLeftStyle": "solid",
+            "borderRightColor": "#717171",
+            "borderRightStyle": "solid",
+            "borderTopColor": "#717171",
+            "borderTopStyle": "solid",
+            "fontWeight": "bold",
+            "textShadow": "1px"
+          },
+          "defaultUnselectedStyle": {
+            "backgroundColor": "#d1d5db",
+            "borderBottomColor": "#717171",
+            "borderBottomStyle": "solid",
+            "borderLeftColor": "#717171",
+            "borderLeftStyle": "solid",
+            "borderRightColor": "#717171",
+            "borderRightStyle": "solid",
+            "borderTopColor": "#717171",
+            "borderTopStyle": "solid",
+            "fontWeight": "bold"
+          },
+          "indicatorValue": 2,
+          "states": [
+            {
+              "selectedStyle": {
+                "classes": "",
+                "color": "#FFFFFF"
+              },
+              "text": "Start",
+              "unselectedStyle": {
+                "classes": "",
+                "color": "#FFFFFF"
+              },
+              "value": 0
+            },
+            {
+              "selectedStyle": {
+                "classes": "",
+                "color": "#FFFFFF"
+              },
+              "text": "Stop",
+              "unselectedStyle": {
+                "classes": "",
+                "color": "#FFFFFF"
+              },
+              "value": 1
+            }
+          ]
+        },
+        "type": "ia.input.multi-state-button"
+      },
+      {
+        "meta": {
+          "name": "MultiStateButton_0"
+        },
+        "position": {
+          "height": 0.7754,
+          "width": 0.2317,
+          "x": 0.0062,
+          "y": 0.179
+        },
+        "props": {
+          "controlValue": 0,
+          "defaultSelectedStyle": {
+            "backgroundColor": "#3b82f6",
+            "borderBottomColor": "#717171",
+            "borderBottomStyle": "solid",
+            "borderLeftColor": "#717171",
+            "borderLeftStyle": "solid",
+            "borderRightColor": "##717171",
+            "borderRightStyle": "solid",
+            "borderTopColor": "#717171",
+            "borderTopStyle": "solid"
+          },
+          "defaultUnselectedStyle": {
+            "backgroundColor": "#d1d5db",
+            "borderBottomColor": "#717171",
+            "borderBottomStyle": "solid",
+            "borderLeftColor": "#717171",
+            "borderLeftStyle": "solid",
+            "borderRightColor": "#717171",
+            "borderRightStyle": "solid",
+            "borderTopColor": "#717171",
+            "borderTopStyle": "solid",
+            "fontWeight": "bold"
+          },
+          "indicatorValue": 1,
+          "states": [
+            {
+              "selectedStyle": {
+                "classes": "",
+                "color": "#FAFAFB"
+              },
+              "text": "Block",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 0
+            },
+            {
+              "selectedStyle": {
+                "classes": "",
+                "color": "#FAFAFB"
+              },
+              "text": "Manual",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 1
+            },
+            {
+              "selectedStyle": {
+                "classes": "",
+                "color": "#FAFAFB"
+              },
+              "text": "Automatic",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 2
+            }
+          ]
+        },
+        "type": "ia.input.multi-state-button"
+      },
+      {
+        "meta": {
+          "name": "MultiStateButton"
+        },
+        "position": {
+          "height": 0.7754,
+          "width": 0.2317,
+          "x": 0.5119,
+          "y": 0.1758
+        },
+        "props": {
+          "controlValue": 0,
+          "defaultSelectedStyle": {
+            "backgroundColor": "#3b82f6",
+            "borderBottomColor": "#717171",
+            "borderBottomStyle": "solid",
+            "borderLeftColor": "#717171",
+            "borderLeftStyle": "solid",
+            "borderRightColor": "#717171",
+            "borderRightStyle": "solid",
+            "borderTopColor": "#717171",
+            "borderTopStyle": "solid",
+            "fontWeight": "bold"
+          },
+          "defaultUnselectedStyle": {
+            "backgroundColor": "#d1d5db",
+            "borderColor": "#717171",
+            "borderStyle": "solid",
+            "fontWeight": "bold"
+          },
+          "indicatorValue": 0,
+          "states": [
+            {
+              "selectedStyle": {
+                "classes": "",
+                "color": "#FAFAFB"
+              },
+              "text": "Off",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 0
+            },
+            {
+              "selectedStyle": {
+                "classes": "",
+                "color": "#FAFAFB"
+              },
+              "text": "On",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 1
+            },
+            {
+              "selectedStyle": {
+                "classes": "",
+                "color": "#FAFAFB"
+              },
+              "text": "Remote",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 2
+            }
+          ]
+        },
+        "type": "ia.input.multi-state-button"
+      },
+      {
+        "meta": {
+          "name": "Icon"
+        },
+        "position": {
+          "height": 0.2941,
+          "rotate": {
+            "angle": "180deg"
+          },
+          "width": 0.1158,
+          "x": 0.2066,
+          "y": 0.4273
+        },
+        "props": {
+          "color": "#808080",
+          "path": "material/play_arrow"
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "meta": {
+          "name": "Drawing"
+        },
+        "position": {
+          "height": 0.0962,
+          "width": 0.2317,
+          "x": 0.0062,
+          "y": 0.1084
+        },
+        "props": {
+          "style": {
+            "borderBottomLeftRadius": 10,
+            "borderBottomRightRadius": 10,
+            "borderBottomStyle": "none",
+            "borderLeftColor": "#AAAAAA",
+            "borderLeftStyle": "none",
+            "borderRightColor": "#AAAAAA",
+            "borderRightStyle": "none",
+            "borderTopColor": "#9ca3af",
+            "borderTopLeftRadius": 10,
+            "borderTopRightRadius": 10,
+            "borderTopStyle": "solid",
+            "borderTopWidth": 30,
+            "outlineStyle": "none"
+          }
+        },
+        "type": "ia.shapes.svg"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "height": 0.1569,
+          "width": 0.1641,
+          "x": 0.0174,
+          "y": 0.0804
+        },
+        "props": {
+          "text": "Operation",
+          "textStyle": {
+            "color": "#FAFAFB"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Drawing_0"
+        },
+        "position": {
+          "height": 0.099,
+          "width": 0.2317,
+          "x": 0.5119,
+          "y": 0.1087
+        },
+        "props": {
+          "style": {
+            "borderBottomLeftRadius": 10,
+            "borderBottomRightRadius": 10,
+            "borderBottomStyle": "none",
+            "borderLeftColor": "#AAAAAA",
+            "borderLeftStyle": "none",
+            "borderRightColor": "#AAAAAA",
+            "borderRightStyle": "none",
+            "borderTopColor": "#9ca3af",
+            "borderTopLeftRadius": 10,
+            "borderTopRightRadius": 10,
+            "borderTopStyle": "solid",
+            "borderTopWidth": 30,
+            "outlineStyle": "none"
+          }
+        },
+        "type": "ia.shapes.svg"
+      },
+      {
+        "meta": {
+          "name": "Label_0"
+        },
+        "position": {
+          "height": 0.1569,
+          "width": 0.1641,
+          "x": 0.5212,
+          "y": 0.0763
+        },
+        "props": {
+          "text": "Request",
+          "textStyle": {
+            "color": "#FAFAFB"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "MultiStateButton_2"
+        },
+        "position": {
+          "height": 0.7754,
+          "width": 0.2317,
+          "x": 0.7617,
+          "y": 0.1758
+        },
+        "props": {
+          "controlValue": 0,
+          "defaultSelectedStyle": {
+            "backgroundColor": "#3b82f6",
+            "borderColor": "#717171",
+            "borderStyle": "solid",
+            "fontWeight": "bold"
+          },
+          "defaultUnselectedStyle": {
+            "backgroundColor": "#d1d5db",
+            "borderColor": "#717171",
+            "borderStyle": "solid",
+            "fontWeight": "bold"
+          },
+          "indicatorValue": 2,
+          "states": [
+            {
+              "selectedStyle": {
+                "classes": "",
+                "color": "#FAFAFB"
+              },
+              "text": "Off",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 0
+            },
+            {
+              "selectedStyle": {
+                "classes": "",
+                "color": "#FAFAFB"
+              },
+              "text": "Man",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 1
+            },
+            {
+              "selectedStyle": {
+                "classes": "",
+                "color": "#FAFAFB"
+              },
+              "text": "Auto",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 2
+            }
+          ]
+        },
+        "type": "ia.input.multi-state-button"
+      },
+      {
+        "meta": {
+          "name": "Drawing_1"
+        },
+        "position": {
+          "height": 0.1373,
+          "width": 0.2317,
+          "x": 0.7617,
+          "y": 0.1077
+        },
+        "props": {
+          "style": {
+            "borderBottomLeftRadius": 10,
+            "borderBottomRightRadius": 10,
+            "borderBottomStyle": "none",
+            "borderLeftColor": "#AAAAAA",
+            "borderLeftStyle": "none",
+            "borderRightColor": "#AAAAAA",
+            "borderRightStyle": "none",
+            "borderTopColor": "#9ca3af",
+            "borderTopLeftRadius": 10,
+            "borderTopRightRadius": 10,
+            "borderTopStyle": "solid",
+            "borderTopWidth": 30,
+            "outlineStyle": "none"
+          }
+        },
+        "type": "ia.shapes.svg"
+      },
+      {
+        "meta": {
+          "name": "Label_1"
+        },
+        "position": {
+          "height": 0.1569,
+          "width": 0.1641,
+          "x": 0.7703,
+          "y": 0.0763
+        },
+        "props": {
+          "text": "Synch",
+          "textStyle": {
+            "color": "#FAFAFB"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "position": {
+      "x": 93.994140625,
+      "y": 40
+    },
+    "props": {
+      "mode": "percent",
+      "style": {
+        "backgroundColor": "#D5D5D5",
+        "borderBottomLeftRadius": 10,
+        "borderBottomRightRadius": 10,
+        "borderStyle": "outset",
+        "borderTopLeftRadius": 10,
+        "borderTopRightRadius": 10,
+        "borderWidth": 2,
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

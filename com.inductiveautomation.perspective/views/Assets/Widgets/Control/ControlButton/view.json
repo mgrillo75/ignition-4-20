@@ -1,0 +1,120 @@
+{
+  "custom": {},
+  "params": {
+    "action_type": "start",
+    "color": "#34D399",
+    "device_id": "deviceId",
+    "enabled": true,
+    "label": "Start"
+  },
+  "propConfig": {
+    "params.action_type": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.color": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.device_id": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.enabled": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.label": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 60,
+      "width": 357
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "draggable": false,
+                "id": "confirmationPopup",
+                "modal": true,
+                "overlayDismiss": false,
+                "resizable": false,
+                "showCloseIcon": false,
+                "type": "open",
+                "viewParams": {
+                  "action_type": "{view.params.action_type}",
+                  "device_id": "{view.params.device_id}",
+                  "label": "{view.params.label}"
+                },
+                "viewPath": "Assets/Popups/Confirmation/Confirm",
+                "viewportBound": false
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.style.backgroundColor": {
+            "binding": {
+              "config": {
+                "path": "view.params.color"
+              },
+              "type": "property"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.label"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "borderBottomLeftRadius": 10,
+            "borderBottomRightRadius": 10,
+            "borderColor": "#AAAAAA75",
+            "borderTopLeftRadius": 10,
+            "borderTopRightRadius": 10,
+            "color": "#202B4A",
+            "fontSize": 13,
+            "fontWeight": "bold",
+            "marginLeft": 15,
+            "marginRight": 15
+          }
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "justify": "center",
+      "style": {
+        "marginBottom": "1%",
+        "marginLeft": "1%",
+        "marginRight": "1%",
+        "marginTop": "1%"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

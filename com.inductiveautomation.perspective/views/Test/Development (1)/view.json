@@ -1,0 +1,768 @@
+{
+  "custom": {},
+  "params": {
+    "tagPath": "[default]Test/02-05-001-035"
+  },
+  "propConfig": {
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 1080,
+      "width": 1920
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "breakerClosed2d"
+        },
+        "position": {
+          "height": 120,
+          "width": 80,
+          "x": 56,
+          "y": 36
+        },
+        "type": "com.miguelgrillo.custom2d.breaker_closed"
+      },
+      {
+        "meta": {
+          "name": "breakerOpen2d"
+        },
+        "position": {
+          "height": 120,
+          "width": 80,
+          "x": 161,
+          "y": 36
+        },
+        "type": "com.miguelgrillo.custom2d.breaker_open"
+      },
+      {
+        "meta": {
+          "name": "busbarHIntersection2d"
+        },
+        "position": {
+          "height": 96,
+          "width": 96,
+          "x": 56,
+          "y": 186
+        },
+        "type": "com.miguelgrillo.custom2d.busbar_h_intersection"
+      },
+      {
+        "meta": {
+          "name": "busbarHTeeDown2d"
+        },
+        "position": {
+          "height": 96,
+          "width": 96,
+          "x": 161,
+          "y": 186
+        },
+        "type": "com.miguelgrillo.custom2d.busbar_h_tee_down"
+      },
+      {
+        "meta": {
+          "name": "busbarHTeeLeft2d"
+        },
+        "position": {
+          "height": 96,
+          "width": 96,
+          "x": 291,
+          "y": 186
+        },
+        "type": "com.miguelgrillo.custom2d.busbar_h_tee_left"
+      },
+      {
+        "meta": {
+          "name": "busbarHTeeRight2d"
+        },
+        "position": {
+          "height": 96,
+          "width": 96,
+          "x": 430,
+          "y": 181
+        },
+        "type": "com.miguelgrillo.custom2d.busbar_h_tee_right"
+      },
+      {
+        "meta": {
+          "name": "busbarHTeeUp2d"
+        },
+        "position": {
+          "height": 96,
+          "width": 96,
+          "x": 556,
+          "y": 186
+        },
+        "type": "com.miguelgrillo.custom2d.busbar_h_tee_up"
+      },
+      {
+        "meta": {
+          "name": "busbarSegment2d"
+        },
+        "position": {
+          "height": 40,
+          "width": 300,
+          "x": 752,
+          "y": 224
+        },
+        "type": "com.miguelgrillo.custom2d.busbar_segment"
+      },
+      {
+        "meta": {
+          "name": "busbarSegmentVertical2d"
+        },
+        "position": {
+          "height": 300,
+          "width": 27,
+          "x": 1367.5,
+          "y": 229
+        },
+        "propConfig": {
+          "props.energizedLeftColor": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.tagPath}+\"/message_bitpack_15\")"
+              },
+              "transforms": [
+                {
+                  "code": "\t\tsub_string\u003d\"ENGINE IS RUNNING\"\n\t\tif sub_string in value:\n\t\t\treturn True\n\t\telse:\n\t\t\treturn False\n\t",
+                  "type": "script"
+                },
+                {
+                  "fallback": "#000000",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "#EF4444"
+                    },
+                    {
+                      "input": false,
+                      "output": "#4ADE80"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.energizedRightColor": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.tagPath}+\"/message_bitpack_15\")"
+              },
+              "transforms": [
+                {
+                  "code": "\t\tsub_string\u003d\"ENGINE IS RUNNING\"\n\t\tif sub_string in value:\n\t\t\treturn True\n\t\telse:\n\t\t\treturn False\n\t",
+                  "type": "script"
+                },
+                {
+                  "fallback": "#000000",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "#EF4444"
+                    },
+                    {
+                      "input": false,
+                      "output": "#4ADE80"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.glowColor": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.tagPath}+\"/message_bitpack_15\")"
+              },
+              "transforms": [
+                {
+                  "code": "\t\tsub_string\u003d\"ENGINE IS RUNNING\"\n\t\tif sub_string in value:\n\t\t\treturn True\n\t\telse:\n\t\t\treturn False\n\t",
+                  "type": "script"
+                },
+                {
+                  "fallback": "#000000",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "#EF4444"
+                    },
+                    {
+                      "input": false,
+                      "output": "#4ADE80"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.markerColor": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.tagPath}+\"/message_bitpack_15\")"
+              },
+              "transforms": [
+                {
+                  "code": "\t\tsub_string\u003d\"ENGINE IS RUNNING\"\n\t\tif sub_string in value:\n\t\t\treturn True\n\t\telse:\n\t\t\treturn False\n\t",
+                  "type": "script"
+                },
+                {
+                  "fallback": "#000000",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "#EF4444"
+                    },
+                    {
+                      "input": false,
+                      "output": "#4ADE80"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.strokeColor": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.tagPath}+\"/message_bitpack_15\")"
+              },
+              "transforms": [
+                {
+                  "code": "\t\tsub_string\u003d\"ENGINE IS RUNNING\"\n\t\tif sub_string in value:\n\t\t\treturn True\n\t\telse:\n\t\t\treturn False\n\t",
+                  "type": "script"
+                },
+                {
+                  "fallback": "#000000",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "#EF4444"
+                    },
+                    {
+                      "input": false,
+                      "output": "#4ADE80"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "type": "com.miguelgrillo.custom2d.busbar_segment_vertical"
+      },
+      {
+        "meta": {
+          "name": "busbarSVIntersection2d"
+        },
+        "position": {
+          "height": 96,
+          "width": 96,
+          "x": 1248,
+          "y": 239
+        },
+        "type": "com.miguelgrillo.custom2d.busbar_sv_intersection"
+      },
+      {
+        "meta": {
+          "name": "busbarSVTeeDown2d"
+        },
+        "position": {
+          "height": 96,
+          "width": 96,
+          "x": 105,
+          "y": 410
+        },
+        "type": "com.miguelgrillo.custom2d.busbar_sv_tee_down"
+      },
+      {
+        "meta": {
+          "name": "busbarSVTeeLeft2d"
+        },
+        "position": {
+          "height": 96,
+          "width": 96,
+          "x": 241,
+          "y": 418
+        },
+        "type": "com.miguelgrillo.custom2d.busbar_sv_tee_left"
+      },
+      {
+        "meta": {
+          "name": "busbarSVTeeRight2d"
+        },
+        "position": {
+          "height": 96,
+          "width": 96,
+          "x": 390,
+          "y": 427
+        },
+        "type": "com.miguelgrillo.custom2d.busbar_sv_tee_right"
+      },
+      {
+        "meta": {
+          "name": "busbarSVTeeUp2d"
+        },
+        "position": {
+          "height": 96,
+          "width": 96,
+          "x": 519,
+          "y": 434
+        },
+        "type": "com.miguelgrillo.custom2d.busbar_sv_tee_up"
+      },
+      {
+        "meta": {
+          "name": "busbarVEnergized2d"
+        },
+        "position": {
+          "height": 632,
+          "width": 36,
+          "x": 680,
+          "y": 350
+        },
+        "propConfig": {
+          "props.energizedLeftColor": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.tagPath}+\"/message_bitpack_15\")"
+              },
+              "transforms": [
+                {
+                  "code": "\t\tsub_string\u003d\"ENGINE IS RUNNING\"\n\t\tif sub_string in value:\n\t\t\treturn True\n\t\telse:\n\t\t\treturn False\n\t",
+                  "type": "script"
+                },
+                {
+                  "fallback": "#000000",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "#EF4444"
+                    },
+                    {
+                      "input": false,
+                      "output": "#4ADE80"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.energizedRightColor": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.tagPath}+\"/message_bitpack_15\")"
+              },
+              "transforms": [
+                {
+                  "code": "\t\tsub_string\u003d\"ENGINE IS RUNNING\"\n\t\tif sub_string in value:\n\t\t\treturn True\n\t\telse:\n\t\t\treturn False\n\t",
+                  "type": "script"
+                },
+                {
+                  "fallback": "#000000",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "#EF4444"
+                    },
+                    {
+                      "input": false,
+                      "output": "#4ADE80"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.glowColor": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.tagPath}+\"/message_bitpack_15\")"
+              },
+              "transforms": [
+                {
+                  "code": "\t\tsub_string\u003d\"ENGINE IS RUNNING\"\n\t\tif sub_string in value:\n\t\t\treturn True\n\t\telse:\n\t\t\treturn False\n\t",
+                  "type": "script"
+                },
+                {
+                  "fallback": "#000000",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "#EF4444"
+                    },
+                    {
+                      "input": false,
+                      "output": "#4ADE80"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.strokeColor": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.tagPath}+\"/message_bitpack_15\")"
+              },
+              "transforms": [
+                {
+                  "code": "\t\tsub_string\u003d\"ENGINE IS RUNNING\"\n\t\tif sub_string in value:\n\t\t\treturn True\n\t\telse:\n\t\t\treturn False\n\t",
+                  "type": "script"
+                },
+                {
+                  "fallback": "#000000",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "#EF4444"
+                    },
+                    {
+                      "input": false,
+                      "output": "#4ADE80"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "type": "com.miguelgrillo.custom2d.busbar_v_energized"
+      },
+      {
+        "meta": {
+          "name": "circuitBreakerModern2d"
+        },
+        "position": {
+          "height": 250,
+          "width": 190,
+          "x": 96,
+          "y": 611
+        },
+        "type": "com.miguelgrillo.custom2d.circuit_breaker_modern"
+      },
+      {
+        "meta": {
+          "name": "controlValveModern2d"
+        },
+        "position": {
+          "height": 280,
+          "width": 180,
+          "x": 1042,
+          "y": 427
+        },
+        "props": {
+          "applyGlobalStroke": true,
+          "showLabel": true
+        },
+        "type": "com.miguelgrillo.custom2d.control_valve_modern"
+      },
+      {
+        "meta": {
+          "name": "gensetClosed2d"
+        },
+        "position": {
+          "height": 96,
+          "width": 96,
+          "x": 1333,
+          "y": 523
+        },
+        "propConfig": {
+          "props.globalFillColor": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.tagPath}+\"/message_bitpack_15\")"
+              },
+              "transforms": [
+                {
+                  "code": "\t\tsub_string\u003d\"ENGINE IS RUNNING\"\n\t\tif sub_string in value:\n\t\t\treturn True\n\t\telse:\n\t\t\treturn False\n\t",
+                  "type": "script"
+                },
+                {
+                  "fallback": "#000000",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "#EF4444"
+                    },
+                    {
+                      "input": false,
+                      "output": "#4ADE80"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.globalStrokeColor": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.tagPath}+\"/message_bitpack_15\")"
+              },
+              "transforms": [
+                {
+                  "code": "\t\tsub_string\u003d\"ENGINE IS RUNNING\"\n\t\tif sub_string in value:\n\t\t\treturn True\n\t\telse:\n\t\t\treturn False\n\t",
+                  "type": "script"
+                },
+                {
+                  "fallback": "#000000",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "#EF4444"
+                    },
+                    {
+                      "input": false,
+                      "output": "#4ADE80"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.labelColor": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.tagPath}+\"/message_bitpack_15\")"
+              },
+              "transforms": [
+                {
+                  "code": "\t\tsub_string\u003d\"ENGINE IS RUNNING\"\n\t\tif sub_string in value:\n\t\t\treturn True\n\t\telse:\n\t\t\treturn False\n\t",
+                  "type": "script"
+                },
+                {
+                  "fallback": "#000000",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "#EF4444"
+                    },
+                    {
+                      "input": false,
+                      "output": "#4ADE80"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "applyGlobalFill": true,
+          "applyGlobalStroke": true
+        },
+        "type": "com.miguelgrillo.custom2d.genset_closed"
+      },
+      {
+        "meta": {
+          "name": "gensetOpen2d"
+        },
+        "position": {
+          "height": 96,
+          "width": 96,
+          "x": 1443,
+          "y": 523
+        },
+        "type": "com.miguelgrillo.custom2d.genset_open"
+      },
+      {
+        "meta": {
+          "name": "gensetSync2d"
+        },
+        "position": {
+          "height": 96,
+          "width": 96,
+          "x": 1443,
+          "y": 640
+        },
+        "propConfig": {
+          "props.globalFillColor": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.tagPath}+\"/message_bitpack_15\")"
+              },
+              "transforms": [
+                {
+                  "code": "\t\tsub_string\u003d\"ENGINE IS RUNNING\"\n\t\tif sub_string in value:\n\t\t\treturn True\n\t\telse:\n\t\t\treturn False\n\t",
+                  "type": "script"
+                },
+                {
+                  "fallback": "#000000",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "#EF4444"
+                    },
+                    {
+                      "input": false,
+                      "output": "#4ADE80"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.globalStrokeColor": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.tagPath}+\"/message_bitpack_15\")"
+              },
+              "transforms": [
+                {
+                  "code": "\t\tsub_string\u003d\"ENGINE IS RUNNING\"\n\t\tif sub_string in value:\n\t\t\treturn True\n\t\telse:\n\t\t\treturn False\n\t",
+                  "type": "script"
+                },
+                {
+                  "fallback": "#000000",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "#EF4444"
+                    },
+                    {
+                      "input": false,
+                      "output": "#4ADE80"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.labelColor": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.tagPath}+\"/message_bitpack_15\")"
+              },
+              "transforms": [
+                {
+                  "code": "\t\tsub_string\u003d\"ENGINE IS RUNNING\"\n\t\tif sub_string in value:\n\t\t\treturn True\n\t\telse:\n\t\t\treturn False\n\t",
+                  "type": "script"
+                },
+                {
+                  "fallback": "#000000",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "#EF4444"
+                    },
+                    {
+                      "input": false,
+                      "output": "#4ADE80"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "type": "com.miguelgrillo.custom2d.genset_sync"
+      },
+      {
+        "meta": {
+          "name": "telemetryPanel2d"
+        },
+        "position": {
+          "height": 150,
+          "width": 200,
+          "x": 411,
+          "y": 802
+        },
+        "type": "com.miguelgrillo.custom2d.telemetry_panel"
+      },
+      {
+        "meta": {
+          "name": "busbarVEnergized2d_0"
+        },
+        "position": {
+          "height": 300,
+          "width": 36,
+          "x": 914,
+          "y": 737
+        },
+        "type": "com.miguelgrillo.custom2d.busbar_v_energized"
+      },
+      {
+        "meta": {
+          "name": "busbarSegmentVertical2d_0"
+        },
+        "position": {
+          "height": 300,
+          "width": 40,
+          "x": 1182,
+          "y": 682
+        },
+        "type": "com.miguelgrillo.custom2d.busbar_segment_vertical"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.coord"
+  }
+}

@@ -1,0 +1,241 @@
+{
+  "custom": {},
+  "params": {
+    "label": "52G",
+    "tagPathBreaker52G": "[default]TX3/tx3-pb1-n1-qp1-sel700g-001"
+  },
+  "propConfig": {
+    "params.label": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPathBreaker52G": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 50,
+      "width": 50
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Breaker"
+        },
+        "position": {
+          "height": 30,
+          "rotate": {
+            "anchor": "50% 39%"
+          },
+          "width": 30,
+          "y": 20
+        },
+        "propConfig": {
+          "props.style.borderColor": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.tagPathBreaker52G}+\"/bit_52ax\")"
+              },
+              "transforms": [
+                {
+                  "fallback": "{[default]_Settings/Colors/Background}",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": 1,
+                      "output": "{[default]_Settings/Colors/Energized}"
+                    },
+                    {
+                      "input": 0,
+                      "output": "{[default]_Settings/Colors/Deenergized}"
+                    }
+                  ],
+                  "outputType": "expression",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.textStyle.color": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.tagPathBreaker52G}+\"/bit_52ax\")"
+              },
+              "transforms": [
+                {
+                  "fallback": "{[default]_Settings/Colors/Background}",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": 1,
+                      "output": "{[default]_Settings/Colors/Energized}"
+                    },
+                    {
+                      "input": 0,
+                      "output": "{[default]_Settings/Colors/Deenergized}"
+                    }
+                  ],
+                  "outputType": "expression",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "alignVertical": "bottom",
+          "style": {
+            "backgroundColor": "transparent",
+            "borderStyle": "solid",
+            "borderWidth": 2,
+            "overflow": "visible"
+          },
+          "textStyle": {
+            "fontSize": 12,
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Warning Symbol",
+          "visible": false
+        },
+        "position": {
+          "height": 30,
+          "width": 30,
+          "x": 18,
+          "y": 2
+        },
+        "props": {
+          "params": {
+            "color": "#EAF542",
+            "tagPath": "value"
+          },
+          "path": "Assets/Widgets/Icons/Warning Symbol"
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "events": {
+      "dom": {
+        "onClick": {
+          "config": {
+            "draggable": true,
+            "id": "{view.params.tagPathBreaker52G}",
+            "modal": false,
+            "overlayDismiss": true,
+            "position": {
+              "left": 0,
+              "right": 5
+            },
+            "positionType": "exact",
+            "resizable": true,
+            "showCloseIcon": true,
+            "title": "{/root.meta.tooltip.text}",
+            "type": "open",
+            "viewParams": {
+              "tagPathBreaker52G": "{view.params.tagPathBreaker52G}"
+            },
+            "viewPath": "Assets/Popups/mvGensetGCB/mvGensetGCBAssetScreen",
+            "viewportBound": false
+          },
+          "scope": "C",
+          "type": "popup"
+        },
+        "onMouseDown": [
+          {
+            "config": {
+              "draggable": true,
+              "id": "BokAWoNf",
+              "modal": false,
+              "overlayDismiss": false,
+              "resizable": true,
+              "showCloseIcon": true,
+              "type": "toggle",
+              "viewPath": "",
+              "viewportBound": false
+            },
+            "enabled": false,
+            "scope": "C",
+            "type": "popup"
+          },
+          {
+            "config": {
+              "script": "\tsystem.perspective.closePopup(\u0027\u0027)"
+            },
+            "enabled": false,
+            "scope": "G",
+            "type": "script"
+          }
+        ],
+        "onMouseUp": [
+          {
+            "config": {
+              "draggable": true,
+              "id": "{view.params.tagPathBreaker52G}",
+              "modal": false,
+              "overlayDismiss": false,
+              "resizable": true,
+              "showCloseIcon": true,
+              "title": "{/root.meta.tooltip.text}",
+              "type": "open",
+              "viewParams": {
+                "tagPathBreaker52G": "{view.params.tagPathBreaker52G}"
+              },
+              "viewPath": "Assets/Popups/mvGensetGCB/mvGensetGCBAssetScreen",
+              "viewportBound": false
+            },
+            "enabled": false,
+            "scope": "C",
+            "type": "popup"
+          },
+          {
+            "config": {
+              "draggable": true,
+              "modal": false,
+              "overlayDismiss": false,
+              "resizable": true,
+              "showCloseIcon": true,
+              "type": "close",
+              "viewPath": "",
+              "viewportBound": false
+            },
+            "enabled": false,
+            "scope": "C",
+            "type": "popup"
+          }
+        ]
+      }
+    },
+    "meta": {
+      "name": "root",
+      "tooltip": {
+        "enabled": true
+      }
+    },
+    "propConfig": {
+      "meta.tooltip.text": {
+        "binding": {
+          "config": {
+            "expression": "\"MV GCB  \"+ tag({view.params.tagPathBreaker52G}+\"/deviceId\")"
+          },
+          "type": "expr"
+        }
+      }
+    },
+    "props": {
+      "style": {
+        "backgroundColor": "transparent"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

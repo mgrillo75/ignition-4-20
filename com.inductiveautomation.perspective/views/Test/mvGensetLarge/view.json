@@ -1,0 +1,779 @@
+{
+  "custom": {},
+  "params": {
+    "tagPath": "[default]TX3/tx3-pb1-n1-qp1-br-001",
+    "tagPath52G": "value",
+    "tagPath52I": "value",
+    "tagPathXfmr": "value"
+  },
+  "propConfig": {
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath52G": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath52I": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPathXfmr": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 1000,
+      "width": 1699
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "GensetStatusDisplay"
+            },
+            "position": {
+              "basis": "873px"
+            },
+            "propConfig": {
+              "props.params.tagPath52G": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.tagPath52G"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.params.tagPath52I": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.tagPath52I"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.params.tagPathGen": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.tagPath"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.params.tagPathXmr": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.tagPathXfmr"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "path": "Assets/Widgets/Data Display/GensetStatusDisplay",
+              "style": {
+                "marginBottom": 10,
+                "marginLeft": 10,
+                "marginRight": 10,
+                "marginTop": 10
+              }
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "329px"
+        },
+        "props": {
+          "direction": "column",
+          "justify": "flex-end"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "SingleValueDisplay"
+                },
+                "position": {
+                  "basis": "320px"
+                },
+                "propConfig": {
+                  "props.params.tagPath": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.tagPath"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "params": {
+                    "color_icon": "#35D399",
+                    "iconPath": "Assets/Widgets/Icons/Power",
+                    "tagname": "power"
+                  },
+                  "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+                  "style": {
+                    "margin": "10px"
+                  }
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "meta": {
+                  "name": "SingleValueDisplay_0"
+                },
+                "position": {
+                  "basis": "320px"
+                },
+                "propConfig": {
+                  "props.params.tagPath": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.tagPath"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "params": {
+                    "background": "value",
+                    "color_icon": "#35D399",
+                    "iconPath": "Assets/Widgets/Icons/Power",
+                    "tagname": "reactivePower"
+                  },
+                  "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+                  "style": {
+                    "margin": "10px"
+                  }
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "meta": {
+                  "name": "SingleValueDisplay_1"
+                },
+                "position": {
+                  "basis": "320px"
+                },
+                "propConfig": {
+                  "props.params.tagPath": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.tagPath"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "params": {
+                    "color_icon": "#35D399",
+                    "iconPath": "Assets/Widgets/Icons/Power",
+                    "tagname": "apparentPower"
+                  },
+                  "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+                  "style": {
+                    "margin": "10px"
+                  }
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "meta": {
+                  "name": "SingleValueDisplay_2"
+                },
+                "position": {
+                  "basis": "320px",
+                  "display": false
+                },
+                "propConfig": {
+                  "props.params.tagPath": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.tagPath"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "params": {
+                    "background": "value",
+                    "color_icon": "#FBBF24",
+                    "iconPath": "Assets/Widgets/Icons/Pressure",
+                    "tagname": "engineOilPressure"
+                  },
+                  "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+                  "style": {
+                    "margin": "10px"
+                  }
+                },
+                "type": "ia.display.view"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "basis": "116px",
+              "shrink": 0
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "SingleValueDisplay"
+                },
+                "position": {
+                  "basis": "320px"
+                },
+                "propConfig": {
+                  "props.params.tagPath": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.tagPath"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "params": {
+                    "background": "value",
+                    "color_icon": "#3b82f6",
+                    "iconPath": "Assets/Widgets/Icons/Data",
+                    "tagname": "averageVoltage"
+                  },
+                  "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+                  "style": {
+                    "margin": "10px"
+                  }
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "meta": {
+                  "name": "SingleValueDisplay_0"
+                },
+                "position": {
+                  "basis": "320px"
+                },
+                "propConfig": {
+                  "props.params.tagPath": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.tagPath"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "params": {
+                    "background": "value",
+                    "color_icon": "#FF9F3E",
+                    "iconPath": "Assets/Widgets/Icons/Temp",
+                    "tagname": "engineOilTemperature"
+                  },
+                  "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+                  "style": {
+                    "margin": "10px"
+                  }
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "meta": {
+                  "name": "SingleValueDisplay_1"
+                },
+                "position": {
+                  "basis": "320px"
+                },
+                "propConfig": {
+                  "props.params.tagPath": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.tagPath"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "params": {
+                    "background": "value",
+                    "color_icon": "#FF9F3E",
+                    "iconPath": "Assets/Widgets/Icons/Data",
+                    "tagname": "Frequency"
+                  },
+                  "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+                  "style": {
+                    "margin": "10px"
+                  }
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "meta": {
+                  "name": "SingleValueDisplay_2"
+                },
+                "position": {
+                  "basis": "320px",
+                  "display": false
+                },
+                "propConfig": {
+                  "props.params.tagPath": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.tagPath"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "params": {
+                    "background": "value",
+                    "color_icon": "#FF9F3E",
+                    "iconPath": "Assets/Widgets/Icons/Temp",
+                    "tagname": "returnWaterTemperatureCoolerOutlet"
+                  },
+                  "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+                  "style": {
+                    "margin": "10px"
+                  }
+                },
+                "type": "ia.display.view"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_0"
+            },
+            "position": {
+              "basis": "116px",
+              "shrink": 0
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "SingleValueDisplay"
+                },
+                "position": {
+                  "basis": "320px"
+                },
+                "propConfig": {
+                  "props.params.tagPath": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.tagPath"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "params": {
+                    "background": "value",
+                    "color_icon": "#34D399",
+                    "iconPath": "Assets/Widgets/Icons/Data",
+                    "tagname": "powerFactor"
+                  },
+                  "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+                  "style": {
+                    "margin": "10px"
+                  }
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "meta": {
+                  "name": "SingleValueDisplay_0"
+                },
+                "position": {
+                  "basis": "320px"
+                },
+                "propConfig": {
+                  "props.params.tagPath": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.tagPath"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "params": {
+                    "background": "value",
+                    "color_icon": "#34D399",
+                    "iconPath": "Assets/Widgets/Icons/Pressure",
+                    "tagname": "prechamberGasCompressorPressure"
+                  },
+                  "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+                  "style": {
+                    "margin": "10px"
+                  }
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "meta": {
+                  "name": "SingleValueDisplay_1"
+                },
+                "position": {
+                  "basis": "320px"
+                },
+                "propConfig": {
+                  "props.params.tagPath": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.tagPath"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "params": {
+                    "background": "value",
+                    "color_icon": "#2B9F78",
+                    "iconPath": "Assets/Widgets/Icons/Temp",
+                    "tagname": "averageCylinderExhaustGasTemp"
+                  },
+                  "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+                  "style": {
+                    "margin": "10px"
+                  }
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "meta": {
+                  "name": "SingleValueDisplay_2"
+                },
+                "position": {
+                  "basis": "320px",
+                  "display": false
+                },
+                "propConfig": {
+                  "props.params.tagPath": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.tagPath"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "params": {
+                    "background": "value",
+                    "color_icon": "#3b82f6",
+                    "iconPath": "Assets/Widgets/Icons/Data",
+                    "tagname": "averageCurrent"
+                  },
+                  "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+                  "style": {
+                    "margin": "10px"
+                  }
+                },
+                "type": "ia.display.view"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_1"
+            },
+            "position": {
+              "basis": "116px",
+              "shrink": 0
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Start"
+                    },
+                    "position": {
+                      "basis": "80px"
+                    },
+                    "propConfig": {
+                      "props.params.device_id": {
+                        "binding": {
+                          "config": {
+                            "path": "view.params.tagPath"
+                          },
+                          "type": "property"
+                        }
+                      },
+                      "props.params.tagPath": {
+                        "binding": {
+                          "config": {
+                            "path": "view.params.tagPath"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "params": {
+                        "action_type": "gen_start",
+                        "color": "#34D399",
+                        "enabled": true,
+                        "label": "START"
+                      },
+                      "path": "Assets/Widgets/Control/ControlButton",
+                      "style": {
+                        "margin": "5px"
+                      }
+                    },
+                    "type": "ia.display.view"
+                  },
+                  {
+                    "meta": {
+                      "name": "Stop"
+                    },
+                    "position": {
+                      "basis": "80px"
+                    },
+                    "propConfig": {
+                      "props.params.device_id": {
+                        "binding": {
+                          "config": {
+                            "path": "view.params.tagPath"
+                          },
+                          "type": "property"
+                        }
+                      },
+                      "props.params.tagPath": {
+                        "binding": {
+                          "config": {
+                            "path": "view.params.tagPath"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "params": {
+                        "action_type": "gen_stop",
+                        "color": "#34D399",
+                        "enabled": true,
+                        "label": "STOP"
+                      },
+                      "path": "Assets/Widgets/Control/ControlButton",
+                      "style": {
+                        "margin": "5px"
+                      }
+                    },
+                    "type": "ia.display.view"
+                  },
+                  {
+                    "meta": {
+                      "name": "Block"
+                    },
+                    "position": {
+                      "basis": "80px"
+                    },
+                    "propConfig": {
+                      "props.params.device_id": {
+                        "binding": {
+                          "config": {
+                            "path": "view.params.tagPath"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "params": {
+                        "action_type": "gen_block",
+                        "color": "#34D399",
+                        "enabled": true,
+                        "label": "BLOCK"
+                      },
+                      "path": "Assets/Widgets/Control/ControlButton",
+                      "style": {
+                        "margin": "5px"
+                      }
+                    },
+                    "type": "ia.display.view"
+                  },
+                  {
+                    "meta": {
+                      "name": "Auto"
+                    },
+                    "position": {
+                      "basis": "80px"
+                    },
+                    "propConfig": {
+                      "props.params.device_id": {
+                        "binding": {
+                          "config": {
+                            "path": "view.params.tagPath"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "params": {
+                        "action_type": "gen_auto",
+                        "color": "#34D399",
+                        "enabled": true,
+                        "label": "AUTO"
+                      },
+                      "path": "Assets/Widgets/Control/ControlButton",
+                      "style": {
+                        "margin": "5px"
+                      }
+                    },
+                    "type": "ia.display.view"
+                  },
+                  {
+                    "meta": {
+                      "name": "Manual"
+                    },
+                    "position": {
+                      "basis": "80px"
+                    },
+                    "propConfig": {
+                      "props.params.device_id": {
+                        "binding": {
+                          "config": {
+                            "path": "view.params.tagPath"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "params": {
+                        "action_type": "gen_manual",
+                        "color": "#34D399",
+                        "enabled": true,
+                        "label": "MANUAL"
+                      },
+                      "path": "Assets/Widgets/Control/ControlButton",
+                      "style": {
+                        "margin": "5px"
+                      }
+                    },
+                    "type": "ia.display.view"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer"
+                },
+                "position": {
+                  "basis": "400px"
+                },
+                "props": {
+                  "direction": "column"
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Genset_op"
+                    },
+                    "position": {
+                      "basis": "436px"
+                    },
+                    "propConfig": {
+                      "props.params.tagPath": {
+                        "binding": {
+                          "config": {
+                            "path": "view.params.tagPath"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "path": "Assets/Widgets/Data Display/INNIOContolPanelDisplay"
+                    },
+                    "type": "ia.display.view"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer_0"
+                },
+                "position": {
+                  "basis": "661px"
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "marginLeft": 20,
+                    "marginTop": 25
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_3"
+            },
+            "position": {
+              "grow": 1,
+              "shrink": 0
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "basis": "300px",
+          "grow": 1
+        },
+        "props": {
+          "direction": "column"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "alignContent": "flex-start",
+      "alignItems": "flex-start",
+      "justify": "center",
+      "style": {
+        "backgroundColor": "#070E19",
+        "overflow": "hidden"
+      },
+      "wrap": "wrap"
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "custom": {},
+  "params": {
+    "tagPath": "[default]Test/02-05-001-035",
+    "tagPath52G": "value",
+    "tagPath52I": "value",
+    "tagPathXmr": "value"
+  },
+  "propConfig": {
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath52G": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath52I": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPathXmr": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "width": 1920
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "mvGensetSmall"
+        },
+        "propConfig": {
+          "props.params.tagPath": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagPath"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "path": "Test/mvGensetSmall"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "mvGensetLarge"
+        },
+        "position": {
+          "size": "large"
+        },
+        "propConfig": {
+          "props.params.tagPath": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagPath"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.tagPath52G": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagPath52G"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.tagPath52I": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagPath52I"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.tagPathXfmr": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagPathXmr"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "path": "Test/mvGensetLarge"
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "breakpoint": 996
+    },
+    "type": "ia.container.breakpt"
+  }
+}

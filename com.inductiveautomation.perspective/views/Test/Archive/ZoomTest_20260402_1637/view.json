@@ -1,0 +1,65 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "width": 1920
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Map"
+        },
+        "position": {
+          "height": "100%",
+          "width": "100%"
+        },
+        "props": {
+          "init": {
+            "center": {
+              "lat": 38.660867,
+              "lng": -121.159728
+            },
+            "zoom": 13
+          },
+          "layers": {
+            "ui": {
+              "view": [
+                {
+                  "lat": 38.660867,
+                  "lng": -121.159728,
+                  "params": {},
+                  "path": "MainWindows/TX3/MV-PMS",
+                  "shadow": true,
+                  "transparentBackground": false
+                }
+              ]
+            }
+          },
+          "style": {
+            "backgroundColor": "#000000"
+          }
+        },
+        "type": "ia.display.map"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "props.style.backgroundColor": {
+        "binding": {
+          "config": {
+            "fallbackDelay": 2.5,
+            "mode": "direct",
+            "tagPath": "[default]_Settings/Colors/Background"
+          },
+          "type": "tag"
+        }
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

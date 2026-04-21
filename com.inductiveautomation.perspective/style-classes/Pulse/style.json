@@ -1,0 +1,23 @@
+{
+  "base": {
+    "animation": {
+      "duration": "1.25s",
+      "timingFunction": "ease",
+      "keyframes": {
+        "0%": {
+          "backgroundColor": "#FFFFFF00",
+          "borderTopLeftRadius": "10px",
+          "borderTopRightRadius": "10px",
+          "borderBottomLeftRadius": "10px",
+          "borderBottomRightRadius": "10px"
+        },
+        "100%": {
+          "borderTopLeftRadius": "10px",
+          "borderTopRightRadius": "10px",
+          "borderBottomLeftRadius": "10px",
+          "borderBottomRightRadius": "10px"
+        }
+      }
+    }
+  }
+}

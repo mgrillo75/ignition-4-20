@@ -1,0 +1,194 @@
+{
+  "custom": {},
+  "params": {
+    "tagPath": "[default]Test/02-05-001-035",
+    "tagPath52G": "value",
+    "tagPath52I": "value",
+    "tagPathXmr": "value"
+  },
+  "propConfig": {
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath52G": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath52I": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPathXmr": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 900,
+      "width": 1700
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "EmbeddedView"
+            },
+            "position": {
+              "basis": "1370px"
+            },
+            "propConfig": {
+              "props.params.tagPath": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.tagPath"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "path": "MainWindows/Header/AssetPopupHeader"
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "AssetHeader"
+        },
+        "position": {
+          "basis": "50px"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "mvGenset"
+            },
+            "propConfig": {
+              "props.params.tagPath": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.tagPath"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.params.tagPath52G": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.tagPath52G"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.params.tagPath52I": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.tagPath52I"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.params.tagPathXmr": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.tagPathXmr"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "path": "Test/mvGenset"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "tableView"
+            },
+            "position": {
+              "tabIndex": 1
+            },
+            "propConfig": {
+              "props.params.tagPath": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.tagPath"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "path": "Assets/Widgets/Data Display/tableView"
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "TabContainer"
+        },
+        "position": {
+          "basis": "750px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.contentStyle.backgroundColor": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "tagPath": "[default]_Settings/Colors/Background"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "menuType": "modern",
+          "tabStyle": {
+            "active": {
+              "color": "#D5D5D5",
+              "fontWeight": "bolder"
+            },
+            "inactive": {
+              "color": "#D5D5D5"
+            }
+          },
+          "tabs": [
+            "Overview",
+            "Tag Data"
+          ]
+        },
+        "type": "ia.container.tab"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "props.style.backgroundColor": {
+        "binding": {
+          "config": {
+            "fallbackDelay": 2.5,
+            "mode": "direct",
+            "tagPath": "[default]_Settings/Colors/Background"
+          },
+          "type": "tag"
+        }
+      }
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,1069 @@
+{
+  "custom": {},
+  "params": {
+    "tagPath": "[default]Test/02-05-001-035"
+  },
+  "propConfig": {
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 1080,
+      "width": 1920
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Gauge"
+        },
+        "position": {
+          "height": 175,
+          "width": 300,
+          "x": 442,
+          "y": 121
+        },
+        "propConfig": {
+          "props.outerAxis.ranges[1].end": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.tagPath}+\"/ambientTemperature\")"
+              },
+              "type": "expr"
+            }
+          },
+          "props.value": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.tagPath}+\"/ambientTemperature\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "backgroundColor": "",
+          "innerAxis": {
+            "data": "secondaryValue",
+            "maxValue": 0,
+            "percentRadius": 85,
+            "show": false,
+            "width": 1
+          },
+          "outerAxis": {
+            "data": "value",
+            "maxValue": 1000,
+            "percentRadius": 88,
+            "ranges": [
+              {
+                "color": "#77B6D8",
+                "end": 0,
+                "start": 0,
+                "width": 0
+              },
+              {
+                "color": "#6E94D7",
+                "start": 0,
+                "width": 12
+              },
+              {
+                "color": "#7A6BD5",
+                "end": 0,
+                "start": 0,
+                "width": 0
+              }
+            ],
+            "show": true
+          }
+        },
+        "type": "ia.chart.gauge"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "height": 32,
+          "width": 83,
+          "x": 531,
+          "y": 353
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.tagPath}+\"/message_bitpack_15\")"
+              },
+              "transforms": [
+                {
+                  "code": "\t\tsub_string\u003d\"ENGINE IS RUNNING\"\n\t\tif sub_string in value:\n\t\t\tsystem.tag.writeBlocking(\"[default]TX2/Global/Gen1_Running\", 1, 10000)\n\t\t\treturn \"Running\"\n\t\telse:\n\t\t\treturn \"Stopped\"\n\t\t\tsystem.tag.writeBlocking(\"[default]TX2/Global/Gen1_Running\", 0, 10000)\n\t\t\t\n\t",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.textStyle.backgroundColor": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.tagPath}+\"/message_bitpack_15\")"
+              },
+              "transforms": [
+                {
+                  "code": "\t\tsub_string\u003d\"ENGINE IS RUNNING\"\n\t\tif sub_string in value:\n\t\t\treturn True\n\t\telse:\n\t\t\treturn False\n\t",
+                  "type": "script"
+                },
+                {
+                  "fallback": "#000000",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "#EF4444"
+                    },
+                    {
+                      "input": false,
+                      "output": "#4ADE80"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "fontFamily": "Arial",
+            "fontSize": 14,
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_0"
+        },
+        "position": {
+          "height": 32,
+          "width": 50,
+          "x": 567,
+          "y": 280
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.tagPath}+\"/ambientTemperature\")+\" \"+tag({view.params.tagPath}+\"/ambientTemperature.EngUnit\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "fontFamily": "Arial",
+            "fontSize": 14
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_1"
+        },
+        "position": {
+          "height": 32,
+          "width": 119,
+          "x": 431,
+          "y": 353
+        },
+        "props": {
+          "text": "Engine Status:",
+          "textStyle": {
+            "fontFamily": "Arial",
+            "fontSize": 14
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_2"
+        },
+        "position": {
+          "height": 32,
+          "width": 138,
+          "x": 523,
+          "y": 96
+        },
+        "props": {
+          "text": "Ambient Temperature:",
+          "textStyle": {
+            "fontFamily": "Arial",
+            "fontSize": 14
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_3"
+        },
+        "position": {
+          "height": 26,
+          "width": 209,
+          "x": 531,
+          "y": 382
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.tagPath}+\"/message_bitpack_10\")"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "fontFamily": "Arial",
+            "fontSize": 14
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_4"
+        },
+        "position": {
+          "height": 32,
+          "width": 90,
+          "x": 619.5,
+          "y": 353
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.tagPath}+\"/message_bitpack_14\")"
+              },
+              "transforms": [
+                {
+                  "code": "\t\tsub_string\u003d\"GENERATOR CB CLOSED\"\n\t\tif sub_string in value:\n\t\t\treturn \"CB CLOSED\"\n\t\telse:\n\t\t\treturn \"CB OPEN\"\n\t",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.textStyle.backgroundColor": {
+            "binding": {
+              "config": {
+                "expression": "concat(tag({view.params.tagPath}+\"/message_bitpack_15\"), if(({[default]Test/Comm_Status}),\"| GCB-Open\",\"| GCB-Closed\"))"
+              },
+              "transforms": [
+                {
+                  "code": "\t\tsub_string\u003d\"ENGINE IS RUNNING\"\n\t\tsub_string1\u003d\"GCB-Closed\"\n\t\t\n\t\tif sub_string and sub_string1 in value:\n\t\t\treturn True\n\t\telse:\n\t\t\treturn False\n\t",
+                  "type": "script"
+                },
+                {
+                  "fallback": "#000000",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "#EF4444"
+                    },
+                    {
+                      "input": false,
+                      "output": "#4ADE80"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "fontFamily": "Arial",
+            "fontSize": 14,
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_5"
+        },
+        "position": {
+          "height": 32,
+          "width": 59,
+          "x": 618,
+          "y": 280
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "numberformat(tag({view.params.tagPath}+\"/ambientTemperature.Fharenheit\"),\"#0\")+\" F\""
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "fontFamily": "Arial",
+            "fontSize": 14
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Gauge_0"
+        },
+        "position": {
+          "height": 175,
+          "width": 300,
+          "x": 102,
+          "y": 121
+        },
+        "propConfig": {
+          "props.outerAxis.ranges[1].end": {
+            "binding": {
+              "config": {
+                "expression": "now()"
+              },
+              "transforms": [
+                {
+                  "code": "\tvalue\u003dsystem.date.getSecond(system.date.now())*10\n\treturn value",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.value": {
+            "binding": {
+              "config": {
+                "expression": "now()"
+              },
+              "transforms": [
+                {
+                  "code": "\tvalue\u003dsystem.date.getSecond(system.date.now())*10\n\treturn value",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            },
+            "persistent": false
+          }
+        },
+        "props": {
+          "backgroundColor": "",
+          "innerAxis": {
+            "data": "secondaryValue",
+            "maxValue": 0,
+            "percentRadius": 85,
+            "show": false,
+            "width": 1
+          },
+          "outerAxis": {
+            "data": "value",
+            "maxValue": 1000,
+            "percentRadius": 88,
+            "ranges": [
+              {
+                "color": "#77B6D8",
+                "end": 0,
+                "start": 0,
+                "width": 0
+              },
+              {
+                "color": "#6E94D7",
+                "start": 0,
+                "width": 12
+              },
+              {
+                "color": "#7A6BD5",
+                "end": 0,
+                "start": 0,
+                "width": 0
+              }
+            ],
+            "show": true
+          },
+          "secondaryValue": 100
+        },
+        "type": "ia.chart.gauge"
+      },
+      {
+        "meta": {
+          "name": "Label_6"
+        },
+        "position": {
+          "height": 32,
+          "width": 170,
+          "x": 167,
+          "y": 89
+        },
+        "props": {
+          "text": "System Time (Seconds)*10",
+          "textStyle": {
+            "fontFamily": "Arial",
+            "fontSize": 14
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "SimpleGauge"
+        },
+        "position": {
+          "height": 175,
+          "width": 300,
+          "x": 117,
+          "y": 337
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "expression": "now()"
+              },
+              "transforms": [
+                {
+                  "code": "\tvalue\u003dsystem.date.getSecond(system.date.now())*10\n\treturn value",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "maxValue": 600
+        },
+        "type": "ia.chart.simple-gauge"
+      },
+      {
+        "meta": {
+          "name": "Label_7"
+        },
+        "position": {
+          "height": 32,
+          "width": 16,
+          "x": 142,
+          "y": 456
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "{../SimpleGauge.props.minValue}"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "fontFamily": "Arial",
+            "fontSize": 14,
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_8"
+        },
+        "position": {
+          "height": 32,
+          "width": 27,
+          "x": 380,
+          "y": 456
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "{../SimpleGauge.props.maxValue}"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "fontFamily": "Arial",
+            "fontSize": 14,
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label_9"
+            },
+            "position": {
+              "height": 40,
+              "width": 40
+            },
+            "propConfig": {
+              "props.style.backgroundColor": {
+                "binding": {
+                  "config": {
+                    "expression": "tag({parent.custom.tagPath}) + {parent.custom.bit}"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\ttagData \u003d system.tag.readBlocking([self.parent.custom.tagPath])[0].value\n\tarray \u003d tagData.split(\"|\")\n\t\n\tret_value \u003d \"#000000\"\n\t\n\ttry:\n\t\tif (array[self.parent.custom.bit] \u003d\u003d self.parent.custom.label):\n\t\t\tret_value \u003d self.parent.custom.activeColor\n\t\telse:\n\t\t\tret_value \u003d self.parent.custom.inactiveColor\n\texcept:\n\t\tret_value \u003d self.parent.custom.inactiveColor\n\t\t\n\treturn ret_value",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "borderBottomLeftRadius": "50%",
+                "borderBottomRightRadius": "50%",
+                "borderColor": "#808080",
+                "borderStyle": "solid",
+                "borderTopLeftRadius": "50%",
+                "borderTopRightRadius": "50%",
+                "borderWidth": 1
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_10"
+            },
+            "position": {
+              "height": 32,
+              "width": 245,
+              "x": 51.5,
+              "y": 4
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "parent.custom.label"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "custom": {
+          "activeColor": "#00AC00",
+          "bit": 1,
+          "inactiveColor": "#FAFAFA",
+          "label": "GENERAL WARNING",
+          "tagPath": "[default]Test2/ReferenceData/message_bitpack_15"
+        },
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "height": 40,
+          "width": 316,
+          "x": 837,
+          "y": 155
+        },
+        "type": "ia.container.coord"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label_9"
+            },
+            "position": {
+              "height": 40,
+              "width": 40
+            },
+            "propConfig": {
+              "props.style.backgroundColor": {
+                "binding": {
+                  "config": {
+                    "expression": "tag({parent.custom.tagPath}) + {parent.custom.bit}"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\ttagData \u003d system.tag.readBlocking([self.parent.custom.tagPath])[0].value\n\tarray \u003d tagData.split(\"|\")\n\t\n\tret_value \u003d \"#000000\"\n\t\n\ttry:\n\t\tif (array[self.parent.custom.bit] \u003d\u003d self.parent.custom.label):\n\t\t\tret_value \u003d self.parent.custom.activeColor\n\t\telse:\n\t\t\tret_value \u003d self.parent.custom.inactiveColor\n\texcept:\n\t\tret_value \u003d self.parent.custom.inactiveColor\n\t\t\n\treturn ret_value",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "borderBottomLeftRadius": "50%",
+                "borderBottomRightRadius": "50%",
+                "borderColor": "#808080",
+                "borderStyle": "solid",
+                "borderTopLeftRadius": "50%",
+                "borderTopRightRadius": "50%",
+                "borderWidth": 1
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_10"
+            },
+            "position": {
+              "height": 32,
+              "width": 245,
+              "x": 51.5,
+              "y": 4
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "parent.custom.label"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "custom": {
+          "activeColor": "#00AC00",
+          "bit": 0,
+          "inactiveColor": "#FAFAFA",
+          "label": "GCB-B CLOSED",
+          "tagPath": "[default]Test2/ReferenceData/message_bitpack_15"
+        },
+        "meta": {
+          "name": "CoordinateContainer_0"
+        },
+        "position": {
+          "height": 40,
+          "width": 316,
+          "x": 837,
+          "y": 106
+        },
+        "type": "ia.container.coord"
+      },
+      {
+        "meta": {
+          "name": "Genset_op_0"
+        },
+        "position": {
+          "height": 268,
+          "width": 514,
+          "x": 1368.5,
+          "y": 28
+        },
+        "props": {
+          "path": "Assets/Widgets/Data Display/Genset_op"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Genset_op (1)"
+        },
+        "position": {
+          "height": 220,
+          "width": 539,
+          "x": 1355.5,
+          "y": 337
+        },
+        "props": {
+          "params": {
+            "tagPath": "[default]Test/Command_Test"
+          },
+          "path": "Assets/Widgets/Data Display/Genset_op (1)"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Label_9"
+        },
+        "position": {
+          "height": 15,
+          "width": 20,
+          "x": 441,
+          "y": 674.859375
+        },
+        "props": {
+          "style": {
+            "color": "#FFFFFF00"
+          },
+          "text": "O",
+          "textStyle": {
+            "classes": "Pulse"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Icon_0"
+        },
+        "position": {
+          "height": 13.87,
+          "width": 12.63,
+          "x": 826,
+          "y": 365
+        },
+        "props": {
+          "color": "#34D399",
+          "path": "material/fiber_manual_record",
+          "style": {
+            "classes": "Pulse"
+          }
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "meta": {
+          "name": "Label_10"
+        },
+        "position": {
+          "height": 32,
+          "width": 50,
+          "x": 715,
+          "y": 472
+        },
+        "props": {
+          "text": "Label",
+          "textStyle": {
+            "classes": "Pulse_1"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "breakerSymbol"
+        },
+        "position": {
+          "height": 68,
+          "width": 166,
+          "x": 551,
+          "y": 441
+        },
+        "props": {
+          "elements": [
+            {
+              "id": "defs1",
+              "name": "defs1",
+              "type": "defs"
+            },
+            {
+              "elements": [
+                {
+                  "cx": "101.52666",
+                  "cy": "59.331257",
+                  "fill": {
+                    "paint": "transparent"
+                  },
+                  "id": "path1",
+                  "name": "path1",
+                  "r": "2.0425169",
+                  "stroke": {
+                    "dasharray": "none",
+                    "opacity": "1",
+                    "paint": "#000000",
+                    "width": "1.39367"
+                  },
+                  "style": {
+                    "opacity": "1",
+                    "stroke": "#34D399"
+                  },
+                  "type": "circle"
+                },
+                {
+                  "cx": 101.52666,
+                  "cy": "77.0597",
+                  "fill": {
+                    "paint": "transparent"
+                  },
+                  "id": "path1-7",
+                  "name": "path1-7",
+                  "r": "2.0425169",
+                  "stroke": {
+                    "dasharray": "none",
+                    "opacity": "1",
+                    "paint": "#34D399",
+                    "width": "1.39367"
+                  },
+                  "type": "circle"
+                },
+                {
+                  "d": "m 100.33487,61.03839 -2.447976,2.190295 -1.61051,1.803773 -0.901888,1.900404 -0.03221,2.60903 0.386525,1.449459 0.805254,1.030726 0.934098,1.095151 0.998517,0.934095 1.5783,1.28841",
+                  "fill": {
+                    "opacity": "1",
+                    "paint": "transparent"
+                  },
+                  "id": "path2",
+                  "name": "path2",
+                  "stroke": {
+                    "dasharray": "none",
+                    "opacity": "1",
+                    "paint": "#34D399",
+                    "width": "1"
+                  },
+                  "style": {
+                    "opacity": "1"
+                  },
+                  "type": "path"
+                },
+                {
+                  "d": "m 90.542961,68.285693 h 4.767114",
+                  "fill": {
+                    "paint": "transparent"
+                  },
+                  "id": "path5",
+                  "name": "path5",
+                  "stroke": {
+                    "dasharray": "none",
+                    "opacity": "1",
+                    "paint": "#34D399",
+                    "width": "1"
+                  },
+                  "style": {
+                    "opacity": "1"
+                  },
+                  "type": "path"
+                },
+                {
+                  "d": "M 101.55886,54.531923 V 57.07653",
+                  "fill": {
+                    "paint": "transparent"
+                  },
+                  "id": "path6",
+                  "name": "path6",
+                  "stroke": {
+                    "dasharray": "none",
+                    "opacity": 1,
+                    "paint": "#34D399",
+                    "width": 1
+                  },
+                  "style": {
+                    "opacity": "1"
+                  },
+                  "type": "path"
+                },
+                {
+                  "d": "M 101.55886,54.531923 V 57.07653",
+                  "fill": {
+                    "paint": "transparent"
+                  },
+                  "id": "path6",
+                  "name": "path6",
+                  "stroke": {
+                    "dasharray": "none",
+                    "opacity": 1,
+                    "paint": "#34D399",
+                    "width": 1
+                  },
+                  "style": {
+                    "opacity": "1"
+                  },
+                  "type": "path"
+                },
+                {
+                  "d": "m 101.55886,79.667258 v 2.544607",
+                  "fill": {
+                    "paint": "transparent"
+                  },
+                  "id": "path6-1",
+                  "name": "path6-1",
+                  "stroke": {
+                    "dasharray": "none",
+                    "opacity": "1",
+                    "paint": "#34D399",
+                    "width": "1"
+                  },
+                  "type": "path"
+                }
+              ],
+              "id": "layer1",
+              "name": "layer1",
+              "transform": "translate(-90.542961,-54.531923)",
+              "type": "group"
+            }
+          ],
+          "viewBox": "0 0 13.723048 27.679941"
+        },
+        "type": "ia.shapes.svg"
+      },
+      {
+        "meta": {
+          "name": "Icon_2"
+        },
+        "position": {
+          "height": 12,
+          "width": 12,
+          "x": 1057,
+          "y": 501
+        },
+        "propConfig": {
+          "props.color": {
+            "binding": {
+              "config": {
+                "expression": "if(tag(\"[default]Test/Comm_Status\"),tag(\"[default]_Settings/Colors/Stopped\"),tag(\"[default]_Settings/Colors/Running\"))"
+              },
+              "type": "expr"
+            }
+          },
+          "props.style.backgroundColor": {
+            "binding": {
+              "config": {
+                "expression": "if(tag(\"[default]Test/Comm_Status\"),tag(\"[default]_Settings/Colors/Stopped\"),tag(\"[default]_Settings/Colors/Running\"))"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "path": "material/fiber_manual_record",
+          "style": {
+            "classes": "Pulse_1"
+          }
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "meta": {
+          "name": "Fixed Mount Breaker"
+        },
+        "position": {
+          "height": 40,
+          "width": 40,
+          "x": 244,
+          "y": 668
+        },
+        "props": {
+          "params": {
+            "color": "#D5D5D5",
+            "label": "value"
+          },
+          "path": "Assets/Widgets/Breaker/Fixed Mount Breaker"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Fixed Mount Breaker Dashed"
+        },
+        "position": {
+          "height": 40,
+          "width": 40,
+          "x": 312,
+          "y": 668
+        },
+        "props": {
+          "params": {
+            "color": "#D5D5D5",
+            "label": "value"
+          },
+          "path": "Assets/Widgets/Breaker/Fixed Mount Breaker Dashed"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Generator_1"
+        },
+        "position": {
+          "height": 90,
+          "width": 90,
+          "x": 222,
+          "y": 848
+        },
+        "props": {
+          "params": {
+            "tagPath": "[default]Test/02-05-001-035"
+          },
+          "path": "Assets/Widgets/Generator/Generator_1"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Generator_Coordinate(1)"
+        },
+        "position": {
+          "height": 70,
+          "width": 70,
+          "x": 239,
+          "y": 745
+        },
+        "props": {
+          "params": {
+            "color": "#D5D5D5"
+          },
+          "path": "Assets/Widgets/Generator/Generator_Coordinate(1)"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Generator_Coordinate(1) Dashed"
+        },
+        "position": {
+          "height": 70,
+          "width": 70,
+          "x": 307,
+          "y": 743
+        },
+        "props": {
+          "params": {
+            "color": "#D5D5D5"
+          },
+          "path": "Assets/Widgets/Generator/Generator_Coordinate(1) Dashed"
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "position": {
+      "x": -90,
+      "y": 48
+    },
+    "type": "ia.container.coord"
+  }
+}

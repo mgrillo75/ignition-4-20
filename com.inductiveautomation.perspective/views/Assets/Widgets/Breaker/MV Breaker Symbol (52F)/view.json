@@ -1,0 +1,176 @@
+{
+  "custom": {},
+  "params": {
+    "color": "#D5D5D5",
+    "label": "52F",
+    "tagPathBreaker52F": "[default]TX3/tx3-pb1-n1-fcb1-751-001"
+  },
+  "propConfig": {
+    "params.color": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.label": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPathBreaker52F": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 50,
+      "width": 50
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "draggable": true,
+                "id": "{view.params.tagPathBreaker52F}",
+                "modal": false,
+                "overlayDismiss": false,
+                "resizable": true,
+                "showCloseIcon": true,
+                "title": "{/root/Breaker.meta.tooltip.text}",
+                "type": "open",
+                "viewParams": {
+                  "tagPathBreaker52F": "{view.params.tagPathBreaker52F}"
+                },
+                "viewPath": "Assets/Popups/mvGensetFCB/FCBAssetScreen",
+                "viewportBound": false
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "Breaker",
+          "tooltip": {
+            "enabled": true
+          }
+        },
+        "position": {
+          "height": 30,
+          "rotate": {
+            "anchor": "50% 39%"
+          },
+          "width": 30,
+          "y": 20
+        },
+        "propConfig": {
+          "meta.tooltip.text": {
+            "binding": {
+              "config": {
+                "expression": "\"FCB  \"+ tag({view.params.tagPathBreaker52F}+\"/deviceId\")"
+              },
+              "type": "expr"
+            }
+          },
+          "props.style.borderColor": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.tagPathBreaker52F}+\"/in101\")"
+              },
+              "transforms": [
+                {
+                  "fallback": "{[default]_Settings/Colors/Background}",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": 1,
+                      "output": "{[default]_Settings/Colors/Energized}"
+                    },
+                    {
+                      "input": 0,
+                      "output": "{[default]_Settings/Colors/Deenergized}"
+                    }
+                  ],
+                  "outputType": "expression",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.textStyle.color": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.tagPathBreaker52F}+\"/bit_52a\")"
+              },
+              "transforms": [
+                {
+                  "fallback": "{[default]_Settings/Colors/Background}",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "{[default]_Settings/Colors/Energized}"
+                    },
+                    {
+                      "input": false,
+                      "output": "{[default]_Settings/Colors/Deenergized}"
+                    }
+                  ],
+                  "outputType": "expression",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "alignVertical": "bottom",
+          "style": {
+            "backgroundColor": "transparent",
+            "borderStyle": "solid",
+            "borderWidth": 2,
+            "overflow": "visible"
+          },
+          "textStyle": {
+            "fontSize": 12,
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Warning Symbol",
+          "visible": false
+        },
+        "position": {
+          "height": 30,
+          "width": 30,
+          "x": 18,
+          "y": 2
+        },
+        "props": {
+          "params": {
+            "color": "#EAF542",
+            "tagPath": "value"
+          },
+          "path": "Assets/Widgets/Icons/Warning Symbol"
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "backgroundColor": "transparent"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

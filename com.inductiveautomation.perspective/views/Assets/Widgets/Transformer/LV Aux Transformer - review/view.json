@@ -1,0 +1,96 @@
+{
+  "custom": {},
+  "params": {
+    "color": "#D5D5D5",
+    "tagPath": "[default]Test/SEL787_3e"
+  },
+  "propConfig": {
+    "params.color": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 174,
+      "width": 179
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "height": 30,
+          "width": 30
+        },
+        "propConfig": {
+          "props.style.borderColor": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "tagPath": "[default]_Settings/Colors/Energized"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "borderBottomLeftRadius": "100%",
+            "borderBottomRightRadius": "100%",
+            "borderStyle": "solid",
+            "borderTopLeftRadius": "100%",
+            "borderTopRightRadius": "100%",
+            "borderWidth": 3
+          }
+        },
+        "type": "ia.container.coord"
+      },
+      {
+        "meta": {
+          "name": "CoordinateContainer_0"
+        },
+        "position": {
+          "height": 30,
+          "width": 30,
+          "y": 18.5
+        },
+        "propConfig": {
+          "props.style.borderColor": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "tagPath": "[default]_Settings/Colors/Energized"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "borderBottomLeftRadius": "100%",
+            "borderBottomRightRadius": "100%",
+            "borderStyle": "solid",
+            "borderTopLeftRadius": "100%",
+            "borderTopRightRadius": "100%",
+            "borderWidth": 3
+          }
+        },
+        "type": "ia.container.coord"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.coord"
+  }
+}

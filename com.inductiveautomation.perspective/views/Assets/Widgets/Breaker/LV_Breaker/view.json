@@ -1,0 +1,87 @@
+{
+  "custom": {},
+  "params": {
+    "color": "value",
+    "tagPath": "[default]Test/02-05-001-035"
+  },
+  "propConfig": {
+    "params.color": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 35,
+      "width": 35
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "LV Breaker"
+        },
+        "position": {
+          "height": "100%",
+          "width": "100%"
+        },
+        "propConfig": {
+          "props.elements[1].elements[0].stroke.paint": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "tagPath": "[default]_Settings/Colors/Energized"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "elements": [
+            {
+              "id": "defs1",
+              "name": "defs1",
+              "type": "defs"
+            },
+            {
+              "elements": [
+                {
+                  "d": "m 106.77493,153.62714 a 5.6146154,5.6146154 0 0 1 0,-10.36544",
+                  "fill": {
+                    "paint": "transparent"
+                  },
+                  "id": "path795-6",
+                  "name": "path795-6",
+                  "opacity": 1,
+                  "stroke": {
+                    "width": 1
+                  },
+                  "type": "path"
+                }
+              ],
+              "id": "layer1",
+              "name": "layer1",
+              "stroke": {
+                "width": "2px"
+              },
+              "transform": "translate(-103.1875,-143.13958)",
+              "type": "group"
+            }
+          ],
+          "viewBox": "0 0 3.6383162 10.609671"
+        },
+        "type": "ia.shapes.svg"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.coord"
+  }
+}

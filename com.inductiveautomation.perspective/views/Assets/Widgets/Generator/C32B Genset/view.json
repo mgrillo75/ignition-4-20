@@ -1,0 +1,192 @@
+{
+  "custom": {},
+  "params": {
+    "busDeenergized": "#2B9F78",
+    "busEnergized": "#D55E00",
+    "tagPath": "[default]Test/02-05-001-035"
+  },
+  "propConfig": {
+    "params.busDeenergized": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.busEnergized": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 50,
+      "width": 50
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Drawing"
+        },
+        "position": {
+          "height": "100%",
+          "width": "100%",
+          "y": 10
+        },
+        "propConfig": {
+          "props.elements[1].stroke.paint": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "tagPath": "[default]_Settings/Colors/Energized"
+              },
+              "type": "tag"
+            }
+          },
+          "props.elements[2].style.stroke": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "tagPath": "[default]_Settings/Colors/Energized"
+              },
+              "type": "tag"
+            }
+          },
+          "props.style.color": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "tagPath": "[default]_Settings/Colors/Energized"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "elements": [
+            {
+              "filter": "url(#gensetGlow)",
+              "id": "g3",
+              "name": "g3",
+              "transform": "translate(51.999999,120.99999)",
+              "type": "group"
+            },
+            {
+              "cx": "19.5",
+              "cy": "19.5",
+              "fill": {
+                "paint": "rgba(16,185,129,0.08)"
+              },
+              "filter": "url(#gensetGlow)",
+              "id": "circle3",
+              "name": "circle4",
+              "r": 17.5,
+              "stroke": {
+                "width": "2"
+              },
+              "type": "circle"
+            },
+            {
+              "d": "M12.550375000000003 20.180164000000005c0.995028-1.343166 1.76234-2.989954 3.736387-3.027762 2.827096-0.05998 4.911433 5.876439 7.794876 5.540161 2.641301-0.515253 3.182212-2.079467 3.704172-2.898923",
+              "fill": {
+                "paint": "transparent"
+              },
+              "id": "path2",
+              "name": "path2",
+              "stroke": {
+                "dasharray": "none",
+                "linecap": "round",
+                "paint": "#000000",
+                "width": "1.5"
+              },
+              "style": {
+                "opacity": "1"
+              },
+              "type": "path"
+            }
+          ],
+          "style": {
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.shapes.svg"
+      },
+      {
+        "meta": {
+          "name": "Warning Symbol",
+          "visible": false
+        },
+        "position": {
+          "height": 30,
+          "width": 30,
+          "x": 18
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.tagPath}+\"/Alarm Metrics.hasActive\")"
+              },
+              "enabled": false,
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "path": "Assets/Widgets/Icons/Warning Symbol",
+          "style": {
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "events": {
+      "dom": {
+        "onClick": {
+          "config": {
+            "draggable": true,
+            "id": "ODVUhV9K",
+            "modal": false,
+            "overlayDismiss": false,
+            "resizable": true,
+            "showCloseIcon": true,
+            "type": "open",
+            "viewPath": "Assets/Popups/C32B/c32BAssetScreen",
+            "viewportBound": false
+          },
+          "scope": "C",
+          "type": "popup"
+        }
+      }
+    },
+    "meta": {
+      "name": "root",
+      "tooltip": {
+        "enabled": true
+      }
+    },
+    "propConfig": {
+      "meta.tooltip.text": {
+        "binding": {
+          "config": {
+            "expression": "\"MV Genset  \"+ tag({view.params.tagPath}+\"/deviceId\")"
+          },
+          "type": "expr"
+        }
+      }
+    },
+    "props": {
+      "style": {
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

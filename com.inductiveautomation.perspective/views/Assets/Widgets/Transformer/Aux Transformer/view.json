@@ -1,0 +1,141 @@
+{
+  "custom": {},
+  "params": {
+    "color": "#D5D5D5",
+    "tagPath52G": "[default]TX3/tx3-pb1-n1-qp1-sel700g-001",
+    "tagPathGen": "[default]TX3/tx3-pb1-n1-qp1-br-001"
+  },
+  "propConfig": {
+    "params.color": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath52G": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPathGen": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 174,
+      "width": 179
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "height": 30,
+          "width": 30
+        },
+        "propConfig": {
+          "props.style.borderColor": {
+            "binding": {
+              "config": {
+                "expression": "concat(tag({view.params.tagPathGen}+\"/message_bitpack_15\"),if(tag({view.params.tagPath52G}+\"/bit_52ax\")\u003d0,\"| GCB-Open\",\"| GCB-Closed\"))\r\n"
+              },
+              "transforms": [
+                {
+                  "code": "\t\tsub_string1\u003d\"ENGINE IS RUNNING\"\n\t\tsub_string2\u003d\"GENERATOR CB CLOSED\"\n\t\tsub_string3\u003d\"GCB-Closed\"\n\t\t\n\t\tif (sub_string1 and sub_string2 and sub_string3) in value:\n\t\t\tstate\u003d True\n\t\telse:\n\t\t\tstate\u003dFalse\n\t\t\t\n\t\treturn state\n\t",
+                  "type": "script"
+                },
+                {
+                  "fallback": "{[default]_Settings/Colors/Deenergized}",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "{[default]_Settings/Colors/Energized}"
+                    },
+                    {
+                      "input": false,
+                      "output": "{[default]_Settings/Colors/Deenergized}"
+                    }
+                  ],
+                  "outputType": "expression",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "borderBottomLeftRadius": "100%",
+            "borderBottomRightRadius": "100%",
+            "borderStyle": "solid",
+            "borderTopLeftRadius": "100%",
+            "borderTopRightRadius": "100%",
+            "borderWidth": 3
+          }
+        },
+        "type": "ia.container.coord"
+      },
+      {
+        "meta": {
+          "name": "CoordinateContainer_0"
+        },
+        "position": {
+          "height": 30,
+          "width": 30,
+          "y": 18.5
+        },
+        "propConfig": {
+          "props.style.borderColor": {
+            "binding": {
+              "config": {
+                "expression": "concat(tag({view.params.tagPathGen}+\"/message_bitpack_15\"),if(tag({view.params.tagPath52G}+\"/bit_52ax\")\u003d0,\"| GCB-Open\",\"| GCB-Closed\"))\r\n"
+              },
+              "transforms": [
+                {
+                  "code": "\t\tsub_string1\u003d\"ENGINE IS RUNNING\"\n\t\tsub_string2\u003d\"GENERATOR CB CLOSED\"\n\t\tsub_string3\u003d\"GCB-Closed\"\n\t\t\n\t\tif (sub_string1 and sub_string2 and sub_string3) in value:\n\t\t\tstate\u003d True\n\t\telse:\n\t\t\tstate\u003dFalse\n\t\t\t\n\t\treturn state\n\t",
+                  "type": "script"
+                },
+                {
+                  "fallback": "{[default]_Settings/Colors/Deenergized}",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "{[default]_Settings/Colors/Energized}"
+                    },
+                    {
+                      "input": false,
+                      "output": "{[default]_Settings/Colors/Deenergized}"
+                    }
+                  ],
+                  "outputType": "expression",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "borderBottomLeftRadius": "100%",
+            "borderBottomRightRadius": "100%",
+            "borderStyle": "solid",
+            "borderTopLeftRadius": "100%",
+            "borderTopRightRadius": "100%",
+            "borderWidth": 3
+          }
+        },
+        "type": "ia.container.coord"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.coord"
+  }
+}

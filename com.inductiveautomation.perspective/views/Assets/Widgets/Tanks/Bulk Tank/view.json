@@ -1,0 +1,84 @@
+{
+  "custom": {},
+  "params": {
+    "color": "value",
+    "tagPath": "[default]Test/02-05-001-035"
+  },
+  "propConfig": {
+    "params.color": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 30,
+      "width": 30
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Simple tank 4"
+        },
+        "position": {
+          "height": "100%",
+          "width": "100%"
+        },
+        "props": {
+          "elements": [
+            {
+              "name": "symbol",
+              "type": "symbol"
+            },
+            {
+              "elements": [
+                {
+                  "d": "M35.585,0.452C3.576,0.452,0.796,10.686,0.45,12.051v99.885h69.705V12.051  C69.936,11.117,67.705,0.452,35.585,0.452z",
+                  "fill": {
+                    "paint": "transparent"
+                  },
+                  "name": "path",
+                  "stroke": {
+                    "width": "3px"
+                  },
+                  "type": "path"
+                },
+                {
+                  "d": "M0.45,14.979h69.705",
+                  "fill": {
+                    "paint": "black"
+                  },
+                  "name": "path",
+                  "stroke": {
+                    "paint": "#D55E00",
+                    "width": 1
+                  },
+                  "type": "path"
+                }
+              ],
+              "id": "Group_TankBody",
+              "name": "Group_TankBody",
+              "type": "group"
+            }
+          ],
+          "style": {
+            "stroke": "#D55E00",
+            "strokeWidth": "2pt"
+          },
+          "viewBox": "0 0 70.719 112.5"
+        },
+        "type": "ia.shapes.svg"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.coord"
+  }
+}

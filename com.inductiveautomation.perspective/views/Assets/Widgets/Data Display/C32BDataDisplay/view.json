@@ -1,0 +1,257 @@
+{
+  "custom": {},
+  "params": {
+    "tagPath52G": "value",
+    "tagPath52I": "value",
+    "tagPathGen": "[default]TX3/tx3-pb1-n1-qp1-br-001",
+    "tagPathXmr": "value"
+  },
+  "propConfig": {
+    "params.tagPath52G": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath52I": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPathGen": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPathXmr": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 797,
+      "width": 300
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "LvBreaker"
+                    },
+                    "position": {
+                      "height": 35,
+                      "rotate": {
+                        "angle": "90deg"
+                      },
+                      "width": 35,
+                      "x": 132.23,
+                      "y": 443.864
+                    },
+                    "props": {
+                      "path": "Assets/Widgets/Breaker/LV_Breaker"
+                    },
+                    "type": "ia.display.view"
+                  },
+                  {
+                    "meta": {
+                      "name": "Pipe_Horizontal"
+                    },
+                    "position": {
+                      "height": 5,
+                      "width": 100,
+                      "x": 28,
+                      "y": 474.1
+                    },
+                    "props": {
+                      "params": {
+                        "closeLeft": false,
+                        "closeRight": false,
+                        "colorEmpty": "#2B9F78",
+                        "colorFill": "#D55E00",
+                        "colorPipeFrame": "transparent",
+                        "flowActive": true
+                      },
+                      "path": "Assets/Pipes/Pipe_Horizontal"
+                    },
+                    "type": "ia.display.view"
+                  },
+                  {
+                    "meta": {
+                      "name": "MISC_2"
+                    },
+                    "position": {
+                      "height": 35,
+                      "rotate": {
+                        "angle": "180deg"
+                      },
+                      "width": 35,
+                      "x": 74,
+                      "y": 343.969
+                    },
+                    "props": {
+                      "path": "Assets/Widgets/Breaker/LV_Breaker"
+                    },
+                    "type": "ia.display.view"
+                  },
+                  {
+                    "meta": {
+                      "name": "Pipe_Vertical_3"
+                    },
+                    "position": {
+                      "height": 100,
+                      "width": 3,
+                      "x": 76.5,
+                      "y": 244.97
+                    },
+                    "props": {
+                      "params": {
+                        "closeBottom": false,
+                        "closeTop": false,
+                        "colorEmpty": "#2B9F78",
+                        "colorFill": "#D55E00",
+                        "colorPipeFrame": "transparent",
+                        "flowActive": true
+                      },
+                      "path": "Assets/Pipes/Pipe_Vertical"
+                    },
+                    "type": "ia.display.view"
+                  },
+                  {
+                    "meta": {
+                      "name": "Pipe_Vertical_4"
+                    },
+                    "position": {
+                      "height": 100,
+                      "width": 3,
+                      "x": 76.5,
+                      "y": 374.094
+                    },
+                    "props": {
+                      "params": {
+                        "closeBottom": false,
+                        "closeTop": false,
+                        "colorEmpty": "#2B9F78",
+                        "colorFill": "#D55E00",
+                        "colorPipeFrame": "transparent",
+                        "flowActive": true
+                      },
+                      "path": "Assets/Pipes/Pipe_Vertical"
+                    },
+                    "type": "ia.display.view"
+                  },
+                  {
+                    "meta": {
+                      "name": "MV Genset"
+                    },
+                    "position": {
+                      "height": 50,
+                      "width": 50,
+                      "x": 58.5,
+                      "y": 196.969
+                    },
+                    "props": {
+                      "params": {
+                        "busDeenergized": "#2B9F78",
+                        "busEnergized": "#D55E00",
+                        "tagPath": "[default]Test/02-05-001-035"
+                      },
+                      "path": "Assets/Widgets/Generator/C32B Genset"
+                    },
+                    "type": "ia.display.view"
+                  },
+                  {
+                    "meta": {
+                      "name": "Pipe_Horizontal_0"
+                    },
+                    "position": {
+                      "height": 5,
+                      "width": 100,
+                      "x": 172,
+                      "y": 474.1
+                    },
+                    "props": {
+                      "params": {
+                        "closeLeft": false,
+                        "closeRight": false,
+                        "colorEmpty": "#2B9F78",
+                        "colorFill": "#D55E00",
+                        "colorPipeFrame": "transparent",
+                        "flowActive": true
+                      },
+                      "path": "Assets/Pipes/Pipe_Horizontal"
+                    },
+                    "type": "ia.display.view"
+                  }
+                ],
+                "meta": {
+                  "name": "CoordinateContainer"
+                },
+                "position": {
+                  "basis": "300px"
+                },
+                "props": {
+                  "style": {
+                    "overflow": "visible"
+                  }
+                },
+                "type": "ia.container.coord"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "basis": "797px"
+            },
+            "props": {
+              "style": {
+                "overflow": "visible"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "800px"
+        },
+        "props": {
+          "direction": "column",
+          "justify": "flex-end"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "props.style.backgroundColor": {
+        "binding": {
+          "config": {
+            "fallbackDelay": 2.5,
+            "mode": "direct",
+            "tagPath": "[default]_Settings/Colors/Background"
+          },
+          "type": "tag"
+        }
+      }
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "borderBottomLeftRadius": 10,
+        "borderBottomRightRadius": 10,
+        "borderTopLeftRadius": 10,
+        "borderTopRightRadius": 10
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

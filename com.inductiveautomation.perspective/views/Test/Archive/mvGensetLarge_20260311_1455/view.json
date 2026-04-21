@@ -1,0 +1,482 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 1000,
+      "width": 1699
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "329px"
+        },
+        "props": {
+          "direction": "column"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "SingleValueDisplay"
+                },
+                "position": {
+                  "basis": "320px"
+                },
+                "props": {
+                  "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+                  "style": {
+                    "margin": "10px"
+                  }
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "meta": {
+                  "name": "SingleValueDisplay_0"
+                },
+                "position": {
+                  "basis": "320px"
+                },
+                "props": {
+                  "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+                  "style": {
+                    "margin": "10px"
+                  }
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "meta": {
+                  "name": "SingleValueDisplay_1"
+                },
+                "position": {
+                  "basis": "320px"
+                },
+                "props": {
+                  "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+                  "style": {
+                    "margin": "10px"
+                  }
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "meta": {
+                  "name": "SingleValueDisplay_2"
+                },
+                "position": {
+                  "basis": "320px"
+                },
+                "props": {
+                  "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+                  "style": {
+                    "margin": "10px"
+                  }
+                },
+                "type": "ia.display.view"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "basis": "116px"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "SingleValueDisplay"
+                },
+                "position": {
+                  "basis": "320px"
+                },
+                "props": {
+                  "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+                  "style": {
+                    "margin": "10px"
+                  }
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "meta": {
+                  "name": "SingleValueDisplay_0"
+                },
+                "position": {
+                  "basis": "320px"
+                },
+                "props": {
+                  "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+                  "style": {
+                    "margin": "10px"
+                  }
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "meta": {
+                  "name": "SingleValueDisplay_1"
+                },
+                "position": {
+                  "basis": "320px"
+                },
+                "props": {
+                  "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+                  "style": {
+                    "margin": "10px"
+                  }
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "meta": {
+                  "name": "SingleValueDisplay_2"
+                },
+                "position": {
+                  "basis": "320px"
+                },
+                "props": {
+                  "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+                  "style": {
+                    "margin": "10px"
+                  }
+                },
+                "type": "ia.display.view"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_0"
+            },
+            "position": {
+              "basis": "116px"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "SingleValueDisplay"
+                },
+                "position": {
+                  "basis": "320px"
+                },
+                "props": {
+                  "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+                  "style": {
+                    "margin": "10px"
+                  }
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "meta": {
+                  "name": "SingleValueDisplay_0"
+                },
+                "position": {
+                  "basis": "320px"
+                },
+                "props": {
+                  "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+                  "style": {
+                    "margin": "10px"
+                  }
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "meta": {
+                  "name": "SingleValueDisplay_1"
+                },
+                "position": {
+                  "basis": "320px"
+                },
+                "props": {
+                  "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+                  "style": {
+                    "margin": "10px"
+                  }
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "meta": {
+                  "name": "SingleValueDisplay_2"
+                },
+                "position": {
+                  "basis": "320px"
+                },
+                "props": {
+                  "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+                  "style": {
+                    "margin": "10px"
+                  }
+                },
+                "type": "ia.display.view"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_1"
+            },
+            "position": {
+              "basis": "116px"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "SingleValueDisplay"
+                },
+                "position": {
+                  "basis": "320px"
+                },
+                "props": {
+                  "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+                  "style": {
+                    "margin": "10px"
+                  }
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "meta": {
+                  "name": "SingleValueDisplay_0"
+                },
+                "position": {
+                  "basis": "320px"
+                },
+                "props": {
+                  "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+                  "style": {
+                    "margin": "10px"
+                  }
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "meta": {
+                  "name": "SingleValueDisplay_1"
+                },
+                "position": {
+                  "basis": "320px"
+                },
+                "props": {
+                  "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+                  "style": {
+                    "margin": "10px"
+                  }
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "meta": {
+                  "name": "SingleValueDisplay_2"
+                },
+                "position": {
+                  "basis": "320px"
+                },
+                "props": {
+                  "path": "Assets/Widgets/Data Display/SingleValueDisplay",
+                  "style": {
+                    "margin": "10px"
+                  }
+                },
+                "type": "ia.display.view"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_2"
+            },
+            "position": {
+              "basis": "116px"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "MultiValueDisplay"
+                        },
+                        "position": {
+                          "basis": "320px"
+                        },
+                        "props": {
+                          "path": "Assets/Widgets/Data Display/MultiValueDisplay",
+                          "style": {
+                            "marginLeft": 10
+                          }
+                        },
+                        "type": "ia.display.view"
+                      },
+                      {
+                        "meta": {
+                          "name": "MultiValueDisplay_0"
+                        },
+                        "position": {
+                          "basis": "320px"
+                        },
+                        "props": {
+                          "path": "Assets/Widgets/Data Display/MultiValueDisplay",
+                          "style": {
+                            "marginLeft": 20
+                          }
+                        },
+                        "type": "ia.display.view"
+                      }
+                    ],
+                    "meta": {
+                      "name": "FlexContainer"
+                    },
+                    "position": {
+                      "basis": "200px"
+                    },
+                    "props": {
+                      "style": {
+                        "marginTop": 25
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "MultiValueDisplay"
+                        },
+                        "position": {
+                          "basis": "320px"
+                        },
+                        "props": {
+                          "path": "Assets/Widgets/Data Display/MultiValueDisplay",
+                          "style": {
+                            "marginLeft": 10
+                          }
+                        },
+                        "type": "ia.display.view"
+                      },
+                      {
+                        "meta": {
+                          "name": "MultiValueDisplay_0"
+                        },
+                        "position": {
+                          "basis": "320px"
+                        },
+                        "props": {
+                          "path": "Assets/Widgets/Data Display/MultiValueDisplay",
+                          "style": {
+                            "marginLeft": 20
+                          }
+                        },
+                        "type": "ia.display.view"
+                      }
+                    ],
+                    "meta": {
+                      "name": "FlexContainer_0"
+                    },
+                    "position": {
+                      "basis": "200px"
+                    },
+                    "props": {
+                      "style": {
+                        "marginTop": 25
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer"
+                },
+                "position": {
+                  "basis": "672px"
+                },
+                "props": {
+                  "direction": "column"
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Genset_op"
+                    },
+                    "position": {
+                      "basis": "251px"
+                    },
+                    "props": {
+                      "path": "Assets/Widgets/Data Display/Genset_op"
+                    },
+                    "type": "ia.display.view"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer_0"
+                },
+                "position": {
+                  "basis": "655px"
+                },
+                "props": {
+                  "direction": "column",
+                  "style": {
+                    "marginLeft": 20,
+                    "marginTop": 25
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_3"
+            },
+            "position": {
+              "grow": 1,
+              "shrink": 0
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "basis": "300px",
+          "grow": 1
+        },
+        "props": {
+          "direction": "column"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "backgroundColor": "#070E19"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

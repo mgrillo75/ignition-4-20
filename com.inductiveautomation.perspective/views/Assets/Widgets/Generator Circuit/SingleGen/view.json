@@ -1,0 +1,522 @@
+{
+  "custom": {},
+  "params": {
+    "busDeenergizedColor": "#2B9F78",
+    "busEnergizedColor": "#D55E00",
+    "tagPath52G": "[default]TX3/tx3-pb1-n1-qp1-sel700g-001",
+    "tagPath52I": "[default]TX3/tx3-pb1-n1-qp1-787-001",
+    "tagPathGen": "[default]TX3/tx3-pb1-n1-qp1-br-001",
+    "tagPathXmr": "[default]TX3/tx3-pb1-n1-qp1-787-001"
+  },
+  "propConfig": {
+    "params.busDeenergizedColor": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.busEnergizedColor": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath52G": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath52I": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPathGen": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPathXmr": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 389,
+      "width": 70
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "MV Genset",
+          "tooltip": {
+            "enabled": true
+          }
+        },
+        "position": {
+          "height": 50,
+          "width": 50,
+          "x": 10,
+          "y": 251.41
+        },
+        "propConfig": {
+          "props.params.tagPath": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagPathGen"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.tagPath52G": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagPath52G"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.tagPath52I": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagPath52I"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.tagPathXmr": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagPathXmr"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "Gen_Running": 1,
+            "busDeenergized": "#2B9F78",
+            "busEnergized": "#D55E00"
+          },
+          "path": "Assets/Widgets/Generator/MV Genset",
+          "style": {
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_3"
+        },
+        "position": {
+          "height": 40,
+          "width": 2.5,
+          "x": 28,
+          "y": 222.36
+        },
+        "propConfig": {
+          "props.params.colorEmpty": {
+            "binding": {
+              "config": {
+                "path": "view.params.busDeenergizedColor"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.colorFill": {
+            "binding": {
+              "config": {
+                "path": "view.params.busEnergizedColor"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.flowActive": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.tagPathGen}+\"/spare510_OPStatus\") + \u0027,\u0027 + tag({view.params.tagPathGen}+\"/spare515_BreakerStatus\")"
+              },
+              "transforms": [
+                {
+                  "fallback": false,
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": "4,0",
+                      "output": true
+                    },
+                    {
+                      "input": "4,1",
+                      "output": true
+                    },
+                    {
+                      "input": "5,0",
+                      "output": true
+                    },
+                    {
+                      "input": "5,1",
+                      "output": null
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "expression": "tag({view.params.tagPathGen}+\"/spare510_OPStatus\") + \u0027,\u0027 + tag({view.params.tagPathGen}+\"/spare515_BreakerStatus\")"
+              },
+              "transforms": [
+                {
+                  "fallback": "",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": "4,0",
+                      "output": "Pulse_1"
+                    },
+                    {
+                      "input": "4,1\u0027",
+                      "output": ""
+                    },
+                    {
+                      "input": "3,0",
+                      "output": ""
+                    }
+                  ],
+                  "outputType": "style-list",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorPipeFrame": "transparent"
+          },
+          "path": "Assets/Pipes/Pipe_Vertical",
+          "style": {}
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "MV Genset Aux Transformer"
+        },
+        "position": {
+          "height": 69,
+          "width": 51,
+          "x": 14.5,
+          "y": 105.31
+        },
+        "propConfig": {
+          "props.params.tagPath52G": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagPath52G"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.tagPathGen": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagPathGen"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "color": "#D55E00"
+          },
+          "path": "Assets/Widgets/Transformer/Aux Transformer"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical"
+        },
+        "position": {
+          "height": 40,
+          "width": 2.5,
+          "x": 28,
+          "y": 68
+        },
+        "propConfig": {
+          "props.params.colorEmpty": {
+            "binding": {
+              "config": {
+                "path": "view.params.busDeenergizedColor"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.colorFill": {
+            "binding": {
+              "config": {
+                "path": "view.params.busEnergizedColor"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.flowActive": {
+            "binding": {
+              "config": {
+                "expression": "//tag({view.params.tagPathGen}+\"/message_bitpack_15\"),if(tag({view.params.tagPath52G}+\"/bit_52ax\")\u003d0,\"| GCB-Open\",\"| GCB-Closed\"))\r\ntag({view.params.tagPathGen}+\"/spare510_OPStatus\") + \u0027,\u0027 + tag({view.params.tagPathGen}+\"/spare515_BreakerStatus\")+ \u0027,\u0027 + tag({view.params.tagPath52G}+\"/bit_52ax\")"
+              },
+              "transforms": [
+                {
+                  "fallback": false,
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": "4,1,1",
+                      "output": true
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorPipeFrame": "transparent"
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_0"
+        },
+        "position": {
+          "height": 40,
+          "width": 2.5,
+          "x": 28,
+          "y": 153.24
+        },
+        "propConfig": {
+          "props.params.colorEmpty": {
+            "binding": {
+              "config": {
+                "path": "view.params.busDeenergizedColor"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.colorFill": {
+            "binding": {
+              "config": {
+                "path": "view.params.busEnergizedColor"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.flowActive": {
+            "binding": {
+              "config": {
+                "expression": "concat(tag({view.params.tagPathGen}+\"/message_bitpack_15\"),if(tag({view.params.tagPath52G}+\"/bit_52ax\")\u003d0,\"| GCB-Open\",\"| GCB-Closed\"))\r\n"
+              },
+              "transforms": [
+                {
+                  "code": "\t\tsub_string1\u003d\"ENGINE IS RUNNING\"\n\t\tsub_string2\u003d\"GENERATOR CB CLOSED\"\n\t\tsub_string3\u003d\"GCB-Closed\"\n\t\t\n\t\tif (sub_string1 and sub_string2 and sub_string3) in value:\n\t\t\tstate\u003d True\n\t\telse:\n\t\t\tstate\u003dFalse\n\t\t\t\n\t\treturn state\n\t",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorPipeFrame": "transparent"
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "MV 52G Breaker"
+        },
+        "position": {
+          "height": 50,
+          "width": 50,
+          "x": 14.5,
+          "y": 172.62
+        },
+        "propConfig": {
+          "props.params.tagPathBreaker52G": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagPath52G"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "color": "#D5D5D5",
+            "label": "52G"
+          },
+          "path": "Assets/Widgets/Breaker/MV Breaker Symbol (52G)",
+          "style": {
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "MV 52I Breaker"
+        },
+        "position": {
+          "height": 50,
+          "width": 50,
+          "x": 14.5,
+          "y": 18
+        },
+        "propConfig": {
+          "props.params.tagPathBreaker52I": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagPath52I"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "color": "#D5D5D5",
+            "label": "52I"
+          },
+          "path": "Assets/Widgets/Breaker/MV Breaker Symbol (52I)",
+          "style": {
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Pipe_Vertical_1"
+        },
+        "position": {
+          "height": 40,
+          "width": 2.5,
+          "x": 28,
+          "y": -1
+        },
+        "propConfig": {
+          "props.params.colorEmpty": {
+            "binding": {
+              "config": {
+                "path": "view.params.busDeenergizedColor"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.colorFill": {
+            "binding": {
+              "config": {
+                "path": "view.params.busEnergizedColor"
+              },
+              "type": "property"
+            }
+          },
+          "props.params.flowActive": {
+            "binding": {
+              "config": {
+                "expression": "//tag({view.params.tagPathGen}+\"/message_bitpack_15\"),if(tag({view.params.tagPath52G}+\"/bit_52ax\")\u003d0,\"| GCB-Open\",\"| GCB-Closed\"),if(tag({view.params.tagPathXmr}+\"/bit_52a1\")\u003d0,\"| Xmr-CB-Open\",\"| Xmr-CB-Closed\"),if(tag({view.params.tagPath52I}+\"/bit_52a1\")\u003d0,\"| 52I-CB-Open\",\"| 52I-CB-Closed\"))\r\ntag({view.params.tagPathGen}+\"/spare510_OPStatus\") + \u0027,\u0027 + tag({view.params.tagPathGen}+\"/spare515_BreakerStatus\") + \u0027,\u0027 + tag({view.params.tagPath52G}+\"/bit_52ax\")+ \u0027,\u0027 + tag({view.params.tagPathXmr}+\"/bit_52a1\")+ \u0027,\u0027 + tag({view.params.tagPath52I}+\"/bit_52a1\")"
+              },
+              "transforms": [
+                {
+                  "fallback": false,
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": "4,1,1,1,1",
+                      "output": true
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "closeBottom": false,
+            "closeTop": false,
+            "colorPipeFrame": "transparent"
+          },
+          "path": "Assets/Pipes/Pipe_Vertical"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "GensetOverviewData"
+        },
+        "position": {
+          "height": 70,
+          "width": 60,
+          "y": 305.4
+        },
+        "propConfig": {
+          "props.params.tagPath": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagPathGen"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "params": {
+            "tagname": "power"
+          },
+          "path": "Assets/Widgets/Data Display/GensetOverviewData",
+          "style": {
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "backgroundColor": "transparent",
+        "overflow": "visible"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

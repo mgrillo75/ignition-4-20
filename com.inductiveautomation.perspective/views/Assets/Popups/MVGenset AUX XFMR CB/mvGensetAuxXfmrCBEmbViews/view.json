@@ -1,0 +1,50 @@
+{
+  "custom": {},
+  "params": {
+    "tagPath": "[default]TX3/tx3-pb1-n1-fcb1-751-001"
+  },
+  "propConfig": {
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "width": 1920
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "mvGensetGCBLarge"
+        },
+        "position": {
+          "size": "large"
+        },
+        "propConfig": {
+          "props.params.tagPath": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagPath"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "path": "Assets/Popups/MVGenset AUX XFMR CB/mvGensetAuxXfmrCBLarge"
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "breakpoint": 996
+    },
+    "type": "ia.container.breakpt"
+  }
+}
